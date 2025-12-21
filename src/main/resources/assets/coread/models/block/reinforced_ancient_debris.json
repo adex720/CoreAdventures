@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "coread:block/reinforced_ancient_debris_top",
+    "side": "coread:block/reinforced_ancient_debris_side"
+  }
+}

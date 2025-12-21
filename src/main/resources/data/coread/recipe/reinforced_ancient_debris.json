@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OOO",
+    "OAO",
+    "OOO"
+  ],
+  "key": {
+    "O": "minecraft:obsidian",
+    "A": "minecraft:ancient_debris"
+  },
+  "result": {
+    "id": "coread:reinforced_ancient_debris",
+    "count": 1
+  }
+}

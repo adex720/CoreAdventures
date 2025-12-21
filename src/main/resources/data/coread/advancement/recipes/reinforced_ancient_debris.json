@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ancient_debris": {
+      "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": "minecraft:ancient_debris"
+            }
+          ]
+        }
+    }
+  },
+  "requirements": [
+    [
+      "has_ancient_debris"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "coread:reinforced_ancient_debris"
+    ]
+  }
+}
