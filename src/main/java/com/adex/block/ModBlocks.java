@@ -1,9 +1,7 @@
 package com.adex.block;
 
 import com.adex.CoreAdventures;
-import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.impl.itemgroup.ItemGroupEventsImpl;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
