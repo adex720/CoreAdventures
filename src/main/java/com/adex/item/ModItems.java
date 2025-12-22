@@ -1,9 +1,6 @@
 package com.adex.item;
 
 import com.adex.CoreAdventures;
-import com.adex.block.ModBlocks;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.impl.itemgroup.ItemGroupEventsImpl;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -15,6 +12,9 @@ import java.util.function.Function;
 
 public class ModItems {
 
+    public static Item register(String name, Item.Properties settings) {
+        return register(name, Item::new, settings);
+    }
 
     public static Item register(String name, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));

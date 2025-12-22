@@ -1,7 +1,10 @@
 package com.adex;
 
 import com.adex.block.ModBlocks;
+import com.adex.dimension.ModDimensions;
 import com.adex.item.ModItems;
+import com.adex.poi.ModPoiTypes;
+import com.adex.tag.ModTags;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -18,6 +21,10 @@ public class CoreAdventures implements ModInitializer {
 
         ModItems.initialize();
         ModBlocks.initialize();
+
+        ModTags.initialize();
+        ModDimensions.initialize();
+        ModPoiTypes.initialize();
 
         LOGGER.info("Finished initializing {}", MOD_ID);
     }

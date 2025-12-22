@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 
 import java.util.function.Function;
 
@@ -21,6 +22,10 @@ public class ModBlocks {
 
     public static final Block REINFORCED_ANCIENT_DEBRIS = register("reinforced_ancient_debris",
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0F, 1200.0F).sound(SoundType.ANCIENT_DEBRIS));
+
+
+    public static final Block CORE_PORTAL_BLOCK = registerWithoutBlockItem("core_portal_block", CorePortalBlock::new,
+            BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0F).sound(SoundType.GLASS).lightLevel(blockStatex -> 11).pushReaction(PushReaction.BLOCK));
 
     private static Block register(String name, BlockBehaviour.Properties settings) {
         return register(name, Block::new, settings);
@@ -59,7 +64,7 @@ public class ModBlocks {
         addToItemGroups();
     }
 
-    private static void addToItemGroups(){
+    private static void addToItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register((itemGroup) -> {
             itemGroup.accept(ModBlocks.REINFORCED_ANCIENT_DEBRIS.asItem());
         });

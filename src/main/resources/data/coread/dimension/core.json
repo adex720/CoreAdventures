@@ -1,0 +1,24 @@
+{
+  "type": "coread:core",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "coread:warm_core",
+      "layers": [
+        {
+          "block": "minecraft:bedrock",
+          "height": 1
+        },
+        {
+          "block": "minecraft:stone",
+          "height": 254
+        },
+        {
+          "block": "minecraft:bedrock",
+          "height": 1
+        }
+      ],
+      "structure_overrides": []
+    }
+  }
+}
