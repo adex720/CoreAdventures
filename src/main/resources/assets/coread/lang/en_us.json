@@ -31,5 +31,16 @@
 
   "block.coread.reinforced_ancient_debris": "Reinforced Ancient Debris",
 
-  "block.coread.core_portal_block": "Core Portal"
+  "block.coread.core_portal_block": "Core Portal",
+
+  "item.coread.chalcedony": "Chalcedony",
+  "item.coread.garnet": "Garnet",
+  "item.coread.jade": "Jade",
+  "item.coread.jasper": "Jasper",
+  "item.coread.onyx": "Onyx",
+  "item.coread.opal": "Opal",
+  "item.coread.ruby": "Ruby",
+  "item.coread.sapphire": "Sapphire",
+  "item.coread.spinel": "Spinel",
+  "item.coread.tigers_eye": "Tiger's Eye"
 }
