@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "coread:tigers_eye",
+    "coread:tigers_eye",
+    "coread:tigers_eye",
+    "coread:tigers_eye",
+    "coread:tigers_eye",
+    "coread:tigers_eye",
+    "coread:tigers_eye",
+    "coread:tigers_eye",
+    "coread:tigers_eye"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:tigers_eye_block"
+  }
+}

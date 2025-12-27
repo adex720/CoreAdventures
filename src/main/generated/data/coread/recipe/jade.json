@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "coread:jade_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "coread:jade"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "spinel_smelting",
+  "ingredient": "coread:spinel_ore",
+  "result": {
+    "id": "coread:spinel"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "garnet_smelting",
+  "ingredient": "coread:garnet_ore",
+  "result": {
+    "id": "coread:garnet"
+  }
+}

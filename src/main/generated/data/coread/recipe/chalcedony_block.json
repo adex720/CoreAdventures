@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "coread:chalcedony",
+    "coread:chalcedony",
+    "coread:chalcedony",
+    "coread:chalcedony",
+    "coread:chalcedony",
+    "coread:chalcedony",
+    "coread:chalcedony",
+    "coread:chalcedony",
+    "coread:chalcedony"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:chalcedony_block"
+  }
+}

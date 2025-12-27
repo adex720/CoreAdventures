@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "coread:onyx",
+    "coread:onyx",
+    "coread:onyx",
+    "coread:onyx",
+    "coread:onyx",
+    "coread:onyx",
+    "coread:onyx",
+    "coread:onyx",
+    "coread:onyx"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:onyx_block"
+  }
+}

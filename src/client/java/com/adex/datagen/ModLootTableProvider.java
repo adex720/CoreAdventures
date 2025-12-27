@@ -15,9 +15,9 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModLootTableGenerator extends FabricBlockLootTableProvider {
+public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
-    public ModLootTableGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+    public ModLootTableProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
         super(output, lookup);
     }
 
@@ -60,5 +60,10 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         HolderLookup.RegistryLookup<Enchantment> registryLookup = registries.lookupOrThrow(Registries.ENCHANTMENT);
         add(block, createSilkTouchDispatchTable(block, applyExplosionDecay(block, LootItem.lootTableItem(item)
                 .apply(ApplyBonusCount.addOreBonusCount(registryLookup.getOrThrow(Enchantments.FORTUNE))))));
+    }
+
+    @Override
+    public String getName() {
+        return "Core Adventures Loot Table Provider";
     }
 }

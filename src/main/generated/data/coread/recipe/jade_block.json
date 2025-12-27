@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "coread:jade",
+    "coread:jade",
+    "coread:jade",
+    "coread:jade",
+    "coread:jade",
+    "coread:jade",
+    "coread:jade",
+    "coread:jade",
+    "coread:jade"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:jade_block"
+  }
+}

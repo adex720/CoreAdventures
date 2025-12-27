@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "coread:jasper",
+    "coread:jasper",
+    "coread:jasper",
+    "coread:jasper",
+    "coread:jasper",
+    "coread:jasper",
+    "coread:jasper",
+    "coread:jasper",
+    "coread:jasper"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:jasper_block"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "coread:garnet",
+    "coread:garnet",
+    "coread:garnet",
+    "coread:garnet",
+    "coread:garnet",
+    "coread:garnet",
+    "coread:garnet",
+    "coread:garnet",
+    "coread:garnet"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:garnet_block"
+  }
+}

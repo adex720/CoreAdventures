@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "coread:sapphire",
+    "coread:sapphire",
+    "coread:sapphire",
+    "coread:sapphire",
+    "coread:sapphire",
+    "coread:sapphire",
+    "coread:sapphire",
+    "coread:sapphire",
+    "coread:sapphire"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:sapphire_block"
+  }
+}

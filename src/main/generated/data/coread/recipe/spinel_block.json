@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "coread:spinel",
+    "coread:spinel",
+    "coread:spinel",
+    "coread:spinel",
+    "coread:spinel",
+    "coread:spinel",
+    "coread:spinel",
+    "coread:spinel",
+    "coread:spinel"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:spinel_block"
+  }
+}
