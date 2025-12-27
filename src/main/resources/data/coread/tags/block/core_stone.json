@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "coread:hardened_stone",
+    "coread:gabbro",
+    "coread:larvikite",
+    "coread:serpentinite",
+    "coread:slate",
+    "coread:travertine"
+  ]
+}

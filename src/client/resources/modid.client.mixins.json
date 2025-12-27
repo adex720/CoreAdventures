@@ -1,9 +1,8 @@
 {
 	"required": true,
-	"package": "com.example.mixin.client",
+	"package": "com.adex.mixin.client",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-      "com.adex.mixin.client.ExampleClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

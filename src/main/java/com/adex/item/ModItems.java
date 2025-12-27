@@ -1,16 +1,40 @@
 package com.adex.item;
 
 import com.adex.CoreAdventures;
+import com.adex.block.ModBlocks;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Function;
 
 public class ModItems {
+
+    public static final Item CHALCEDONY = register("chalcedony", new Item.Properties());
+    public static final Item GARNET = register("garnet", new Item.Properties());
+    public static final Item JADE = register("jade", new Item.Properties());
+    public static final Item JASPER = register("jasper", new Item.Properties());
+    public static final Item ONYX = register("onyx", new Item.Properties());
+    public static final Item OPAL = register("opal", new Item.Properties());
+    public static final Item RUBY = register("ruby", new Item.Properties());
+    public static final Item SAPPHIRE = register("sapphire", new Item.Properties());
+    public static final Item SPINEL = register("spinel", new Item.Properties());
+    public static final Item TIGERS_EYE = register("tigers_eye", new Item.Properties());
+
 
     public static Item register(String name, Item.Properties settings) {
         return register(name, Item::new, settings);
@@ -28,9 +52,18 @@ public class ModItems {
     }
 
     private static void addToItemGroups() {
-        /*ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register((itemGroup) -> {
-            itemGroup.accept(ModBlocks.REINFORCED_ANCIENT_DEBRIS.asItem());
-        });*/
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register((itemGroup) -> {
+            itemGroup.accept(CHALCEDONY);
+            itemGroup.accept(GARNET);
+            itemGroup.accept(JADE);
+            itemGroup.accept(JASPER);
+            itemGroup.accept(ONYX);
+            itemGroup.accept(OPAL);
+            itemGroup.accept(RUBY);
+            itemGroup.accept(SAPPHIRE);
+            itemGroup.accept(SPINEL);
+            itemGroup.accept(TIGERS_EYE);
+        });
     }
 
 }

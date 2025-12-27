@@ -1,10 +1,8 @@
 package com.adex.dimension;
 
 import com.adex.block.ModBlocks;
-import com.adex.poi.ModPoiTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.BlockUtil;
 import net.minecraft.util.Mth;
