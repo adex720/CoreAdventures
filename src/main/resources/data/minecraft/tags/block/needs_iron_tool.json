@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "coread:chalcedony_ore",
+    "coread:garnet_ore",
+    "coread:jade_ore",
+    "coread:jasper_ore",
+    "coread:onyx_ore",
+    "coread:opal_ore",
+    "coread:ruby_ore",
+    "coread:sapphire_ore",
+    "coread:spinel_ore",
+    "coread:tigers_eye_ore"
+  ]
+}

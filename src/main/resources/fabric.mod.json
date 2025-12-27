@@ -22,7 +22,7 @@
 			"com.adex.CoreAdventuresClient"
 		],
 		"fabric-datagen": [
-			"com.adex.datagen.DataGenerator"
+			"com.adex.datagen.ModDataGenerator"
 		]
 	},
 	"mixins": [

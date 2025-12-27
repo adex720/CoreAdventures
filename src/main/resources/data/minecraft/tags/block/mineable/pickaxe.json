@@ -1,0 +1,36 @@
+{
+  "replace": false,
+  "values": [
+    "coread:hardened_stone",
+
+    "coread:gabbro",
+    "coread:larvikite",
+    "coread:serpentinite",
+    "coread:slate",
+    "coread:travertine",
+
+    "coread:chalcedony_ore",
+    "coread:garnet_ore",
+    "coread:jade_ore",
+    "coread:jasper_ore",
+    "coread:onyx_ore",
+    "coread:opal_ore",
+    "coread:ruby_ore",
+    "coread:sapphire_ore",
+    "coread:spinel_ore",
+    "coread:tigers_eye_ore",
+
+    "coread:chalcedony_block",
+    "coread:garnet_block",
+    "coread:jade_block",
+    "coread:jasper_block",
+    "coread:onyx_block",
+    "coread:opal_block",
+    "coread:ruby_block",
+    "coread:sapphire_block",
+    "coread:spinel_block",
+    "coread:tigers_eye_block",
+
+    "coread:reinforced_ancient_debris"
+  ]
+}
