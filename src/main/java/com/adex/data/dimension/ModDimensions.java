@@ -1,8 +1,8 @@
-package com.adex.dimension;
+package com.adex.data.dimension;
 
 import com.adex.CoreAdventures;
 import com.adex.mixin.PortalShapeAccessor;
-import com.adex.tag.ModTags;
+import com.adex.data.tag.ModTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;

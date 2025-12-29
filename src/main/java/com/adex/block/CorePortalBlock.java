@@ -1,8 +1,8 @@
 package com.adex.block;
 
 import com.adex.CoreAdventures;
-import com.adex.dimension.CustomPortalForcer;
-import com.adex.dimension.ModDimensions;
+import com.adex.data.dimension.CustomPortalForcer;
+import com.adex.data.dimension.ModDimensions;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

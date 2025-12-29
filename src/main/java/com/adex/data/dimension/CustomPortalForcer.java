@@ -1,4 +1,4 @@
-package com.adex.dimension;
+package com.adex.data.dimension;
 
 import com.adex.block.ModBlocks;
 import net.minecraft.core.BlockPos;

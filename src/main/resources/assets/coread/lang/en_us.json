@@ -42,5 +42,7 @@
   "item.coread.ruby": "Ruby",
   "item.coread.sapphire": "Sapphire",
   "item.coread.spinel": "Spinel",
-  "item.coread.tigers_eye": "Tiger's Eye"
+  "item.coread.tigers_eye": "Tiger's Eye",
+
+  "death.attack.heat": "%1$s died from heat"
 }

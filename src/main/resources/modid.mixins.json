@@ -3,6 +3,8 @@
   "package": "com.adex.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "ItemPropertiesMixin",
+    "PlayerMixin",
     "PortalDimensionMixin",
     "PortalShapeAccessor",
     "PortalShapeMixin"

@@ -1,10 +1,15 @@
 package com.adex;
 
 import com.adex.block.ModBlocks;
-import com.adex.dimension.ModDimensions;
-import com.adex.feature.ModFeatures;
+import com.adex.data.damagetype.ModDamageTypes;
+import com.adex.data.dimension.ModDimensions;
+import com.adex.entity.attribute.ModAttributes;
+import com.adex.event.ModEvents;
+import com.adex.data.feature.ModFeatures;
+import com.adex.item.ModDataComponents;
 import com.adex.item.ModItems;
-import com.adex.tag.ModTags;
+import com.adex.data.tag.ModTags;
+import com.adex.item.armor.ModArmorMaterials;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -19,13 +24,22 @@ public class CoreAdventures implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Starting initializing {}", MOD_ID);
 
+        ModTags.initialize();
+
+        ModArmorMaterials.initialize();
+        ModDataComponents.initialize();
+
         ModItems.initialize();
         ModBlocks.initialize();
 
-        ModTags.initialize();
-        ModDimensions.initialize();
+        ModAttributes.initialize();
 
+        ModDimensions.initialize();
         ModFeatures.initialize();
+
+        ModDamageTypes.initialize();
+
+        ModEvents.initialize();
 
         LOGGER.info("Finished initializing {}", MOD_ID);
     }

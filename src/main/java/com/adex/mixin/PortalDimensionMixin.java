@@ -1,6 +1,6 @@
 package com.adex.mixin;
 
-import com.adex.dimension.ModDimensions;
+import com.adex.data.dimension.ModDimensions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
 import org.spongepowered.asm.mixin.Mixin;

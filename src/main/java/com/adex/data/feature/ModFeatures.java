@@ -1,7 +1,7 @@
-package com.adex.feature;
+package com.adex.data.feature;
 
 import com.adex.CoreAdventures;
-import com.adex.tag.ModTags;
+import com.adex.data.tag.ModTags;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.core.registries.Registries;
