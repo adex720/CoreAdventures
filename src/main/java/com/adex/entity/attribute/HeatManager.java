@@ -16,17 +16,33 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorMaterials;
+import net.minecraft.world.level.GameType;
 
 public class HeatManager {
 
-    public static final double DEFAULT_HEATING_RATE = 0.5d; // maybe 0.1d
+    public static final double DEFAULT_HEATING_RATE = 0.05d; // maybe 0.1d
     public static final int BASE_HEAT_RESISTANCE = 10;
 
     public static final Identifier HEAT_AMOUNT = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat");
 
     public static void serverHeatTick(ServerPlayer player, MinecraftServer server) {
-        if (player.level().dimension() != ModDimensions.CORE) {
+        if (player.gameMode() == GameType.CREATIVE || player.gameMode() == GameType.SPECTATOR) {
             player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
+            return;
+        }
+
+        if (player.level().dimension() != ModDimensions.CORE) {
+            double oldValue = player.getAttributeValue(ModAttributes.HEAT);
+            if (oldValue <= 0.0d) return;
+
+            double newValue = oldValue - DEFAULT_HEATING_RATE / BASE_HEAT_RESISTANCE;
+            if (newValue <= 0.0d) {
+                player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
+            } else {
+                AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
+                player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
+            }
+
             return;
         }
 
