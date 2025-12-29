@@ -5,7 +5,6 @@ import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.item.ModDataComponents;
 import com.adex.item.armor.ModArmorMaterials;
-import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
@@ -20,7 +19,7 @@ import net.minecraft.world.item.equipment.ArmorMaterials;
 
 public class HeatManager {
 
-    public static final double DEFAULT_HEATING_RATE = 0.05d; // maybe 0.1d
+    public static final double DEFAULT_HEATING_RATE = 0.5d; // maybe 0.1d
     public static final int BASE_HEAT_RESISTANCE = 10;
 
     public static final Identifier HEAT_AMOUNT = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat");
@@ -42,7 +41,7 @@ public class HeatManager {
         }
 
         AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
-        player.getAttribute(ModAttributes.HEAT).addOrUpdateTransientModifier(modifier);
+        player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
     }
 
     public static int getHeatResistance(ServerPlayer player) {
