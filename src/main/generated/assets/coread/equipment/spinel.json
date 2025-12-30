@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "coread:spinel"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "coread:spinel"
+      }
+    ]
+  }
+}

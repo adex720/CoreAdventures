@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "coread:jasper"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "coread:jasper"
+      }
+    ]
+  }
+}

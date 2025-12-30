@@ -64,6 +64,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public String getName() {
-        return "Core Adventures Loot Table Provider";
+        return "Loot table provider";
     }
 }

@@ -42,3 +42,4 @@ replay_*.log
 # datagen
 
 .cache/
+RepositoryRootPath.java

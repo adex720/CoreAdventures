@@ -1,0 +1,74 @@
+package com.adex.datagen.texture;
+
+import com.adex.datagen.ModDataGenerator;
+import com.adex.item.armor.ModArmorMaterials;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ModHumanoidTextureProvider extends ModTextureProvider<ArmorMaterial> {
+
+    private final PackOutput.PathProvider humanoidPathProvider;
+    private final PackOutput.PathProvider humanoidLeggingsPathProvider;
+
+    private final Map<ArmorMaterial, BufferedImage> humanoid;
+    private final Map<ArmorMaterial, BufferedImage> humanoidLeggings;
+
+    public ModHumanoidTextureProvider(FabricDataOutput packOutput) {
+        super(packOutput);
+        humanoidPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity\\equipment\\humanoid");
+        humanoidLeggingsPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity\\equipment\\humanoid_leggings");
+
+        humanoid = new HashMap<>();
+        humanoidLeggings = new HashMap<>();
+
+        addRegister(humanoid);
+        addRegister(humanoidLeggings);
+    }
+
+    @Override
+    public Path getPath(ArmorMaterial key, int id) {
+        return (id == 0 ? humanoidPathProvider : humanoidLeggingsPathProvider).file(key.assetId().identifier(), "png");
+    }
+
+    @Override
+    public void buildTextures() {
+        BufferedImage humanoid;
+        BufferedImage humanoidLeggings;
+        try {
+            humanoid = ModTextureProvider.getTexture("entity\\equipment\\humanoid\\diamond.png");
+            humanoidLeggings = ModTextureProvider.getTexture("entity\\equipment\\humanoid_leggings\\diamond.png");
+        } catch (IOException e) {
+            ModDataGenerator.LOGGER.error("Failed to load vanilla humanoid textures{}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));
+            return;
+        }
+
+        recolorVanilla(ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.CHALCEDONY);
+        recolorVanilla(ModArmorMaterials.GARNET_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.GARNET);
+        recolorVanilla(ModArmorMaterials.JASPER_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.JASPER);
+        recolorVanilla(ModArmorMaterials.JADE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.JADE);
+        recolorVanilla(ModArmorMaterials.ONYX_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.ONYX);
+        //recolorVanilla(ModArmorMaterials.OPAL_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.OPAL);
+        recolorVanilla(ModArmorMaterials.RUBY_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.RUBY);
+        recolorVanilla(ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.SAPPHIRE);
+        recolorVanilla(ModArmorMaterials.SPINEL_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.SPINEL);
+        recolorVanilla(ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.TIGERS_EYE);
+    }
+
+    public void recolorVanilla(ArmorMaterial material, BufferedImage humanoidImage, BufferedImage humanoidLeggingsImage, ColorPalette palette) {
+        humanoid.put(material, replaceColorPalette(humanoidImage, ColorPalette.DIAMOND, palette));
+        humanoidLeggings.put(material, replaceColorPalette(humanoidLeggingsImage, ColorPalette.DIAMOND, palette));
+    }
+
+    @Override
+    public String getName() {
+        return "Texture provider";
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "coread:opal"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "coread:opal"
+      }
+    ]
+  }
+}

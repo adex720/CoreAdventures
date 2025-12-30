@@ -130,7 +130,7 @@ public class ModItems {
             itemGroup.accept(CHALCEDONY_HELMET);
             itemGroup.accept(CHALCEDONY_CHESTPLATE);
             itemGroup.accept(CHALCEDONY_LEGGINGS);
-            itemGroup.accept(CHALCEDONY);
+            itemGroup.accept(CHALCEDONY_BOOTS);
 
             itemGroup.accept(GARNET_HELMET);
             itemGroup.accept(GARNET_CHESTPLATE);

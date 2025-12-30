@@ -1,0 +1,5 @@
+package com.adex.datagen.texture;
+
+public class RepositoryRootPath {
+    public static final String PATH = "";
+}

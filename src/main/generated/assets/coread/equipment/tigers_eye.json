@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "coread:tigers_eye"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "coread:tigers_eye"
+      }
+    ]
+  }
+}
