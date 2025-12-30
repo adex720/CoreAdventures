@@ -27,7 +27,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public String getName() {
-        return "Core Adventures Recipe Provider";
+        return "Recipe provider";
     }
 
     public static class ModRecipeCreator extends RecipeProvider {
@@ -61,16 +61,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             blockToItems(ModBlocks.SPINEL_BLOCK.asItem(), ModItems.SPINEL);
             blockToItems(ModBlocks.TIGERS_EYE_BLOCK.asItem(), ModItems.TIGERS_EYE);
 
-            oreSmeltingAndBlasting(ModBlocks.CHALCEDONY_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.CHALCEDONY, 1.0f, 200, "chalcedony_smelting");
-            oreSmeltingAndBlasting(ModBlocks.GARNET_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.GARNET, 1.0f, 200, "garnet_smelting");
-            oreSmeltingAndBlasting(ModBlocks.JADE_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.JADE, 1.0f, 200, "jade_smelting");
-            oreSmeltingAndBlasting(ModBlocks.JASPER_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.JASPER, 1.0f, 200, "jasper_smelting");
-            oreSmeltingAndBlasting(ModBlocks.ONYX_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.ONYX, 1.0f, 200, "onyx_smelting");
-            oreSmeltingAndBlasting(ModBlocks.OPAL_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.OPAL, 1.0f, 200, "opal_smelting");
-            oreSmeltingAndBlasting(ModBlocks.RUBY_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.RUBY, 1.0f, 200, "ruby_smelting");
-            oreSmeltingAndBlasting(ModBlocks.SAPPHIRE_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.SAPPHIRE, 1.0f, 200, "sapphire_smelting");
-            oreSmeltingAndBlasting(ModBlocks.SPINEL_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.SPINEL, 1.0f, 200, "spinel_smelting");
-            oreSmeltingAndBlasting(ModBlocks.TIGERS_EYE_ORE, RecipeCategory.BUILDING_BLOCKS, ModItems.TIGERS_EYE, 1.0f, 200, "tigers_eye_smelting");
+            oreSmeltingAndBlasting(ModBlocks.CHALCEDONY_ORE, RecipeCategory.MISC, ModItems.CHALCEDONY, 1.0f, 200, "chalcedony_smelting");
+            oreSmeltingAndBlasting(ModBlocks.GARNET_ORE, RecipeCategory.MISC, ModItems.GARNET, 1.0f, 200, "garnet_smelting");
+            oreSmeltingAndBlasting(ModBlocks.JADE_ORE, RecipeCategory.MISC, ModItems.JADE, 1.0f, 200, "jade_smelting");
+            oreSmeltingAndBlasting(ModBlocks.JASPER_ORE, RecipeCategory.MISC, ModItems.JASPER, 1.0f, 200, "jasper_smelting");
+            oreSmeltingAndBlasting(ModBlocks.ONYX_ORE, RecipeCategory.MISC, ModItems.ONYX, 1.0f, 200, "onyx_smelting");
+            oreSmeltingAndBlasting(ModBlocks.OPAL_ORE, RecipeCategory.MISC, ModItems.OPAL, 1.0f, 200, "opal_smelting");
+            oreSmeltingAndBlasting(ModBlocks.RUBY_ORE, RecipeCategory.MISC, ModItems.RUBY, 1.0f, 200, "ruby_smelting");
+            oreSmeltingAndBlasting(ModBlocks.SAPPHIRE_ORE, RecipeCategory.MISC, ModItems.SAPPHIRE, 1.0f, 200, "sapphire_smelting");
+            oreSmeltingAndBlasting(ModBlocks.SPINEL_ORE, RecipeCategory.MISC, ModItems.SPINEL, 1.0f, 200, "spinel_smelting");
+            oreSmeltingAndBlasting(ModBlocks.TIGERS_EYE_ORE, RecipeCategory.MISC, ModItems.TIGERS_EYE, 1.0f, 200, "tigers_eye_smelting");
         }
 
         /**
