@@ -31,8 +31,8 @@ public class ColorPalette {
 
     public static final ColorPalette OPAL = new ColorPalette(List.of(0xffc1d5ff, 0xffedf3ff));
 
-    public static final ColorPalette RUBY_HUMANOID = matchVanillaHumanoidWith6(0xff640000, 0xff7D0000, 0xff9B0000, 0xffC30000, 0xffEB0000, 0xffFF0000);
-    public static final ColorPalette RUBY_ARMOR = matchVanillaArmorWith6(0xff640000, 0xff7D0000, 0xff9B0000, 0xffC30000, 0xffEB0000, 0xffFF0000);
+    public static final ColorPalette RUBY_HUMANOID = matchVanillaHumanoidWith6(0xff7D0000, 0xff9B0000, 0xffC30000, 0xffEB0000, 0xffFF0000, 0xffFF2828);
+    public static final ColorPalette RUBY_ARMOR = matchVanillaArmorWith6(0xff7D0000, 0xff9B0000, 0xffC30000, 0xffEB0000, 0xffFF0000, 0xffFF2828);
 
     public static final ColorPalette SAPPHIRE_HUMANOID = matchVanillaHumanoidWith6(0xff000994, 0xff000aab, 0xff000bc1, 0xff000cd9, 0xff000df1, 0xff2632ff);
     public static final ColorPalette SAPPHIRE_ARMOR = matchVanillaArmorWith6(0xff000994, 0xff000aab, 0xff000bc1, 0xff000cd9, 0xff000df1, 0xff2632ff);
