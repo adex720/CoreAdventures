@@ -94,5 +94,16 @@
   "item.coread.tigers_eye_leggings": "Tiger's Eye Leggings",
   "item.coread.tigers_eye_boots": "Tiger's Eye Boots",
 
-  "death.attack.heat": "%1$s died from heat"
+  "death.attack.heat": "%1$s died from heat",
+
+  "tag.item.coread.repairs_chalcedony_armor": "Repairs Chalcedony Armor",
+  "tag.item.coread.repairs_garnet_armor": "Repairs Garnet Armor",
+  "tag.item.coread.repairs_jade_armor": "Repairs Jade Armor",
+  "tag.item.coread.repairs_jasper_armor": "Repairs Jasper Armor",
+  "tag.item.coread.repairs_onyx_armor": "Repairs Onyx Armor",
+  "tag.item.coread.repairs_opal_armor": "Repairs Opal Armor",
+  "tag.item.coread.repairs_ruby_armor": "Repairs Ruby Armor",
+  "tag.item.coread.repairs_sapphire_armor": "Repairs Sapphire Armor",
+  "tag.item.coread.repairs_spinel_armor": "Repairs Spinel Armor",
+  "tag.item.coread.repairs_tigers_eye_armor": "Repairs Tiger's Eye Armor"
 }
