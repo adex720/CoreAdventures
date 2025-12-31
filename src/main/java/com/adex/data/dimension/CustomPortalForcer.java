@@ -1,18 +1,23 @@
 package com.adex.data.dimension;
 
 import com.adex.block.ModBlocks;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import com.adex.entity.poi.ModPoiTypes;
+import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.BlockUtil;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
+import net.minecraft.world.entity.ai.village.poi.PoiRecord;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.levelgen.Heightmap;
 
+import java.util.Comparator;
 import java.util.Optional;
 
 public class CustomPortalForcer {
@@ -27,32 +32,15 @@ public class CustomPortalForcer {
         this.portalBlock = portalBlock;
     }
 
-    /*
-     * This will take some time to run when no portal exists, but that just adds on the experience of traveling somewhere far
-     */
     public Optional<BlockPos> findClosestPortalPosition(BlockPos blockPos, boolean goingToCore, ServerLevel level) {
-        int i = goingToCore ? 4 : 96;
-        int minY = goingToCore ? 4 : -55;
-        int maxY = goingToCore ? 253 : 100;
-        int minHeight = 3;
-
-        int j = 0;
-        for (BlockPos.MutableBlockPos searchPos : BlockPos.spiralAround(blockPos, i, Direction.EAST, Direction.SOUTH)) {
-            if ((j ^= 1) > 0) continue; // minimum width of portal is 2, so every other coordinate can be skipped
-
-            searchPos.setY(minY);
-            while (searchPos.getY() <= maxY) {
-                if (level.getBlockState(searchPos).is(this.portalBlock)) {
-                    while (level.getBlockState(searchPos.below()).is(this.portalBlock))
-                        searchPos.setY(searchPos.getY() - 1);
-                    return Optional.of(searchPos);
-                }
-
-                searchPos.setY(searchPos.getY() + minHeight);
-            }
-        }
-
-        return Optional.empty();
+        PoiManager poiManager = level.getPoiManager();
+        int maxDistance = goingToCore ? 16 : 256;
+        poiManager.ensureLoadedAndValid(level, blockPos, maxDistance);
+        return poiManager.getInSquare(holder -> holder.is(ModPoiTypes.CORE_PORTAL), blockPos, maxDistance, PoiManager.Occupancy.ANY)
+                .map(PoiRecord::getPos)
+                .filter(pos -> level.getWorldBorder().isWithinBounds(pos))
+                .filter(blockPosx -> level.getBlockState(blockPosx).hasProperty(BlockStateProperties.HORIZONTAL_AXIS))
+                .min(Comparator.comparingDouble(blockPos2 -> ((BlockPos) blockPos2).distSqr(blockPos)).thenComparingInt(pos -> ((BlockPos) pos).getY()));
     }
 
     public Optional<BlockUtil.FoundRectangle> createPortal(BlockPos center, Direction.Axis axis, ServerLevel level) {
@@ -155,6 +143,8 @@ public class CustomPortalForcer {
             }
         }
 
+        // Add poi for portal
+        level.getPoiManager().add(portalPos, PoiTypes.forState(portalState).orElseThrow());
         return Optional.of(new BlockUtil.FoundRectangle(portalPos.immutable(), 2, 3));
     }
 

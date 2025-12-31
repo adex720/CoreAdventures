@@ -4,6 +4,7 @@ import com.adex.block.ModBlocks;
 import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.entity.attribute.ModAttributes;
+import com.adex.entity.poi.ModPoiTypes;
 import com.adex.event.ModEvents;
 import com.adex.data.feature.ModFeatures;
 import com.adex.item.ModDataComponents;
@@ -33,6 +34,7 @@ public class CoreAdventures implements ModInitializer {
         ModBlocks.initialize();
 
         ModAttributes.initialize();
+        ModPoiTypes.initialize();
 
         ModDimensions.initialize();
         ModFeatures.initialize();

@@ -5,6 +5,7 @@
   "mixins": [
     "ItemPropertiesMixin",
     "PlayerMixin",
+    "PoiTypesAccessor",
     "PortalDimensionMixin",
     "PortalShapeAccessor",
     "PortalShapeMixin"

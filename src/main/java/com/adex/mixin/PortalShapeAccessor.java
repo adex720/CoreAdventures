@@ -1,6 +1,5 @@
 package com.adex.mixin;
 
-import com.mojang.math.Axis;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -11,6 +10,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(PortalShape.class)
 public interface PortalShapeAccessor {
+
     @Mutable
     @Accessor("FRAME")
     static void setFrame(BlockBehaviour.StatePredicate frame) {
