@@ -33,7 +33,7 @@ public abstract class ModTextureProvider<T> implements DataProvider {
 
     public abstract void buildTextures();
 
-    protected void addRegister(Map<T, BufferedImage> generator) {
+    protected void addGenerator(Map<T, BufferedImage> generator) {
         generators.add(generator);
     }
 
@@ -110,8 +110,8 @@ public abstract class ModTextureProvider<T> implements DataProvider {
             ImageIO.write(image, "png", hashingOutputStream);
 
             cachedOutput.writeIfNeeded(path, byteArrayOutputStream.toByteArray(), hashingOutputStream.hash());
-        } catch (IOException var10) {
-            LOGGER.error("Failed to save file to {}", path, var10);
+        } catch (IOException e) {
+            LOGGER.error("Failed to save file to {}", path, e);
         }
     }
 }

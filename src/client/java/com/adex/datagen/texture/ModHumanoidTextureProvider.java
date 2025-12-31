@@ -29,8 +29,8 @@ public class ModHumanoidTextureProvider extends ModTextureProvider<ArmorMaterial
         humanoid = new HashMap<>();
         humanoidLeggings = new HashMap<>();
 
-        addRegister(humanoid);
-        addRegister(humanoidLeggings);
+        addGenerator(humanoid);
+        addGenerator(humanoidLeggings);
     }
 
     @Override
@@ -46,29 +46,29 @@ public class ModHumanoidTextureProvider extends ModTextureProvider<ArmorMaterial
             humanoid = ModTextureProvider.getTexture("entity\\equipment\\humanoid\\diamond.png");
             humanoidLeggings = ModTextureProvider.getTexture("entity\\equipment\\humanoid_leggings\\diamond.png");
         } catch (IOException e) {
-            ModDataGenerator.LOGGER.error("Failed to load vanilla humanoid textures{}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));
+            ModDataGenerator.LOGGER.error("Failed to load vanilla humanoid textures: {}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));
             return;
         }
 
-        recolorVanilla(ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.CHALCEDONY);
-        recolorVanilla(ModArmorMaterials.GARNET_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.GARNET);
-        recolorVanilla(ModArmorMaterials.JASPER_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.JASPER);
-        recolorVanilla(ModArmorMaterials.JADE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.JADE);
-        recolorVanilla(ModArmorMaterials.ONYX_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.ONYX);
+        recolorVanilla(ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.CHALCEDONY_HUMANOID);
+        recolorVanilla(ModArmorMaterials.GARNET_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.GARNET_HUMANOID);
+        recolorVanilla(ModArmorMaterials.JADE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.JADE_HUMANOID);
+        recolorVanilla(ModArmorMaterials.JASPER_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.JASPER_HUMANOID);
+        recolorVanilla(ModArmorMaterials.ONYX_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.ONYX_HUMANOID);
         //recolorVanilla(ModArmorMaterials.OPAL_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.OPAL);
-        recolorVanilla(ModArmorMaterials.RUBY_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.RUBY);
-        recolorVanilla(ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.SAPPHIRE);
-        recolorVanilla(ModArmorMaterials.SPINEL_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.SPINEL);
-        recolorVanilla(ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.TIGERS_EYE);
+        recolorVanilla(ModArmorMaterials.RUBY_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.RUBY_HUMANOID);
+        recolorVanilla(ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.SAPPHIRE_HUMANOID);
+        recolorVanilla(ModArmorMaterials.SPINEL_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.SPINEL_HUMANOID);
+        recolorVanilla(ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL, humanoid, humanoidLeggings, ColorPalette.TIGERS_EYE_HUMANOID);
     }
 
     public void recolorVanilla(ArmorMaterial material, BufferedImage humanoidImage, BufferedImage humanoidLeggingsImage, ColorPalette palette) {
-        humanoid.put(material, replaceColorPalette(humanoidImage, ColorPalette.DIAMOND, palette));
-        humanoidLeggings.put(material, replaceColorPalette(humanoidLeggingsImage, ColorPalette.DIAMOND, palette));
+        humanoid.put(material, replaceColorPalette(humanoidImage, ColorPalette.DIAMOND_HUMANOID, palette));
+        humanoidLeggings.put(material, replaceColorPalette(humanoidLeggingsImage, ColorPalette.DIAMOND_HUMANOID, palette));
     }
 
     @Override
     public String getName() {
-        return "Texture provider";
+        return "Humanoid texture provider";
     }
 }
