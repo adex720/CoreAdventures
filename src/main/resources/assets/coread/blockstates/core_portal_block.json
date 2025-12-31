@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "coread:block/core_portal_block_ns"
+    },
+    "axis=z": {
+      "model": "coread:block/core_portal_block_ew"
+    }
+  }
+}
