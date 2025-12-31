@@ -44,5 +44,55 @@
   "item.coread.spinel": "Spinel",
   "item.coread.tigers_eye": "Tiger's Eye",
 
+  "item.coread.chalcedony_helmet": "Chalcedony Helmet",
+  "item.coread.chalcedony_chestplate": "Chalcedony Chestplate",
+  "item.coread.chalcedony_leggings": "Chalcedony Leggings",
+  "item.coread.chalcedony_boots": "Chalcedony Boots",
+
+  "item.coread.garnet_helmet": "Garnet Helmet",
+  "item.coread.garnet_chestplate": "Garnet Chestplate",
+  "item.coread.garnet_leggings": "Garnet Leggings",
+  "item.coread.garnet_boots": "Garnet Boots",
+
+  "item.coread.jade_helmet": "Jade Helmet",
+  "item.coread.jade_chestplate": "Jade Chestplate",
+  "item.coread.jade_leggings": "Jade Leggings",
+  "item.coread.jade_boots": "Jade Boots",
+
+  "item.coread.jasper_helmet": "Jasper Helmet",
+  "item.coread.jasper_chestplate": "Jasper Chestplate",
+  "item.coread.jasper_leggings": "Jasper Leggings",
+  "item.coread.jasper_boots": "Jasper Boots",
+
+  "item.coread.onyx_helmet": "Onyx Helmet",
+  "item.coread.onyx_chestplate": "Onyx Chestplate",
+  "item.coread.onyx_leggings": "Onyx Leggings",
+  "item.coread.onyx_boots": "Onyx Boots",
+
+  "item.coread.opal_helmet": "Opal Helmet",
+  "item.coread.opal_chestplate": "Opal Chestplate",
+  "item.coread.opal_leggings": "Opal Leggings",
+  "item.coread.opal_boots": "Opal Boots",
+
+  "item.coread.ruby_helmet": "Ruby Helmet",
+  "item.coread.ruby_chestplate": "Ruby Chestplate",
+  "item.coread.ruby_leggings": "Ruby Leggings",
+  "item.coread.ruby_boots": "Ruby Boots",
+
+  "item.coread.sapphire_helmet": "Sapphire Helmet",
+  "item.coread.sapphire_chestplate": "Sapphire Chestplate",
+  "item.coread.sapphire_leggings": "Sapphire Leggings",
+  "item.coread.sapphire_boots": "Sapphire Boots",
+
+  "item.coread.spinel_helmet": "Spinel Helmet",
+  "item.coread.spinel_chestplate": "Spinel Chestplate",
+  "item.coread.spinel_leggings": "Spinel Leggings",
+  "item.coread.spinel_boots": "Spinel Boots",
+
+  "item.coread.tigers_eye_helmet": "Tiger's Eye Helmet",
+  "item.coread.tigers_eye_chestplate": "Tiger's Eye Chestplate",
+  "item.coread.tigers_eye_leggings": "Tiger's Eye Leggings",
+  "item.coread.tigers_eye_boots": "Tiger's Eye Boots",
+
   "death.attack.heat": "%1$s died from heat"
 }
