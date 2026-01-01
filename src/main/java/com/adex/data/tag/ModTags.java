@@ -24,6 +24,7 @@ public class ModTags {
     public static final TagKey<Item> REPAIRS_SAPPHIRE_ARMOR = registerItem("repairs_sapphire_armor");
     public static final TagKey<Item> REPAIRS_SPINEL_ARMOR = registerItem("repairs_spinel_armor");
     public static final TagKey<Item> REPAIRS_TIGERS_EYE_ARMOR = registerItem("repairs_tigers_eye_armor");
+    public static final TagKey<Item> REPAIRS_GEM_ARMOR = registerItem("repairs_gem_armor");
 
     public static final TagKey<Biome> CORE_BIOMES = registerBiome("core");
 

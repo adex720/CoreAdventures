@@ -80,6 +80,11 @@ public class ModItems {
     public static final Item TIGERS_EYE_LEGGINGS = registerLeggings("tigers_eye_leggings", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
     public static final Item TIGERS_EYE_BOOTS = registerBoots("tigers_eye_boots", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
 
+    public static final Item GEM_HELMET = registerHelmet("gem_helmet", ModArmorMaterials.GEM_ARMOR_MATERIAL);
+    public static final Item GEM_CHESTPLATE = registerChestplate("gem_chestplate", ModArmorMaterials.GEM_ARMOR_MATERIAL);
+    public static final Item GEM_LEGGINGS = registerLeggings("gem_leggings", ModArmorMaterials.GEM_ARMOR_MATERIAL);
+    public static final Item GEM_BOOTS = registerBoots("gem_boots", ModArmorMaterials.GEM_ARMOR_MATERIAL);
+
     public static final Item BLUE_GEM_MIXTURE = register("blue_gem_mixture", new Item.Properties());
     public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties());
     public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties());
@@ -184,6 +189,11 @@ public class ModItems {
             itemGroup.accept(TIGERS_EYE_CHESTPLATE);
             itemGroup.accept(TIGERS_EYE_LEGGINGS);
             itemGroup.accept(TIGERS_EYE_BOOTS);
+
+            itemGroup.accept(GEM_HELMET);
+            itemGroup.accept(GEM_CHESTPLATE);
+            itemGroup.accept(GEM_LEGGINGS);
+            itemGroup.accept(GEM_BOOTS);
         });
     }
 

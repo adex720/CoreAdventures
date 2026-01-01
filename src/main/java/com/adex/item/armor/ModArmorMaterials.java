@@ -32,6 +32,7 @@ public class ModArmorMaterials {
     public static final ResourceKey<EquipmentAsset> SAPPHIRE_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "sapphire"));
     public static final ResourceKey<EquipmentAsset> SPINEL_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "spinel"));
     public static final ResourceKey<EquipmentAsset> TIGERS_EYE_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "tigers_eye"));
+    public static final ResourceKey<EquipmentAsset> GEM_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "gem"));
 
     public static final ArmorMaterial CHALCEDONY_ARMOR_MATERIAL = createGemArmorMaterial(CHALCEDONY_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_CHALCEDONY_ARMOR);
     public static final ArmorMaterial GARNET_ARMOR_MATERIAL = createGemArmorMaterial(GARNET_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_GARNET_ARMOR);
@@ -43,6 +44,7 @@ public class ModArmorMaterials {
     public static final ArmorMaterial SAPPHIRE_ARMOR_MATERIAL = createGemArmorMaterial(SAPPHIRE_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_SAPPHIRE_ARMOR);
     public static final ArmorMaterial SPINEL_ARMOR_MATERIAL = createGemArmorMaterial(SPINEL_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_SPINEL_ARMOR);
     public static final ArmorMaterial TIGERS_EYE_ARMOR_MATERIAL = createGemArmorMaterial(TIGERS_EYE_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_TIGERS_EYE_ARMOR);
+    public static final ArmorMaterial GEM_ARMOR_MATERIAL = createGemArmorMaterial(GEM_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_GEM_ARMOR);
 
 
     public static ArmorMaterial createGemArmorMaterial(ResourceKey<EquipmentAsset> material, TagKey<Item> repair) {

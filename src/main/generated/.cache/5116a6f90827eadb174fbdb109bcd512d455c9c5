@@ -41,6 +41,10 @@ bc98d88a5c0fc185da5f2639364fc68378d8563b assets/coread/items/garnet_boots.json
 9859c94584636b7d6bebe842cf6701cfa43f59c6 assets/coread/items/garnet_helmet.json
 3eef01398ee3ee1fbb04a7ff95443b35b9a04609 assets/coread/items/garnet_leggings.json
 c796ae0e69a3bd931c42a55c5a0148f79a01730c assets/coread/items/garnet_ore.json
+f0aa9159d06ce7b4b38913e1f2d7f08f787d6ea8 assets/coread/items/gem_boots.json
+bf889d80456aea2d614df5446c7bd9bcadd23f76 assets/coread/items/gem_chestplate.json
+8915007b4e4c7df2704dfb0dcb8bd37afb5b9c40 assets/coread/items/gem_helmet.json
+65d24b8a1c0543026289499a737a85b8254d1fcc assets/coread/items/gem_leggings.json
 b4e5cf05cedf70d44adcfc3d578991b818ffaba4 assets/coread/items/hardened_stone.json
 235fe06026b114db8532859271c0fe001da78679 assets/coread/items/jade.json
 137aba0009f3516d8b3a619b571f0d45b36f967f assets/coread/items/jade_block.json
@@ -141,6 +145,10 @@ f9fef6755706cfaaebecfaf531a5d15ee20d9181 assets/coread/models/item/chalcedony_le
 ecae14ddcdf1017d2fe9fc107b17f59b12eb839f assets/coread/models/item/garnet_chestplate.json
 10a31c125c625f1a380aa6ac7f913438cd4be07c assets/coread/models/item/garnet_helmet.json
 b033accde3aac99c458f622ddd02a61e50c7e263 assets/coread/models/item/garnet_leggings.json
+55a50966c830886982012498240691c7804fa2c5 assets/coread/models/item/gem_boots.json
+142179d9f2b1a75b31f15639145c2dee0ec07dd5 assets/coread/models/item/gem_chestplate.json
+c5999f26e431a6f21bd6156aa7bf8cf7ccf26859 assets/coread/models/item/gem_helmet.json
+cf9e56250c1127cefdc6bcde055f643a9acf8dc4 assets/coread/models/item/gem_leggings.json
 438412705da7a6baa203a65ef348d9e0b6c88007 assets/coread/models/item/jade.json
 d8996ade25d6d035ddbf3755581a1b907c22c023 assets/coread/models/item/jade_boots.json
 5e539c2ffa68c5893584250cc4f830b186ec0445 assets/coread/models/item/jade_chestplate.json

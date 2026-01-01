@@ -88,7 +88,8 @@ public class HeatManager {
                 || armorMaterial == ModArmorMaterials.JADE_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.JASPER_ARMOR_MATERIAL
                 || armorMaterial == ModArmorMaterials.ONYX_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.OPAL_ARMOR_MATERIAL
                 || armorMaterial == ModArmorMaterials.RUBY_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL
-                || armorMaterial == ModArmorMaterials.SPINEL_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL)
+                || armorMaterial == ModArmorMaterials.SPINEL_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL
+                || armorMaterial == ModArmorMaterials.GEM_ARMOR_MATERIAL)
             return 4;
 
         return 0;

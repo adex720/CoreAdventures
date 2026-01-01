@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "coread:gem"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "coread:gem"
+      }
+    ]
+  }
+}
