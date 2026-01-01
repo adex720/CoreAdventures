@@ -1,5 +1,6 @@
 package com.adex;
 
+import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.block.ModBlocks;
 import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
@@ -35,6 +36,8 @@ public class CoreAdventures implements ModInitializer {
 
         ModAttributes.initialize();
         ModPoiTypes.initialize();
+
+        ModCriterionTriggers.initialize();
 
         ModDimensions.initialize();
         ModFeatures.initialize();

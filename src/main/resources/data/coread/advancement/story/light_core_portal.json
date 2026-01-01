@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:story/enter_the_nether",
+  "display": {
+    "icon": {
+      "id": "coread:reinforced_ancient_debris"
+    },
+    "title": {
+      "translate": "advancements.coread.story.light_core_portal.title"
+    },
+    "description": {
+      "translate": "advancements.coread.story.light_core_portal.description"
+    },
+    "background": "back"
+  },
+  "criteria": {
+    "lit_portal": {
+      "trigger": "coread:light_core_portal"
+    }
+  },
+  "requirements": [
+    [
+      "lit_portal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

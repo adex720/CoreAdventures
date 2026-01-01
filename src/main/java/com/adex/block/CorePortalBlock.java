@@ -1,6 +1,7 @@
 package com.adex.block;
 
 import com.adex.CoreAdventures;
+import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.data.dimension.CustomPortalForcer;
 import com.adex.data.dimension.ModDimensions;
 import com.mojang.serialization.MapCodec;
@@ -8,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.BlockUtil;
@@ -30,6 +32,7 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.portal.PortalShape;
 import net.minecraft.world.level.portal.TeleportTransition;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -68,6 +71,23 @@ public class CorePortalBlock extends Block implements Portal {
         return !bl && !newState.is(this) && !PortalShape.findAnyShape(reader, pos, axis2).isComplete()
                 ? Blocks.AIR.defaultBlockState()
                 : super.updateShape(blockState, reader, tickAccess, pos, direction, newPos, newState, randomSource);
+    }
+
+    @Override
+    protected void onPlace(BlockState newState, Level level, BlockPos pos, BlockState oldState, boolean update) {
+        super.onPlace(newState, level, pos, oldState, update);
+
+        // Trigger advancement criterion only when portal is created by fire.
+        // This makes it so that traveling through an already lit portal without an existing portal in the other
+        // dimension doesn't grant the achievement.
+        // Also makes it that the trigger is only run once per portal lit.
+        if (!oldState.is(Blocks.FIRE)) return;
+
+        // Run trigger for every player within 10 blocks in any direction of the lit portal block.
+        // Distance needs to be at most 10 on every axis, but the total distance over different axis can be greater than 10.
+        for (ServerPlayer player : level.getEntitiesOfClass(ServerPlayer.class, new AABB(pos).inflate(10.0d))) {
+            ModCriterionTriggers.LIGHT_CORE_PORTAL.trigger(player);
+        }
     }
 
     @Override

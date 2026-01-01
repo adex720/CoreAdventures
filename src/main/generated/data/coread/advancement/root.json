@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "entered_root": {
+      "conditions": {
+        "to": "coread:core"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "coread:gui/advancements/backgrounds/core",
+    "description": {
+      "translate": "advancements.coread.core.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:reinforced_ancient_debris"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.coread.core.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "entered_root"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
