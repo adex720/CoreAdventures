@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "coread:garnet",
+    "coread:jasper",
+    "coread:onyx",
+    "coread:ruby",
+    "coread:spinel",
+    "coread:tigers_eye",
+    "minecraft:netherite_ingot"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:red_gem_mixture"
+  }
+}

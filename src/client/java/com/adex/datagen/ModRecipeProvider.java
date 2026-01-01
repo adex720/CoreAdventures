@@ -9,7 +9,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.List;
@@ -60,6 +62,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             blockToItems(ModBlocks.SAPPHIRE_BLOCK.asItem(), ModItems.SAPPHIRE);
             blockToItems(ModBlocks.SPINEL_BLOCK.asItem(), ModItems.SPINEL);
             blockToItems(ModBlocks.TIGERS_EYE_BLOCK.asItem(), ModItems.TIGERS_EYE);
+
+            fromItems(RecipeCategory.MISC, ModItems.BLUE_GEM_MIXTURE, ModItems.CHALCEDONY, ModItems.JADE, ModItems.OPAL, ModItems.SAPPHIRE, Items.DIAMOND, Items.EMERALD, Items.LAPIS_LAZULI);
+            fromItems(RecipeCategory.MISC, ModItems.RED_GEM_MIXTURE, ModItems.GARNET, ModItems.JASPER, ModItems.ONYX, ModItems.RUBY, ModItems.SPINEL, ModItems.TIGERS_EYE, Items.NETHERITE_INGOT);
+            fromItems(RecipeCategory.MISC, ModItems.SHINY_GEM_MIXTURE, ModItems.BLUE_GEM_MIXTURE, ModItems.RED_GEM_MIXTURE);
 
             oreSmeltingAndBlasting(ModBlocks.CHALCEDONY_ORE, RecipeCategory.MISC, ModItems.CHALCEDONY, 1.0f, 200, "chalcedony_smelting");
             oreSmeltingAndBlasting(ModBlocks.GARNET_ORE, RecipeCategory.MISC, ModItems.GARNET, 1.0f, 200, "garnet_smelting");
@@ -162,6 +168,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .define('#', item)
                     .unlockedBy(getHasName(item), has(item))
                     .save(output);
+        }
+
+        public void fromItems(RecipeCategory category, Item result, ItemLike... items) {
+            ShapelessRecipeBuilder builder = shapeless(category, result);
+            for (ItemLike item : items) {
+                builder.requires(item);
+                builder.unlockedBy(getHasName(item), has(item));
+            }
+            builder.save(output);
         }
     }
 }

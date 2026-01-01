@@ -80,6 +80,10 @@ public class ModItems {
     public static final Item TIGERS_EYE_LEGGINGS = registerLeggings("tigers_eye_leggings", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
     public static final Item TIGERS_EYE_BOOTS = registerBoots("tigers_eye_boots", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
 
+    public static final Item BLUE_GEM_MIXTURE = register("blue_gem_mixture", new Item.Properties());
+    public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties());
+    public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties());
+
 
     public static Item register(String name, Item.Properties settings) {
         return register(name, Item::new, settings);
@@ -124,6 +128,10 @@ public class ModItems {
             itemGroup.accept(SAPPHIRE);
             itemGroup.accept(SPINEL);
             itemGroup.accept(TIGERS_EYE);
+
+            itemGroup.accept(BLUE_GEM_MIXTURE);
+            itemGroup.accept(RED_GEM_MIXTURE);
+            itemGroup.accept(SHINY_GEM_MIXTURE);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register((itemGroup) -> {

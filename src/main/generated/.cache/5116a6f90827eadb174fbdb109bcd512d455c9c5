@@ -25,6 +25,7 @@ ca2f50a27a1d8a0309bcc9d0a3bfda4ff1bfb04c assets/coread/blockstates/spinel_ore.js
 7998600bb58b48967ccc7089215d682ef40fe885 assets/coread/blockstates/tigers_eye_block.json
 22aa700e89513004741616721f6d2a35213e0f8e assets/coread/blockstates/tigers_eye_ore.json
 053bad54f78654ce714af18449d6b6d94881a41e assets/coread/blockstates/travertine.json
+7a6677a3280b081a5fa1cd691c84ccf352466158 assets/coread/items/blue_gem_mixture.json
 79398e87eab23b9019802a052033cf0b127ac05e assets/coread/items/chalcedony.json
 c31e0b0fea65813e2a950b5621ccdc60a839c528 assets/coread/items/chalcedony_block.json
 58abbbcc81bf191815143363a5ab4b63b0509383 assets/coread/items/chalcedony_boots.json
@@ -70,6 +71,7 @@ d44c1627eae38b620faa2f6fb6205a8fe5cc4341 assets/coread/items/opal_boots.json
 1fea41a37f7bfd8d8a717b03633d2442d0692ec6 assets/coread/items/opal_helmet.json
 38a976492207ab44a938d6cc7bf73f3330abf0ae assets/coread/items/opal_leggings.json
 7dfd0e690d33c469506b5609c7528110b4f940d9 assets/coread/items/opal_ore.json
+ca0327aa12da2f454a685b64afb2a4d3475e3f59 assets/coread/items/red_gem_mixture.json
 81d5d07469dfcd28112be3bb90fb95700f951ba8 assets/coread/items/ruby.json
 8df64e3710687b71ad2807113a702b5457152166 assets/coread/items/ruby_block.json
 879dc3b2ae266bda728f7fe9b438eb483d0c140e assets/coread/items/ruby_boots.json
@@ -85,6 +87,7 @@ aae969c756b61f87211416a5d763727bc0c5cdcb assets/coread/items/sapphire_block.json
 ba285210575cd78e570a57d17229debc422cec89 assets/coread/items/sapphire_leggings.json
 9d05227251e5bef9d17eb28aa9fff84cea66e006 assets/coread/items/sapphire_ore.json
 154527b431b713ce3dc67d493cdc615df4404fef assets/coread/items/serpentinite.json
+0c6746e112a1cf50d9301f40e2aa8d5f2855c2e9 assets/coread/items/shiny_gem_mixture.json
 7c875cd5aff6c3e0b0db6a10236bbb8c0e94aedd assets/coread/items/slate.json
 c2c8c5344c8f33934047a516a9a95453aa22d7f2 assets/coread/items/spinel.json
 f974043c882484677c968f8e1ea6cd3871da633c assets/coread/items/spinel_block.json
@@ -127,6 +130,7 @@ ea10df146ab71e54581d823d872f541b7e40e56d assets/coread/models/block/spinel_block
 9697510227a624218c275a17c4cf8c954d51461f assets/coread/models/block/tigers_eye_block.json
 e031c8894b0cf5f723dc36be6cad365a250cfd80 assets/coread/models/block/tigers_eye_ore.json
 fd634f6ba2aed49b1cf2a8ec6aecae5c1fc352cb assets/coread/models/block/travertine.json
+9fffba25a0693e4b7bda34d1f29b09b961bf9a2e assets/coread/models/item/blue_gem_mixture.json
 eed75b5da38a4a0f1938087eb9a007f883a06655 assets/coread/models/item/chalcedony.json
 19aa14081b818cb8030459e4a51ade4d7f85c4b0 assets/coread/models/item/chalcedony_boots.json
 f1136543ab9879c89f54d84b8b888e3358abc532 assets/coread/models/item/chalcedony_chestplate.json
@@ -157,6 +161,7 @@ a5943515ebdaa2c97336d0ddcc82f930bb35822e assets/coread/models/item/opal_boots.js
 5fecc20e0d1122420b046bb1b49dba170a36e4d5 assets/coread/models/item/opal_chestplate.json
 605d9204160916ff294b4db30a2345f359826876 assets/coread/models/item/opal_helmet.json
 9ded08ffe541aeba1e8d74a3bd4dd69901cec5f6 assets/coread/models/item/opal_leggings.json
+379ae879bb7556e60b475091b84c07b5e7fb66ad assets/coread/models/item/red_gem_mixture.json
 ca68dd0043e6ef192a0ebdadd8531ce8bb480c2d assets/coread/models/item/ruby.json
 e89c217ec8cc1f025bd2e0c34f536666d50b114d assets/coread/models/item/ruby_boots.json
 28dab2e036759aa49e5fa70440ba23e99d5f85a9 assets/coread/models/item/ruby_chestplate.json
@@ -167,6 +172,7 @@ e89c217ec8cc1f025bd2e0c34f536666d50b114d assets/coread/models/item/ruby_boots.js
 6728485aab6f6950433240511d322793b3358952 assets/coread/models/item/sapphire_chestplate.json
 68c5497528e478a2d8306fec7bd8d34d949551a6 assets/coread/models/item/sapphire_helmet.json
 62312d26e8d77406fc227adf07228e9a160bdc90 assets/coread/models/item/sapphire_leggings.json
+7247a5d82b5ac01c5b2c0735c10f4b4dad104de5 assets/coread/models/item/shiny_gem_mixture.json
 b2afbfd522acc95ade80d9a92c9a92e44d2112ed assets/coread/models/item/spinel.json
 c33443227210acc4a80a36d7a7eb0a62b8eff037 assets/coread/models/item/spinel_boots.json
 6084b64ae92b00dbdda0eab728bd0c7d0674f383 assets/coread/models/item/spinel_chestplate.json

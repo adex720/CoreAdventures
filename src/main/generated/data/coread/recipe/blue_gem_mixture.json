@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "coread:chalcedony",
+    "coread:jade",
+    "coread:opal",
+    "coread:sapphire",
+    "minecraft:diamond",
+    "minecraft:emerald",
+    "minecraft:lapis_lazuli"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:blue_gem_mixture"
+  }
+}
