@@ -13,17 +13,24 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 
     public static final Logger LOGGER = LoggerFactory.getLogger("CoreAdventures DataGenerator");
 
+    public static final String MOD_ID = "coread";
+
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(ModEquipmentModelProvider::new);
+        pack.addProvider(ModCoreAdvancementProvider::new);
         pack.addProvider(ModLootTableProvider::new);
         pack.addProvider(ModRecipeProvider::new);
 
         pack.addProvider(ModItemTextureProvider::new);
         pack.addProvider(ModHumanoidTextureProvider::new);
+    }
+
+    public static String getIdentifierString(String name) {
+        return MOD_ID + ":" + name;
     }
 
 }

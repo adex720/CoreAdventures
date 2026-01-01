@@ -103,6 +103,12 @@
   "item.coread.red_gem_mixture": "Red Gem Mixture",
   "item.coread.shiny_gem_mixture": "Shiny Gem Mixture",
 
+  "advancements.coread.story.light_core_portal.title": "Deep Adventures Await",
+  "advancements.coread.story.light_core_portal.description": "Build a core portal from reinforced ancient debris and light it",
+
+  "advancements.coread.core.root.title": "Core",
+  "advancements.coread.core.root.description": "Don't overheat",
+
   "death.attack.heat": "%1$s died from heat",
 
   "tag.item.coread.repairs_chalcedony_armor": "Repairs Chalcedony Armor",
