@@ -71,6 +71,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             oreSmeltingAndBlasting(ModBlocks.SAPPHIRE_ORE, RecipeCategory.MISC, ModItems.SAPPHIRE, 1.0f, 200, "sapphire_smelting");
             oreSmeltingAndBlasting(ModBlocks.SPINEL_ORE, RecipeCategory.MISC, ModItems.SPINEL, 1.0f, 200, "spinel_smelting");
             oreSmeltingAndBlasting(ModBlocks.TIGERS_EYE_ORE, RecipeCategory.MISC, ModItems.TIGERS_EYE, 1.0f, 200, "tigers_eye_smelting");
+
+            armor(ModItems.CHALCEDONY, ModItems.CHALCEDONY_HELMET, ModItems.CHALCEDONY_CHESTPLATE, ModItems.CHALCEDONY_LEGGINGS, ModItems.CHALCEDONY_BOOTS);
+            armor(ModItems.GARNET, ModItems.GARNET_HELMET, ModItems.GARNET_CHESTPLATE, ModItems.GARNET_LEGGINGS, ModItems.GARNET_BOOTS);
+            armor(ModItems.JADE, ModItems.JADE_HELMET, ModItems.JADE_CHESTPLATE, ModItems.JADE_LEGGINGS, ModItems.JADE_BOOTS);
+            armor(ModItems.JASPER, ModItems.JASPER_HELMET, ModItems.JASPER_CHESTPLATE, ModItems.JASPER_LEGGINGS, ModItems.JASPER_BOOTS);
+            armor(ModItems.ONYX, ModItems.ONYX_HELMET, ModItems.ONYX_CHESTPLATE, ModItems.ONYX_LEGGINGS, ModItems.ONYX_BOOTS);
+            armor(ModItems.OPAL, ModItems.OPAL_HELMET, ModItems.OPAL_CHESTPLATE, ModItems.OPAL_LEGGINGS, ModItems.OPAL_BOOTS);
+            armor(ModItems.RUBY, ModItems.RUBY_HELMET, ModItems.RUBY_CHESTPLATE, ModItems.RUBY_LEGGINGS, ModItems.RUBY_BOOTS);
+            armor(ModItems.SAPPHIRE, ModItems.SAPPHIRE_HELMET, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SAPPHIRE_LEGGINGS, ModItems.SAPPHIRE_BOOTS);
+            armor(ModItems.SPINEL, ModItems.SPINEL_HELMET, ModItems.SPINEL_CHESTPLATE, ModItems.SPINEL_LEGGINGS, ModItems.SPINEL_BOOTS);
+            armor(ModItems.TIGERS_EYE, ModItems.TIGERS_EYE_HELMET, ModItems.TIGERS_EYE_CHESTPLATE, ModItems.TIGERS_EYE_LEGGINGS, ModItems.TIGERS_EYE_BOOTS);
         }
 
         /**
@@ -93,7 +104,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .save(output);
         }
 
-
         /**
          * @param time Time for smelting, halved for blasting
          */
@@ -107,6 +117,51 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         public void oreSmeltingAndBlasting(List<ItemLike> input, RecipeCategory recipeCategory, ItemLike output, float experience, int time, String group) {
             oreSmelting(input, recipeCategory, output, experience, time, group);
             oreBlasting(input, recipeCategory, output, experience, time / 2, group);
+        }
+
+        public void armor(Item item, Item helmet, Item chestplate, Item leggings, Item boots) {
+            helmet(item, helmet);
+            chestplate(item, chestplate);
+            leggings(item, leggings);
+            boots(item, boots);
+        }
+
+        public void helmet(Item item, Item helmet) {
+            shaped(RecipeCategory.COMBAT, helmet)
+                    .pattern("###")
+                    .pattern("# #")
+                    .define('#', item)
+                    .unlockedBy(getHasName(item), has(item))
+                    .save(output);
+        }
+
+        public void chestplate(Item item, Item chestplate) {
+            shaped(RecipeCategory.COMBAT, chestplate)
+                    .pattern("# #")
+                    .pattern("###")
+                    .pattern("###")
+                    .define('#', item)
+                    .unlockedBy(getHasName(item), has(item))
+                    .save(output);
+        }
+
+        public void leggings(Item item, Item leggings) {
+            shaped(RecipeCategory.COMBAT, leggings)
+                    .pattern("###")
+                    .pattern("# #")
+                    .pattern("# #")
+                    .define('#', item)
+                    .unlockedBy(getHasName(item), has(item))
+                    .save(output);
+        }
+
+        public void boots(Item item, Item boots) {
+            shaped(RecipeCategory.COMBAT, boots)
+                    .pattern("# #")
+                    .pattern("# #")
+                    .define('#', item)
+                    .unlockedBy(getHasName(item), has(item))
+                    .save(output);
         }
     }
 }
