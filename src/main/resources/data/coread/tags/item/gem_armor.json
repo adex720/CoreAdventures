@@ -1,0 +1,59 @@
+{
+  "replace": false,
+  "values": [
+    "coread:chalcedony_helmet",
+    "coread:chalcedony_chestplate",
+    "coread:chalcedony_leggings",
+    "coread:chalcedony_boots",
+
+    "coread:garnet_helmet",
+    "coread:garnet_chestplate",
+    "coread:garnet_leggings",
+    "coread:garnet_boots",
+
+    "coread:jade_helmet",
+    "coread:jade_chestplate",
+    "coread:jade_leggings",
+    "coread:jade_boots",
+
+    "coread:jasper_helmet",
+    "coread:jasper_chestplate",
+    "coread:jasper_leggings",
+    "coread:jasper_boots",
+
+    "coread:onyx_helmet",
+    "coread:onyx_chestplate",
+    "coread:onyx_leggings",
+    "coread:onyx_boots",
+
+    "coread:opal_helmet",
+    "coread:opal_chestplate",
+    "coread:opal_leggings",
+    "coread:opal_boots",
+
+    "coread:ruby_helmet",
+    "coread:ruby_chestplate",
+    "coread:ruby_leggings",
+    "coread:ruby_boots",
+
+    "coread:sapphire_helmet",
+    "coread:sapphire_chestplate",
+    "coread:sapphire_leggings",
+    "coread:sapphire_boots",
+
+    "coread:spinel_helmet",
+    "coread:spinel_chestplate",
+    "coread:spinel_leggings",
+    "coread:spinel_boots",
+
+    "coread:tigers_eye_helmet",
+    "coread:tigers_eye_chestplate",
+    "coread:tigers_eye_leggings",
+    "coread:tigers_eye_boots",
+
+    "coread:gem_helmet",
+    "coread:gem_chestplate",
+    "coread:gem_leggings",
+    "coread:gem_boots"
+  ]
+}
