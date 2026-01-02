@@ -1,0 +1,35 @@
+{
+  "parent": "coread:root",
+  "criteria": {
+    "got_core_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#coread:core_armor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.coread.core.get_core_armor.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:jade_chestplate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.coread.core.get_core_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "got_core_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

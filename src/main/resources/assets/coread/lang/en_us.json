@@ -107,7 +107,13 @@
   "advancements.coread.story.light_core_portal.description": "Build a core portal from reinforced ancient debris and light it",
 
   "advancements.coread.core.root.title": "Core",
-  "advancements.coread.core.root.description": "Don't overheat",
+  "advancements.coread.core.root.description": "Get maximal heat protection with core armor",
+  "advancements.coread.core.get_core_armor.title": "Shiny Style",
+  "advancements.coread.core.get_core_armor.description": "Don't overheat",
+  "advancements.coread.core.get_full_core_armor.title": "Shinier Style",
+  "advancements.coread.core.get_full_core_armor.description": "Get a full suit of any Core armor",
+  "advancements.coread.core.get_full_gem_armor.title": "Shiniest Style",
+  "advancements.coread.core.get_full_gem_armor.description": "Get a full suit of Gem armor",
 
   "death.attack.heat": "%1$s died from heat",
 
@@ -122,5 +128,5 @@
   "tag.item.coread.repairs_spinel_armor": "Repairs Spinel Armor",
   "tag.item.coread.repairs_tigers_eye_armor": "Repairs Tiger's Eye Armor",
   "tag.item.coread.repairs_gem_armor": "Repairs Gem Armor",
-  "tag.item.coread.gem_armor": "Repairs Gem Armor"
+  "tag.item.coread.core_armor": "Gem Armor"
 }

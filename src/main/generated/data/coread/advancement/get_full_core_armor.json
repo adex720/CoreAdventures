@@ -1,0 +1,244 @@
+{
+  "parent": "coread:get_core_armor",
+  "criteria": {
+    "got_chalcedony_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:chalcedony_helmet"
+          },
+          {
+            "items": "coread:chalcedony_chestplate"
+          },
+          {
+            "items": "coread:chalcedony_leggings"
+          },
+          {
+            "items": "coread:chalcedony_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_garnet_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:garnet_helmet"
+          },
+          {
+            "items": "coread:garnet_chestplate"
+          },
+          {
+            "items": "coread:garnet_leggings"
+          },
+          {
+            "items": "coread:garnet_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_gem_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:gem_helmet"
+          },
+          {
+            "items": "coread:gem_chestplate"
+          },
+          {
+            "items": "coread:gem_leggings"
+          },
+          {
+            "items": "coread:gem_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_jade_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:jade_helmet"
+          },
+          {
+            "items": "coread:jade_chestplate"
+          },
+          {
+            "items": "coread:jade_leggings"
+          },
+          {
+            "items": "coread:jade_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_jasper_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:jasper_helmet"
+          },
+          {
+            "items": "coread:jasper_chestplate"
+          },
+          {
+            "items": "coread:jasper_leggings"
+          },
+          {
+            "items": "coread:jasper_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_onyx_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:onyx_helmet"
+          },
+          {
+            "items": "coread:onyx_chestplate"
+          },
+          {
+            "items": "coread:onyx_leggings"
+          },
+          {
+            "items": "coread:onyx_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_opal_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:opal_helmet"
+          },
+          {
+            "items": "coread:opal_chestplate"
+          },
+          {
+            "items": "coread:opal_leggings"
+          },
+          {
+            "items": "coread:opal_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_ruby_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:ruby_helmet"
+          },
+          {
+            "items": "coread:ruby_chestplate"
+          },
+          {
+            "items": "coread:ruby_leggings"
+          },
+          {
+            "items": "coread:ruby_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_sapphire_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:sapphire_helmet"
+          },
+          {
+            "items": "coread:sapphire_chestplate"
+          },
+          {
+            "items": "coread:sapphire_leggings"
+          },
+          {
+            "items": "coread:sapphire_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_spinel_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:spinel_helmet"
+          },
+          {
+            "items": "coread:spinel_chestplate"
+          },
+          {
+            "items": "coread:spinel_leggings"
+          },
+          {
+            "items": "coread:spinel_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "got_tigers_eye_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:tigers_eye_helmet"
+          },
+          {
+            "items": "coread:tigers_eye_chestplate"
+          },
+          {
+            "items": "coread:tigers_eye_leggings"
+          },
+          {
+            "items": "coread:tigers_eye_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.coread.core.get_full_core_armor.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:ruby_chestplate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.coread.core.get_full_core_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "got_gem_armor",
+      "got_chalcedony_armor",
+      "got_garnet_armor",
+      "got_jasper_armor",
+      "got_jade_armor",
+      "got_onyx_armor",
+      "got_opal_armor",
+      "got_ruby_armor",
+      "got_sapphire_armor",
+      "got_spinel_armor",
+      "got_tigers_eye_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

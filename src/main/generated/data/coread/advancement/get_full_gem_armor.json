@@ -1,0 +1,44 @@
+{
+  "parent": "coread:get_full_core_armor",
+  "criteria": {
+    "got_full_gem_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:gem_helmet"
+          },
+          {
+            "items": "coread:gem_chestplate"
+          },
+          {
+            "items": "coread:gem_leggings"
+          },
+          {
+            "items": "coread:gem_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.coread.core.get_full_gem_armor.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:gem_chestplate"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.coread.core.get_full_gem_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "got_full_gem_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
