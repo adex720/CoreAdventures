@@ -68,7 +68,7 @@ public class ModEnchantmentProvider extends FabricDynamicRegistryProvider {
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return "Enchantment provider";
     }
 }
