@@ -44,6 +44,10 @@
   "item.coread.spinel": "Spinel",
   "item.coread.tigers_eye": "Tiger's Eye",
 
+  "item.coread.blue_gem_mixture": "Blue Gem Mixture",
+  "item.coread.red_gem_mixture": "Red Gem Mixture",
+  "item.coread.shiny_gem_mixture": "Shiny Gem Mixture",
+
   "item.coread.chalcedony_helmet": "Chalcedony Helmet",
   "item.coread.chalcedony_chestplate": "Chalcedony Chestplate",
   "item.coread.chalcedony_leggings": "Chalcedony Leggings",
@@ -99,9 +103,7 @@
   "item.coread.gem_leggings": "Gem Leggings",
   "item.coread.gem_boots": "Gem Boots",
 
-  "item.coread.blue_gem_mixture": "Blue Gem Mixture",
-  "item.coread.red_gem_mixture": "Red Gem Mixture",
-  "item.coread.shiny_gem_mixture": "Shiny Gem Mixture",
+  "enchantment.coread.chaining": "Chaining",
 
   "advancements.coread.story.light_core_portal.title": "Deep Adventures Await",
   "advancements.coread.story.light_core_portal.description": "Build a core portal from reinforced ancient debris and light it",
