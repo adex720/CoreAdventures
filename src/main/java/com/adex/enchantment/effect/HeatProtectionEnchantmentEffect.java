@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
 import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
+import org.jspecify.annotations.NonNull;
 
 public record HeatProtectionEnchantmentEffect(LevelBasedValue amount) implements EnchantmentValueEffect {
 
@@ -17,7 +18,7 @@ public record HeatProtectionEnchantmentEffect(LevelBasedValue amount) implements
     }
 
     @Override
-    public MapCodec<? extends EnchantmentValueEffect> codec() {
-        return null;
+    public @NonNull MapCodec<? extends EnchantmentValueEffect> codec() {
+        return CODEC;
     }
 }
