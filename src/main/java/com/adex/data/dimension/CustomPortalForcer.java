@@ -32,15 +32,15 @@ public class CustomPortalForcer {
         this.portalBlock = portalBlock;
     }
 
-    public Optional<BlockPos> findClosestPortalPosition(BlockPos blockPos, boolean goingToCore, ServerLevel level) {
+    public Optional<BlockPos> findClosestPortalPosition(BlockPos pos, boolean goingToCore, ServerLevel level) {
         PoiManager poiManager = level.getPoiManager();
         int maxDistance = goingToCore ? 16 : 256;
-        poiManager.ensureLoadedAndValid(level, blockPos, maxDistance);
-        return poiManager.getInSquare(holder -> holder.is(ModPoiTypes.CORE_PORTAL), blockPos, maxDistance, PoiManager.Occupancy.ANY)
+        poiManager.ensureLoadedAndValid(level, pos, maxDistance);
+        return poiManager.getInSquare(holder -> holder.is(ModPoiTypes.CORE_PORTAL), pos, maxDistance, PoiManager.Occupancy.ANY)
                 .map(PoiRecord::getPos)
-                .filter(pos -> level.getWorldBorder().isWithinBounds(pos))
-                .filter(blockPosx -> level.getBlockState(blockPosx).hasProperty(BlockStateProperties.HORIZONTAL_AXIS))
-                .min(Comparator.comparingDouble(blockPos2 -> ((BlockPos) blockPos2).distSqr(blockPos)).thenComparingInt(pos -> ((BlockPos) pos).getY()));
+                .filter(blockPos -> level.getWorldBorder().isWithinBounds(blockPos))
+                .filter(blockPos -> level.getBlockState(blockPos).hasProperty(BlockStateProperties.HORIZONTAL_AXIS))
+                .min(Comparator.comparingDouble(blockPos2 -> ((BlockPos) blockPos2).distSqr(pos)).thenComparingInt(blockPos -> ((BlockPos) blockPos).getY()));
     }
 
     public Optional<BlockUtil.FoundRectangle> createPortal(BlockPos center, Direction.Axis axis, ServerLevel level) {
@@ -113,6 +113,7 @@ public class CustomPortalForcer {
             portalPos = border.clampToBounds(portalPos);
             Direction opposite = direction.getClockWise();
 
+            // Create standing platform and air around portal
             for (int dx = -1; dx < 2; dx++) {
                 for (int dz = 0; dz < 2; dz++) {
                     for (int dy = -1; dy < 3; dy++) {

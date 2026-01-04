@@ -8,6 +8,7 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.equipment.ArmorMaterial;
+import org.jspecify.annotations.NonNull;
 
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -33,7 +34,7 @@ public abstract class AbstractEquipmentModelProvider implements DataProvider {
     }
 
     @Override
-    public CompletableFuture<?> run(CachedOutput cachedOutput) {
+    public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cachedOutput) {
         buildTextures();
 
         return DataProvider.saveAll(cachedOutput, this::toJson, this::toPath, generator);
@@ -67,7 +68,7 @@ public abstract class AbstractEquipmentModelProvider implements DataProvider {
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return "Equipment model provider";
     }
 }

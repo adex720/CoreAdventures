@@ -13,7 +13,7 @@ public record HeatProtectionEnchantmentEffect(LevelBasedValue amount) implements
             instance.group(LevelBasedValue.CODEC.fieldOf("amount").forGetter(HeatProtectionEnchantmentEffect::amount)).apply(instance, HeatProtectionEnchantmentEffect::new));
 
     @Override
-    public float process(int i, RandomSource randomSource, float f) {
+    public float process(int i, @NonNull RandomSource randomSource, float f) {
         return i;
     }
 

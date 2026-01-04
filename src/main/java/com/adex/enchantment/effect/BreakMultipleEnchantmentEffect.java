@@ -26,6 +26,7 @@ public record BreakMultipleEnchantmentEffect(LevelBasedValue amount) implements 
 
     private static boolean RUNNING = false;
 
+    @SuppressWarnings("unused")
     public void onBlockBroken(Level level, Player player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack itemStack, int amount) {
         // Don't start new chain of blocks to break when already breaking a chain
         if (RUNNING) return;

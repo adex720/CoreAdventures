@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
 
+@SuppressWarnings("unused")
 public class ModEnchantmentEffects {
 
     public static final ResourceKey<Enchantment> CHAINING = createRegistryKey("chaining");

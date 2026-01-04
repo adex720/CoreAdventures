@@ -12,6 +12,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -63,7 +64,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return "Loot table provider";
     }
 }

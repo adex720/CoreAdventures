@@ -48,6 +48,7 @@ public class HeatHud {
         return heat >= 100.0d;
     }
 
+    @SuppressWarnings("unused")
     public static void onClientTick(Minecraft minecraft) {
         TICK_COUNT++;
         if (TICK_COUNT >= 1200) TICK_COUNT -= 1200;

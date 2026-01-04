@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.util.Util;
+import org.jspecify.annotations.NonNull;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -26,6 +27,7 @@ public abstract class ModTextureProvider<T> implements DataProvider {
 
     private final List<Map<T, BufferedImage>> generators = new ArrayList<>();
 
+    @SuppressWarnings("unused")
     public ModTextureProvider(FabricDataOutput packOutput) {
     }
 
@@ -54,6 +56,7 @@ public abstract class ModTextureProvider<T> implements DataProvider {
         return image;
     }
 
+    @SuppressWarnings("unused")
     public static void listVanillaColors(String[] paths) {
         HashSet<Long> colors = new HashSet<>();
 
@@ -85,7 +88,7 @@ public abstract class ModTextureProvider<T> implements DataProvider {
     }
 
     @Override
-    public CompletableFuture<?> run(CachedOutput cachedOutput) {
+    public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cachedOutput) {
         buildTextures();
         return CompletableFuture.allOf(saveAll(cachedOutput));
     }
@@ -102,6 +105,7 @@ public abstract class ModTextureProvider<T> implements DataProvider {
         }, Util.backgroundExecutor().forName("saveStable"));
     }
 
+    @SuppressWarnings({"UnstableApiUsage", "deprecation"})
     private static void save(CachedOutput cachedOutput, BufferedImage image, Path path) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

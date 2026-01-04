@@ -76,6 +76,7 @@ public class ColorPalette {
         return -2; // not on palette
     }
 
+    @SuppressWarnings("unused")
     public BufferedImage getColorImage() {
         BufferedImage image = new BufferedImage(colorCount, 1, BufferedImage.TYPE_INT_ARGB);
         Graphics g = image.getGraphics();

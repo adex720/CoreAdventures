@@ -73,6 +73,7 @@ public class ModBlocks {
         return Registry.register(BuiltInRegistries.BLOCK, blockKey, block);
     }
 
+    @SuppressWarnings("unused")
     private static Block registerWithoutBlockItem(String name, BlockBehaviour.Properties settings) {
         return registerWithoutBlockItem(name, Block::new, settings);
     }

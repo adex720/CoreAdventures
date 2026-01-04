@@ -37,11 +37,13 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
 import java.util.Optional;
 
+@SuppressWarnings("resource")
 public class CorePortalBlock extends Block implements Portal {
 
     public static final MapCodec<CorePortalBlock> CODEC = simpleCodec(CorePortalBlock::new);
@@ -49,7 +51,7 @@ public class CorePortalBlock extends Block implements Portal {
     private static final Map<Direction.Axis, VoxelShape> SHAPES = Shapes.rotateHorizontalAxis(Block.column(4.0d, 16.0d, 0.0d, 16.0d));
 
     @Override
-    public MapCodec<CorePortalBlock> codec() {
+    public @NonNull MapCodec<CorePortalBlock> codec() {
         return CODEC;
     }
 
@@ -59,12 +61,12 @@ public class CorePortalBlock extends Block implements Portal {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+    protected @NonNull VoxelShape getShape(BlockState blockState, @NonNull BlockGetter blockGetter, @NonNull BlockPos blockPos, @NonNull CollisionContext collisionContext) {
         return SHAPES.get(blockState.getValue(AXIS));
     }
 
     @Override
-    protected BlockState updateShape(BlockState blockState, LevelReader reader, ScheduledTickAccess tickAccess, BlockPos pos, Direction direction, BlockPos newPos, BlockState newState, RandomSource randomSource) {
+    protected @NonNull BlockState updateShape(BlockState blockState, @NonNull LevelReader reader, @NonNull ScheduledTickAccess tickAccess, @NonNull BlockPos pos, Direction direction, @NonNull BlockPos newPos, @NonNull BlockState newState, @NonNull RandomSource randomSource) {
         Direction.Axis axis = direction.getAxis();
         Direction.Axis axis2 = blockState.getValue(AXIS);
         boolean bl = axis2 != axis && axis.isHorizontal();
@@ -74,7 +76,7 @@ public class CorePortalBlock extends Block implements Portal {
     }
 
     @Override
-    protected void onPlace(BlockState newState, Level level, BlockPos pos, BlockState oldState, boolean update) {
+    protected void onPlace(@NonNull BlockState newState, @NonNull Level level, @NonNull BlockPos pos, @NonNull BlockState oldState, boolean update) {
         super.onPlace(newState, level, pos, oldState, update);
 
         // Trigger advancement criterion only when portal is created by fire.
@@ -91,26 +93,26 @@ public class CorePortalBlock extends Block implements Portal {
     }
 
     @Override
-    protected void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity, InsideBlockEffectApplier insideBlockEffectApplier, boolean bl) {
+    protected void entityInside(@NonNull BlockState blockState, @NonNull Level level, @NonNull BlockPos blockPos, Entity entity, @NonNull InsideBlockEffectApplier insideBlockEffectApplier, boolean bl) {
         if (entity.canUsePortal(false)) entity.setAsInsidePortal(this, blockPos);
     }
 
     @Override
-    public int getPortalTransitionTime(ServerLevel level, Entity entity) {
+    public int getPortalTransitionTime(@NonNull ServerLevel level, @NonNull Entity entity) {
         return entity instanceof Player player ? Math.max(0, level.getGameRules().get(player.getAbilities().invulnerable ? GameRules.PLAYERS_NETHER_PORTAL_CREATIVE_DELAY : GameRules.PLAYERS_NETHER_PORTAL_DEFAULT_DELAY)) : 0;
     }
 
     @Nullable
     @Override
-    public TeleportTransition getPortalDestination(ServerLevel level, Entity entity, BlockPos blockPos) {
-        ServerLevel level2 = level.getServer().getLevel(level.dimension() == ModDimensions.CORE ? Level.OVERWORLD : ModDimensions.CORE);
-        if (level2 == null) return null;
+    public TeleportTransition getPortalDestination(ServerLevel level, @NonNull Entity entity, @NonNull BlockPos blockPos) {
+        ServerLevel otherLevel = level.getServer().getLevel(level.dimension() == ModDimensions.CORE ? Level.OVERWORLD : ModDimensions.CORE);
+        if (otherLevel == null) return null;
 
-        boolean goingToCore = level2.dimension() == ModDimensions.CORE;
-        WorldBorder worldBorder = level2.getWorldBorder();
-        double scale = DimensionType.getTeleportationScale(level.dimensionType(), level2.dimensionType());
+        boolean goingToCore = otherLevel.dimension() == ModDimensions.CORE;
+        WorldBorder worldBorder = otherLevel.getWorldBorder();
+        double scale = DimensionType.getTeleportationScale(level.dimensionType(), otherLevel.dimensionType());
         BlockPos newPos = worldBorder.clampToBounds(entity.getX() * scale, entity.getY(), entity.getZ() * scale);
-        return this.getExitPortal(level2, entity, blockPos, newPos, goingToCore);
+        return this.getExitPortal(otherLevel, entity, blockPos, newPos, goingToCore);
     }
 
     @Nullable
@@ -176,12 +178,12 @@ public class CorePortalBlock extends Block implements Portal {
     }
 
     @Override
-    public Portal.Transition getLocalTransition() {
+    public Portal.@NonNull Transition getLocalTransition() {
         return Portal.Transition.CONFUSION;
     }
 
     @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rs) {
+    public void animateTick(@NonNull BlockState state, @NonNull Level level, @NonNull BlockPos pos, RandomSource rs) {
         if (rs.nextInt(100) == 0) {
             level.playLocalSound(pos.getX() + 0.5d, pos.getY() + 0.5d, pos.getZ() + 0.5d, SoundEvents.PORTAL_AMBIENT, SoundSource.BLOCKS, 0.5f, rs.nextFloat() * 0.4f + 0.8f, false);
         }
@@ -208,12 +210,12 @@ public class CorePortalBlock extends Block implements Portal {
     }
 
     @Override
-    protected ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean b) {
+    protected @NonNull ItemStack getCloneItemStack(@NonNull LevelReader levelReader, @NonNull BlockPos blockPos, @NonNull BlockState blockState, boolean b) {
         return ItemStack.EMPTY;
     }
 
     @Override
-    protected BlockState rotate(BlockState state, Rotation rotation) {
+    protected @NonNull BlockState rotate(@NonNull BlockState state, @NonNull Rotation rotation) {
         if (rotation != Rotation.COUNTERCLOCKWISE_90 && rotation != Rotation.CLOCKWISE_90) return state;
 
         return switch (state.getValue(AXIS)) {

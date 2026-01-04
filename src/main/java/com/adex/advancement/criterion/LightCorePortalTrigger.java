@@ -6,13 +6,14 @@ import net.minecraft.advancements.criterion.ContextAwarePredicate;
 import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.advancements.criterion.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Optional;
 
 public class LightCorePortalTrigger extends SimpleCriterionTrigger<LightCorePortalTrigger.TriggerInstance> {
 
     @Override
-    public Codec<LightCorePortalTrigger.TriggerInstance> codec() {
+    public @NonNull Codec<LightCorePortalTrigger.TriggerInstance> codec() {
         return LightCorePortalTrigger.TriggerInstance.CODEC;
     }
 

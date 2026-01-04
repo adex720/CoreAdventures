@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
+@SuppressWarnings("unused")
 public class ModTags {
 
     public static final TagKey<Block> CORE_STONE = registerBlock("core_stone");
@@ -38,6 +39,7 @@ public class ModTags {
         return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static TagKey<Biome> registerBiome(String name) {
         return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }

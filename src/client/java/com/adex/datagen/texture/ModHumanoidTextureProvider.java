@@ -5,6 +5,7 @@ import com.adex.item.armor.ModArmorMaterials;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.equipment.ArmorMaterial;
+import org.jspecify.annotations.NonNull;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -68,7 +69,7 @@ public class ModHumanoidTextureProvider extends ModTextureProvider<ArmorMaterial
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return "Humanoid texture provider";
     }
 }
