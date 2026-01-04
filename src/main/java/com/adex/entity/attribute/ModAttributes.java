@@ -11,6 +11,7 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 public class ModAttributes {
 
     public static final Holder<Attribute> HEAT = register("heat", 0.0d, 0.0d, 200.0d, true);
+    public static final Holder<Attribute> HEAT_PROTECTION = register("heat_protection", 0.0d, 0.0d, 1024.0d, true);
 
     private static Holder<Attribute> register(String name, double defaultValue, double minValue, double maxValue, boolean syncedWithClient) {
         Identifier identifier = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name);

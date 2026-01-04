@@ -60,8 +60,8 @@ public class HeatManager {
         player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
     }
 
-    public static int getHeatResistance(ServerPlayer player) {
-        int resistance = BASE_HEAT_RESISTANCE;
+    public static double getHeatResistance(ServerPlayer player) {
+        double resistance = BASE_HEAT_RESISTANCE + player.getAttributeValue(ModAttributes.HEAT_PROTECTION);
         resistance += getHeatResistance(player.getItemBySlot(EquipmentSlot.FEET));
         resistance += getHeatResistance(player.getItemBySlot(EquipmentSlot.LEGS));
         resistance += getHeatResistance(player.getItemBySlot(EquipmentSlot.CHEST));

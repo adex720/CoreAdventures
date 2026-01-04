@@ -13,7 +13,7 @@ public class PlayerMixin {
 
     @Inject(at = @At("RETURN"), method = "createAttributes", cancellable = true)
     private static void createCustomAttributes(CallbackInfoReturnable<AttributeSupplier.Builder> cir) {
-        cir.setReturnValue(cir.getReturnValue().add(ModAttributes.HEAT));
+        cir.setReturnValue(cir.getReturnValue().add(ModAttributes.HEAT).add(ModAttributes.HEAT_PROTECTION));
     }
 
 }
