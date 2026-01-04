@@ -1,14 +1,11 @@
 package com.adex.util;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Collection;
 import java.util.Set;
 
 public class Util {
