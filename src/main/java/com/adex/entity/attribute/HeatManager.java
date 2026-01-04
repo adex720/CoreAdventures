@@ -17,6 +17,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorMaterials;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.Level;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class HeatManager {
 
@@ -25,24 +31,39 @@ public class HeatManager {
 
     public static final Identifier HEAT_AMOUNT = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat");
 
+    private static final Set<String> IGNORE = new HashSet<>();
+
+    @SuppressWarnings("ConstantConditions")
     public static void serverHeatTick(ServerPlayer player, MinecraftServer server) {
+        if (player.getAttribute(ModAttributes.HEAT) == null) {
+            if (IGNORE.add(player.getPlainTextName())) {
+                CoreAdventures.LOGGER.error("Player {} has no attribute HEAT, ignoring\nPossible cause: another mod overriding player attribute registration", player.getName());
+            }
+            return;
+        }
+
         if (player.gameMode() == GameType.CREATIVE || player.gameMode() == GameType.SPECTATOR) {
             player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
             return;
         }
 
-        if (player.level().dimension() != ModDimensions.CORE) {
-            double oldValue = player.getAttributeValue(ModAttributes.HEAT);
-            if (oldValue <= 0.0d) return;
+        try (Level level = player.level()) {
+            if (level.dimension() != ModDimensions.CORE) {
+                double oldValue = player.getAttributeValue(ModAttributes.HEAT);
+                if (oldValue <= 0.0d) return;
 
-            double newValue = oldValue - DEFAULT_HEATING_RATE / BASE_HEAT_RESISTANCE;
-            if (newValue <= 0.0d) {
-                player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
-            } else {
-                AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
-                player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
+                double newValue = oldValue - DEFAULT_HEATING_RATE / BASE_HEAT_RESISTANCE;
+                if (newValue <= 0.0d) {
+                    player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
+                } else {
+                    AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
+                    player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
+                }
+
+                return;
             }
-
+        } catch (IOException e) {
+            CoreAdventures.LOGGER.error("Failed to get level for player {}: {}\n{}", player.getPlainTextName(), e.getLocalizedMessage(), Arrays.toString(e.getStackTrace()));
             return;
         }
 
@@ -52,7 +73,7 @@ public class HeatManager {
         int damage = Math.max(0, (int) ((newValue - 100d) / 10));
         if (damage > 0) {
             newValue -= damage * 10.0d;
-            DamageSource damageSource = new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).get(ModDamageTypes.HEAT_DAMAGE.identifier()).get());
+            DamageSource damageSource = new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).get(ModDamageTypes.HEAT_DAMAGE.identifier()).orElseThrow());
             player.hurtServer(player.level(), damageSource, damage);
         }
 
