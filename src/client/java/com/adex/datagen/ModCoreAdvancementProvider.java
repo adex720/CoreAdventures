@@ -6,10 +6,7 @@ import com.adex.data.tag.ModTags;
 import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementHolder;
-import net.minecraft.advancements.AdvancementRequirements;
-import net.minecraft.advancements.AdvancementType;
+import net.minecraft.advancements.*;
 import net.minecraft.advancements.criterion.ChangeDimensionTrigger;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.advancements.criterion.ItemPredicate;
@@ -18,6 +15,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -29,7 +27,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
     }
 
     @Override
-    public void generateAdvancement(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer) {
+    public void generateAdvancement(HolderLookup.Provider provider, @NonNull Consumer<AdvancementHolder> consumer) {
         HolderLookup<Item> itemHolderLookup = provider.lookupOrThrow(Registries.ITEM);
 
         AdvancementHolder root = Advancement.Builder.advancement()
@@ -87,12 +85,19 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         Component.translatable("advancements.coread.core.get_full_gem_armor.title"),
                         Component.translatable("advancements.coread.core.get_full_gem_armor.description"),
                         null,
-                        AdvancementType.TASK,
+                        AdvancementType.CHALLENGE,
                         false,
                         false,
                         false)
                 .addCriterion("got_full_gem_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GEM_HELMET, ModItems.GEM_CHESTPLATE, ModItems.GEM_LEGGINGS, ModItems.GEM_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .save(consumer, ModDataGenerator.getIdentifierString("get_full_gem_armor"));
 
+        // Summon a boss
+        // Summon a boss while wearing corresponding armor
+        // Defeat a boss
+        // Defeat each boss
+        // Cool with ice
+        // Cool with best ice
     }
 }
