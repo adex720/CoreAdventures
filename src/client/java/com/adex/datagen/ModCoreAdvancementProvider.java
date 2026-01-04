@@ -26,6 +26,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
         super(output, registryLookup);
     }
 
+    @SuppressWarnings("unused")
     @Override
     public void generateAdvancement(HolderLookup.Provider provider, @NonNull Consumer<AdvancementHolder> consumer) {
         HolderLookup<Item> itemHolderLookup = provider.lookupOrThrow(Registries.ITEM);
