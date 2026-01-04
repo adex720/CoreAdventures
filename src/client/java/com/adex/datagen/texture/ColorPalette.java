@@ -9,6 +9,7 @@ import java.util.List;
  * Each palette contains a fully transparent color, and it is accessed with index -1.
  * Index -2 is used for colors not in the palette.
  */
+@SuppressWarnings("unused")
 public class ColorPalette {
 
     public static final ColorPalette DIAMOND_HUMANOID = new ColorPalette(List.of(0xff145e53, 0xff11727a, 0xff1c919a, 0xff1aaaa7, 0xff0ebabd, 0xff20c5b5, 0xff15c2c6, 0xff2cc2b0, 0xff2dc4b2, 0xff30d0be, 0xff2ce0d8, 0xff3de0e5, 0xff4aedd9, 0xff4bede6, 0xff65f5e3, 0xff6bf3e3, 0xff70fbf0, 0xff9af8f0, 0xffa1fbe8, 0xff9efeeb, 0xffb4fdee, 0xffd5fff6, 0xffe5fffa, 0xffffffff));

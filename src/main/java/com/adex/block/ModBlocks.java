@@ -56,7 +56,7 @@ public class ModBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0F, 1200.0F).sound(SoundType.ANCIENT_DEBRIS));
 
     public static final Block CORE_PORTAL_BLOCK = registerWithoutBlockItem("core_portal_block", CorePortalBlock::new,
-            BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(state -> 11).pushReaction(PushReaction.BLOCK));
+            BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(_ -> 11).pushReaction(PushReaction.BLOCK));
 
     private static Block register(String name, BlockBehaviour.Properties settings) {
         return register(name, Block::new, settings);

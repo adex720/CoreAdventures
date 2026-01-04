@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import java.util.List;
 import java.util.function.UnaryOperator;
 
+@SuppressWarnings("SameParameterValue")
 public class ModEnchantmentEffectComponents {
 
     public static final DataComponentType<List<ConditionalEffect<EnchantmentValueEffect>>> BREAK_MULTIPLE = register("break_multiple",
