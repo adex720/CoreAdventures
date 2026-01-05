@@ -24,8 +24,10 @@ import java.util.Set;
 
 public class HeatManager {
 
-    public static final double DEFAULT_HEATING_RATE = 0.5d; // maybe 0.1d
+    public static final double DEFAULT_HEATING_RATE = 0.05d; // maybe 0.1d
     public static final int BASE_HEAT_RESISTANCE = 10;
+
+    public static final double TOLERANCE = 100.0d;
 
     public static final Identifier HEAT_AMOUNT = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat");
 
@@ -64,7 +66,7 @@ public class HeatManager {
         double oldValue = player.getAttributeValue(ModAttributes.HEAT);
         double newValue = oldValue + DEFAULT_HEATING_RATE / getHeatResistance(player);
 
-        int damage = Math.max(0, (int) ((newValue - 100d) / 10));
+        int damage = Math.max(0, (int) ((newValue - TOLERANCE) / 10));
         if (damage > 0) {
             newValue -= damage * 10.0d;
             DamageSource damageSource = new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).get(ModDamageTypes.HEAT_DAMAGE.identifier()).orElseThrow());
@@ -110,6 +112,10 @@ public class HeatManager {
             return 4;
 
         return 0;
+    }
+
+    public static boolean preventsNaturalRegeneration(ServerPlayer player) {
+        return player.getAttributeValue(ModAttributes.HEAT) >= HeatManager.TOLERANCE;
     }
 
 }
