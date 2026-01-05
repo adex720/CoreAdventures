@@ -1,0 +1,33 @@
+{
+  "parent": "coread:cool_with_any",
+  "criteria": {
+    "cool_with_blue_ice": {
+      "conditions": {
+        "block": "minecraft:blue_ice"
+      },
+      "trigger": "coread:cool_with_ice"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.coread.core.cool_with_blue_ice.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:ice"
+    },
+    "title": {
+      "translate": "advancements.coread.core.cool_with_blue_ice.title"
+    }
+  },
+  "requirements": [
+    [
+      "cool_with_blue_ice"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

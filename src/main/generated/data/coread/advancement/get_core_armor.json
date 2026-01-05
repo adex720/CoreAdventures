@@ -13,7 +13,6 @@
     }
   },
   "display": {
-    "announce_to_chat": false,
     "description": {
       "translate": "advancements.coread.core.get_core_armor.description"
     },
@@ -21,7 +20,6 @@
       "count": 1,
       "id": "coread:jade_chestplate"
     },
-    "show_toast": false,
     "title": {
       "translate": "advancements.coread.core.get_core_armor.title"
     }

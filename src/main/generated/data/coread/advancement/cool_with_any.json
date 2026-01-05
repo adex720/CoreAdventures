@@ -1,0 +1,26 @@
+{
+  "parent": "coread:root",
+  "criteria": {
+    "cool_with_any": {
+      "trigger": "coread:cool_with_ice"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.coread.core.cool_with_any.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:ice"
+    },
+    "title": {
+      "translate": "advancements.coread.core.cool_with_any.title"
+    }
+  },
+  "requirements": [
+    [
+      "cool_with_any"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

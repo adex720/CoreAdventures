@@ -1,5 +1,6 @@
 package com.adex.datagen;
 
+import com.adex.advancement.criterion.CoolWithIceTrigger;
 import com.adex.block.ModBlocks;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.data.tag.ModTags;
@@ -15,6 +16,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -50,8 +53,8 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         Component.translatable("advancements.coread.core.get_core_armor.description"),
                         null,
                         AdvancementType.TASK,
-                        false,
-                        false,
+                        true,
+                        true,
                         false)
                 .addCriterion("got_core_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(itemHolderLookup, ModTags.CORE_ARMOR)))
                 .save(consumer, ModDataGenerator.getIdentifierString("get_core_armor"));
@@ -63,8 +66,8 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         Component.translatable("advancements.coread.core.get_full_core_armor.description"),
                         null,
                         AdvancementType.TASK,
-                        false,
-                        false,
+                        true,
+                        true,
                         false)
                 .addCriterion("got_gem_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GEM_HELMET, ModItems.GEM_CHESTPLATE, ModItems.GEM_LEGGINGS, ModItems.GEM_BOOTS))
                 .addCriterion("got_chalcedony_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHALCEDONY_HELMET, ModItems.CHALCEDONY_CHESTPLATE, ModItems.CHALCEDONY_LEGGINGS, ModItems.CHALCEDONY_BOOTS))
@@ -87,18 +90,43 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         Component.translatable("advancements.coread.core.get_full_gem_armor.description"),
                         null,
                         AdvancementType.CHALLENGE,
-                        false,
-                        false,
+                        true,
+                        true,
                         false)
                 .addCriterion("got_full_gem_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GEM_HELMET, ModItems.GEM_CHESTPLATE, ModItems.GEM_LEGGINGS, ModItems.GEM_BOOTS))
                 .rewards(AdvancementRewards.Builder.experience(100))
                 .save(consumer, ModDataGenerator.getIdentifierString("get_full_gem_armor"));
 
+        AdvancementHolder coolWithIce = Advancement.Builder.advancement()
+                .parent(root)
+                .display(Items.ICE,
+                        Component.translatable("advancements.coread.core.cool_with_any.title"),
+                        Component.translatable("advancements.coread.core.cool_with_any.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false)
+                .addCriterion("cool_with_any", CoolWithIceTrigger.TriggerInstance.coolsWithAny())
+                .save(consumer, ModDataGenerator.getIdentifierString("cool_with_any"));
+
+        AdvancementHolder coolWithBlueIce = Advancement.Builder.advancement()
+                .parent(coolWithIce)
+                .display(Items.ICE,
+                        Component.translatable("advancements.coread.core.cool_with_blue_ice.title"),
+                        Component.translatable("advancements.coread.core.cool_with_blue_ice.description"),
+                        null,
+                        AdvancementType.CHALLENGE,
+                        true,
+                        true,
+                        false)
+                .addCriterion("cool_with_blue_ice", CoolWithIceTrigger.TriggerInstance.coolsWith(Blocks.BLUE_ICE))
+                .rewards(AdvancementRewards.Builder.experience(50))
+                .save(consumer, ModDataGenerator.getIdentifierString("cool_with_blue_ice"));
+
         // Summon a boss
         // Summon a boss while wearing corresponding armor
         // Defeat a boss
         // Defeat each boss
-        // Cool with ice
-        // Cool with best ice
     }
 }

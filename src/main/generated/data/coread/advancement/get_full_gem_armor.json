@@ -22,7 +22,6 @@
     }
   },
   "display": {
-    "announce_to_chat": false,
     "description": {
       "translate": "advancements.coread.core.get_full_gem_armor.description"
     },
@@ -31,7 +30,6 @@
       "count": 1,
       "id": "coread:gem_chestplate"
     },
-    "show_toast": false,
     "title": {
       "translate": "advancements.coread.core.get_full_gem_armor.title"
     }

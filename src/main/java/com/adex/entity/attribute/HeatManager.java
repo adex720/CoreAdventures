@@ -1,6 +1,7 @@
 package com.adex.entity.attribute;
 
 import com.adex.CoreAdventures;
+import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.item.ModDataComponents;
@@ -132,21 +133,22 @@ public class HeatManager {
         else if (block == Blocks.BLUE_ICE) cooling = 200.0d;
 
         if (cooling < 0.0d) return;
-        applyCooling(level, pos, cooling);
+        applyCooling(level, pos.getCenter(), cooling, state);
         level.destroyBlock(pos, false);
     }
 
-    public static void applyCooling(Level level, BlockPos pos, double strength) {
-        applyCooling(level, pos.getCenter(), strength);
-    }
-
-    public static void applyCooling(Level level, Vec3 pos, double strength) {
+    public static void applyCooling(Level level, Vec3 pos, double strength, BlockState state) {
         for (Player player : level.players()) {
             double distance = player.position().add(Direction.UP.getUnitVec3()).distanceTo(pos);
             if (distance >= 2.0d) distance = Math.pow(distance - 2.0d, 3.0d) + 2.0d;
             double cooling = strength / distance;
             if (cooling > 0.1d) {
-                addHeat(player, -cooling);
+                if (player.getAttributeValue(ModAttributes.HEAT) > 0.0d) {
+                    addHeat(player, -cooling);
+                    if (player instanceof ServerPlayer serverPlayer) {
+                        ModCriterionTriggers.COOL_WITH_ICE.trigger(serverPlayer, state);
+                    }
+                }
             }
         }
     }

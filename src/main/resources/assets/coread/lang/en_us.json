@@ -112,11 +112,15 @@
   "advancements.coread.core.root.title": "Core",
   "advancements.coread.core.root.description": "Get maximal heat protection with core armor",
   "advancements.coread.core.get_core_armor.title": "Shiny Style",
-  "advancements.coread.core.get_core_armor.description": "Don't overheat",
+  "advancements.coread.core.get_core_armor.description": "Staying cool",
   "advancements.coread.core.get_full_core_armor.title": "Shinier Style",
   "advancements.coread.core.get_full_core_armor.description": "Get a full suit of any Core armor",
   "advancements.coread.core.get_full_gem_armor.title": "Shiniest Style",
   "advancements.coread.core.get_full_gem_armor.description": "Get a full suit of Gem armor",
+  "advancements.coread.core.cool_with_any.title": "Cool Moment",
+  "advancements.coread.core.cool_with_any.description": "Cool down next to ice in core",
+  "advancements.coread.core.cool_with_blue_ice.title": "Sub Zero experience",
+  "advancements.coread.core.cool_with_blue_ice.description": "Cool down next to blue ice in core",
 
   "death.attack.heat": "%1$s died from heat",
 
