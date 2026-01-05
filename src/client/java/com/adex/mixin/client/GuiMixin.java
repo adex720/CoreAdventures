@@ -12,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Gui.class)
 public class GuiMixin {
 
-    @Inject(at = @At("TAIL"), method = "renderArmor")
-    private static void renderArmor(GuiGraphics guiGraphics, Player player, int i, int j, int k, int l, CallbackInfo ci) {
-        HeatHud.render(guiGraphics, player, i, j, k, l);
+    @Inject(at = @At("HEAD"), method = "renderArmor")
+    private static void renderArmor(GuiGraphics guiGraphics, Player player, int startY, int rows, int rowHeight, int startX, CallbackInfo ci) {
+        HeatHud.render(guiGraphics, player, player.getArmorValue() > 0 ? startY : startY + rowHeight, rows, rowHeight, startX);
     }
 }
