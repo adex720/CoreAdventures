@@ -26,9 +26,9 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json",
+    "coread.mixins.json",
     {
-      "config": "modid.client.mixins.json",
+      "config": "coread.client.mixins.json",
       "environment": "client"
     }
   ],
