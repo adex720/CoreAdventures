@@ -5,6 +5,8 @@ import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.item.ModDataComponents;
 import com.adex.item.armor.ModArmorMaterials;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
@@ -12,12 +14,17 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorMaterials;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -49,34 +56,37 @@ public class HeatManager {
 
         Level level = player.level();
         if (level.dimension() != ModDimensions.CORE) {
-            double oldValue = player.getAttributeValue(ModAttributes.HEAT);
-            if (oldValue <= 0.0d) return;
-
-            double newValue = oldValue - DEFAULT_HEATING_RATE / BASE_HEAT_RESISTANCE;
-            if (newValue <= 0.0d) {
-                player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
-            } else {
-                AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
-                player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
-            }
+            addHeat(player, -DEFAULT_HEATING_RATE / BASE_HEAT_RESISTANCE);
 
             return;
         }
 
-        double oldValue = player.getAttributeValue(ModAttributes.HEAT);
-        double newValue = oldValue + DEFAULT_HEATING_RATE / getHeatResistance(player);
+        double newValue = addHeat(player, DEFAULT_HEATING_RATE / getHeatResistance(player));
+        double reduction = 0.0d; // How much heat to reduce for taken damage
 
         int damage = Math.max(0, (int) ((newValue - TOLERANCE) / 10));
         if (damage > 0) {
-            newValue -= damage * 10.0d;
+            reduction -= damage * 10.0d;
             DamageSource damageSource = new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).get(ModDamageTypes.HEAT_DAMAGE.identifier()).orElseThrow());
             player.hurtServer(player.level(), damageSource, damage);
         }
 
-        AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
-        player.getAttribute(ModAttributes.HEAT).
+        addHeat(player, reduction);
+    }
 
-                addOrReplacePermanentModifier(modifier);
+    @SuppressWarnings("ConstantConditions")
+    public static double addHeat(Player player, double amount) {
+        double oldValue = player.getAttributeValue(ModAttributes.HEAT);
+        double newValue = oldValue + amount;
+
+        if (newValue <= 0.0d) {
+            player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
+        } else {
+            AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
+            player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
+        }
+
+        return newValue;
     }
 
     public static double getHeatResistance(ServerPlayer player) {
@@ -112,6 +122,33 @@ public class HeatManager {
             return 4;
 
         return 0;
+    }
+
+    public static void applyCooling(Level level, BlockPos pos, BlockState state) {
+        Block block = state.getBlock();
+        double cooling = -1.0d;
+        if (block == Blocks.ICE) cooling = 2.0d;
+        else if (block == Blocks.PACKED_ICE) cooling = 20.0d;
+        else if (block == Blocks.BLUE_ICE) cooling = 200.0d;
+
+        if (cooling < 0.0d) return;
+        applyCooling(level, pos, cooling);
+        level.destroyBlock(pos, false);
+    }
+
+    public static void applyCooling(Level level, BlockPos pos, double strength) {
+        applyCooling(level, pos.getCenter(), strength);
+    }
+
+    public static void applyCooling(Level level, Vec3 pos, double strength) {
+        for (Player player : level.players()) {
+            double distance = player.position().add(Direction.UP.getUnitVec3()).distanceTo(pos);
+            if (distance >= 2.0d) distance = Math.pow(distance - 2.0d, 3.0d) + 2.0d;
+            double cooling = strength / distance;
+            if (cooling > 0.1d) {
+                addHeat(player, -cooling);
+            }
+        }
     }
 
     public static boolean preventsNaturalRegeneration(ServerPlayer player) {
