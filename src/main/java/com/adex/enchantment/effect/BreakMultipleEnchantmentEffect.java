@@ -6,6 +6,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -44,7 +45,7 @@ public record BreakMultipleEnchantmentEffect(LevelBasedValue amount) implements 
             level.destroyBlock(breakPos, true, player);
 
             // Update player statistics
-            block.playerDestroy(level, player, breakPos, breakState, breakBlockEntity, itemStack);
+            player.awardStat(Stats.BLOCK_MINED.get(block));
         }
 
         RUNNING = false;
