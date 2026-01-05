@@ -19,14 +19,12 @@ import net.minecraft.world.item.equipment.ArmorMaterials;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class HeatManager {
 
-    public static final double DEFAULT_HEATING_RATE = 0.05d; // maybe 0.1d
+    public static final double DEFAULT_HEATING_RATE = 0.5d; // maybe 0.1d
     public static final int BASE_HEAT_RESISTANCE = 10;
 
     public static final Identifier HEAT_AMOUNT = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat");
@@ -47,23 +45,19 @@ public class HeatManager {
             return;
         }
 
-        try (Level level = player.level()) {
-            if (level.dimension() != ModDimensions.CORE) {
-                double oldValue = player.getAttributeValue(ModAttributes.HEAT);
-                if (oldValue <= 0.0d) return;
+        Level level = player.level();
+        if (level.dimension() != ModDimensions.CORE) {
+            double oldValue = player.getAttributeValue(ModAttributes.HEAT);
+            if (oldValue <= 0.0d) return;
 
-                double newValue = oldValue - DEFAULT_HEATING_RATE / BASE_HEAT_RESISTANCE;
-                if (newValue <= 0.0d) {
-                    player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
-                } else {
-                    AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
-                    player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
-                }
-
-                return;
+            double newValue = oldValue - DEFAULT_HEATING_RATE / BASE_HEAT_RESISTANCE;
+            if (newValue <= 0.0d) {
+                player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
+            } else {
+                AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
+                player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
             }
-        } catch (IOException e) {
-            CoreAdventures.LOGGER.error("Failed to get level for player {}: {}\n{}", player.getPlainTextName(), e.getLocalizedMessage(), Arrays.toString(e.getStackTrace()));
+
             return;
         }
 
@@ -78,7 +72,9 @@ public class HeatManager {
         }
 
         AttributeModifier modifier = new AttributeModifier(HEAT_AMOUNT, newValue, AttributeModifier.Operation.ADD_VALUE);
-        player.getAttribute(ModAttributes.HEAT).addOrReplacePermanentModifier(modifier);
+        player.getAttribute(ModAttributes.HEAT).
+
+                addOrReplacePermanentModifier(modifier);
     }
 
     public static double getHeatResistance(ServerPlayer player) {
