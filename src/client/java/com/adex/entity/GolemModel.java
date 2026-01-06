@@ -29,12 +29,12 @@ public class GolemModel extends EntityModel<GolemRenderState> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(72, 11).addBox(-7.0f, -29.0f, -4.0f, 14.0f, 5.0f, 8.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
-        PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-12.0f, -24.0f, -12.0f, 24.0f, 17.0f, 24.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
-        PartDefinition handLeft = partdefinition.addOrReplaceChild("handLeft", CubeListBuilder.create().texOffs(111, 25).addBox(-15.0f, -22.0f, -2.0f, 3.0f, 12.0f, 4.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
-        PartDefinition handRight = partdefinition.addOrReplaceChild("handRight", CubeListBuilder.create().texOffs(97, 25).addBox(12.0f, -22.0f, -2.0f, 3.0f, 12.0f, 4.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
-        PartDefinition legLeft = partdefinition.addOrReplaceChild("legLeft", CubeListBuilder.create().texOffs(16, 42).addBox(-7.0f, -7.0f, -2.0f, 4.0f, 7.0f, 4.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
-        PartDefinition legRight = partdefinition.addOrReplaceChild("legRight", CubeListBuilder.create().texOffs(0, 42).addBox(3.0f, -7.0f, -2.0f, 4.0f, 7.0f, 4.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
+        partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(72, 11).addBox(-7.0f, -29.0f, -4.0f, 14.0f, 5.0f, 8.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
+        partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-12.0f, -24.0f, -12.0f, 24.0f, 17.0f, 24.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
+        partdefinition.addOrReplaceChild("handLeft", CubeListBuilder.create().texOffs(111, 25).addBox(-15.0f, -22.0f, -2.0f, 3.0f, 12.0f, 4.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
+        partdefinition.addOrReplaceChild("handRight", CubeListBuilder.create().texOffs(97, 25).addBox(12.0f, -22.0f, -2.0f, 3.0f, 12.0f, 4.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
+        partdefinition.addOrReplaceChild("legLeft", CubeListBuilder.create().texOffs(16, 42).addBox(-7.0f, -7.0f, -2.0f, 4.0f, 7.0f, 4.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
+        partdefinition.addOrReplaceChild("legRight", CubeListBuilder.create().texOffs(0, 42).addBox(3.0f, -7.0f, -2.0f, 4.0f, 7.0f, 4.0f, new CubeDeformation(0.0f)), PartPose.offset(0.0f, 24.0f, 0.0f));
 
         return LayerDefinition.create(meshdefinition, 128, 64);
     }
