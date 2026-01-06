@@ -119,6 +119,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.BLUE_GEM_MIXTURE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.RED_GEM_MIXTURE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.SHINY_GEM_MIXTURE, ModelTemplates.FLAT_ITEM);
+
+        itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
     }
 
     @Override

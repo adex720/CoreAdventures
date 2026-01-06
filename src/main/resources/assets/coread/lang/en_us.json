@@ -103,7 +103,9 @@
   "item.coread.gem_leggings": "Gem Leggings",
   "item.coread.gem_boots": "Gem Boots",
 
-  "entity.coread.chalcedony_golem": "chalcedony Golem",
+  "item.coread.chalcedony_golem_spawn_egg": "Chalcedony Golem Spawn Egg",
+
+  "entity.coread.chalcedony_golem": "Chalcedony Golem",
 
   "enchantment.coread.chaining": "Chaining",
   "enchantment.coread.heat_protection": "Heat Protection",

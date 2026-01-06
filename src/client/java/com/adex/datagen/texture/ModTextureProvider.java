@@ -23,7 +23,7 @@ import java.util.concurrent.CompletableFuture;
 
 public abstract class ModTextureProvider<T> implements DataProvider {
 
-    public static final String VANILLA_TEXTURES_PATH = RepositoryRootPath.PATH + "\\src\\client\\resources\\vanillatextures\\";
+    public static final String VANILLA_TEXTURES_PATH = RepositoryRootPath.PATH + "\\src\\client\\resources\\basetextures\\";
 
     private final List<Map<T, BufferedImage>> generators = new ArrayList<>();
 
