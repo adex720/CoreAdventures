@@ -5,6 +5,7 @@
   "mixins": [
     "BlockBehaviourMixin",
     "BlockMixin",
+    "DefaultAttributesAccessor",
     "FoodDataMixin",
     "ItemPropertiesMixin",
     "PlayerMixin",
