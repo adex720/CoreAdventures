@@ -1,6 +1,7 @@
 package com.adex.item;
 
 import com.adex.CoreAdventures;
+import com.adex.entity.ModEntities;
 import com.adex.item.armor.ModArmorMaterials;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
@@ -8,8 +9,10 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 
@@ -88,6 +91,8 @@ public class ModItems {
     public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties());
     public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties());
 
+    public static final Item CHALCEDONY_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.CHALCEDONY_GOLEM);
+
 
     public static Item register(String name, Item.Properties settings) {
         return register(name, Item::new, settings);
@@ -98,6 +103,10 @@ public class ModItems {
         Item item = itemFactory.apply(settings.setId(itemKey));
         Registry.register(BuiltInRegistries.ITEM, itemKey, item);
         return item;
+    }
+
+    public static Item registerSpawnEgg(EntityType<?> entityType) {
+        return register(EntityType.getKey(entityType).getPath() + "_spawn_egg", SpawnEggItem::new, new Item.Properties().spawnEgg(entityType));
     }
 
     public static Item registerHelmet(String name, ArmorMaterial material) {
@@ -193,6 +202,10 @@ public class ModItems {
             itemGroup.accept(GEM_CHESTPLATE);
             itemGroup.accept(GEM_LEGGINGS);
             itemGroup.accept(GEM_BOOTS);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register((itemGroup) -> {
+            itemGroup.accept(CHALCEDONY_GOLEM_SPAWN_EGG);
         });
     }
 
