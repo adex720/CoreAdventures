@@ -15,8 +15,8 @@ public class ColorPalette {
     public static final ColorPalette DIAMOND_HUMANOID = new ColorPalette(List.of(0xff145e53, 0xff11727a, 0xff1c919a, 0xff1aaaa7, 0xff0ebabd, 0xff20c5b5, 0xff15c2c6, 0xff2cc2b0, 0xff2dc4b2, 0xff30d0be, 0xff2ce0d8, 0xff3de0e5, 0xff4aedd9, 0xff4bede6, 0xff65f5e3, 0xff6bf3e3, 0xff70fbf0, 0xff9af8f0, 0xffa1fbe8, 0xff9efeeb, 0xffb4fdee, 0xffd5fff6, 0xffe5fffa, 0xffffffff));
     public static final ColorPalette DIAMOND_ARMOR = new ColorPalette(List.of(0xff082520, 0xff17172d, 0xff0e3f36, 0xff1aaaa7, 0xff20c5b5, 0xff4aedd9, 0xffa1fbe8, 0xffffffff));
 
-    public static final ColorPalette CHALCEDONY_HUMANOID = matchVanillaHumanoidWith6(0xff2f4dc6, 0xff405ed8, 0xff5974e5, 0xff5974e5, 0xff6d85eb, 0xff8ea1f1);
-    public static final ColorPalette CHALCEDONY_ARMOR = matchVanillaArmorWith6(0xff2f4dc6, 0xff405ed8, 0xff5974e5, 0xff5974e5, 0xff6d85eb, 0xff8ea1f1);
+    public static final ColorPalette CHALCEDONY_HUMANOID = matchVanillaHumanoidWith6(0xff2f4dc6, 0xff405ed8, 0xff5974e5, 0xff6d85eb, 0xff8ea1f1, 0xffa1b1f5);
+    public static final ColorPalette CHALCEDONY_ARMOR = matchVanillaArmorWith6(0xff2f4dc6, 0xff405ed8, 0xff5974e5, 0xff6d85eb, 0xff8ea1f1, 0xffa1b1f5);
 
     public static final ColorPalette GARNET_HUMANOID = matchVanillaHumanoidWith6(0xff4e0202, 0xff660000, 0xff7e0606, 0xff950d0d, 0xffaa1616, 0xffbc1c1c);
     public static final ColorPalette GARNET_ARMOR = matchVanillaArmorWith6(0xff4e0202, 0xff660000, 0xff7e0606, 0xff950d0d, 0xffaa1616, 0xffbc1c1c);
