@@ -4,6 +4,7 @@ import com.adex.CoreAdventures;
 import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.data.dimension.CustomPortalForcer;
 import com.adex.data.dimension.ModDimensions;
+import com.adex.entity.ai.MoveTowardsCorePortalGoal;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -30,6 +31,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.gamerules.GameRules;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.portal.PortalShape;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.AABB;
@@ -43,7 +45,6 @@ import org.jspecify.annotations.Nullable;
 import java.util.Map;
 import java.util.Optional;
 
-@SuppressWarnings("resource")
 public class CorePortalBlock extends Block implements Portal {
 
     public static final MapCodec<CorePortalBlock> CODEC = simpleCodec(CorePortalBlock::new);
@@ -180,6 +181,11 @@ public class CorePortalBlock extends Block implements Portal {
     @Override
     public Portal.@NonNull Transition getLocalTransition() {
         return Portal.Transition.CONFUSION;
+    }
+
+    @Override
+    protected boolean isPathfindable(@NonNull BlockState blockState, @NonNull PathComputationType pathComputationType) {
+        return MoveTowardsCorePortalGoal.IS_GOLEM_PATHFINDING;
     }
 
     @Override

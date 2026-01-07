@@ -1,5 +1,7 @@
 package com.adex.entity.golem;
 
+import com.adex.entity.ai.MoveAwayFromCorePortalGoal;
+import com.adex.entity.ai.MoveTowardsCorePortalGoal;
 import com.adex.mixin.DefaultAttributesAccessor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerBossEvent;
@@ -8,11 +10,17 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
@@ -45,10 +53,36 @@ public abstract class Golem extends Monster {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 300.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.6F)
-                .add(Attributes.FOLLOW_RANGE, 20.0)
-                .add(Attributes.ARMOR, 5.0);
+                .add(Attributes.MAX_HEALTH, 300.0d)
+                .add(Attributes.MOVEMENT_SPEED, 0.2d)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 2.0d)
+                .add(Attributes.FOLLOW_RANGE, 20.0d)
+                .add(Attributes.ARMOR, 5.0d);
+    }
+
+    @Override
+    protected void registerGoals() {
+        updatePathFindingMalus();
+
+        goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0d, true));
+        goalSelector.addGoal(3, new MoveTowardsTargetGoal(this, 1.0d, 16.0f));
+        goalSelector.addGoal(4, new MoveTowardsCorePortalGoal(this, 1.0d, 32.0f));
+        goalSelector.addGoal(5, new MoveAwayFromCorePortalGoal(this, 1.0d, 8.0f));
+        goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0f, 0.25f));
+        goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0d, 60));
+
+        targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 0, false, false, this::isValidPlayerTarget));
+    }
+
+    protected void updatePathFindingMalus() {
+        setPathfindingMalus(PathType.LAVA, 8.0f);
+        setPathfindingMalus(PathType.DAMAGE_FIRE, 8.0f);
+        setPathfindingMalus(PathType.DANGER_FIRE, 4.0f);
+    }
+
+    protected boolean isValidPlayerTarget(LivingEntity livingEntity, ServerLevel level) {
+        return livingEntity instanceof Player player && !player.isCreative() && !player.isSpectator();
     }
 
     @Override
@@ -79,5 +113,10 @@ public abstract class Golem extends Monster {
     protected void actuallyHurt(@NonNull ServerLevel serverLevel, @NonNull DamageSource damageSource, float f) {
         super.actuallyHurt(serverLevel, damageSource, f);
         bossEvent.setProgress(getHealth() / getMaxHealth());
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double d) {
+        return false;
     }
 }

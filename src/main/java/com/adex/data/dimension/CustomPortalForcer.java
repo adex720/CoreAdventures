@@ -33,9 +33,13 @@ public class CustomPortalForcer {
     }
 
     public Optional<BlockPos> findClosestPortalPosition(BlockPos pos, boolean goingToCore, ServerLevel level) {
+        return findClosestPortalPosition(pos, goingToCore ? 16 : 256, level);
+    }
+
+    public Optional<BlockPos> findClosestPortalPosition(BlockPos pos, int maxDistance, ServerLevel level) {
         PoiManager poiManager = level.getPoiManager();
-        int maxDistance = goingToCore ? 16 : 256;
         poiManager.ensureLoadedAndValid(level, pos, maxDistance);
+
         return poiManager.getInSquare(holder -> holder.is(ModPoiTypes.CORE_PORTAL), pos, maxDistance, PoiManager.Occupancy.ANY)
                 .map(PoiRecord::getPos)
                 .filter(blockPos -> level.getWorldBorder().isWithinBounds(blockPos))
