@@ -51,6 +51,7 @@ public class RegenerateWhenFarAwayGoal extends Goal {
         if (tickCounter % regenerationSpeed == 1) {
             golem.heal(1.0f);
             golem.updateBossEventProgress();
+            //TODO: add heart particles
         }
     }
 

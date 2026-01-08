@@ -14,6 +14,7 @@ public class ModTags {
     public static final TagKey<Block> CORE_STONE = registerBlock("core_stone");
     public static final TagKey<Block> PORTAL_BLOCKS = registerBlock("portal_blocks");
     public static final TagKey<Block> CHAINABLE_BLOCKS = registerBlock("chainable_blocks");
+    public static final TagKey<Block> GOLEM_UNBREAKABLE_BLOCKS = registerBlock("golem_unbreakable_blocks");
 
     public static final TagKey<Item> REPAIRS_CHALCEDONY_ARMOR = registerItem("repairs_chalcedony_armor");
     public static final TagKey<Item> REPAIRS_GARNET_ARMOR = registerItem("repairs_garnet_armor");

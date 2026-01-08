@@ -10,8 +10,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.Shapes;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Util {
 
@@ -25,6 +27,32 @@ public class Util {
         T element = set.stream().toList().get(random.nextInt(set.size()));
         set.remove(element);
         return element;
+    }
+
+
+    /**
+     * Returns 0 if the list is empty.
+     *
+     * @param list   List of weights
+     * @param random RandomSource
+     * @return Randomly weighted index
+     */
+    public static int getRandomWeightedIndex(ArrayList<Float> list, RandomSource random) {
+        AtomicReference<Float> sum = new AtomicReference<>(0.0f);
+        list.forEach(f -> sum.updateAndGet(v -> v + f));
+        return getRandomWeightedIndex(list, random, sum.get());
+    }
+
+    public static int getRandomWeightedIndex(ArrayList<Float> list, RandomSource random, float totalWeight) {
+        if (totalWeight <= 0 || list.isEmpty()) return 0;
+
+        float value = random.nextFloat() * totalWeight;
+        for (int i = 0; i < list.size() - 1; i++) {
+            value -= list.get(i);
+            if (value <= 0) return i;
+        }
+
+        return list.size() - 1;
     }
 
     /**
