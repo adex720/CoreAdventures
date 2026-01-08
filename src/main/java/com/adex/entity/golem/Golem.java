@@ -131,6 +131,7 @@ public abstract class Golem extends Monster {
     public void startSeenByPlayer(@NonNull ServerPlayer serverPlayer) {
         super.startSeenByPlayer(serverPlayer);
         this.bossEvent.addPlayer(serverPlayer);
+        updateBossEventProgress();
     }
 
     @Override
