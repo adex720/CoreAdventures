@@ -8,6 +8,7 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
 
+import java.util.EnumSet;
 import java.util.Optional;
 
 public class MoveTowardsCorePortalGoal extends Goal {
@@ -25,6 +26,8 @@ public class MoveTowardsCorePortalGoal extends Goal {
         this.golem = golem;
         this.speedModifier = speedModifier;
         this.maxDistance = maxDistance;
+
+        this.setFlags(EnumSet.of(Goal.Flag.MOVE));
     }
 
     @Override
@@ -62,7 +65,7 @@ public class MoveTowardsCorePortalGoal extends Goal {
 
     @Override
     public void stop() {
-       golem.getNavigation().stop();
+        golem.getNavigation().stop();
         super.stop();
     }
 

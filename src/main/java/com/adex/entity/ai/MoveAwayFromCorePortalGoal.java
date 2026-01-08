@@ -10,6 +10,7 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.Path;
 
+import java.util.EnumSet;
 import java.util.Optional;
 
 public class MoveAwayFromCorePortalGoal extends Goal {
@@ -23,6 +24,8 @@ public class MoveAwayFromCorePortalGoal extends Goal {
         this.golem = golem;
         this.speedModifier = speedModifier;
         this.distance = distance;
+
+        this.setFlags(EnumSet.of(Goal.Flag.MOVE));
     }
 
     @Override
