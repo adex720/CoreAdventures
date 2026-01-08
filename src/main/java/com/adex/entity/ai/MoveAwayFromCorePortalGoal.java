@@ -14,51 +14,57 @@ import java.util.Optional;
 
 public class MoveAwayFromCorePortalGoal extends Goal {
 
-    private final PathfinderMob mob;
+    protected final PathfinderMob golem;
     private Path path;
     private final double speedModifier;
     private final float distance;
 
-    public MoveAwayFromCorePortalGoal(PathfinderMob mob, double speedModifier, float distance) {
-        this.mob = mob;
+    public MoveAwayFromCorePortalGoal(PathfinderMob golem, double speedModifier, float distance) {
+        this.golem = golem;
         this.speedModifier = speedModifier;
         this.distance = distance;
     }
 
     @Override
     public boolean canUse() {
-        if (mob.level().dimension() != ModDimensions.CORE) return false;
+        if (golem.level().dimension() != ModDimensions.CORE) return false;
 
         return findClosestSafeSpot(distance);
     }
 
     private boolean findClosestSafeSpot(float maxDistance) {
-        Level level = mob.level();
+        Level level = golem.level();
         if (level.isClientSide()) return false;
 
         ServerLevel serverLevel = (ServerLevel) level;
-        Optional<BlockPos> result = CustomPortalForcer.CORE_PORTAL_FORCER.findClosestPortalPosition(mob.blockPosition(), (int) maxDistance, serverLevel);
+        Optional<BlockPos> result = CustomPortalForcer.CORE_PORTAL_FORCER.findClosestPortalPosition(golem.blockPosition(), (int) maxDistance, serverLevel);
         if (result.isEmpty()) return false;
 
         // findClosestPortalPosition searches for a square with a side length double of maxDistance.
         // Therefore, a portal found in a corner is far enough.
-        if (result.get().distManhattan(mob.blockPosition()) >= distance) return false;
+        if (result.get().distManhattan(golem.blockPosition()) >= distance) return false;
 
         MoveTowardsCorePortalGoal.IS_GOLEM_PATHFINDING = true;
-        path = mob.getNavigation().createPath(Util.getBlocksNAway(result.get(), (int) distance, level, Util::isFullBlockWithAirAbove), (int) (distance * 2));
+        path = golem.getNavigation().createPath(Util.getBlocksNAway(result.get(), (int) distance, level, Util::isFullBlockWithAirAbove), (int) (distance * 2));
         MoveTowardsCorePortalGoal.IS_GOLEM_PATHFINDING = false;
         return path != null;
     }
 
     @Override
     public boolean canContinueToUse() {
-        return !mob.getNavigation().isDone() && path != null && path.getEndNode() != null
-                && mob.distanceToSqr(path.getEndNode().asBlockPos().getBottomCenter()) <= distance * distance;
+        return !golem.getNavigation().isDone() && path != null && path.getEndNode() != null
+                && golem.distanceToSqr(path.getEndNode().asBlockPos().getBottomCenter()) <= distance * distance;
     }
 
     @Override
     public void start() {
-        mob.getNavigation().moveTo(path, speedModifier);
+        golem.getNavigation().moveTo(path, speedModifier);
+    }
+
+    @Override
+    public void stop() {
+        golem.getNavigation().stop();
+        super.stop();
     }
 
 }

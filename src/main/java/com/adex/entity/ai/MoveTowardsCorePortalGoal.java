@@ -14,32 +14,32 @@ public class MoveTowardsCorePortalGoal extends Goal {
 
     public static boolean IS_GOLEM_PATHFINDING = false;
 
-    private final PathfinderMob mob;
+    protected final PathfinderMob golem;
     private double wantedX;
     private double wantedY;
     private double wantedZ;
     private final double speedModifier;
     private final float maxDistance;
 
-    public MoveTowardsCorePortalGoal(PathfinderMob mob, double speedModifier, float maxDistance) {
-        this.mob = mob;
+    public MoveTowardsCorePortalGoal(PathfinderMob golem, double speedModifier, float maxDistance) {
+        this.golem = golem;
         this.speedModifier = speedModifier;
         this.maxDistance = maxDistance;
     }
 
     @Override
     public boolean canUse() {
-        if (mob.level().dimension() == ModDimensions.CORE) return false;
+        if (golem.level().dimension() == ModDimensions.CORE) return false;
 
         return findClosest(maxDistance);
     }
 
     private boolean findClosest(float maxDistance) {
-        Level level = mob.level();
+        Level level = golem.level();
         if (level.isClientSide()) return false;
 
         ServerLevel serverLevel = (ServerLevel) level;
-        Optional<BlockPos> result = CustomPortalForcer.CORE_PORTAL_FORCER.findClosestPortalPosition(mob.blockPosition(), (int) maxDistance, serverLevel);
+        Optional<BlockPos> result = CustomPortalForcer.CORE_PORTAL_FORCER.findClosestPortalPosition(golem.blockPosition(), (int) maxDistance, serverLevel);
         if (result.isEmpty()) return false;
 
         wantedX = result.get().getX();
@@ -50,14 +50,20 @@ public class MoveTowardsCorePortalGoal extends Goal {
 
     @Override
     public boolean canContinueToUse() {
-        return !mob.getNavigation().isDone() && mob.distanceToSqr(wantedX, wantedY, wantedZ) <= maxDistance * maxDistance;
+        return !golem.getNavigation().isDone() && golem.distanceToSqr(wantedX, wantedY, wantedZ) <= maxDistance * maxDistance;
     }
 
     @Override
     public void start() {
         IS_GOLEM_PATHFINDING = true;
-        mob.getNavigation().moveTo(wantedX, wantedY, wantedZ, speedModifier);
+        golem.getNavigation().moveTo(wantedX, wantedY, wantedZ, speedModifier);
         IS_GOLEM_PATHFINDING = false;
+    }
+
+    @Override
+    public void stop() {
+       golem.getNavigation().stop();
+        super.stop();
     }
 
 }
