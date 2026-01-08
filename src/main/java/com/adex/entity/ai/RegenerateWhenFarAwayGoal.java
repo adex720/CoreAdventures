@@ -1,0 +1,66 @@
+package com.adex.entity.ai;
+
+import com.adex.entity.golem.Golem;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.goal.Goal;
+
+public class RegenerateWhenFarAwayGoal extends Goal {
+
+    protected final Golem golem;
+    private final float minDistance;
+    private final float minDamage; // How much damage away from maximum Entity has to be for
+    private final int regenerationSpeed; // heal 1 every regenerationSpeed ticks
+    private final int tickCount; // How many ticks to regenerate until goal is finished. A new RegenerateWhenFarAwayGoal can start immediately after one ends
+    private int tickCounter;
+
+    public RegenerateWhenFarAwayGoal(Golem golem, float minDistance, float minDamage, int regenerationSpeed, int tickCount) {
+        this.golem = golem;
+        this.minDistance = minDistance;
+        this.minDamage = minDamage;
+        this.regenerationSpeed = regenerationSpeed;
+        this.tickCount = tickCount;
+
+        tickCounter = 0;
+    }
+
+    @Override
+    public boolean canUse() {
+        if (isTooClose()) return false;
+        return golem.getMaxHealth() - golem.getHealth() >= minDamage;
+    }
+
+    @Override
+    public boolean canContinueToUse() {
+        if (isTooClose()) return false;
+        return golem.getHealth() < golem.getMaxHealth() && tickCounter < tickCount;
+    }
+
+    public boolean isTooClose() {
+        LivingEntity target = golem.getTarget();
+        return target != null && golem.distanceToSqr(target) < minDistance;
+    }
+
+    @Override
+    public boolean requiresUpdateEveryTick() {
+        return true;
+    }
+
+    @Override
+    public void tick() {
+        tickCounter++;
+        if (tickCounter % regenerationSpeed == 1) {
+            golem.heal(1.0f);
+            golem.updateBossEventProgress();
+        }
+    }
+
+    @Override
+    public void start() {
+        tickCounter = 0;
+    }
+
+    @Override
+    public void stop() {
+        tickCounter = 0;
+    }
+}

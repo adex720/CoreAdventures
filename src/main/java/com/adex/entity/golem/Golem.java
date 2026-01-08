@@ -2,6 +2,7 @@ package com.adex.entity.golem;
 
 import com.adex.entity.ai.MoveAwayFromCorePortalGoal;
 import com.adex.entity.ai.MoveTowardsCorePortalGoal;
+import com.adex.entity.ai.RegenerateWhenFarAwayGoal;
 import com.adex.mixin.DefaultAttributesAccessor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerBossEvent;
@@ -67,10 +68,11 @@ public abstract class Golem extends Monster {
 
         goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0d, true));
         goalSelector.addGoal(3, new MoveTowardsTargetGoal(this, 1.0d, 16.0f));
-        goalSelector.addGoal(4, new MoveTowardsCorePortalGoal(this, 1.0d, 32.0f));
-        goalSelector.addGoal(5, new MoveAwayFromCorePortalGoal(this, 1.0d, 8.0f));
-        goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0f, 0.25f));
-        goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0d, 60));
+        goalSelector.addGoal(4, new RegenerateWhenFarAwayGoal(this, 24.0f, 50.0f, 15, 60));
+        goalSelector.addGoal(5, new MoveTowardsCorePortalGoal(this, 1.0d, 32.0f));
+        goalSelector.addGoal(6, new MoveAwayFromCorePortalGoal(this, 1.0d, 8.0f));
+        goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 8.0f, 0.25f));
+        goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0d, 60));
 
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 0, false, false, this::isValidPlayerTarget));
@@ -113,6 +115,10 @@ public abstract class Golem extends Monster {
     @Override
     protected void actuallyHurt(@NonNull ServerLevel serverLevel, @NonNull DamageSource damageSource, float f) {
         super.actuallyHurt(serverLevel, damageSource, f);
+        updateBossEventProgress();
+    }
+
+    public void updateBossEventProgress() {
         bossEvent.setProgress(getHealth() / getMaxHealth());
     }
 
