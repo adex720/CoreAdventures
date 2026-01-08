@@ -45,7 +45,7 @@ public class ChargeGoal extends MeleeAttackGoal {
         ((Golem) mob).addTemporaryAttackDamage(extraDamage);
         mob.swing(InteractionHand.MAIN_HAND);
         mob.doHurtTarget(getServerLevel(this.mob), target);
-        ((Golem) mob).addTemporaryAttackDamage(extraDamage);
+        ((Golem) mob).clearTemporaryAttackDamage();
 
         done = true;
     }
