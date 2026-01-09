@@ -94,7 +94,7 @@ public class DestroyNeighbourBlocksGoal extends Goal {
             if (canDestroy(level.getBlockState(p), p)) validBlocks.add(p);
         }
 
-        int left = destroy(validBlocks, destroyCount);
+        int left = destroy(validBlocks, destroyCount, -1);
         if (left <= 0) return;
 
         closeBlocks.clear();
@@ -133,14 +133,16 @@ public class DestroyNeighbourBlocksGoal extends Goal {
             if (canDestroy(level.getBlockState(p), p)) validBlocks.add(p);
         }
 
-        if (destroy(validBlocks, left) != destroyCount) golem.attacked(); // false only if no blocks have been destroyed
+        if (destroy(validBlocks, left, y1 - 1) != destroyCount) golem.attacked();
+        // false only if no blocks have been destroyed
+
         // closeBlocks.forEach(b -> level.setBlock(b, Blocks.RED_WOOL.defaultBlockState(), 18)); // for debug
     }
 
     /**
      * Returns how many blocks still need to be broken for count to be reached.
      */
-    public int destroy(Set<BlockPos> positions, int count) {
+    public int destroy(Set<BlockPos> positions, int count, int bottomY) {
         int left = count - positions.size();
         if (left >= 0) {
             positions.forEach(p -> golem.level().destroyBlock(p, true, golem));
@@ -151,7 +153,7 @@ public class DestroyNeighbourBlocksGoal extends Goal {
         ArrayList<BlockPos> posList = new ArrayList<>(positions);
         ArrayList<Float> weights = new ArrayList<>(posList.size());
         for (BlockPos pos : posList) {
-            weights.add(1 / level.getBlockState(pos).getBlock().getExplosionResistance());
+            weights.add((pos.getY() == bottomY ? 0.5f : 1.0f) / level.getBlockState(pos).getBlock().getExplosionResistance());
         }
 
         for (int i = 0; i < count; i++) {
