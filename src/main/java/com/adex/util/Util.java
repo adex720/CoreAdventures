@@ -1,13 +1,18 @@
 package com.adex.util;
 
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 
 import java.util.ArrayList;
@@ -53,6 +58,15 @@ public class Util {
         }
 
         return list.size() - 1;
+    }
+
+    public static void sendPayloadS2C(CustomPacketPayload payload, ServerLevel level, Vec3 pos) {
+        sendPayloadS2C(payload, level, pos, 64.0d);
+    }
+
+    public static void sendPayloadS2C(CustomPacketPayload payload, ServerLevel level, Vec3 pos, double radius) {
+        PlayerLookup.around(level, pos, radius).forEach(
+                player -> ServerPlayNetworking.send(player, payload));
     }
 
     /**

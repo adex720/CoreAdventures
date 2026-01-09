@@ -1,8 +1,14 @@
 package com.adex.entity.ai;
 
 import com.adex.entity.golem.Golem;
+import com.adex.payload.AddRegenerationParticlesS2C;
+import com.adex.util.Util;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.phys.Vec3;
 
 public class RegenerateWhenFarAwayGoal extends Goal {
 
@@ -51,7 +57,9 @@ public class RegenerateWhenFarAwayGoal extends Goal {
         if (tickCounter % regenerationSpeed == 1) {
             golem.heal(1.0f);
             golem.updateBossEventProgress();
-            //TODO: add heart particles
+
+            Vec3 pos = golem.getEyePosition();
+            Util.sendPayloadS2C(new AddRegenerationParticlesS2C(BlockPos.containing(pos)), (ServerLevel) golem.level(), pos, 32.0f);
         }
     }
 

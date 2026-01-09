@@ -6,6 +6,7 @@ public class ModPayloads {
 
     public static void initialize() {
         PayloadTypeRegistry.playS2C().register(AddExplosionParticlesS2C.ID, AddExplosionParticlesS2C.CODEC);
+        PayloadTypeRegistry.playS2C().register(AddRegenerationParticlesS2C.ID, AddRegenerationParticlesS2C.CODEC);
     }
 
 }

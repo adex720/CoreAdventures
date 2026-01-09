@@ -4,8 +4,6 @@ import com.adex.data.tag.ModTags;
 import com.adex.entity.golem.Golem;
 import com.adex.payload.AddExplosionParticlesS2C;
 import com.adex.util.Util;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -171,9 +169,7 @@ public class DestroyNeighbourBlocksGoal extends Goal {
             weights.remove(index);
 
             level.destroyBlock(pos, true, golem);
-            AddExplosionParticlesS2C payload = new AddExplosionParticlesS2C(pos);
-            PlayerLookup.around((ServerLevel) level, pos.getCenter(), 64.0d).forEach(
-                    player -> ServerPlayNetworking.send(player, payload));
+            Util.sendPayloadS2C(new AddExplosionParticlesS2C(pos), (ServerLevel) level, pos.getCenter());
         }
 
         return 0;
