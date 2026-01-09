@@ -9,6 +9,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.EnumSet;
+
 public class RegenerateWhenFarAwayGoal extends Goal {
 
     protected final Golem golem;
@@ -26,6 +28,8 @@ public class RegenerateWhenFarAwayGoal extends Goal {
         this.tickCount = tickCount;
 
         tickCounter = 0;
+
+        this.setFlags(EnumSet.of(Goal.Flag.MOVE)); // Prevent moving while healing
     }
 
     @Override
