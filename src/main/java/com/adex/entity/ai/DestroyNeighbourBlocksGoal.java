@@ -2,8 +2,13 @@ package com.adex.entity.ai;
 
 import com.adex.data.tag.ModTags;
 import com.adex.entity.golem.Golem;
+import com.adex.payload.AddExplosionParticlesS2C;
 import com.adex.util.Util;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
@@ -72,9 +77,13 @@ public class DestroyNeighbourBlocksGoal extends Goal {
 
     public void destroy() {
         Level level = golem.level();
-        int x1 = (int) (golem.position().x - 0.5f);
+        LivingEntity target = golem.getTarget();
+        if (target == null) return;
+
+        Vec3 towardsTarget = target.position().subtract(golem.position()).with(Direction.Axis.Y, 0).normalize();
+        int x1 = (int) (golem.position().x - 0.5f + towardsTarget.x);
         int y1 = (int) golem.position().y;
-        int z1 = (int) (golem.position().z - 0.5f);
+        int z1 = (int) (golem.position().z - 0.5f + towardsTarget.z);
         int x2 = x1 + 1;
         int y2 = y1 + 1;
         int z2 = z1 + 1;
@@ -162,7 +171,9 @@ public class DestroyNeighbourBlocksGoal extends Goal {
             weights.remove(index);
 
             level.destroyBlock(pos, true, golem);
-            //TODO: add explosion particles
+            AddExplosionParticlesS2C payload = new AddExplosionParticlesS2C(pos);
+            PlayerLookup.around((ServerLevel) level, pos.getCenter(), 64.0d).forEach(
+                    player -> ServerPlayNetworking.send(player, payload));
         }
 
         return 0;
