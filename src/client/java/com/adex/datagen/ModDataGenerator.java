@@ -2,6 +2,7 @@ package com.adex.datagen;
 
 import com.adex.datagen.model.ModEquipmentModelProvider;
 import com.adex.datagen.model.ModModelProvider;
+import com.adex.datagen.texture.ModEntityTextureProvider;
 import com.adex.datagen.texture.ModHumanoidTextureProvider;
 import com.adex.datagen.texture.ModItemTextureProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -29,6 +30,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(ModItemTextureProvider::new);
         pack.addProvider(ModHumanoidTextureProvider::new);
+        pack.addProvider(ModEntityTextureProvider::new);
     }
 
     public static String getIdentifierString(String name) {
