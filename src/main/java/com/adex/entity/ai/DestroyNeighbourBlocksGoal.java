@@ -73,7 +73,7 @@ public class DestroyNeighbourBlocksGoal extends Goal {
     public void destroy() {
         Level level = golem.level();
         int x1 = (int) (golem.position().x - 0.5f);
-        int y1 = (int) (golem.position().y + 0.5f);
+        int y1 = (int) golem.position().y;
         int z1 = (int) (golem.position().z - 0.5f);
         int x2 = x1 + 1;
         int y2 = y1 + 1;
