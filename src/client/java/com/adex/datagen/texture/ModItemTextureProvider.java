@@ -65,6 +65,15 @@ public class ModItemTextureProvider extends ModTextureProvider<Item> {
         recolorBaseArmor(ModItems.TIGERS_EYE_HELMET, ModItems.TIGERS_EYE_CHESTPLATE, ModItems.TIGERS_EYE_LEGGINGS, ModItems.TIGERS_EYE_BOOTS, helmet, chestplate, leggings, boots, ColorPalette.TIGERS_EYE_ARMOR);
 
         recolorBaseItem(ModItems.CHALCEDONY_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.CHALCEDONY_ARMOR);
+        recolorBaseItem(ModItems.GARNET_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.GARNET_ARMOR);
+        recolorBaseItem(ModItems.JADE_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.JADE_ARMOR);
+        recolorBaseItem(ModItems.JASPER_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.JASPER_ARMOR);
+        recolorBaseItem(ModItems.ONYX_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.ONYX_ARMOR);
+        //recolorBaseItem(ModItems.OPAL_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.OPAL);
+        recolorBaseItem(ModItems.RUBY_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.RUBY_ARMOR);
+        recolorBaseItem(ModItems.SAPPHIRE_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.SAPPHIRE_ARMOR);
+        recolorBaseItem(ModItems.SPINEL_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.SPINEL_ARMOR);
+        recolorBaseItem(ModItems.TIGERS_EYE_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.TIGERS_EYE_ARMOR);
     }
 
     public void recolorBaseArmor(Item helmet, Item chestplate, Item leggings, Item boots, BufferedImage helmetImage, BufferedImage chestplateImage, BufferedImage leggingsImage, BufferedImage bootsImage, ColorPalette palette) {

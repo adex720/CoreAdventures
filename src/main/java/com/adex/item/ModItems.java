@@ -32,6 +32,11 @@ public class ModItems {
     public static final Item TIGERS_EYE = register("tigers_eye", new Item.Properties());
 
 
+    public static final Item BLUE_GEM_MIXTURE = register("blue_gem_mixture", new Item.Properties());
+    public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties());
+    public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties());
+
+
     public static final Item CHALCEDONY_HELMET = registerHelmet("chalcedony_helmet", ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
     public static final Item CHALCEDONY_CHESTPLATE = registerChestplate("chalcedony_chestplate", ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
     public static final Item CHALCEDONY_LEGGINGS = registerLeggings("chalcedony_leggings", ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
@@ -87,12 +92,17 @@ public class ModItems {
     public static final Item GEM_LEGGINGS = registerLeggings("gem_leggings", ModArmorMaterials.GEM_ARMOR_MATERIAL);
     public static final Item GEM_BOOTS = registerBoots("gem_boots", ModArmorMaterials.GEM_ARMOR_MATERIAL);
 
-    public static final Item BLUE_GEM_MIXTURE = register("blue_gem_mixture", new Item.Properties());
-    public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties());
-    public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties());
 
     public static final Item CHALCEDONY_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.CHALCEDONY_GOLEM);
-
+    public static final Item GARNET_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.GARNET_GOLEM);
+    public static final Item JADE_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.JADE_GOLEM);
+    public static final Item JASPER_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.JASPER_GOLEM);
+    public static final Item ONYX_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.ONYX_GOLEM);
+    public static final Item OPAL_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.OPAL_GOLEM);
+    public static final Item RUBY_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.RUBY_GOLEM);
+    public static final Item SAPPHIRE_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.SAPPHIRE_GOLEM);
+    public static final Item SPINEL_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.SPINEL_GOLEM);
+    public static final Item TIGERS_EYE_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.TIGERS_EYE_GOLEM);
 
     public static Item register(String name, Item.Properties settings) {
         return register(name, Item::new, settings);
@@ -206,6 +216,15 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register((itemGroup) -> {
             itemGroup.accept(CHALCEDONY_GOLEM_SPAWN_EGG);
+            itemGroup.accept(GARNET_GOLEM_SPAWN_EGG);
+            itemGroup.accept(JADE_GOLEM_SPAWN_EGG);
+            itemGroup.accept(JASPER_GOLEM_SPAWN_EGG);
+            itemGroup.accept(ONYX_GOLEM_SPAWN_EGG);
+            itemGroup.accept(OPAL_GOLEM_SPAWN_EGG);
+            itemGroup.accept(RUBY_GOLEM_SPAWN_EGG);
+            itemGroup.accept(SAPPHIRE_GOLEM_SPAWN_EGG);
+            itemGroup.accept(SPINEL_GOLEM_SPAWN_EGG);
+            itemGroup.accept(TIGERS_EYE_GOLEM_SPAWN_EGG);
         });
     }
 
