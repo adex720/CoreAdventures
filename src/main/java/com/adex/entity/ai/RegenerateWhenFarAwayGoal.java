@@ -4,7 +4,6 @@ import com.adex.entity.golem.Golem;
 import com.adex.payload.AddRegenerationParticlesS2C;
 import com.adex.util.Util;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
