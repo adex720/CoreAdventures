@@ -35,7 +35,7 @@ public class RegenerateWhenFarAwayGoal extends Goal {
     @Override
     public boolean canUse() {
         if (isTooClose()) return false;
-        return golem.getMaxHealth() - golem.getHealth() >= minDamage;
+        return golem.getMaxHealth() - golem.getHealth() > minDamage;
     }
 
     @Override
