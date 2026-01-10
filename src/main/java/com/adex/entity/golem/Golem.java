@@ -6,6 +6,7 @@ import com.adex.entity.ai.MoveAwayFromCorePortalGoal;
 import com.adex.entity.ai.MoveTowardsCorePortalGoal;
 import com.adex.entity.ai.RegenerateWhenFarAwayGoal;
 import com.adex.mixin.DefaultAttributesAccessor;
+import com.adex.mixin.PathNavigationAccessor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerBossEvent;
@@ -44,6 +45,8 @@ public abstract class Golem extends Monster {
 
         bossEvent = new ServerBossEvent(getDisplayName(), color, BossEvent.BossBarOverlay.PROGRESS);
         lastAttack = tickCount;
+
+        increasePathFindingRangeTo(getRangedRange() * 1.5f);
     }
 
     public static <T extends Golem> EntityType.Builder<T> builder(EntityType.EntityFactory<T> entityFactory) {
@@ -97,6 +100,12 @@ public abstract class Golem extends Monster {
     @SuppressWarnings("DataFlowIssue")
     public void clearTemporaryAttackDamage() {
         getAttribute(Attributes.ATTACK_DAMAGE).removeModifier(ATTRIBUTE_MODIFIER);
+    }
+
+    public void increasePathFindingRangeTo(float range) {
+        if (range > ((PathNavigationAccessor) getNavigation()).coread$getRequiredPathLength()) {
+            getNavigation().setRequiredPathLength(range);
+        }
     }
 
     @Override

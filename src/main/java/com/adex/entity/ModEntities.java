@@ -43,7 +43,7 @@ public class ModEntities {
         Golem.registerAttributes(GARNET_GOLEM);
         Golem.registerAttributes(JADE_GOLEM);
         Golem.registerAttributes(JASPER_GOLEM);
-        Golem.registerAttributes(ONYX_GOLEM);
+        OnyxGolem.registerAttributes(ONYX_GOLEM);
         Golem.registerAttributes(OPAL_GOLEM);
         Golem.registerAttributes(RUBY_GOLEM);
         Golem.registerAttributes(SAPPHIRE_GOLEM);

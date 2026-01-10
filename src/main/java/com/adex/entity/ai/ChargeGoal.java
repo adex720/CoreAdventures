@@ -25,9 +25,9 @@ public class ChargeGoal extends MeleeAttackGoal {
     public boolean canUse() {
         LivingEntity target = mob.getTarget();
         if (target == null) return false;
-        if (target.distanceToSqr(mob) <= minDistance * minDistance) return false;
+        if (target.distanceToSqr(mob) > maxDistance * maxDistance && target.distanceToSqr(mob) <= minDistance * minDistance)
+            return false;
 
-        mob.getNavigation().setRequiredPathLength(maxDistance * 1.5f);
         return super.canUse();
     }
 

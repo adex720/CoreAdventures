@@ -8,6 +8,7 @@
     "DefaultAttributesAccessor",
     "FoodDataMixin",
     "ItemPropertiesMixin",
+    "PathNavigationAccessor",
     "PlayerMixin",
     "PoiTypesAccessor",
     "PortalDimensionMixin",
