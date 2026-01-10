@@ -46,7 +46,7 @@ public class ModEntities {
         OnyxGolem.registerAttributes(ONYX_GOLEM);
         Golem.registerAttributes(OPAL_GOLEM);
         Golem.registerAttributes(RUBY_GOLEM);
-        Golem.registerAttributes(SAPPHIRE_GOLEM);
+        SapphireGolem.registerAttributes(SAPPHIRE_GOLEM);
         Golem.registerAttributes(SPINEL_GOLEM);
         Golem.registerAttributes(TIGERS_EYE_GOLEM);
     }
