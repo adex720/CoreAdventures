@@ -1,6 +1,6 @@
-package com.adex.entity;
+package com.adex.entity.golem;
 
-import com.adex.entity.golem.ChalcedonyGolem;
+import com.adex.entity.ModModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 public class ChalcedonyGolemRenderer extends GolemRenderer<ChalcedonyGolem> {

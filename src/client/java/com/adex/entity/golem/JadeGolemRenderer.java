@@ -1,6 +1,6 @@
-package com.adex.entity;
+package com.adex.entity.golem;
 
-import com.adex.entity.golem.JadeGolem;
+import com.adex.entity.ModModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 public class JadeGolemRenderer extends GolemRenderer<JadeGolem> {

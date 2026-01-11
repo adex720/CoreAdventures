@@ -1,6 +1,7 @@
 package com.adex.entity;
 
 import com.adex.CoreAdventures;
+import com.adex.entity.golem.GolemModel;
 import com.adex.mixin.client.ModelLayersAccessor;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;

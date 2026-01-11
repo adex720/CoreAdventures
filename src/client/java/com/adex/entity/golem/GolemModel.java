@@ -1,4 +1,4 @@
-package com.adex.entity;
+package com.adex.entity.golem;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;

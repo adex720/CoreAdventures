@@ -1,5 +1,6 @@
 package com.adex.entity;
 
+import com.adex.entity.golem.*;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 
