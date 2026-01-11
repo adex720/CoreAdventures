@@ -30,7 +30,6 @@ public class ArrowAttackGoal extends EyeOfSightAttackGoal {
         Arrow arrow = new Arrow(level, golem.getX() + direction.x, golem.getY(0.5d) + 1.0d + direction.y, golem.getZ() + direction.z, new ItemStack(Items.ARROW), null);
         arrow.setBaseDamage(damage);
         arrow.setDeltaMovement(direction.scale(arrowSpeed));
-        //arrow.pickup = AbstractArrow.Pickup.DISALLOWED;
         level.addFreshEntity(arrow);
     }
 }
