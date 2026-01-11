@@ -86,6 +86,7 @@ public abstract class Golem extends Monster {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 300.0d)
                 .add(Attributes.ATTACK_DAMAGE, 8.0d)
+                .add(Attributes.ATTACK_SPEED, 5.0d)
                 .add(Attributes.MOVEMENT_SPEED, 0.2d)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 2.0d)
                 .add(Attributes.FOLLOW_RANGE, 20.0d)
