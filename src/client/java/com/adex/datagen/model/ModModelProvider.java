@@ -120,6 +120,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.GEM_LEGGINGS, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.GEM_BOOTS, ModelTemplates.FLAT_ITEM);
 
+        itemModelGenerator.generateFlatItem(ModItems.DYNAMITE, ModelTemplates.FLAT_ITEM);
+
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.GARNET_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.JADE_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);

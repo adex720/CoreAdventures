@@ -93,6 +93,9 @@ public class ModItems {
     public static final Item GEM_BOOTS = registerBoots("gem_boots", ModArmorMaterials.GEM_ARMOR_MATERIAL);
 
 
+    public static final Item DYNAMITE = register("dynamite", new Item.Properties());
+
+
     public static final Item CHALCEDONY_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.CHALCEDONY_GOLEM);
     public static final Item GARNET_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.GARNET_GOLEM);
     public static final Item JADE_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.JADE_GOLEM);
@@ -155,6 +158,8 @@ public class ModItems {
             itemGroup.accept(BLUE_GEM_MIXTURE);
             itemGroup.accept(RED_GEM_MIXTURE);
             itemGroup.accept(SHINY_GEM_MIXTURE);
+
+            itemGroup.accept(DYNAMITE);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register((itemGroup) -> {
