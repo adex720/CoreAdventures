@@ -54,7 +54,7 @@ public class ModEntities {
     public static void initialize() {
         Golem.registerAttributes(CHALCEDONY_GOLEM);
         Golem.registerAttributes(GARNET_GOLEM);
-        Golem.registerAttributes(JADE_GOLEM);
+        JadeGolem.registerAttributes(JADE_GOLEM);
         Golem.registerAttributes(JASPER_GOLEM);
         OnyxGolem.registerAttributes(ONYX_GOLEM);
         Golem.registerAttributes(OPAL_GOLEM);
