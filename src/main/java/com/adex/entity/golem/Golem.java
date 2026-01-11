@@ -113,7 +113,7 @@ public abstract class Golem extends Monster {
         updatePathFindingMalus();
 
         goalSelector.addGoal(1, getSpecialGoal());
-        goalSelector.addGoal(10, new DestroyNeighbourBlocksGoal(this, 15, 4, 0.5f, getRangedRange()));
+        goalSelector.addGoal(10, new DestroyNeighbourBlocksGoal(this, 25, 4, 0.5f, getRangedRange()));
         goalSelector.addGoal(11, new MeleeAttackGoal(this, 1.0d, true));
         goalSelector.addGoal(12, new MoveTowardsTargetGoal(this, 1.0d, getMeleeRange()));
         goalSelector.addGoal(13, new RegenerateWhenFarAwayGoal(this, getRangedRange(), 50.0f, 15, 60));
