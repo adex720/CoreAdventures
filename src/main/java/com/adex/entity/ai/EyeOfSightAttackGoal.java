@@ -1,8 +1,10 @@
 package com.adex.entity.ai;
 
 import com.adex.entity.golem.Golem;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
 
@@ -63,6 +65,19 @@ public abstract class EyeOfSightAttackGoal extends Goal {
     }
 
     public abstract void attack();
+
+    public Vec3 createDirectionVector(LivingEntity target, RandomSource random) {
+        return createDirectionVector(target, random, -1.0d);
+    }
+
+    public Vec3 createDirectionVector(LivingEntity target, RandomSource random, double deltaY) {
+        double xDifference = target.getX() - golem.getX();
+        double yDifference = target.getY(0.5) - golem.getY(0.5) + deltaY;
+        double zDifference = target.getZ() - golem.getZ();
+        double distanceSqrtHalved = Math.sqrt(golem.distanceTo(target)) * 0.5;
+
+        return new Vec3(random.triangle(xDifference, 2.297 * distanceSqrtHalved), yDifference, random.triangle(zDifference, 2.297 * distanceSqrtHalved)).normalize();
+    }
 
     @Override
     public void start() {

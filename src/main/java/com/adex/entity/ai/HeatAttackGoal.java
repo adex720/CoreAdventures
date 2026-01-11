@@ -25,13 +25,7 @@ public class HeatAttackGoal extends EyeOfSightAttackGoal {
     }
 
     public void createHeatBall(ServerLevel level, LivingEntity target) {
-        double xDifference = target.getX() - golem.getX();
-        double yDifference = target.getY(0.5) - golem.getY(0.5) - 1.0d;
-        double zDifference = target.getZ() - golem.getZ();
-        double distanceSqrtHalved = Math.sqrt(golem.distanceTo(target)) * 0.5;
-
-        RandomSource random = level.getRandom();
-        Vec3 direction = new Vec3(random.triangle(xDifference, 2.297 * distanceSqrtHalved), yDifference, random.triangle(zDifference, 2.297 * distanceSqrtHalved)).normalize();
+        Vec3 direction = createDirectionVector(target, level.getRandom());
         HeatBall heatBall = new HeatBall(golem, direction, level, damage, heatIncrease, 1.0d);
         level.addFreshEntity(heatBall);
     }
