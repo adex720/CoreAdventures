@@ -2,13 +2,17 @@ package com.adex.entity;
 
 import com.adex.CoreAdventures;
 import com.adex.entity.golem.*;
+import com.adex.entity.projectile.GolemFireBall;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 
 public class ModEntities {
 
@@ -22,6 +26,7 @@ public class ModEntities {
     public static final ResourceKey<EntityType<?>> SAPPHIRE_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "sapphire_golem"));
     public static final ResourceKey<EntityType<?>> SPINEL_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "spinel_golem"));
     public static final ResourceKey<EntityType<?>> TIGERS_EYE_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "tigers_eye_golem"));
+    public static final ResourceKey<EntityType<?>> GOLEM_FIREBALL_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "golem_fireball"));
 
     public static final EntityType<ChalcedonyGolem> CHALCEDONY_GOLEM = create(CHALCEDONY_GOLEM_KEY, ChalcedonyGolem.builder(ChalcedonyGolem::new));
     public static final EntityType<GarnetGolem> GARNET_GOLEM = create(GARNET_GOLEM_KEY, GarnetGolem.builder(GarnetGolem::new));
@@ -33,6 +38,10 @@ public class ModEntities {
     public static final EntityType<SapphireGolem> SAPPHIRE_GOLEM = create(SAPPHIRE_GOLEM_KEY, SapphireGolem.builder(SapphireGolem::new));
     public static final EntityType<SpinelGolem> SPINEL_GOLEM = create(SPINEL_GOLEM_KEY, SpinelGolem.builder(SpinelGolem::new));
     public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = create(TIGERS_EYE_GOLEM_KEY, TigersEyeGolem.builder(TigersEyeGolem::new));
+
+    public static final EntityType<GolemFireBall> GOLEM_FIREBALL_ENTITY = create(GOLEM_FIREBALL_KEY,
+            EntityType.Builder.<GolemFireBall>of(GolemFireBall::new, MobCategory.MISC)
+                    .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
 
     private static <T extends Entity> EntityType<T> create(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder) {
         return Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
