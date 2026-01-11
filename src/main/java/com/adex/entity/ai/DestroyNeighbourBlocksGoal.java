@@ -11,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 
@@ -41,6 +42,8 @@ public class DestroyNeighbourBlocksGoal extends Goal {
 
     @Override
     public boolean canUse() {
+        if (!getServerLevel(golem).getGameRules().get(GameRules.MOB_GRIEFING)) return false;
+
         LivingEntity target = golem.getTarget();
         if (target == null) {
             reset();
