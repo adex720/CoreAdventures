@@ -23,7 +23,7 @@ public class SpinelGolem extends Golem {
 
     @Override
     public Goal getSpecialGoal() {
-        return new ArrowAttackGoal(this, getMeleeRange(), getRangedRange(), 10, 6.0f, 3.0f);
+        return new ArrowAttackGoal(this, getMeleeRange(), getRangedRange(), 10, 5.0f, 3.0f);
     }
 
     @Override
