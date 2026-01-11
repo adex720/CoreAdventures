@@ -1,4 +1,4 @@
-package com.adex.entity.projectile;
+package com.adex.entity.projectile.projectile;
 
 import com.adex.entity.ModEntities;
 import com.adex.entity.golem.Golem;

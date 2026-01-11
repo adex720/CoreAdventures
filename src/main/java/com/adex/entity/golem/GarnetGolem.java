@@ -1,5 +1,6 @@
 package com.adex.entity.golem;
 
+import com.adex.entity.ai.HeatAttackGoal;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -14,11 +15,6 @@ public class GarnetGolem extends Golem {
 
     @Override
     public Goal getSpecialGoal() {
-        return new Goal() {
-            @Override
-            public boolean canUse() {
-                return false;
-            }
-        };
+        return new HeatAttackGoal(this, getMeleeRange(), getRangedRange(), 20, 12.0f, 5);
     }
 }

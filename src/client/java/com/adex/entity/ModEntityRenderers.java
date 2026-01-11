@@ -18,5 +18,7 @@ public class ModEntityRenderers {
         EntityRenderers.register(ModEntities.TIGERS_EYE_GOLEM, TigersEyeGolemRenderer::new);
 
         EntityRenderers.register(ModEntities.GOLEM_FIREBALL_ENTITY, context -> new ThrownItemRenderer<>(context, 3.0f, true));
+        EntityRenderers.register(ModEntities.HEAT_BALL_ENTITY,
+                context -> new ThrownItemRenderer<>(context, 3.0f, true));
     }
 }

@@ -14,6 +14,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -75,6 +77,35 @@ public class HeatManager {
         addHeat(player, reduction);
     }
 
+    /**
+     * Apply heat for a player.
+     * Takes heat resistance into account.
+     * Deals required damage if needed.
+     * Exact formula is amount * BASE_HEAT_RESISTANCE / getHeatResistance(player)
+     *
+     * @param player ServerPlayer
+     * @param amount Amount of heat to add
+     */
+    public static void heat(ServerPlayer player, double amount) {
+        AttributeInstance instance = player.getAttribute(ModAttributes.HEAT);
+        if (instance == null) return;
+
+        double newValue = addHeat(player, amount * BASE_HEAT_RESISTANCE / getHeatResistance(player));
+        double reduction = 0.0d; // How much heat to reduce for taken damage
+
+        int damage = Math.max(0, (int) ((newValue - TOLERANCE) / 10));
+        if (damage > 0) {
+            reduction -= damage * 10.0d;
+            DamageSource damageSource = new DamageSource(player.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).get(ModDamageTypes.HEAT_DAMAGE.identifier()).orElseThrow());
+            player.hurtServer(player.level(), damageSource, damage);
+        }
+
+        addHeat(player, reduction);
+    }
+
+    /**
+     * Does not check for heat resistance
+     */
     @SuppressWarnings("ConstantConditions")
     public static double addHeat(Player player, double amount) {
         double oldValue = player.getAttributeValue(ModAttributes.HEAT);

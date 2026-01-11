@@ -2,7 +2,8 @@ package com.adex.entity;
 
 import com.adex.CoreAdventures;
 import com.adex.entity.golem.*;
-import com.adex.entity.projectile.GolemFireball;
+import com.adex.entity.projectile.projectile.GolemFireball;
+import com.adex.entity.projectile.projectile.HeatBall;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -24,7 +25,9 @@ public class ModEntities {
     public static final ResourceKey<EntityType<?>> SAPPHIRE_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "sapphire_golem"));
     public static final ResourceKey<EntityType<?>> SPINEL_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "spinel_golem"));
     public static final ResourceKey<EntityType<?>> TIGERS_EYE_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "tigers_eye_golem"));
+
     public static final ResourceKey<EntityType<?>> GOLEM_FIREBALL_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "golem_fireball"));
+    public static final ResourceKey<EntityType<?>> HEAT_BALL_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat_ball"));
 
     public static final EntityType<ChalcedonyGolem> CHALCEDONY_GOLEM = create(CHALCEDONY_GOLEM_KEY, ChalcedonyGolem.builder(ChalcedonyGolem::new));
     public static final EntityType<GarnetGolem> GARNET_GOLEM = create(GARNET_GOLEM_KEY, GarnetGolem.builder(GarnetGolem::new));
@@ -39,6 +42,9 @@ public class ModEntities {
 
     public static final EntityType<GolemFireball> GOLEM_FIREBALL_ENTITY = create(GOLEM_FIREBALL_KEY,
             EntityType.Builder.<GolemFireball>of(GolemFireball::new, MobCategory.MISC)
+                    .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
+    public static final EntityType<HeatBall> HEAT_BALL_ENTITY = create(HEAT_BALL_KEY,
+            EntityType.Builder.<HeatBall>of(HeatBall::new, MobCategory.MISC)
                     .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
 
     private static <T extends Entity> EntityType<T> create(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder) {
