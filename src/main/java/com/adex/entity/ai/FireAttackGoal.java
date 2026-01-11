@@ -1,7 +1,7 @@
 package com.adex.entity.ai;
 
 import com.adex.entity.golem.Golem;
-import com.adex.entity.projectile.GolemFireBall;
+import com.adex.entity.projectile.GolemFireball;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -34,7 +34,7 @@ public class FireAttackGoal extends EyeOfSightAttackGoal {
 
         RandomSource random = level.getRandom();
         Vec3 direction = new Vec3(random.triangle(xDifference, 2.297 * distanceSqrtHalved), yDifference, random.triangle(zDifference, 2.297 * distanceSqrtHalved)).normalize();
-        GolemFireBall fireball = new GolemFireBall(golem, direction, level, damage, burningTime, explosionPower, 1.0d);
+        GolemFireball fireball = new GolemFireball(golem, direction, level, damage, burningTime, explosionPower, 1.0d);
         level.addFreshEntity(fireball);
     }
 }

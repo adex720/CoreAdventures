@@ -15,20 +15,20 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.NonNull;
 
-public class GolemFireBall extends Fireball {
+public class GolemFireball extends Fireball {
 
     private final float damage;
     private final int burningTime;
     private final float explosionPower;
 
-    public GolemFireBall(EntityType<? extends Fireball> entityType, Level level) {
+    public GolemFireball(EntityType<? extends Fireball> entityType, Level level) {
         super(entityType, level);
         damage = 1.0f;
         burningTime = 20;
         explosionPower = 1.0f;
     }
 
-    public GolemFireBall(Golem golem, Vec3 direction, Level level, float damage, int burningTime, float explosionPower, double yDifference) {
+    public GolemFireball(Golem golem, Vec3 direction, Level level, float damage, int burningTime, float explosionPower, double yDifference) {
         super(ModEntities.GOLEM_FIREBALL_ENTITY, golem.getX(), golem.getY() + yDifference, golem.getZ(), direction, level);
         this.damage = damage;
         this.burningTime = burningTime;
@@ -36,7 +36,7 @@ public class GolemFireBall extends Fireball {
     }
 
     @Override
-    protected void onHitEntity(@NonNull EntityHitResult entityHitResult) { // called on entity hit.
+    protected void onHitEntity(@NonNull EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
         if (level() instanceof ServerLevel serverLevel) {
             Entity victim = entityHitResult.getEntity();
@@ -48,13 +48,12 @@ public class GolemFireBall extends Fireball {
     }
 
     @Override
-    protected void onHitBlock(@NonNull BlockHitResult blockHitResult) { // called on collision with a block
+    protected void onHitBlock(@NonNull BlockHitResult blockHitResult) {
         super.onHitBlock(blockHitResult);
         if (level() instanceof ServerLevel serverLevel) {
             level().explode(this, getX(), getY(), getZ(), explosionPower, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
             discard();
         }
     }
-
 
 }

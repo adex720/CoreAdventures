@@ -2,7 +2,7 @@ package com.adex.entity;
 
 import com.adex.CoreAdventures;
 import com.adex.entity.golem.*;
-import com.adex.entity.projectile.GolemFireBall;
+import com.adex.entity.projectile.GolemFireball;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -37,8 +37,8 @@ public class ModEntities {
     public static final EntityType<SpinelGolem> SPINEL_GOLEM = create(SPINEL_GOLEM_KEY, SpinelGolem.builder(SpinelGolem::new));
     public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = create(TIGERS_EYE_GOLEM_KEY, TigersEyeGolem.builder(TigersEyeGolem::new));
 
-    public static final EntityType<GolemFireBall> GOLEM_FIREBALL_ENTITY = create(GOLEM_FIREBALL_KEY,
-            EntityType.Builder.<GolemFireBall>of(GolemFireBall::new, MobCategory.MISC)
+    public static final EntityType<GolemFireball> GOLEM_FIREBALL_ENTITY = create(GOLEM_FIREBALL_KEY,
+            EntityType.Builder.<GolemFireball>of(GolemFireball::new, MobCategory.MISC)
                     .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
 
     private static <T extends Entity> EntityType<T> create(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder) {
