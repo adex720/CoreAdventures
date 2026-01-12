@@ -2,12 +2,17 @@ package com.adex.item.armor;
 
 import com.adex.CoreAdventures;
 import com.adex.data.tag.ModTags;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAsset;
@@ -59,12 +64,25 @@ public class ModArmorMaterials {
     public static void initialize() {
     }
 
-    public static Function<Item.Properties, Item> sapphireArmorFactory() {
-        return (properties) -> new AttributeModifyingArmor(properties, List.of(Attributes.MOVEMENT_SPEED, Attributes.SNEAKING_SPEED), List.of(0.02d, 0.01d));
+    public static ItemAttributeModifiers.Entry createModifier(Holder<Attribute> attribute, double amount, ArmorType armorType) {
+        Identifier identifier = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "armor." + armorType.getName());
+        EquipmentSlotGroup equipmentSlotGroup = EquipmentSlotGroup.bySlot(armorType.getSlot());
+        return new ItemAttributeModifiers.Entry(attribute, new AttributeModifier(identifier, amount, AttributeModifier.Operation.ADD_VALUE), equipmentSlotGroup);
     }
 
-    public static Function<Item.Properties, Item> gemArmorFactory() {
-        return (properties) -> new AttributeModifyingArmor(properties, List.of(Attributes.MOVEMENT_SPEED, Attributes.SNEAKING_SPEED), List.of(0.004d, 0.002d));
+    public static ItemAttributeModifiers jadeArmorAttributes(ArmorType armorType) {
+        return new ItemAttributeModifiers(List.of(createModifier(Attributes.KNOCKBACK_RESISTANCE, 0.1d, armorType)));
+    }
+
+    public static ItemAttributeModifiers sapphireArmorAttributes(ArmorType armorType) {
+        return new ItemAttributeModifiers(List.of(createModifier(Attributes.MOVEMENT_SPEED, 0.02d, armorType),
+                createModifier(Attributes.SNEAKING_SPEED, 0.01d, armorType)));
+    }
+
+    public static ItemAttributeModifiers gemArmorAttributes(ArmorType armorType) {
+        return new ItemAttributeModifiers(List.of(createModifier(Attributes.KNOCKBACK_RESISTANCE, 0.02d, armorType),
+                createModifier(Attributes.MOVEMENT_SPEED, 0.004d, armorType),
+                createModifier(Attributes.SNEAKING_SPEED, 0.002d, armorType)));
     }
 
 }

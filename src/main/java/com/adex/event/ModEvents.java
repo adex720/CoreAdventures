@@ -4,7 +4,6 @@ import com.adex.CoreAdventures;
 import com.adex.enchantment.effect.BreakMultipleEnchantmentEffect;
 import com.adex.enchantment.effect.ModEnchantmentEffectComponents;
 import com.adex.entity.attribute.HeatManager;
-import com.adex.item.armor.AttributeModifyingArmor;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.core.BlockPos;
@@ -26,10 +25,7 @@ public class ModEvents {
     }
 
     public static void onTick(MinecraftServer server) {
-        server.getPlayerList().getPlayers().forEach(player -> {
-            HeatManager.serverHeatTick(player, server);
-            AttributeModifyingArmor.armorTick(player);
-        });
+        server.getPlayerList().getPlayers().forEach(player -> HeatManager.serverHeatTick(player, server));
     }
 
     public static void onPlayerBlockBreak(Level level, Player player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack itemStack) {
