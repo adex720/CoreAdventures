@@ -129,30 +129,31 @@ public class HeatManager {
         return resistance;
     }
 
-    public static int getHeatResistance(ItemStack itemStack) {
+    public static float getHeatResistance(ItemStack itemStack) {
         if (itemStack.isEmpty()) return 0;
         Item item = itemStack.getItem();
-        Integer resistance = item.components().get(ModDataComponents.HEAT_RESISTANCE);
+        Float resistance = item.components().get(ModDataComponents.HEAT_RESISTANCE);
         return resistance != null ? resistance : 0;
     }
 
-    public static int getHeatResistance(ArmorMaterial armorMaterial) {
+    public static float getHeatResistance(ArmorMaterial armorMaterial) {
         if (armorMaterial == ArmorMaterials.COPPER || armorMaterial == ArmorMaterials.IRON || armorMaterial == ArmorMaterials.GOLD)
-            return -1;
+            return -1.0f;
 
-        if (armorMaterial == ArmorMaterials.LEATHER || armorMaterial == ArmorMaterials.CHAINMAIL) return 1;
+        if (armorMaterial == ArmorMaterials.LEATHER || armorMaterial == ArmorMaterials.CHAINMAIL) return 1.0f;
         if (armorMaterial == ArmorMaterials.NETHERITE || armorMaterial == ArmorMaterials.ARMADILLO_SCUTE || armorMaterial == ArmorMaterials.TURTLE_SCUTE)
-            return 2;
-        if (armorMaterial == ArmorMaterials.DIAMOND) return 3;
-        if (armorMaterial == ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.GARNET_ARMOR_MATERIAL
+            return 2.0f;
+        if (armorMaterial == ArmorMaterials.DIAMOND) return 3.0f;
+        if (armorMaterial == ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL
                 || armorMaterial == ModArmorMaterials.JADE_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.JASPER_ARMOR_MATERIAL
                 || armorMaterial == ModArmorMaterials.ONYX_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.OPAL_ARMOR_MATERIAL
                 || armorMaterial == ModArmorMaterials.RUBY_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL
-                || armorMaterial == ModArmorMaterials.SPINEL_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL
-                || armorMaterial == ModArmorMaterials.GEM_ARMOR_MATERIAL)
-            return 4;
+                || armorMaterial == ModArmorMaterials.SPINEL_ARMOR_MATERIAL || armorMaterial == ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL)
+            return 4.0f;
+        if (armorMaterial == ModArmorMaterials.GEM_ARMOR_MATERIAL) return 4.2f;
+        if (armorMaterial == ModArmorMaterials.GARNET_ARMOR_MATERIAL) return 5.0f;
 
-        return 0;
+        return 0.0f;
     }
 
     public static void applyCooling(Level level, BlockPos pos, BlockState state) {
