@@ -58,10 +58,10 @@ public class ModItems {
     public static final Item JASPER_LEGGINGS = registerLeggings("jasper_leggings", ModArmorMaterials.JASPER_ARMOR_MATERIAL);
     public static final Item JASPER_BOOTS = registerBoots("jasper_boots", ModArmorMaterials.JASPER_ARMOR_MATERIAL);
 
-    public static final Item ONYX_HELMET = registerHelmet("onyx_helmet", ModArmorMaterials.ONYX_ARMOR_MATERIAL);
-    public static final Item ONYX_CHESTPLATE = registerChestplate("onyx_chestplate", ModArmorMaterials.ONYX_ARMOR_MATERIAL);
-    public static final Item ONYX_LEGGINGS = registerLeggings("onyx_leggings", ModArmorMaterials.ONYX_ARMOR_MATERIAL);
-    public static final Item ONYX_BOOTS = registerBoots("onyx_boots", ModArmorMaterials.ONYX_ARMOR_MATERIAL);
+    public static final Item ONYX_HELMET = registerHelmet("onyx_helmet", ModArmorMaterials.ONYX_ARMOR_MATERIAL, ModArmorMaterials::onyxArmorAttributes);
+    public static final Item ONYX_CHESTPLATE = registerChestplate("onyx_chestplate", ModArmorMaterials.ONYX_ARMOR_MATERIAL, ModArmorMaterials::onyxArmorAttributes);
+    public static final Item ONYX_LEGGINGS = registerLeggings("onyx_leggings", ModArmorMaterials.ONYX_ARMOR_MATERIAL, ModArmorMaterials::onyxArmorAttributes);
+    public static final Item ONYX_BOOTS = registerBoots("onyx_boots", ModArmorMaterials.ONYX_ARMOR_MATERIAL, ModArmorMaterials::onyxArmorAttributes);
 
     public static final Item OPAL_HELMET = registerHelmet("opal_helmet", ModArmorMaterials.OPAL_ARMOR_MATERIAL);
     public static final Item OPAL_CHESTPLATE = registerChestplate("opal_chestplate", ModArmorMaterials.OPAL_ARMOR_MATERIAL);

@@ -20,7 +20,6 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 public class ModArmorMaterials {
 
@@ -74,13 +73,20 @@ public class ModArmorMaterials {
         return new ItemAttributeModifiers(List.of(createModifier(Attributes.KNOCKBACK_RESISTANCE, 0.1d, armorType)));
     }
 
+    public static ItemAttributeModifiers onyxArmorAttributes(ArmorType armorType) {
+        return new ItemAttributeModifiers(List.of(createModifier(Attributes.ATTACK_DAMAGE, 0.05d, armorType)));
+    }
+
     public static ItemAttributeModifiers sapphireArmorAttributes(ArmorType armorType) {
-        return new ItemAttributeModifiers(List.of(createModifier(Attributes.MOVEMENT_SPEED, 0.02d, armorType),
+        return new ItemAttributeModifiers(List.of(
+                createModifier(Attributes.MOVEMENT_SPEED, 0.02d, armorType),
                 createModifier(Attributes.SNEAKING_SPEED, 0.01d, armorType)));
     }
 
     public static ItemAttributeModifiers gemArmorAttributes(ArmorType armorType) {
-        return new ItemAttributeModifiers(List.of(createModifier(Attributes.KNOCKBACK_RESISTANCE, 0.02d, armorType),
+        return new ItemAttributeModifiers(List.of(
+                createModifier(Attributes.KNOCKBACK_RESISTANCE, 0.02d, armorType),
+                createModifier(Attributes.ATTACK_DAMAGE, 0.01d, armorType),
                 createModifier(Attributes.MOVEMENT_SPEED, 0.004d, armorType),
                 createModifier(Attributes.SNEAKING_SPEED, 0.002d, armorType)));
     }
