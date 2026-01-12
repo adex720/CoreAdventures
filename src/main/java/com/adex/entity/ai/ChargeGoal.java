@@ -63,6 +63,6 @@ public class ChargeGoal extends MeleeAttackGoal {
 
     @Override
     public void stop() {
-        super.stop();
+        mob.getNavigation().stop();
     }
 }
