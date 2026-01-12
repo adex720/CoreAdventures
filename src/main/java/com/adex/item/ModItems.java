@@ -3,8 +3,14 @@ package com.adex.item;
 import com.adex.CoreAdventures;
 import com.adex.entity.ModEntities;
 import com.adex.item.armor.ModArmorMaterials;
+import com.adex.mixin.DataComponentMapBuilderAccessor;
+import com.adex.mixin.ItemPropertiesAccessor;
+import it.unimi.dsi.fastutil.objects.Reference2ObjectMap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -139,20 +145,32 @@ public class ModItems {
         return register(name, new Item.Properties().humanoidArmor(material, ArmorType.BOOTS).durability(ArmorType.BOOTS.getDurability(material.durability())));
     }
 
-    public static Item registerHelmet(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> attributes) {
-        return register(name, new Item.Properties().humanoidArmor(material, ArmorType.HELMET).durability(ArmorType.HELMET.getDurability(material.durability())).attributes(attributes.apply(ArmorType.HELMET)));
+    public static Item registerHelmet(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> modifiers) {
+        return register(name, addAttributeModifiers(new Item.Properties().humanoidArmor(material, ArmorType.HELMET).durability(ArmorType.HELMET.getDurability(material.durability())), modifiers.apply(ArmorType.HELMET)));
     }
 
-    public static Item registerChestplate(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> attributes) {
-        return register(name, new Item.Properties().humanoidArmor(material, ArmorType.CHESTPLATE).durability(ArmorType.CHESTPLATE.getDurability(material.durability())).attributes(attributes.apply(ArmorType.CHESTPLATE)));
+    public static Item registerChestplate(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> modifiers) {
+        return register(name, addAttributeModifiers(new Item.Properties().humanoidArmor(material, ArmorType.CHESTPLATE).durability(ArmorType.CHESTPLATE.getDurability(material.durability())), modifiers.apply(ArmorType.CHESTPLATE)));
     }
 
-    public static Item registerLeggings(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> attributes) {
-        return register(name, new Item.Properties().humanoidArmor(material, ArmorType.LEGGINGS).durability(ArmorType.LEGGINGS.getDurability(material.durability())).attributes(attributes.apply(ArmorType.LEGGINGS)));
+    public static Item registerLeggings(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> modifiers) {
+        return register(name, addAttributeModifiers(new Item.Properties().humanoidArmor(material, ArmorType.LEGGINGS).durability(ArmorType.LEGGINGS.getDurability(material.durability())), modifiers.apply(ArmorType.LEGGINGS)));
     }
 
-    public static Item registerBoots(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> attributes) {
-        return register(name, new Item.Properties().humanoidArmor(material, ArmorType.BOOTS).durability(ArmorType.BOOTS.getDurability(material.durability())).attributes(attributes.apply(ArmorType.BOOTS)));
+    public static Item registerBoots(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> modifiers) {
+        return register(name, addAttributeModifiers(new Item.Properties().humanoidArmor(material, ArmorType.BOOTS).durability(ArmorType.BOOTS.getDurability(material.durability())), modifiers.apply(ArmorType.BOOTS)));
+    }
+
+    public static Item.Properties addAttributeModifiers(Item.Properties properties, ItemAttributeModifiers modifiers) {
+        DataComponentMap.Builder components = ((ItemPropertiesAccessor) properties).coread$getComponents();
+        Reference2ObjectMap<DataComponentType<?>, Object> map = ((DataComponentMapBuilderAccessor) components).coread$getMap();
+        ItemAttributeModifiers existing = (ItemAttributeModifiers) map.get(DataComponents.ATTRIBUTE_MODIFIERS);
+
+        for (ItemAttributeModifiers.Entry modifier : existing.modifiers()) {
+            modifiers = modifiers.withModifierAdded(modifier.attribute(), modifier.modifier(), modifier.slot());
+        }
+
+        return properties.attributes(modifiers);
     }
 
     public static void initialize() {
