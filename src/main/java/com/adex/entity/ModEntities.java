@@ -1,6 +1,7 @@
 package com.adex.entity;
 
 import com.adex.CoreAdventures;
+import com.adex.entity.ai.PotionAttackGoal;
 import com.adex.entity.golem.*;
 import com.adex.entity.projectile.projectile.DynamiteProjectile;
 import com.adex.entity.projectile.projectile.GolemFireball;
@@ -67,5 +68,7 @@ public class ModEntities {
         SapphireGolem.registerAttributes(SAPPHIRE_GOLEM);
         Golem.registerAttributes(SPINEL_GOLEM);
         Golem.registerAttributes(TIGERS_EYE_GOLEM);
+
+        PotionAttackGoal.initializeEffects();
     }
 }

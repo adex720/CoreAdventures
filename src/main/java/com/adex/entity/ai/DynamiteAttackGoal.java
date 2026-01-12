@@ -26,7 +26,7 @@ public class DynamiteAttackGoal extends EyeOfSightAttackGoal {
 
     public void createDynamite(ServerLevel level, LivingEntity target) {
         Vec3 direction = createDirectionVector(target, level.getRandom());
-        DynamiteProjectile fireball = new DynamiteProjectile(golem, direction, level, damage, explosionPower, 1.0d);
-        level.addFreshEntity(fireball);
+        DynamiteProjectile dynamite = new DynamiteProjectile(golem, direction, level, damage, explosionPower, 1.0d);
+        level.addFreshEntity(dynamite);
     }
 }
