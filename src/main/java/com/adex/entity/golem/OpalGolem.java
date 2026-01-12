@@ -15,7 +15,7 @@ public class OpalGolem extends Golem {
 
     @Override
     public Goal getSpecialGoal() {
-        return new PotionAttackGoal(this, getMeleeRange(), getRangedRange(), 20, 1, 1.5d, 0.5f);
+        return new PotionAttackGoal(this, getMeleeRange(), getRangedRange(), 20, 1, 1.5d, 0.5f, 3.0f);
     }
 
     @Override
