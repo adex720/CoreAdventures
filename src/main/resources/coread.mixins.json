@@ -14,8 +14,7 @@
     "PortalDimensionMixin",
     "PortalShapeAccessor",
     "PortalShapeMixin",
-    "ServerPlayerMixin",
-    "ThrownSplashPotionMixin"
+    "ServerPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
