@@ -3,7 +3,6 @@ package com.adex.entity.ai;
 import com.adex.entity.golem.Golem;
 import com.adex.entity.projectile.projectile.HeatBall;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
 
