@@ -53,6 +53,7 @@ public abstract class EyeOfSightAttackGoal extends Goal {
         if (golem.getSensing().hasLineOfSight(target)) {
             golem.getNavigation().stop();
             if (cooldownTimer >= cooldown) {
+                golem.getLookControl().setLookAt(target.getX(), target.getEyeY(), target.getZ());
                 attack();
                 golem.attacked();
                 cooldownTimer = 0;
