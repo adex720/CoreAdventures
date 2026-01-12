@@ -2,6 +2,7 @@ package com.adex.item;
 
 import com.adex.CoreAdventures;
 import com.adex.entity.ModEntities;
+import com.adex.item.armor.AttributeModifyingArmor;
 import com.adex.item.armor.ModArmorMaterials;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
@@ -10,6 +11,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -72,10 +74,10 @@ public class ModItems {
     public static final Item RUBY_LEGGINGS = registerLeggings("ruby_leggings", ModArmorMaterials.RUBY_ARMOR_MATERIAL);
     public static final Item RUBY_BOOTS = registerBoots("ruby_boots", ModArmorMaterials.RUBY_ARMOR_MATERIAL);
 
-    public static final Item SAPPHIRE_HELMET = registerHelmet("sapphire_helmet", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL);
-    public static final Item SAPPHIRE_CHESTPLATE = registerChestplate("sapphire_chestplate", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL);
-    public static final Item SAPPHIRE_LEGGINGS = registerLeggings("sapphire_leggings", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL);
-    public static final Item SAPPHIRE_BOOTS = registerBoots("sapphire_boots", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL);
+    public static final Item SAPPHIRE_HELMET = registerHelmet("sapphire_helmet", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, ModArmorMaterials.sapphireArmorFactory());
+    public static final Item SAPPHIRE_CHESTPLATE = registerChestplate("sapphire_chestplate", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, ModArmorMaterials.sapphireArmorFactory());
+    public static final Item SAPPHIRE_LEGGINGS = registerLeggings("sapphire_leggings", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, ModArmorMaterials.sapphireArmorFactory());
+    public static final Item SAPPHIRE_BOOTS = registerBoots("sapphire_boots", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, ModArmorMaterials.sapphireArmorFactory());
 
     public static final Item SPINEL_HELMET = registerHelmet("spinel_helmet", ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
     public static final Item SPINEL_CHESTPLATE = registerChestplate("spinel_chestplate", ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
@@ -87,10 +89,10 @@ public class ModItems {
     public static final Item TIGERS_EYE_LEGGINGS = registerLeggings("tigers_eye_leggings", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
     public static final Item TIGERS_EYE_BOOTS = registerBoots("tigers_eye_boots", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
 
-    public static final Item GEM_HELMET = registerHelmet("gem_helmet", ModArmorMaterials.GEM_ARMOR_MATERIAL);
-    public static final Item GEM_CHESTPLATE = registerChestplate("gem_chestplate", ModArmorMaterials.GEM_ARMOR_MATERIAL);
-    public static final Item GEM_LEGGINGS = registerLeggings("gem_leggings", ModArmorMaterials.GEM_ARMOR_MATERIAL);
-    public static final Item GEM_BOOTS = registerBoots("gem_boots", ModArmorMaterials.GEM_ARMOR_MATERIAL);
+    public static final Item GEM_HELMET = registerHelmet("gem_helmet", ModArmorMaterials.GEM_ARMOR_MATERIAL, ModArmorMaterials.gemArmorFactory());
+    public static final Item GEM_CHESTPLATE = registerChestplate("gem_chestplate", ModArmorMaterials.GEM_ARMOR_MATERIAL, ModArmorMaterials.gemArmorFactory());
+    public static final Item GEM_LEGGINGS = registerLeggings("gem_leggings", ModArmorMaterials.GEM_ARMOR_MATERIAL, ModArmorMaterials.gemArmorFactory());
+    public static final Item GEM_BOOTS = registerBoots("gem_boots", ModArmorMaterials.GEM_ARMOR_MATERIAL, ModArmorMaterials.gemArmorFactory());
 
 
     public static final Item DYNAMITE = register("dynamite", new Item.Properties());
@@ -136,6 +138,22 @@ public class ModItems {
 
     public static Item registerBoots(String name, ArmorMaterial material) {
         return register(name, new Item.Properties().humanoidArmor(material, ArmorType.BOOTS).durability(ArmorType.BOOTS.getDurability(material.durability())));
+    }
+
+    public static Item registerHelmet(String name, ArmorMaterial material, Function<Item.Properties, Item> itemFactory) {
+        return register(name, itemFactory, new Item.Properties().humanoidArmor(material, ArmorType.HELMET).durability(ArmorType.HELMET.getDurability(material.durability())));
+    }
+
+    public static Item registerChestplate(String name, ArmorMaterial material, Function<Item.Properties, Item> itemFactory) {
+        return register(name, itemFactory, new Item.Properties().humanoidArmor(material, ArmorType.CHESTPLATE).durability(ArmorType.CHESTPLATE.getDurability(material.durability())));
+    }
+
+    public static Item registerLeggings(String name, ArmorMaterial material, Function<Item.Properties, Item> itemFactory) {
+        return register(name, itemFactory, new Item.Properties().humanoidArmor(material, ArmorType.LEGGINGS).durability(ArmorType.LEGGINGS.getDurability(material.durability())));
+    }
+
+    public static Item registerBoots(String name, ArmorMaterial material, Function<Item.Properties, Item> itemFactory) {
+        return register(name, itemFactory, new Item.Properties().humanoidArmor(material, ArmorType.BOOTS).durability(ArmorType.BOOTS.getDurability(material.durability())));
     }
 
     public static void initialize() {

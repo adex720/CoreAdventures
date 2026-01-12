@@ -6,13 +6,16 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.minecraft.world.item.equipment.EquipmentAssets;
 
+import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class ModArmorMaterials {
 
@@ -54,6 +57,14 @@ public class ModArmorMaterials {
     }
 
     public static void initialize() {
+    }
+
+    public static Function<Item.Properties, Item> sapphireArmorFactory() {
+        return (properties) -> new AttributeModifyingArmor(properties, List.of(Attributes.MOVEMENT_SPEED, Attributes.SNEAKING_SPEED), List.of(0.02d, 0.01d));
+    }
+
+    public static Function<Item.Properties, Item> gemArmorFactory() {
+        return (properties) -> new AttributeModifyingArmor(properties, List.of(Attributes.MOVEMENT_SPEED, Attributes.SNEAKING_SPEED), List.of(0.004d, 0.002d));
     }
 
 }
