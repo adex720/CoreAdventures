@@ -2,6 +2,7 @@ package com.adex.item.armor;
 
 import com.adex.CoreAdventures;
 import com.adex.data.tag.ModTags;
+import com.adex.item.ModDataComponents;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -64,12 +65,6 @@ public class ModArmorMaterials {
     public static void initialize() {
     }
 
-    public static ItemAttributeModifiers.Entry createModifier(Holder<Attribute> attribute, double amount, ArmorType armorType) {
-        Identifier identifier = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "armor." + armorType.getName());
-        EquipmentSlotGroup equipmentSlotGroup = EquipmentSlotGroup.bySlot(armorType.getSlot());
-        return new ItemAttributeModifiers.Entry(attribute, new AttributeModifier(identifier, amount, AttributeModifier.Operation.ADD_VALUE), equipmentSlotGroup);
-    }
-
     public static Function<Item.Properties, Item> chalcedonyProtectiveArmor() {
         return (properties) -> new ProtectiveArmor(properties, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 2.0f);
     }
@@ -88,6 +83,16 @@ public class ModArmorMaterials {
 
     public static Function<Item.Properties, Item> gemProtectiveArmor() {
         return (properties) -> new ProtectiveArmor(properties, ModTags.GEM_PROTECTIVE_ARMOR, 0.3f, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 0.4f);
+    }
+
+    public static Function<Item.Properties, Item> opalPotionResistance() {
+        return properties -> new Item(properties.component(ModDataComponents.POTION_RESISTANCE, 0.25f));
+    }
+
+    public static ItemAttributeModifiers.Entry createModifier(Holder<Attribute> attribute, double amount, ArmorType armorType) {
+        Identifier identifier = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "armor." + armorType.getName());
+        EquipmentSlotGroup equipmentSlotGroup = EquipmentSlotGroup.bySlot(armorType.getSlot());
+        return new ItemAttributeModifiers.Entry(attribute, new AttributeModifier(identifier, amount, AttributeModifier.Operation.ADD_VALUE), equipmentSlotGroup);
     }
 
     public static ItemAttributeModifiers jadeArmorAttributes(ArmorType armorType) {

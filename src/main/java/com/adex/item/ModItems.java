@@ -2,6 +2,7 @@ package com.adex.item;
 
 import com.adex.CoreAdventures;
 import com.adex.entity.ModEntities;
+import com.adex.entity.attribute.HeatManager;
 import com.adex.item.armor.ModArmorMaterials;
 import com.adex.mixin.DataComponentMapBuilderAccessor;
 import com.adex.mixin.ItemPropertiesAccessor;
@@ -69,10 +70,10 @@ public class ModItems {
     public static final Item ONYX_LEGGINGS = registerLeggings("onyx_leggings", ModArmorMaterials.ONYX_ARMOR_MATERIAL, ModArmorMaterials::onyxArmorAttributes);
     public static final Item ONYX_BOOTS = registerBoots("onyx_boots", ModArmorMaterials.ONYX_ARMOR_MATERIAL, ModArmorMaterials::onyxArmorAttributes);
 
-    public static final Item OPAL_HELMET = registerHelmet("opal_helmet", ModArmorMaterials.OPAL_ARMOR_MATERIAL);
-    public static final Item OPAL_CHESTPLATE = registerChestplate("opal_chestplate", ModArmorMaterials.OPAL_ARMOR_MATERIAL);
-    public static final Item OPAL_LEGGINGS = registerLeggings("opal_leggings", ModArmorMaterials.OPAL_ARMOR_MATERIAL);
-    public static final Item OPAL_BOOTS = registerBoots("opal_boots", ModArmorMaterials.OPAL_ARMOR_MATERIAL);
+    public static final Item OPAL_HELMET = registerHelmet("opal_helmet", ModArmorMaterials.opalPotionResistance(), ModArmorMaterials.OPAL_ARMOR_MATERIAL);
+    public static final Item OPAL_CHESTPLATE = registerChestplate("opal_chestplate", ModArmorMaterials.opalPotionResistance(), ModArmorMaterials.OPAL_ARMOR_MATERIAL);
+    public static final Item OPAL_LEGGINGS = registerLeggings("opal_leggings", ModArmorMaterials.opalPotionResistance(), ModArmorMaterials.OPAL_ARMOR_MATERIAL);
+    public static final Item OPAL_BOOTS = registerBoots("opal_boots", ModArmorMaterials.opalPotionResistance(), ModArmorMaterials.OPAL_ARMOR_MATERIAL);
 
     public static final Item RUBY_HELMET = registerHelmet("ruby_helmet", ModArmorMaterials.RUBY_ARMOR_MATERIAL);
     public static final Item RUBY_CHESTPLATE = registerChestplate("ruby_chestplate", ModArmorMaterials.RUBY_ARMOR_MATERIAL);
@@ -180,7 +181,8 @@ public class ModItems {
     public static Item registerGemArmor(String name, ArmorType armorType) {
         return register(name, ModArmorMaterials.gemProtectiveArmor(), addAttributeModifiers(
                 new Item.Properties().humanoidArmor(ModArmorMaterials.GEM_ARMOR_MATERIAL, armorType)
-                        .durability(armorType.getDurability(ModArmorMaterials.GEM_ARMOR_MATERIAL.durability())),
+                        .durability(armorType.getDurability(ModArmorMaterials.GEM_ARMOR_MATERIAL.durability()))
+                        .component(ModDataComponents.POTION_RESISTANCE, 0.05f),
                 ModArmorMaterials.gemArmorAttributes(armorType)));
     }
 
