@@ -89,10 +89,10 @@ public class ModItems {
     public static final Item SPINEL_LEGGINGS = registerLeggings("spinel_leggings", ModArmorMaterials.spinelProtectiveArmor(), ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
     public static final Item SPINEL_BOOTS = registerBoots("spinel_boots", ModArmorMaterials.spinelProtectiveArmor(), ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
 
-    public static final Item TIGERS_EYE_HELMET = registerHelmet("tigers_eye_helmet", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
-    public static final Item TIGERS_EYE_CHESTPLATE = registerChestplate("tigers_eye_chestplate", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
-    public static final Item TIGERS_EYE_LEGGINGS = registerLeggings("tigers_eye_leggings", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
-    public static final Item TIGERS_EYE_BOOTS = registerBoots("tigers_eye_boots", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
+    public static final Item TIGERS_EYE_HELMET = registerHelmet("tigers_eye_helmet", ModArmorMaterials.tigersEyeProtectiveArmor(), ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
+    public static final Item TIGERS_EYE_CHESTPLATE = registerChestplate("tigers_eye_chestplate", ModArmorMaterials.tigersEyeProtectiveArmor(), ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
+    public static final Item TIGERS_EYE_LEGGINGS = registerLeggings("tigers_eye_leggings", ModArmorMaterials.tigersEyeProtectiveArmor(), ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
+    public static final Item TIGERS_EYE_BOOTS = registerBoots("tigers_eye_boots", ModArmorMaterials.tigersEyeProtectiveArmor(), ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
 
     public static final Item GEM_HELMET = registerGemArmor("gem_helmet", ArmorType.HELMET);
     public static final Item GEM_CHESTPLATE = registerGemArmor("gem_chestplate", ArmorType.CHESTPLATE);

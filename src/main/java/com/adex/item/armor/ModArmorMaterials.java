@@ -82,6 +82,10 @@ public class ModArmorMaterials {
         return (properties) -> new ProtectiveArmor(properties, ModTags.SPINEL_PROTECTIVE_ARMOR, 0.05f);
     }
 
+    public static Function<Item.Properties, Item> tigersEyeProtectiveArmor() {
+        return (properties) -> new ProtectiveArmor(properties, ModTags.TIGERS_EYE_PROTECTIVE_ARMOR, 0.1f);
+    }
+
     public static Function<Item.Properties, Item> gemProtectiveArmor() {
         return (properties) -> new ProtectiveArmor(properties, ModTags.GEM_PROTECTIVE_ARMOR, 0.01f, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 0.2f);
     }
