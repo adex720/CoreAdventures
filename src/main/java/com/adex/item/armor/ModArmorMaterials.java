@@ -89,6 +89,10 @@ public class ModArmorMaterials {
         return properties -> new Item(properties.component(ModDataComponents.POTION_RESISTANCE, 0.25f));
     }
 
+    public static Function<Item.Properties, Item> rubyHealthRegenerationBoost() {
+        return properties -> new Item(properties.component(ModDataComponents.REGENERATION_BOOST, 0.25f));
+    }
+
     public static ItemAttributeModifiers.Entry createModifier(Holder<Attribute> attribute, double amount, ArmorType armorType) {
         Identifier identifier = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "armor." + armorType.getName());
         EquipmentSlotGroup equipmentSlotGroup = EquipmentSlotGroup.bySlot(armorType.getSlot());

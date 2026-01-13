@@ -2,7 +2,6 @@ package com.adex.item;
 
 import com.adex.CoreAdventures;
 import com.adex.entity.ModEntities;
-import com.adex.entity.attribute.HeatManager;
 import com.adex.item.armor.ModArmorMaterials;
 import com.adex.mixin.DataComponentMapBuilderAccessor;
 import com.adex.mixin.ItemPropertiesAccessor;
@@ -75,10 +74,10 @@ public class ModItems {
     public static final Item OPAL_LEGGINGS = registerLeggings("opal_leggings", ModArmorMaterials.opalPotionResistance(), ModArmorMaterials.OPAL_ARMOR_MATERIAL);
     public static final Item OPAL_BOOTS = registerBoots("opal_boots", ModArmorMaterials.opalPotionResistance(), ModArmorMaterials.OPAL_ARMOR_MATERIAL);
 
-    public static final Item RUBY_HELMET = registerHelmet("ruby_helmet", ModArmorMaterials.RUBY_ARMOR_MATERIAL);
-    public static final Item RUBY_CHESTPLATE = registerChestplate("ruby_chestplate", ModArmorMaterials.RUBY_ARMOR_MATERIAL);
-    public static final Item RUBY_LEGGINGS = registerLeggings("ruby_leggings", ModArmorMaterials.RUBY_ARMOR_MATERIAL);
-    public static final Item RUBY_BOOTS = registerBoots("ruby_boots", ModArmorMaterials.RUBY_ARMOR_MATERIAL);
+    public static final Item RUBY_HELMET = registerHelmet("ruby_helmet", ModArmorMaterials.rubyHealthRegenerationBoost(), ModArmorMaterials.RUBY_ARMOR_MATERIAL);
+    public static final Item RUBY_CHESTPLATE = registerChestplate("ruby_chestplate", ModArmorMaterials.rubyHealthRegenerationBoost(), ModArmorMaterials.RUBY_ARMOR_MATERIAL);
+    public static final Item RUBY_LEGGINGS = registerLeggings("ruby_leggings", ModArmorMaterials.rubyHealthRegenerationBoost(), ModArmorMaterials.RUBY_ARMOR_MATERIAL);
+    public static final Item RUBY_BOOTS = registerBoots("ruby_boots", ModArmorMaterials.rubyHealthRegenerationBoost(), ModArmorMaterials.RUBY_ARMOR_MATERIAL);
 
     public static final Item SAPPHIRE_HELMET = registerHelmet("sapphire_helmet", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, ModArmorMaterials::sapphireArmorAttributes);
     public static final Item SAPPHIRE_CHESTPLATE = registerChestplate("sapphire_chestplate", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, ModArmorMaterials::sapphireArmorAttributes);
@@ -182,7 +181,8 @@ public class ModItems {
         return register(name, ModArmorMaterials.gemProtectiveArmor(), addAttributeModifiers(
                 new Item.Properties().humanoidArmor(ModArmorMaterials.GEM_ARMOR_MATERIAL, armorType)
                         .durability(armorType.getDurability(ModArmorMaterials.GEM_ARMOR_MATERIAL.durability()))
-                        .component(ModDataComponents.POTION_RESISTANCE, 0.05f),
+                        .component(ModDataComponents.POTION_RESISTANCE, 0.05f)
+                        .component(ModDataComponents.REGENERATION_BOOST, 0.05f),
                 ModArmorMaterials.gemArmorAttributes(armorType)));
     }
 
