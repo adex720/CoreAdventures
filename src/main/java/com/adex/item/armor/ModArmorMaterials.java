@@ -70,6 +70,10 @@ public class ModArmorMaterials {
         return new ItemAttributeModifiers.Entry(attribute, new AttributeModifier(identifier, amount, AttributeModifier.Operation.ADD_VALUE), equipmentSlotGroup);
     }
 
+    public static Function<Item.Properties, Item> chalcedonyProtectiveArmor() {
+        return (properties) -> new ProtectiveArmor(properties, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 1.0f);
+    }
+
     public static Function<Item.Properties, Item> jasperProtectiveArmor() {
         return (properties) -> new ProtectiveArmor(properties, ModTags.JASPER_PROTECTIVE_ARMOR, 0.05f);
     }
@@ -79,7 +83,7 @@ public class ModArmorMaterials {
     }
 
     public static Function<Item.Properties, Item> gemProtectiveArmor() {
-        return (properties) -> new ProtectiveArmor(properties, ModTags.GEM_PROTECTIVE_ARMOR, 0.01f);
+        return (properties) -> new ProtectiveArmor(properties, ModTags.GEM_PROTECTIVE_ARMOR, 0.01f, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 0.2f);
     }
 
     public static ItemAttributeModifiers jadeArmorAttributes(ArmorType armorType) {

@@ -44,10 +44,10 @@ public class ModItems {
     public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties());
 
 
-    public static final Item CHALCEDONY_HELMET = registerHelmet("chalcedony_helmet", ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
-    public static final Item CHALCEDONY_CHESTPLATE = registerChestplate("chalcedony_chestplate", ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
-    public static final Item CHALCEDONY_LEGGINGS = registerLeggings("chalcedony_leggings", ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
-    public static final Item CHALCEDONY_BOOTS = registerBoots("chalcedony_boots", ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
+    public static final Item CHALCEDONY_HELMET = registerHelmet("chalcedony_helmet", ModArmorMaterials.chalcedonyProtectiveArmor(), ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
+    public static final Item CHALCEDONY_CHESTPLATE = registerChestplate("chalcedony_chestplate", ModArmorMaterials.chalcedonyProtectiveArmor(), ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
+    public static final Item CHALCEDONY_LEGGINGS = registerLeggings("chalcedony_leggings", ModArmorMaterials.chalcedonyProtectiveArmor(), ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
+    public static final Item CHALCEDONY_BOOTS = registerBoots("chalcedony_boots", ModArmorMaterials.chalcedonyProtectiveArmor(), ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
 
     public static final Item GARNET_HELMET = registerHelmet("garnet_helmet", ModArmorMaterials.GARNET_ARMOR_MATERIAL);
     public static final Item GARNET_CHESTPLATE = registerChestplate("garnet_chestplate", ModArmorMaterials.GARNET_ARMOR_MATERIAL);

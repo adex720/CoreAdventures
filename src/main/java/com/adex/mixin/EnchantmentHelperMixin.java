@@ -25,7 +25,7 @@ public class EnchantmentHelperMixin {
             }
         }
 
-        if (added >= 0) {
+        if (added > 0.0f) {
             cir.setReturnValue(cir.getReturnValueF() + added);
         }
     }
