@@ -71,23 +71,23 @@ public class ModArmorMaterials {
     }
 
     public static Function<Item.Properties, Item> chalcedonyProtectiveArmor() {
-        return (properties) -> new ProtectiveArmor(properties, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 1.0f);
+        return (properties) -> new ProtectiveArmor(properties, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 2.0f);
     }
 
     public static Function<Item.Properties, Item> jasperProtectiveArmor() {
-        return (properties) -> new ProtectiveArmor(properties, ModTags.JASPER_PROTECTIVE_ARMOR, 0.05f);
+        return (properties) -> new ProtectiveArmor(properties, ModTags.JASPER_PROTECTIVE_ARMOR, 1.5f);
     }
 
     public static Function<Item.Properties, Item> spinelProtectiveArmor() {
-        return (properties) -> new ProtectiveArmor(properties, ModTags.SPINEL_PROTECTIVE_ARMOR, 0.05f);
+        return (properties) -> new ProtectiveArmor(properties, ModTags.SPINEL_PROTECTIVE_ARMOR, 1.5f);
     }
 
     public static Function<Item.Properties, Item> tigersEyeProtectiveArmor() {
-        return (properties) -> new ProtectiveArmor(properties, ModTags.TIGERS_EYE_PROTECTIVE_ARMOR, 0.1f);
+        return (properties) -> new ProtectiveArmor(properties, ModTags.TIGERS_EYE_PROTECTIVE_ARMOR, 1.5f);
     }
 
     public static Function<Item.Properties, Item> gemProtectiveArmor() {
-        return (properties) -> new ProtectiveArmor(properties, ModTags.GEM_PROTECTIVE_ARMOR, 0.01f, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 0.2f);
+        return (properties) -> new ProtectiveArmor(properties, ModTags.GEM_PROTECTIVE_ARMOR, 0.3f, ModTags.CHALCEDONY_PROTECTIVE_ARMOR, 0.4f);
     }
 
     public static ItemAttributeModifiers jadeArmorAttributes(ArmorType armorType) {
