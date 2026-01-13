@@ -71,11 +71,15 @@ public class ModArmorMaterials {
     }
 
     public static Function<Item.Properties, Item> jasperProtectiveArmor() {
-        return (properties) -> new ProtectiveArmor(properties, ModTags.JASPER_PROTECTIVE_ARMOR, 0.1f);
+        return (properties) -> new ProtectiveArmor(properties, ModTags.JASPER_PROTECTIVE_ARMOR, 0.05f);
+    }
+
+    public static Function<Item.Properties, Item> spinelProtectiveArmor() {
+        return (properties) -> new ProtectiveArmor(properties, ModTags.SPINEL_PROTECTIVE_ARMOR, 0.05f);
     }
 
     public static Function<Item.Properties, Item> gemProtectiveArmor() {
-        return (properties) -> new ProtectiveArmor(properties, ModTags.JASPER_PROTECTIVE_ARMOR, 0.02f);
+        return (properties) -> new ProtectiveArmor(properties, ModTags.GEM_PROTECTIVE_ARMOR, 0.01f);
     }
 
     public static ItemAttributeModifiers jadeArmorAttributes(ArmorType armorType) {

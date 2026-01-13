@@ -34,6 +34,7 @@ public class ModTags {
     public static final TagKey<Biome> CORE_BIOMES = registerBiome("core");
 
     public static final TagKey<DamageType> JASPER_PROTECTIVE_ARMOR = registerDamageType("jasper_protective_armor");
+    public static final TagKey<DamageType> SPINEL_PROTECTIVE_ARMOR = registerDamageType("spinel_protective_armor");
     public static final TagKey<DamageType> GEM_PROTECTIVE_ARMOR = registerDamageType("gem_protective_armor");
 
     private static TagKey<Block> registerBlock(String name) {
