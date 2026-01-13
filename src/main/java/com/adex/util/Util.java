@@ -11,6 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -24,6 +25,10 @@ public class Util {
 
     public static Identifier getIdentifier(Item item) {
         return BuiltInRegistries.ITEM.wrapAsHolder(item).unwrapKey().map(ResourceKey::identifier).orElse(null);
+    }
+
+    public static Identifier getIdentifier(Block block) {
+        return BuiltInRegistries.BLOCK.wrapAsHolder(block).unwrapKey().map(ResourceKey::identifier).orElse(null);
     }
 
     public static <T> T removeRandomElement(Set<T> set, RandomSource random) {

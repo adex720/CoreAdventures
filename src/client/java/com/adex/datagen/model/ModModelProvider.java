@@ -6,7 +6,9 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TexturedModel;
 import org.jspecify.annotations.NonNull;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -46,6 +48,17 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createTrivialCube(ModBlocks.SAPPHIRE_BLOCK);
         blockStateModelGenerator.createTrivialCube(ModBlocks.SPINEL_BLOCK);
         blockStateModelGenerator.createTrivialCube(ModBlocks.TIGERS_EYE_BLOCK);
+
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.CHALCEDONY_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.GARNET_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.JADE_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.JASPER_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.ONYX_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.OPAL_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.RUBY_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.SAPPHIRE_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.SPINEL_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.TIGERS_EYE_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
     }
 
     @Override

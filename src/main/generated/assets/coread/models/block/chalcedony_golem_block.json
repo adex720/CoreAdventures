@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "coread:block/chalcedony_golem_block_bottom",
+    "side": "coread:block/chalcedony_golem_block_side",
+    "top": "coread:block/chalcedony_golem_block_top"
+  }
+}

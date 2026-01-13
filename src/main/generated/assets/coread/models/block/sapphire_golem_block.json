@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "coread:block/sapphire_golem_block_bottom",
+    "side": "coread:block/sapphire_golem_block_side",
+    "top": "coread:block/sapphire_golem_block_top"
+  }
+}

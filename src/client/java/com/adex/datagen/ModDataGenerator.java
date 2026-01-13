@@ -2,6 +2,7 @@ package com.adex.datagen;
 
 import com.adex.datagen.model.ModEquipmentModelProvider;
 import com.adex.datagen.model.ModModelProvider;
+import com.adex.datagen.texture.ModBlockTextureProvider;
 import com.adex.datagen.texture.ModEntityTextureProvider;
 import com.adex.datagen.texture.ModHumanoidTextureProvider;
 import com.adex.datagen.texture.ModItemTextureProvider;
@@ -29,6 +30,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModItemTagProvider::new);
 
         pack.addProvider(ModItemTextureProvider::new);
+        pack.addProvider(ModBlockTextureProvider::new);
         pack.addProvider(ModHumanoidTextureProvider::new);
         pack.addProvider(ModEntityTextureProvider::new);
     }
