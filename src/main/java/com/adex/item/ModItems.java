@@ -59,10 +59,10 @@ public class ModItems {
     public static final Item JADE_LEGGINGS = registerLeggings("jade_leggings", ModArmorMaterials.JADE_ARMOR_MATERIAL, ModArmorMaterials::jadeArmorAttributes);
     public static final Item JADE_BOOTS = registerBoots("jade_boots", ModArmorMaterials.JADE_ARMOR_MATERIAL, ModArmorMaterials::jadeArmorAttributes);
 
-    public static final Item JASPER_HELMET = registerHelmet("jasper_helmet", ModArmorMaterials.JASPER_ARMOR_MATERIAL);
-    public static final Item JASPER_CHESTPLATE = registerChestplate("jasper_chestplate", ModArmorMaterials.JASPER_ARMOR_MATERIAL);
-    public static final Item JASPER_LEGGINGS = registerLeggings("jasper_leggings", ModArmorMaterials.JASPER_ARMOR_MATERIAL);
-    public static final Item JASPER_BOOTS = registerBoots("jasper_boots", ModArmorMaterials.JASPER_ARMOR_MATERIAL);
+    public static final Item JASPER_HELMET = registerHelmet("jasper_helmet", ModArmorMaterials.jasperProtectiveArmor(), ModArmorMaterials.JASPER_ARMOR_MATERIAL);
+    public static final Item JASPER_CHESTPLATE = registerChestplate("jasper_chestplate", ModArmorMaterials.jasperProtectiveArmor(), ModArmorMaterials.JASPER_ARMOR_MATERIAL);
+    public static final Item JASPER_LEGGINGS = registerLeggings("jasper_leggings", ModArmorMaterials.jasperProtectiveArmor(), ModArmorMaterials.JASPER_ARMOR_MATERIAL);
+    public static final Item JASPER_BOOTS = registerBoots("jasper_boots", ModArmorMaterials.jasperProtectiveArmor(), ModArmorMaterials.JASPER_ARMOR_MATERIAL);
 
     public static final Item ONYX_HELMET = registerHelmet("onyx_helmet", ModArmorMaterials.ONYX_ARMOR_MATERIAL, ModArmorMaterials::onyxArmorAttributes);
     public static final Item ONYX_CHESTPLATE = registerChestplate("onyx_chestplate", ModArmorMaterials.ONYX_ARMOR_MATERIAL, ModArmorMaterials::onyxArmorAttributes);
@@ -94,10 +94,10 @@ public class ModItems {
     public static final Item TIGERS_EYE_LEGGINGS = registerLeggings("tigers_eye_leggings", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
     public static final Item TIGERS_EYE_BOOTS = registerBoots("tigers_eye_boots", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
 
-    public static final Item GEM_HELMET = registerHelmet("gem_helmet", ModArmorMaterials.GEM_ARMOR_MATERIAL, ModArmorMaterials::gemArmorAttributes);
-    public static final Item GEM_CHESTPLATE = registerChestplate("gem_chestplate", ModArmorMaterials.GEM_ARMOR_MATERIAL, ModArmorMaterials::gemArmorAttributes);
-    public static final Item GEM_LEGGINGS = registerLeggings("gem_leggings", ModArmorMaterials.GEM_ARMOR_MATERIAL, ModArmorMaterials::gemArmorAttributes);
-    public static final Item GEM_BOOTS = registerBoots("gem_boots", ModArmorMaterials.GEM_ARMOR_MATERIAL, ModArmorMaterials::gemArmorAttributes);
+    public static final Item GEM_HELMET = registerGemArmor("gem_helmet", ArmorType.HELMET);
+    public static final Item GEM_CHESTPLATE = registerGemArmor("gem_chestplate", ArmorType.CHESTPLATE);
+    public static final Item GEM_LEGGINGS = registerGemArmor("gem_leggings", ArmorType.LEGGINGS);
+    public static final Item GEM_BOOTS = registerGemArmor("gem_boots", ArmorType.BOOTS);
 
 
     public static final Item DYNAMITE = register("dynamite", new Item.Properties());
@@ -145,6 +145,22 @@ public class ModItems {
         return register(name, new Item.Properties().humanoidArmor(material, ArmorType.BOOTS).durability(ArmorType.BOOTS.getDurability(material.durability())));
     }
 
+    public static Item registerHelmet(String name, Function<Item.Properties, Item> itemFactory, ArmorMaterial material) {
+        return register(name, itemFactory, new Item.Properties().humanoidArmor(material, ArmorType.HELMET).durability(ArmorType.HELMET.getDurability(material.durability())));
+    }
+
+    public static Item registerChestplate(String name, Function<Item.Properties, Item> itemFactory, ArmorMaterial material) {
+        return register(name, itemFactory, new Item.Properties().humanoidArmor(material, ArmorType.CHESTPLATE).durability(ArmorType.CHESTPLATE.getDurability(material.durability())));
+    }
+
+    public static Item registerLeggings(String name, Function<Item.Properties, Item> itemFactory, ArmorMaterial material) {
+        return register(name, itemFactory, new Item.Properties().humanoidArmor(material, ArmorType.LEGGINGS).durability(ArmorType.LEGGINGS.getDurability(material.durability())));
+    }
+
+    public static Item registerBoots(String name, Function<Item.Properties, Item> itemFactory, ArmorMaterial material) {
+        return register(name, itemFactory, new Item.Properties().humanoidArmor(material, ArmorType.BOOTS).durability(ArmorType.BOOTS.getDurability(material.durability())));
+    }
+
     public static Item registerHelmet(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> modifiers) {
         return register(name, addAttributeModifiers(new Item.Properties().humanoidArmor(material, ArmorType.HELMET).durability(ArmorType.HELMET.getDurability(material.durability())), modifiers.apply(ArmorType.HELMET)));
     }
@@ -159,6 +175,13 @@ public class ModItems {
 
     public static Item registerBoots(String name, ArmorMaterial material, Function<ArmorType, ItemAttributeModifiers> modifiers) {
         return register(name, addAttributeModifiers(new Item.Properties().humanoidArmor(material, ArmorType.BOOTS).durability(ArmorType.BOOTS.getDurability(material.durability())), modifiers.apply(ArmorType.BOOTS)));
+    }
+
+    public static Item registerGemArmor(String name, ArmorType armorType) {
+        return register(name, ModArmorMaterials.gemProtectiveArmor(), addAttributeModifiers(
+                new Item.Properties().humanoidArmor(ModArmorMaterials.GEM_ARMOR_MATERIAL, armorType)
+                        .durability(armorType.getDurability(ModArmorMaterials.GEM_ARMOR_MATERIAL.durability())),
+                ModArmorMaterials.gemArmorAttributes(armorType)));
     }
 
     public static Item.Properties addAttributeModifiers(Item.Properties properties, ItemAttributeModifiers modifiers) {

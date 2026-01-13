@@ -4,6 +4,7 @@ import com.adex.CoreAdventures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -32,6 +33,9 @@ public class ModTags {
 
     public static final TagKey<Biome> CORE_BIOMES = registerBiome("core");
 
+    public static final TagKey<DamageType> JASPER_PROTECTIVE_ARMOR = registerDamageType("jasper_protective_armor");
+    public static final TagKey<DamageType> GEM_PROTECTIVE_ARMOR = registerDamageType("gem_protective_armor");
+
     private static TagKey<Block> registerBlock(String name) {
         return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
@@ -43,6 +47,10 @@ public class ModTags {
     @SuppressWarnings("SameParameterValue")
     private static TagKey<Biome> registerBiome(String name) {
         return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
+    }
+
+    private static TagKey<DamageType> registerDamageType(String name) {
+        return TagKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
 
     public static void initialize() {

@@ -20,6 +20,7 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class ModArmorMaterials {
 
@@ -67,6 +68,14 @@ public class ModArmorMaterials {
         Identifier identifier = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "armor." + armorType.getName());
         EquipmentSlotGroup equipmentSlotGroup = EquipmentSlotGroup.bySlot(armorType.getSlot());
         return new ItemAttributeModifiers.Entry(attribute, new AttributeModifier(identifier, amount, AttributeModifier.Operation.ADD_VALUE), equipmentSlotGroup);
+    }
+
+    public static Function<Item.Properties, Item> jasperProtectiveArmor() {
+        return (properties) -> new ProtectiveArmor(properties, ModTags.JASPER_PROTECTIVE_ARMOR, 0.1f);
+    }
+
+    public static Function<Item.Properties, Item> gemProtectiveArmor() {
+        return (properties) -> new ProtectiveArmor(properties, ModTags.JASPER_PROTECTIVE_ARMOR, 0.02f);
     }
 
     public static ItemAttributeModifiers jadeArmorAttributes(ArmorType armorType) {
