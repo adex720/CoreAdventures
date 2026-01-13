@@ -84,10 +84,10 @@ public class ModItems {
     public static final Item SAPPHIRE_LEGGINGS = registerLeggings("sapphire_leggings", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, ModArmorMaterials::sapphireArmorAttributes);
     public static final Item SAPPHIRE_BOOTS = registerBoots("sapphire_boots", ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL, ModArmorMaterials::sapphireArmorAttributes);
 
-    public static final Item SPINEL_HELMET = registerHelmet("spinel_helmet", ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
-    public static final Item SPINEL_CHESTPLATE = registerChestplate("spinel_chestplate", ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
-    public static final Item SPINEL_LEGGINGS = registerLeggings("spinel_leggings", ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
-    public static final Item SPINEL_BOOTS = registerBoots("spinel_boots", ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
+    public static final Item SPINEL_HELMET = registerHelmet("spinel_helmet", ModArmorMaterials.spinelProtectiveArmor(), ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
+    public static final Item SPINEL_CHESTPLATE = registerChestplate("spinel_chestplate", ModArmorMaterials.spinelProtectiveArmor(), ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
+    public static final Item SPINEL_LEGGINGS = registerLeggings("spinel_leggings", ModArmorMaterials.spinelProtectiveArmor(), ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
+    public static final Item SPINEL_BOOTS = registerBoots("spinel_boots", ModArmorMaterials.spinelProtectiveArmor(), ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
 
     public static final Item TIGERS_EYE_HELMET = registerHelmet("tigers_eye_helmet", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
     public static final Item TIGERS_EYE_CHESTPLATE = registerChestplate("tigers_eye_chestplate", ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
