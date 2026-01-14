@@ -146,6 +146,7 @@
     "description": {
       "translate": "advancements.coread.core.kill_all_golems.description"
     },
+    "frame": "goal",
     "icon": {
       "count": 1,
       "id": "coread:onyx_golem_spawn_egg"
@@ -186,5 +187,8 @@
       "killed_tigers_eye_golem"
     ]
   ],
+  "rewards": {
+    "experience": 100
+  },
   "sends_telemetry_event": true
 }

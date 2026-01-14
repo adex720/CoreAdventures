@@ -132,7 +132,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         Component.translatable("advancements.coread.core.cool_with_blue_ice.title"),
                         Component.translatable("advancements.coread.core.cool_with_blue_ice.description"),
                         null,
-                        AdvancementType.CHALLENGE,
+                        AdvancementType.GOAL,
                         true,
                         true,
                         false)
@@ -215,7 +215,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         Component.translatable("advancements.coread.core.kill_all_golems.title"),
                         Component.translatable("advancements.coread.core.kill_all_golems.description"),
                         null,
-                        AdvancementType.TASK,
+                        AdvancementType.GOAL,
                         true,
                         true,
                         false)
@@ -230,6 +230,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("killed_spinel_golem", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(entityHolderLookup, ModEntities.SPINEL_GOLEM)))
                 .addCriterion("killed_tigers_eye_golem", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(entityHolderLookup, ModEntities.TIGERS_EYE_GOLEM)))
                 .requirements(AdvancementRequirements.Strategy.AND)
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .save(consumer, ModDataGenerator.getIdentifierString("kill_all_golems"));
     }
 
