@@ -1,6 +1,6 @@
 {
   "criteria": {
-    "entered_root": {
+    "entered_core": {
       "conditions": {
         "to": "coread:core"
       },
@@ -24,7 +24,7 @@
   },
   "requirements": [
     [
-      "entered_root"
+      "entered_core"
     ]
   ],
   "sends_telemetry_event": true

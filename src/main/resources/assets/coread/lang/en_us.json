@@ -156,6 +156,14 @@
   "advancements.coread.core.cool_with_any.description": "Cool down next to ice in core",
   "advancements.coread.core.cool_with_blue_ice.title": "Sub Zero experience",
   "advancements.coread.core.cool_with_blue_ice.description": "Cool down next to blue ice in core",
+  "advancements.coread.core.summon_golem.title": "Golem Power",
+  "advancements.coread.core.summon_golem.description": "Summon a golem by placing the correct gem block over a golem block",
+  "advancements.coread.core.summon_golem_with_armor.title": "Prepared for Battle",
+  "advancements.coread.core.summon_golem_with_armor.description": "Summon a golem while wearing a full set of matching core armor",
+  "advancements.coread.core.kill_golem.title": "No More Golem",
+  "advancements.coread.core.kill_golem.description": "Defeat a golem",
+  "advancements.coread.core.kill_all_golems.title": "Rainbow Sweep",
+  "advancements.coread.core.kill_all_golems.description": "Defeat a golem of every type",
 
   "death.attack.heat": "%1$s died from heat",
 
