@@ -178,5 +178,10 @@
   "tag.item.coread.repairs_spinel_armor": "Repairs Spinel Armor",
   "tag.item.coread.repairs_tigers_eye_armor": "Repairs Tiger's Eye Armor",
   "tag.item.coread.repairs_gem_armor": "Repairs Gem Armor",
-  "tag.item.coread.core_armor": "Gem Armor"
+  "tag.item.coread.core_armor": "Gem Armor",
+
+  "attribute.name.heat": "Heat",
+  "attribute.name.heat_protection": "Heat Protection",
+
+  "biome.coread.warm_core": "Warm Core"
 }
