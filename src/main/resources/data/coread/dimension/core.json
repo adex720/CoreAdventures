@@ -4,6 +4,7 @@
     "type": "minecraft:flat",
     "settings": {
       "biome": "coread:warm_core",
+      "features": true,
       "layers": [
         {
           "block": "minecraft:bedrock",
