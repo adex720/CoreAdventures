@@ -23,6 +23,12 @@ public class ModFeatures {
     public static final ResourceKey<PlacedFeature> SPINEL_ORE = createKey("spinel_ore");
     public static final ResourceKey<PlacedFeature> TIGERS_EYE_ORE = createKey("tigers_eye_ore");
 
+    public static final ResourceKey<PlacedFeature> GABBRO = createKey("gabbro_ore");
+    public static final ResourceKey<PlacedFeature> LARVIKITE = createKey("larvikite_ore");
+    public static final ResourceKey<PlacedFeature> SERPENTINITE = createKey("serpentinite_ore");
+    public static final ResourceKey<PlacedFeature> SLATE = createKey("slate_ore");
+    public static final ResourceKey<PlacedFeature> TRAVERTINE = createKey("travertine_ore");
+
     public static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
@@ -38,5 +44,11 @@ public class ModFeatures {
         BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, SAPPHIRE_ORE);
         BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, SPINEL_ORE);
         BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, TIGERS_EYE_ORE);
+
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, GABBRO);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, LARVIKITE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, SERPENTINITE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, SLATE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, TRAVERTINE);
     }
 }
