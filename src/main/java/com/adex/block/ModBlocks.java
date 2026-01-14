@@ -1,6 +1,7 @@
 package com.adex.block;
 
 import com.adex.CoreAdventures;
+import com.adex.entity.ModEntities;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -40,17 +41,6 @@ public class ModBlocks {
     public static final Block SPINEL_ORE = register("spinel_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
     public static final Block TIGERS_EYE_ORE = register("tigers_eye_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
 
-    public static final Block CHALCEDONY_BLOCK = register("chalcedony_block", BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block GARNET_BLOCK = register("garnet_block", BlockBehaviour.Properties.of().mapColor(MapColor.CRIMSON_HYPHAE).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block JADE_BLOCK = register("jade_block", BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block JASPER_BLOCK = register("jasper_block", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block ONYX_BLOCK = register("onyx_block", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block OPAL_BLOCK = register("opal_block", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block RUBY_BLOCK = register("ruby_block", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block SAPPHIRE_BLOCK = register("sapphire_block", BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block SPINEL_BLOCK = register("spinel_block", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-    public static final Block TIGERS_EYE_BLOCK = register("tigers_eye_block", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
-
     public static final Block CHALCEDONY_GOLEM_BLOCK = register("chalcedony_golem_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(50.0f, 120.0f).sound(SoundType.METAL));
     public static final Block GARNET_GOLEM_BLOCK = register("garnet_golem_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(50.0f, 120.0f).sound(SoundType.METAL));
     public static final Block JADE_GOLEM_BLOCK = register("jade_golem_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(50.0f, 120.0f).sound(SoundType.METAL));
@@ -61,6 +51,17 @@ public class ModBlocks {
     public static final Block SAPPHIRE_GOLEM_BLOCK = register("sapphire_golem_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(50.0f, 120.0f).sound(SoundType.METAL));
     public static final Block SPINEL_GOLEM_BLOCK = register("spinel_golem_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(50.0f, 120.0f).sound(SoundType.METAL));
     public static final Block TIGERS_EYE_GOLEM_BLOCK = register("tigers_eye_golem_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(50.0f, 120.0f).sound(SoundType.METAL));
+
+    public static final Block CHALCEDONY_BLOCK = register("chalcedony_block", GolemSpawningBlock.with(CHALCEDONY_GOLEM_BLOCK, ModEntities.CHALCEDONY_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block GARNET_BLOCK = register("garnet_block", GolemSpawningBlock.with(GARNET_GOLEM_BLOCK, ModEntities.GARNET_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.CRIMSON_HYPHAE).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block JADE_BLOCK = register("jade_block", GolemSpawningBlock.with(JADE_GOLEM_BLOCK, ModEntities.JADE_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block JASPER_BLOCK = register("jasper_block", GolemSpawningBlock.with(JASPER_GOLEM_BLOCK, ModEntities.JASPER_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block ONYX_BLOCK = register("onyx_block", GolemSpawningBlock.with(ONYX_GOLEM_BLOCK, ModEntities.ONYX_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block OPAL_BLOCK = register("opal_block", GolemSpawningBlock.with(OPAL_GOLEM_BLOCK, ModEntities.OPAL_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block RUBY_BLOCK = register("ruby_block", GolemSpawningBlock.with(RUBY_GOLEM_BLOCK, ModEntities.RUBY_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block SAPPHIRE_BLOCK = register("sapphire_block", GolemSpawningBlock.with(SAPPHIRE_GOLEM_BLOCK, ModEntities.SAPPHIRE_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block SPINEL_BLOCK = register("spinel_block", GolemSpawningBlock.with(SPINEL_GOLEM_BLOCK, ModEntities.SPINEL_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block TIGERS_EYE_BLOCK = register("tigers_eye_block", GolemSpawningBlock.with(TIGERS_EYE_GOLEM_BLOCK, ModEntities.TIGERS_EYE_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
 
 
     public static final Block REINFORCED_ANCIENT_DEBRIS = register("reinforced_ancient_debris",
