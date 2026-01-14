@@ -12,25 +12,31 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class ModFeatures {
 
+    public static final ResourceKey<PlacedFeature> CHALCEDONY_ORE = createKey("chalcedony_ore");
+    public static final ResourceKey<PlacedFeature> GARNET_ORE = createKey("garnet_ore");
+    public static final ResourceKey<PlacedFeature> JADE_ORE = createKey("jade_ore");
+    public static final ResourceKey<PlacedFeature> JASPER_ORE = createKey("jasper_ore");
+    public static final ResourceKey<PlacedFeature> ONYX_ORE = createKey("onyx_ore");
+    public static final ResourceKey<PlacedFeature> OPAL_ORE = createKey("opal_ore");
     public static final ResourceKey<PlacedFeature> RUBY_ORE = createKey("ruby_ore");
+    public static final ResourceKey<PlacedFeature> SAPPHIRE_ORE = createKey("sapphire_ore");
+    public static final ResourceKey<PlacedFeature> SPINEL_ORE = createKey("spinel_ore");
+    public static final ResourceKey<PlacedFeature> TIGERS_EYE_ORE = createKey("tigers_eye_ore");
 
     public static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
 
     public static void initialize() {
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, CHALCEDONY_ORE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, GARNET_ORE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, JADE_ORE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, JASPER_ORE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, ONYX_ORE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, OPAL_ORE);
         BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, RUBY_ORE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, SAPPHIRE_ORE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, SPINEL_ORE);
+        BiomeModifications.addFeature(BiomeSelectors.tag(ModTags.CORE_BIOMES), GenerationStep.Decoration.UNDERGROUND_ORES, TIGERS_EYE_ORE);
     }
-
-    /*public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> bootstrapContext) {
-        RuleTest ruleTest = new TagMatchTest(ModTags.CORE_STONE);
-
-        register(bootstrapContext, ruleTest, RUBY_ORE, ModBlocks.RUBY_ORE, 8, 0.0f);
-    }
-
-    private static void register(BootstrapContext<ConfiguredFeature<?, ?>> context, RuleTest ruleTest, ResourceKey<ConfiguredFeature<?, ?>> key, Block block, int size, float airExposure) {
-        List<OreConfiguration.TargetBlockState> list = List.of(OreConfiguration.target(ruleTest, block.defaultBlockState()));
-        FeatureUtils.register(context, key, Feature.ORE, new OreConfiguration(list, size, airExposure));
-    }*/
-
 }
