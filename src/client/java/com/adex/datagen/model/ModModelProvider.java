@@ -6,15 +6,8 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.model.*;
-import net.minecraft.data.BlockFamily;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
-
-import java.util.function.BiConsumer;
 
 public class ModModelProvider extends FabricModelProvider {
 
