@@ -4,7 +4,7 @@
       "model": "coread:block/gabbro_slab"
     },
     "type=double": {
-      "model": "coread:block/gabbro"
+      "model": "coread:block/polished_gabbro"
     },
     "type=top": {
       "model": "coread:block/gabbro_slab_top"

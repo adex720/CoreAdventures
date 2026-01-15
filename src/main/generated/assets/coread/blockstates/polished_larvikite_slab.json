@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "coread:block/polished_larvikite_slab"
+    },
+    "type=double": {
+      "model": "coread:block/polished_larvikite"
+    },
+    "type=top": {
+      "model": "coread:block/polished_larvikite_slab_top"
+    }
+  }
+}

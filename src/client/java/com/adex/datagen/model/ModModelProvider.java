@@ -18,10 +18,16 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
         blockStateModelGenerator.family(ModBlocks.HARDENED_STONE).slab(ModBlocks.HARDENED_STONE_SLAB).stairs(ModBlocks.HARDENED_STONE_STAIRS).wall(ModBlocks.HARDENED_STONE_WALL);
-        blockStateModelGenerator.family(ModBlocks.GABBRO).slab(ModBlocks.GABBRO_SLAB).stairs(ModBlocks.GABBRO_STAIRS).wall(ModBlocks.GABBRO_WALL);
+        blockStateModelGenerator.family(ModBlocks.HARDENED_STONE_BRICKS).slab(ModBlocks.HARDENED_STONE_BRICKS_SLAB).stairs(ModBlocks.HARDENED_STONE_BRICKS_STAIRS).wall(ModBlocks.HARDENED_STONE_BRICKS_WALL);
+        blockStateModelGenerator.family(ModBlocks.GABBRO).slab(ModBlocks.POLISHED_GABBRO_SLAB).stairs(ModBlocks.POLISHED_GABBRO_STAIRS).wall(ModBlocks.POLISHED_GABBRO_WALL);
+        blockStateModelGenerator.family(ModBlocks.POLISHED_GABBRO).slab(ModBlocks.GABBRO_SLAB).stairs(ModBlocks.GABBRO_STAIRS).wall(ModBlocks.GABBRO_WALL);
+        blockStateModelGenerator.family(ModBlocks.POLISHED_LARVIKITE).slab(ModBlocks.POLISHED_LARVIKITE_SLAB).stairs(ModBlocks.POLISHED_LARVIKITE_STAIRS).wall(ModBlocks.POLISHED_LARVIKITE_WALL);
         blockStateModelGenerator.family(ModBlocks.LARVIKITE).slab(ModBlocks.LARVIKITE_SLAB).stairs(ModBlocks.LARVIKITE_STAIRS).wall(ModBlocks.LARVIKITE_WALL);
+        blockStateModelGenerator.family(ModBlocks.POLISHED_SERPENTINITE).slab(ModBlocks.POLISHED_SERPENTINITE_SLAB).stairs(ModBlocks.POLISHED_SERPENTINITE_STAIRS).wall(ModBlocks.POLISHED_SERPENTINITE_WALL);
         blockStateModelGenerator.family(ModBlocks.SERPENTINITE).slab(ModBlocks.SERPENTINITE_SLAB).stairs(ModBlocks.SERPENTINITE_STAIRS).wall(ModBlocks.SERPENTINITE_WALL);
+        blockStateModelGenerator.family(ModBlocks.POLISHED_SLATE).slab(ModBlocks.POLISHED_SLATE_SLAB).stairs(ModBlocks.POLISHED_SLATE_STAIRS).wall(ModBlocks.POLISHED_SLATE_WALL);
         blockStateModelGenerator.family(ModBlocks.SLATE).slab(ModBlocks.SLATE_SLAB).stairs(ModBlocks.SLATE_STAIRS).wall(ModBlocks.SLATE_WALL);
+        blockStateModelGenerator.family(ModBlocks.POLISHED_TRAVERTINE).slab(ModBlocks.POLISHED_TRAVERTINE_SLAB).stairs(ModBlocks.POLISHED_TRAVERTINE_STAIRS).wall(ModBlocks.POLISHED_TRAVERTINE_WALL);
         blockStateModelGenerator.family(ModBlocks.TRAVERTINE).slab(ModBlocks.TRAVERTINE_SLAB).stairs(ModBlocks.TRAVERTINE_STAIRS).wall(ModBlocks.TRAVERTINE_WALL);
 
         blockStateModelGenerator.createTrivialCube(ModBlocks.CHALCEDONY_ORE);

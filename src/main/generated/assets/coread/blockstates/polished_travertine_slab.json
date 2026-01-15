@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "coread:block/polished_travertine_slab"
+    },
+    "type=double": {
+      "model": "coread:block/polished_travertine"
+    },
+    "type=top": {
+      "model": "coread:block/polished_travertine_slab_top"
+    }
+  }
+}

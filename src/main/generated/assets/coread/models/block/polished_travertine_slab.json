@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "coread:block/polished_travertine",
+    "side": "coread:block/polished_travertine",
+    "top": "coread:block/polished_travertine"
+  }
+}

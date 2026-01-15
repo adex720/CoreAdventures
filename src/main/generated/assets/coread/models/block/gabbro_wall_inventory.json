@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "coread:block/gabbro"
+    "wall": "coread:block/polished_gabbro"
   }
 }
