@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [
     "ArrowMixin",
+    "BaseFireBlockMixin",
     "BlockBehaviourMixin",
     "BlockMixin",
     "DataComponentMapBuilderAccessor",
