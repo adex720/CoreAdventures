@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "coread:block/hardened_stone_bricks_bricks"
+    "wall": "coread:block/hardened_stone_bricks"
   }
 }

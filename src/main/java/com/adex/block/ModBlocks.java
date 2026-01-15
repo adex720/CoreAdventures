@@ -26,7 +26,7 @@ public class ModBlocks {
     public static final Block HARDENED_STONE_STAIRS = registerStairs("hardened_stone_stairs", HARDENED_STONE);
     public static final Block HARDENED_STONE_WALL = registerWall("hardened_stone_wall", HARDENED_STONE);
 
-    public static final Block HARDENED_STONE_BRICKS = register("hardened_stone_bricks_bricks", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
+    public static final Block HARDENED_STONE_BRICKS = register("hardened_stone_bricks", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
     public static final Block HARDENED_STONE_BRICKS_SLAB = registerSlab("hardened_stone_bricks_slab", HARDENED_STONE_BRICKS);
     public static final Block HARDENED_STONE_BRICKS_STAIRS = registerStairs("hardened_stone_bricks_stairs", HARDENED_STONE_BRICKS);
     public static final Block HARDENED_STONE_BRICKS_WALL = registerWall("hardened_stone_bricks_wall", HARDENED_STONE_BRICKS);

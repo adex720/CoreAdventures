@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side",
   "textures": {
-    "wall": "coread:block/hardened_stone_bricks_bricks"
+    "wall": "coread:block/hardened_stone_bricks"
   }
 }
