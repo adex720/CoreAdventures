@@ -11,8 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -23,12 +22,32 @@ import java.util.function.Function;
 public class ModBlocks {
 
     public static final Block HARDENED_STONE = register("hardened_stone", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-
     public static final Block GABBRO = register("gabbro", BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
     public static final Block LARVIKITE = register("larvikite", BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
     public static final Block SERPENTINITE = register("serpentinite", BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
     public static final Block SLATE = register("slate", BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
     public static final Block TRAVERTINE = register("travertine", BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
+
+    public static final Block HARDENED_STONE_SLAB = registerSlab("hardened_stone_slab", HARDENED_STONE);
+    public static final Block GABBRO_SLAB = registerSlab("gabbro_slab", GABBRO);
+    public static final Block LARVIKITE_SLAB = registerSlab("larvikite_slab", LARVIKITE);
+    public static final Block SERPENTINITE_SLAB = registerSlab("serpentinite_slab", SERPENTINITE);
+    public static final Block SLATE_SLAB = registerSlab("slate_slab", SLATE);
+    public static final Block TRAVERTINE_SLAB = registerSlab("travertine_slab", TRAVERTINE);
+
+    public static final Block HARDENED_STONE_STAIRS = registerStairs("hardened_stone_stairs", HARDENED_STONE);
+    public static final Block GABBRO_STAIRS = registerStairs("gabbro_stairs", GABBRO);
+    public static final Block LARVIKITE_STAIRS = registerStairs("larvikite_stairs", LARVIKITE);
+    public static final Block SERPENTINITE_STAIRS = registerStairs("serpentinite_stairs", SERPENTINITE);
+    public static final Block SLATE_STAIRS = registerStairs("slate_stairs", SLATE);
+    public static final Block TRAVERTINE_STAIRS = registerStairs("travertine_stairs", TRAVERTINE);
+
+    public static final Block HARDENED_STONE_WALL = registerWall("hardened_stone_wall", HARDENED_STONE);
+    public static final Block GABBRO_WALL = registerWall("gabbro_wall", GABBRO);
+    public static final Block LARVIKITE_WALL = registerWall("larvikite_wall", LARVIKITE);
+    public static final Block SERPENTINITE_WALL = registerWall("serpentinite_wall", SERPENTINITE);
+    public static final Block SLATE_WALL = registerWall("slate_wall", SLATE);
+    public static final Block TRAVERTINE_WALL = registerWall("travertine_wall", TRAVERTINE);
 
     public static final Block CHALCEDONY_ORE = register("chalcedony_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
     public static final Block GARNET_ORE = register("garnet_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
@@ -96,6 +115,18 @@ public class ModBlocks {
         return Registry.register(BuiltInRegistries.BLOCK, blockKey, block);
     }
 
+    private static Block registerSlab(String string, Block block) {
+        return register(string, SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(block));
+    }
+
+    private static Block registerStairs(String string, Block block) {
+        return register(string, properties -> new StairBlock(block.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(block));
+    }
+
+    private static Block registerWall(String string, Block block) {
+        return register(string, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(block).forceSolidOn());
+    }
+
     private static ResourceKey<Block> keyOfBlock(String name) {
         return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
@@ -132,12 +163,34 @@ public class ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(itemGroup -> {
             itemGroup.accept(ModBlocks.HARDENED_STONE.asItem());
+            itemGroup.accept(ModBlocks.HARDENED_STONE_SLAB.asItem());
+            itemGroup.accept(ModBlocks.HARDENED_STONE_STAIRS.asItem());
+            itemGroup.accept(ModBlocks.HARDENED_STONE_WALL.asItem());
 
             itemGroup.accept(ModBlocks.GABBRO.asItem());
+            itemGroup.accept(ModBlocks.GABBRO_SLAB.asItem());
+            itemGroup.accept(ModBlocks.GABBRO_STAIRS.asItem());
+            itemGroup.accept(ModBlocks.GABBRO_WALL.asItem());
+
             itemGroup.accept(ModBlocks.LARVIKITE.asItem());
+            itemGroup.accept(ModBlocks.LARVIKITE_SLAB.asItem());
+            itemGroup.accept(ModBlocks.LARVIKITE_STAIRS.asItem());
+            itemGroup.accept(ModBlocks.LARVIKITE_WALL.asItem());
+
             itemGroup.accept(ModBlocks.SERPENTINITE.asItem());
+            itemGroup.accept(ModBlocks.SERPENTINITE_SLAB.asItem());
+            itemGroup.accept(ModBlocks.SERPENTINITE_STAIRS.asItem());
+            itemGroup.accept(ModBlocks.SERPENTINITE_WALL.asItem());
+
             itemGroup.accept(ModBlocks.SLATE.asItem());
+            itemGroup.accept(ModBlocks.SLATE_SLAB.asItem());
+            itemGroup.accept(ModBlocks.SLATE_STAIRS.asItem());
+            itemGroup.accept(ModBlocks.SLATE_WALL.asItem());
+
             itemGroup.accept(ModBlocks.TRAVERTINE.asItem());
+            itemGroup.accept(ModBlocks.TRAVERTINE_SLAB.asItem());
+            itemGroup.accept(ModBlocks.TRAVERTINE_STAIRS.asItem());
+            itemGroup.accept(ModBlocks.TRAVERTINE_WALL.asItem());
 
             itemGroup.accept(ModBlocks.CHALCEDONY_BLOCK.asItem());
             itemGroup.accept(ModBlocks.GARNET_BLOCK.asItem());

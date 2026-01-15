@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "coread:block/serpentinite",
+    "side": "coread:block/serpentinite",
+    "top": "coread:block/serpentinite"
+  }
+}

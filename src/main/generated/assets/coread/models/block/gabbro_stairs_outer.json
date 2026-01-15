@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "coread:block/gabbro",
+    "side": "coread:block/gabbro",
+    "top": "coread:block/gabbro"
+  }
+}

@@ -6,9 +6,15 @@ import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.data.models.MultiVariant;
+import net.minecraft.client.data.models.model.*;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
+
+import java.util.function.BiConsumer;
 
 public class ModModelProvider extends FabricModelProvider {
 
@@ -18,13 +24,12 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createTrivialCube(ModBlocks.HARDENED_STONE);
-
-        blockStateModelGenerator.createTrivialCube(ModBlocks.GABBRO);
-        blockStateModelGenerator.createTrivialCube(ModBlocks.LARVIKITE);
-        blockStateModelGenerator.createTrivialCube(ModBlocks.SERPENTINITE);
-        blockStateModelGenerator.createTrivialCube(ModBlocks.SLATE);
-        blockStateModelGenerator.createTrivialCube(ModBlocks.TRAVERTINE);
+        blockStateModelGenerator.family(ModBlocks.HARDENED_STONE).slab(ModBlocks.HARDENED_STONE_SLAB).stairs(ModBlocks.HARDENED_STONE_STAIRS).wall(ModBlocks.HARDENED_STONE_WALL);
+        blockStateModelGenerator.family(ModBlocks.GABBRO).slab(ModBlocks.GABBRO_SLAB).stairs(ModBlocks.GABBRO_STAIRS).wall(ModBlocks.GABBRO_WALL);
+        blockStateModelGenerator.family(ModBlocks.LARVIKITE).slab(ModBlocks.LARVIKITE_SLAB).stairs(ModBlocks.LARVIKITE_STAIRS).wall(ModBlocks.LARVIKITE_WALL);
+        blockStateModelGenerator.family(ModBlocks.SERPENTINITE).slab(ModBlocks.SERPENTINITE_SLAB).stairs(ModBlocks.SERPENTINITE_STAIRS).wall(ModBlocks.SERPENTINITE_WALL);
+        blockStateModelGenerator.family(ModBlocks.SLATE).slab(ModBlocks.SLATE_SLAB).stairs(ModBlocks.SLATE_STAIRS).wall(ModBlocks.SLATE_WALL);
+        blockStateModelGenerator.family(ModBlocks.TRAVERTINE).slab(ModBlocks.TRAVERTINE_SLAB).stairs(ModBlocks.TRAVERTINE_STAIRS).wall(ModBlocks.TRAVERTINE_WALL);
 
         blockStateModelGenerator.createTrivialCube(ModBlocks.CHALCEDONY_ORE);
         blockStateModelGenerator.createTrivialCube(ModBlocks.GARNET_ORE);

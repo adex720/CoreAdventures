@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "coread:block/serpentinite_slab"
+    },
+    "type=double": {
+      "model": "coread:block/serpentinite"
+    },
+    "type=top": {
+      "model": "coread:block/serpentinite_slab_top"
+    }
+  }
+}

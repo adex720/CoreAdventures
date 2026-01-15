@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "coread:block/larvikite",
+    "side": "coread:block/larvikite",
+    "top": "coread:block/larvikite"
+  }
+}

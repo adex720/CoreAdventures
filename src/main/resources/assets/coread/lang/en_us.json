@@ -1,11 +1,31 @@
 {
   "block.coread.hardened_stone": "Hardened Stone",
-
   "block.coread.gabbro": "Gabbro",
   "block.coread.larvikite": "Larvikite",
   "block.coread.serpentinite": "Serpentinite",
   "block.coread.slate": "Slate",
   "block.coread.travertine": "Travertine",
+
+  "block.coread.hardened_stone_slab": "Hardened Stone Slab",
+  "block.coread.gabbro_slab": "Gabbro Slab",
+  "block.coread.larvikite_slab": "Larvikite Slab",
+  "block.coread.serpentinite_slab": "Serpentinite Slab",
+  "block.coread.slate_slab": "Slate Slab",
+  "block.coread.travertine_slab": "Travertine Slab",
+
+  "block.coread.hardened_stone_stairs": "Hardened Stone Stairs",
+  "block.coread.gabbro_stairs": "Gabbro Stairs",
+  "block.coread.larvikite_stairs": "Larvikite Stairs",
+  "block.coread.serpentinite_stairs": "Serpentinite Stairs",
+  "block.coread.slate_stairs": "Slate Stairs",
+  "block.coread.travertine_stairs": "Travertine Stairs",
+
+  "block.coread.hardened_stone_wall": "Hardened Stone Wall",
+  "block.coread.gabbro_wall": "Gabbro Wall",
+  "block.coread.larvikite_wall": "Larvikite Wall",
+  "block.coread.serpentinite_wall": "Serpentinite Wall",
+  "block.coread.slate_wall": "Slate Wall",
+  "block.coread.travertine_wall": "Travertine Wall",
 
   "block.coread.chalcedony_ore": "Chalcedony Ore",
   "block.coread.garnet_ore": "Garnet Ore",
