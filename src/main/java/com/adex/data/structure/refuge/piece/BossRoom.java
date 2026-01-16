@@ -61,7 +61,7 @@ public class BossRoom extends RefugePiece {
     public void createBlocks(WorldGenLevel level, RandomSource random) {
         createOneWideWalls(level, random, boundingBox);
         Direction side = direction.getClockWise();
-        fill(level, random, BoundingBox.fromCorners(startPos.above(1).relative(side, -1), startPos.above(4).relative(side, 1)), this::air);
+        fill(level, random, BoundingBox.fromCorners(startPos.above(1).relative(side, -1), startPos.above(3).relative(side, 1)), this::air);
         level.setBlock(startPos.above().relative(direction, 5), getGolemBlock(random), 2);
     }
 

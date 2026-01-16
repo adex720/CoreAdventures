@@ -2,11 +2,9 @@ package com.adex.data.structure.refuge;
 
 import com.adex.data.structure.refuge.piece.*;
 import com.adex.util.Util;
-import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
@@ -23,7 +21,6 @@ public class RefugeBuilder {
 
     private final PieceCreator[] pieceCreators;
     private final Set<BoundingBox> boundingBoxes;
-    private final Set<Pair<BlockPos, Direction.Axis>> endPoints; // Pos is bottom middle of air, axis is that of opening
     //TODO: actually fill these
 
     private final RandomSource random;
@@ -45,7 +42,6 @@ public class RefugeBuilder {
 
         pieceCreators = createPieceCreator();
         boundingBoxes = new HashSet<>();
-        endPoints = new HashSet<>();
 
         hasBossRoom = false;
         rootPiece = null;
@@ -79,7 +75,6 @@ public class RefugeBuilder {
     public void clear() {
         builder.clear();
         openPoints.clear();
-        endPoints.clear();
 
         for (PieceCreator pieceCreator : pieceCreators) pieceCreator.placed = 0;
     }
@@ -102,7 +97,7 @@ public class RefugeBuilder {
             RefugePiece piece = getValidPiece(point.pos(), point.direction(), point.depth());
 
             if (piece == null) {
-                addEndPoint(point.pos(), point.direction());
+                addEndPoint(point.pos().relative(point.direction().getOpposite()), point.direction().getClockWise(), point.depth());
                 continue;
             }
 
@@ -157,12 +152,8 @@ public class RefugeBuilder {
         if (piece instanceof BossRoom) hasBossRoom = true;
     }
 
-    private void addEndPoint(BlockPos pos, Direction normal) {
-        endPoints.add(new Pair<>(pos.above(), normal.getClockWise().getAxis()));
-    }
-
-    private void updateBlocks(WorldGenLevel level, RandomSource random) {
-        // TODO: endPoints as own pieces
+    private void addEndPoint(BlockPos pos, Direction direction, int depth) {
+        addPiece(new EndPointPiece(direction, pos.above(), depth));
     }
 
     public boolean isValid() {
