@@ -21,7 +21,8 @@
     "PortalShapeAccessor",
     "PortalShapeMixin",
     "ServerPlayerMixin",
-    "ThrownSplashPotionMixin"
+    "ThrownSplashPotionMixin",
+    "WorldGenRegionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

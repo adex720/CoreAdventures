@@ -19,7 +19,9 @@
           "height": 1
         }
       ],
-      "structure_overrides": []
+      "structure_overrides": [
+        "coread:refuges"
+      ]
     }
   }
 }

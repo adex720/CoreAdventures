@@ -3,6 +3,7 @@ package com.adex.util;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
@@ -13,15 +14,19 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Util {
+
+    public static final Direction[] CARDINAL_DIRECTIONS = new Direction[]{Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST};
 
     public static Identifier getIdentifier(Item item) {
         return BuiltInRegistries.ITEM.wrapAsHolder(item).unwrapKey().map(ResourceKey::identifier).orElse(null);
@@ -36,6 +41,14 @@ public class Util {
 
         T element = set.stream().toList().get(random.nextInt(set.size()));
         set.remove(element);
+        return element;
+    }
+
+    public static <T> T removeRandomElement(List<T> list, RandomSource random) {
+        if (list.isEmpty()) return null;
+
+        T element = list.get(random.nextInt(list.size()));
+        list.remove(element);
         return element;
     }
 
@@ -72,6 +85,10 @@ public class Util {
     public static void sendPayloadS2C(CustomPacketPayload payload, ServerLevel level, Vec3 pos, double radius) {
         PlayerLookup.around(level, pos, radius).forEach(
                 player -> ServerPlayNetworking.send(player, payload));
+    }
+
+    public static Direction randomCardinalDirection(RandomSource random) {
+        return CARDINAL_DIRECTIONS[random.nextInt(4)];
     }
 
     /**

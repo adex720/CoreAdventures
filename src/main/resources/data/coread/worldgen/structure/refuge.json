@@ -1,0 +1,7 @@
+{
+  "type": "coread:refuge",
+  "biomes": "#coread:core",
+  "step": "surface_structures",
+  "terrain_adaption": "bury",
+  "spawn_overrides": {}
+}

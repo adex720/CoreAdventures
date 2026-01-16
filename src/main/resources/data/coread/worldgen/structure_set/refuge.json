@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "coread:refuge",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 126227079,
+    "separation": 48,
+    "spacing": 96
+  }
+}
