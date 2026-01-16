@@ -37,7 +37,7 @@ public class BossRoom extends RefugePiece {
     };
 
     public BossRoom(int index, BoundingBox boundingBox, Direction direction, BlockPos startPos) {
-        super(index, boundingBox, direction, startPos);
+        super(ModStructures.REFUGE_BOSS_ROOM, index, boundingBox, direction, startPos);
     }
 
     public BossRoom(int index, int x, int y, int z, Direction direction) {
@@ -60,7 +60,7 @@ public class BossRoom extends RefugePiece {
     @Override
     public void createBlocks(WorldGenLevel level, RandomSource random) {
         createOneWideWalls(level, random, boundingBox);
-        Direction side = direction.getOpposite();
+        Direction side = direction.getClockWise();
         fill(level, random, BoundingBox.fromCorners(startPos.above(1).relative(side, -1), startPos.above(4).relative(side, 1)), this::air);
         level.setBlock(startPos.above().relative(direction, 5), getGolemBlock(random), 2);
     }

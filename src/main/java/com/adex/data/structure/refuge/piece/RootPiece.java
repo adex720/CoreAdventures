@@ -13,12 +13,11 @@ public class RootPiece extends ThreeWayRoom {
 
     public RootPiece(RandomSource random, int x, int y, int z) {
         Direction direction = Util.randomCardinalDirection(random);
-        super(0, x, y, z, direction);
-        isSource = true;
+        super(ModStructures.REFUGE_ROOT_PIECE, 0, x, y, z, direction);
     }
 
     public RootPiece(CompoundTag compoundTag) {
-        super(ModStructures.ROOT_PIECE, compoundTag);
+        super(ModStructures.REFUGE_ROOT_PIECE, compoundTag);
     }
 
     @Override

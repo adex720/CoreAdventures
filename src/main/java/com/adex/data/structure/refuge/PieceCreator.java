@@ -2,7 +2,6 @@ package com.adex.data.structure.refuge;
 
 import com.adex.data.structure.refuge.piece.RefugePiece;
 import net.minecraft.core.Direction;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import org.jspecify.annotations.Nullable;
 

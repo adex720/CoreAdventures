@@ -93,9 +93,9 @@ public class RefugeBuilder {
     @SuppressWarnings("DataFlowIssue")
     private void createLayout() {
         int y = 64;
-        BlockPos pos = new BlockPos(context.chunkPos().getBlockX(7), y, context.chunkPos().getBlockZ(7));
+        BlockPos pos = new BlockPos(context.chunkPos().getBlockX(0), y, context.chunkPos().getBlockZ(0));
         rootPiece = new RootPiece(context.random(), pos.getX(), pos.getY(), pos.getZ());
-        addPiece(rootPiece, pos);
+        addPiece(rootPiece);
 
         while (!openPoints.isEmpty()) {
             ContinuationPoint point = Util.removeRandomElement(openPoints, random);
@@ -106,7 +106,7 @@ public class RefugeBuilder {
                 continue;
             }
 
-            addPiece(piece, point.pos());
+            addPiece(piece);
         }
     }
 
@@ -148,9 +148,9 @@ public class RefugeBuilder {
         return null;
     }
 
-    private void addPiece(RefugePiece piece, BlockPos pos) {
+    private void addPiece(RefugePiece piece) {
         builder.addPiece(piece);
-        openPoints.addAll(piece.getContinuationPoints(pos, piece.getDirection(), piece.getGenDepth() + 1));
+        openPoints.addAll(piece.getContinuationPoints(piece.getStartPos(), piece.getDirection(), piece.getGenDepth() + 1));
         boundingBoxes.add(piece.getBoundingBox());
         roomCount++;
 

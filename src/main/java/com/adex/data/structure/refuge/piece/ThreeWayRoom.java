@@ -22,19 +22,27 @@ public class ThreeWayRoom extends RefugePiece {
     private static final int OFFSET_Z = 0;
 
     public ThreeWayRoom(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
-        super(index, boundingBox, direction, pos);
+        super(ModStructures.REFUGE_THREE_WAY, index, boundingBox, direction, pos);
     }
 
-    public ThreeWayRoom(StructurePieceType type, CompoundTag compoundTag) {
-        super(type, compoundTag);
+    public ThreeWayRoom(int index, int x, int y, int z, Direction direction) {
+        this(index, getBaseBoundingBox(direction).moved(x, y, z), direction, new BlockPos(x, y, z));
     }
 
     public ThreeWayRoom(CompoundTag compoundTag) {
         super(ModStructures.REFUGE_THREE_WAY, compoundTag);
     }
 
-    public ThreeWayRoom(int index, int x, int y, int z, Direction direction) {
-        this(index, getBaseBoundingBox(direction).moved(x, y, z), direction, new BlockPos(x, y, z));
+    public ThreeWayRoom(StructurePieceType type, CompoundTag compoundTag) {
+        super(type, compoundTag);
+    }
+
+    public ThreeWayRoom(StructurePieceType type, int index, int x, int y, int z, Direction direction) {
+        this(type, index, getBaseBoundingBox(direction).moved(x, y, z), direction, new BlockPos(x, y, z));
+    }
+
+    public ThreeWayRoom(StructurePieceType type, int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
+        super(type, index, boundingBox, direction, pos);
     }
 
     public static BoundingBox getBaseBoundingBox(Direction direction) {

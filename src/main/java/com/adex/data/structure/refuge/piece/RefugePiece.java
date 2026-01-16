@@ -1,7 +1,6 @@
 package com.adex.data.structure.refuge.piece;
 
 import com.adex.block.ModBlocks;
-import com.adex.data.structure.ModStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -23,13 +22,11 @@ import java.util.function.Function;
 
 public abstract class RefugePiece extends StructurePiece {
 
-    protected boolean isSource;
     protected final Direction direction;
     protected final BlockPos startPos;
 
-    public RefugePiece(int index, BoundingBox boundingBox, Direction direction, BlockPos startPos) {
-        super(ModStructures.ROOT_PIECE, index, boundingBox);
-        this.isSource = false;
+    public RefugePiece(StructurePieceType type, int index, BoundingBox boundingBox, Direction direction, BlockPos startPos) {
+        super(type, index, boundingBox);
         this.direction = direction;
         this.startPos = startPos;
         this.setOrientation(direction);
@@ -37,7 +34,6 @@ public abstract class RefugePiece extends StructurePiece {
 
     public RefugePiece(StructurePieceType structurePieceType, CompoundTag compoundTag) {
         super(structurePieceType, compoundTag);
-        this.isSource = compoundTag.getBooleanOr("Source", false);
         this.direction = Direction.from3DDataValue(compoundTag.getIntOr("Direction", 2));
         this.startPos = getPos(compoundTag);
 
@@ -52,20 +48,15 @@ public abstract class RefugePiece extends StructurePiece {
         return direction;
     }
 
+    public BlockPos getStartPos() {
+        return startPos;
+    }
+
     public static BoundingBox boundingBox(int startX, int startY, int startZ, int offsetX, int offsetY, int offsetZ, int width, int height, int depth, Direction direction) {
-        return switch (direction) {
-            case NORTH -> boundingBox(startX - offsetX, startY - offsetY, startZ - offsetZ, width, height, -depth);
-            case SOUTH -> boundingBox(startX - offsetX, startY - offsetY, startZ - offsetZ, width, height, depth);
-            case WEST -> boundingBox(startZ - offsetZ, startY - offsetY, startX - offsetX, -depth, height, width);
-            case EAST -> boundingBox(startZ - offsetZ, startY - offsetY, startX - offsetX, depth, height, width);
-            default -> throw new IllegalStateException("Piece direction can't be UP or DOWN");
-        };
+        return BoundingBox.orientBox(startX, startY, startZ, offsetX, offsetY, offsetZ, width, height, depth, direction);
     }
 
     public static BoundingBox boundingBox(int startX, int startY, int startZ, int width, int height, int depth) {
-        width--;
-        height--;
-        depth--;
         if (width < 0) {
             width = -width;
             startX -= width;
@@ -78,6 +69,10 @@ public abstract class RefugePiece extends StructurePiece {
             depth = -depth;
             startZ -= depth;
         }
+
+        width--;
+        height--;
+        depth--;
 
         return new BoundingBox(startX, startY, startZ, startX + width - 1, startY + height - 1, startZ + depth - 1);
     }

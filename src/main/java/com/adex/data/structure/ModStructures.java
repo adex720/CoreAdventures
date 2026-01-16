@@ -24,7 +24,7 @@ public class ModStructures {
 
     public static final StructurePieceType REFUGE_BOSS_ROOM = registerPiece(BossRoom::new, "rfbos");
     public static final StructurePieceType REFUGE_THREE_WAY = registerPiece(ThreeWayRoom::new, "rfthr");
-    public static final StructurePieceType ROOT_PIECE = registerPiece(RootPiece::new, "rfroot");
+    public static final StructurePieceType REFUGE_ROOT_PIECE = registerPiece(RootPiece::new, "rfroot");
 
     private static <S extends Structure> StructureType<S> registerStructure(String name, MapCodec<S> codec) {
         return Registry.register(BuiltInRegistries.STRUCTURE_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name), () -> codec);
