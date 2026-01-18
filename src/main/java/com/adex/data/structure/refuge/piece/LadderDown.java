@@ -36,14 +36,6 @@ public class LadderDown extends RefugePiece {
         super(ModStructures.REFUGE_LADDER_DOWN, compoundTag);
     }
 
-    public LadderDown(StructurePieceType type, int index, int x, int y, int z, Direction direction) {
-        this(type, index, getBaseBoundingBox(direction).moved(x, y, z), direction, new BlockPos(x, y, z));
-    }
-
-    public LadderDown(StructurePieceType type, int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
-        super(type, index, boundingBox, direction, pos);
-    }
-
     public static BoundingBox getBaseBoundingBox(Direction direction) {
         return RefugePiece.boundingBox(0, 0, 0, OFFSET_X, OFFSET_Y, OFFSET_Z, WIDTH, HEIGHT, DEPTH, direction);
     }

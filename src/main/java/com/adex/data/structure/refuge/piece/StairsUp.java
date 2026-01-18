@@ -41,10 +41,6 @@ public class StairsUp extends RefugePiece {
         super(ModStructures.REFUGE_STAIRS_UP, compoundTag);
     }
 
-    public StairsUp(StructurePieceType type, int index, int x, int y, int z, Direction direction) {
-        this(type, index, getBaseBoundingBox(direction).moved(x, y, z), direction, new BlockPos(x, y, z));
-    }
-
     public StairsUp(StructurePieceType type, int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
         super(type, index, boundingBox, direction, pos);
     }

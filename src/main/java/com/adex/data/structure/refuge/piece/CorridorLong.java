@@ -34,10 +34,6 @@ public class CorridorLong extends RefugePiece {
         super(ModStructures.REFUGE_CORRIDOR_LONG, compoundTag);
     }
 
-    public CorridorLong(StructurePieceType type, int index, int x, int y, int z, Direction direction) {
-        this(type, index, getBaseBoundingBox(direction).moved(x, y, z), direction, new BlockPos(x, y, z));
-    }
-
     public CorridorLong(StructurePieceType type, int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
         super(type, index, boundingBox, direction, pos);
     }
