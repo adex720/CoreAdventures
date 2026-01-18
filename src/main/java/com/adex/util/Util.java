@@ -63,6 +63,11 @@ public class Util {
         return Rotation.CLOCKWISE_180;
     }
 
+    public static boolean isCompletelyInside(BoundingBox outer, BoundingBox inner) {
+        return outer.minX() <= inner.minX() && outer.minY() <= inner.minY() && outer.minZ() <= inner.minZ() &&
+                outer.maxX() >= inner.maxX() && outer.maxY() >= inner.maxY() && outer.maxZ() >= inner.maxZ();
+    }
+
     /**
      * Returns 0 if the list is empty.
      *

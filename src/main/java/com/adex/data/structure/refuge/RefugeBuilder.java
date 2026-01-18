@@ -19,6 +19,8 @@ public class RefugeBuilder {
     private final StructurePiecesBuilder builder;
     private final Structure.GenerationContext context;
 
+    private final BoundingBox validArea;
+
     private final PieceCreator[] pieceCreators;
     private final Set<BoundingBox> boundingBoxes;
 
@@ -38,6 +40,13 @@ public class RefugeBuilder {
         this.context = context;
         this.random = random;
         this.minRoomCount = minRoomCount;
+
+        // Minecraft allows a structure to be at maximum in a 256 x 256 x 256 area.
+        // The valid area being a bit larger makes it so that some pieces can be generated outside that area.
+        // The blocks for these pieces won't be placed, but if the path comes back to the allowed area,
+        // the pieces back on the allowed area will be generated normally.
+        // This will act as a far away part of the refuge been abandoned/collapsed.
+        validArea = new BoundingBox(context.chunkPos().getMinBlockX() - 137, 10, context.chunkPos().getMinBlockZ() - 137, context.chunkPos().getMinBlockX() + 138, 200, context.chunkPos().getMinBlockZ() + 138);
 
         pieceCreators = createPieceCreator();
         boundingBoxes = new HashSet<>();
@@ -136,11 +145,19 @@ public class RefugeBuilder {
 
         ArrayList<PieceCreator> validPieces = new ArrayList<>();
 
+        // Loop through all possible pieces and filter out ones which can't be placed here
         pieceLoop:
         for (PieceCreator pieceCreator : pieceCreators) {
             if (!pieceCreator.canPlace(distance)) continue;
 
             BoundingBox boundingBox = pieceCreator.getBoundingBox(direction).moved(pos.getX(), pos.getY(), pos.getZ());
+
+            if (!Util.isCompletelyInside(validArea, boundingBox)) {
+                // This piece would go too far from the structure start
+                continue;
+            }
+
+            // Check if the current piece to test would collide with any of the existing pieces
             for (BoundingBox existing : boundingBoxes) {
                 if (existing.intersects(boundingBox)) continue pieceLoop;
             }
@@ -149,7 +166,7 @@ public class RefugeBuilder {
             totalWeight += pieceCreator.weight;
         }
 
-        if (totalWeight == 0) return null;
+        if (totalWeight == 0) return null; // No piece can generate here
 
         int randomNumber = random.nextInt(totalWeight);
         for (PieceCreator creator : validPieces) {
