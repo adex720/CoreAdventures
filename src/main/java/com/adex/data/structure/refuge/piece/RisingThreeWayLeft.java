@@ -17,8 +17,8 @@ public class RisingThreeWayLeft extends RefugePiece {
     private static final int HEIGHT = 9;
     private static final int DEPTH = 15;
 
-    private static final int OFFSET_X = 0;
-    private static final int OFFSET_Y = 0;
+    private static final int OFFSET_X = -4;
+    private static final int OFFSET_Y = -4;
     private static final int OFFSET_Z = 0;
 
     public RisingThreeWayLeft(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
