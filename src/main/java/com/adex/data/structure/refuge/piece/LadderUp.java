@@ -1,7 +1,7 @@
 package com.adex.data.structure.refuge.piece;
 
-import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.ContinuationPoint;
+import com.adex.data.structure.refuge.RefugePieces;
 import com.adex.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class LadderUp extends RefugePiece {
     private static final int OFFSET_Z = 0;
 
     public LadderUp(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
-        super(ModStructures.REFUGE_LADDER_UP, index, boundingBox, direction, pos);
+        super(RefugePieces.REFUGE_LADDER_UP, index, boundingBox, direction, pos);
     }
 
     public LadderUp(int index, int x, int y, int z, Direction direction) {
@@ -35,7 +34,7 @@ public class LadderUp extends RefugePiece {
     }
 
     public LadderUp(CompoundTag compoundTag) {
-        super(ModStructures.REFUGE_LADDER_UP, compoundTag);
+        super(RefugePieces.REFUGE_LADDER_UP, compoundTag);
     }
 
     public static BoundingBox getBaseBoundingBox(Direction direction) {

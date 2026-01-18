@@ -1,7 +1,7 @@
 package com.adex.data.structure.refuge.piece;
 
-import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.ContinuationPoint;
+import com.adex.data.structure.refuge.RefugePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -22,7 +22,7 @@ public class RisingThreeWayLeft extends RefugePiece {
     private static final int OFFSET_Z = 0;
 
     public RisingThreeWayLeft(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
-        super(ModStructures.REFUGE_RISING_THREE_WAY_LEFT, index, boundingBox, direction, pos);
+        super(RefugePieces.REFUGE_RISING_THREE_WAY_LEFT, index, boundingBox, direction, pos);
     }
 
     public RisingThreeWayLeft(int index, int x, int y, int z, Direction direction) {
@@ -30,7 +30,7 @@ public class RisingThreeWayLeft extends RefugePiece {
     }
 
     public RisingThreeWayLeft(CompoundTag compoundTag) {
-        super(ModStructures.REFUGE_RISING_THREE_WAY_LEFT, compoundTag);
+        super(RefugePieces.REFUGE_RISING_THREE_WAY_LEFT, compoundTag);
     }
 
     public static BoundingBox getBaseBoundingBox(Direction direction) {

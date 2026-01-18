@@ -1,7 +1,7 @@
 package com.adex.data.structure.refuge.piece;
 
-import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.ContinuationPoint;
+import com.adex.data.structure.refuge.RefugePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -17,7 +17,7 @@ public class EndPointPiece extends RefugePiece {
      * Direction is on the axis of the wall, can be left or right
      */
     public EndPointPiece(Direction direction, BlockPos startPos, int depth) {
-        super(ModStructures.REFUGE_END_POINT, depth, BoundingBox.fromCorners(startPos.relative(direction, -1), startPos.above(2).relative(direction, 1)), direction, startPos);
+        super(RefugePieces.REFUGE_END_POINT, depth, BoundingBox.fromCorners(startPos.relative(direction, -1), startPos.above(2).relative(direction, 1)), direction, startPos);
     }
 
     public EndPointPiece(int depth, int x, int y, int z, Direction direction) {
@@ -25,7 +25,7 @@ public class EndPointPiece extends RefugePiece {
     }
 
     public EndPointPiece(CompoundTag compoundTag) {
-        super(ModStructures.REFUGE_END_POINT, compoundTag);
+        super(RefugePieces.REFUGE_END_POINT, compoundTag);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.adex.data.structure.refuge.piece;
 
-import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.ContinuationPoint;
+import com.adex.data.structure.refuge.RefugePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -23,7 +23,7 @@ public class CorridorLong extends RefugePiece {
     private static final int OFFSET_Z = 0;
 
     public CorridorLong(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
-        super(ModStructures.REFUGE_CORRIDOR_LONG, index, boundingBox, direction, pos);
+        super(RefugePieces.REFUGE_CORRIDOR_LONG, index, boundingBox, direction, pos);
     }
 
     public CorridorLong(int index, int x, int y, int z, Direction direction) {
@@ -31,7 +31,7 @@ public class CorridorLong extends RefugePiece {
     }
 
     public CorridorLong(CompoundTag compoundTag) {
-        super(ModStructures.REFUGE_CORRIDOR_LONG, compoundTag);
+        super(RefugePieces.REFUGE_CORRIDOR_LONG, compoundTag);
     }
 
     public CorridorLong(StructurePieceType type, int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {

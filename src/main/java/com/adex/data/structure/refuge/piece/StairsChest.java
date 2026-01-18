@@ -1,16 +1,12 @@
 package com.adex.data.structure.refuge.piece;
 
-import com.adex.data.structure.ModStructures;
-import com.adex.data.structure.refuge.ContinuationPoint;
+import com.adex.data.structure.refuge.RefugePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
-
-import java.util.List;
 
 public class StairsChest extends StairsUp {
 
@@ -23,7 +19,7 @@ public class StairsChest extends StairsUp {
     private static final int OFFSET_Z = 0;
 
     public StairsChest(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
-        super(ModStructures.REFUGE_STAIRS_CHEST, index, boundingBox, direction, pos);
+        super(RefugePieces.REFUGE_STAIRS_CHEST, index, boundingBox, direction, pos);
     }
 
     public StairsChest(int index, int x, int y, int z, Direction direction) {
@@ -31,7 +27,7 @@ public class StairsChest extends StairsUp {
     }
 
     public StairsChest(CompoundTag compoundTag) {
-        super(ModStructures.REFUGE_STAIRS_CHEST, compoundTag);
+        super(RefugePieces.REFUGE_STAIRS_CHEST, compoundTag);
     }
 
     public static BoundingBox getBaseBoundingBox(Direction direction) {

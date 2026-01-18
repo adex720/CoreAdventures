@@ -1,14 +1,13 @@
 package com.adex.data.structure.refuge.piece;
 
-import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.ContinuationPoint;
+import com.adex.data.structure.refuge.RefugePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class CorridorLeft extends RefugePiece {
     private static final int OFFSET_Z = 0;
 
     public CorridorLeft(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
-        super(ModStructures.REFUGE_CORRIDOR_LEFT, index, boundingBox, direction, pos);
+        super(RefugePieces.REFUGE_CORRIDOR_LEFT, index, boundingBox, direction, pos);
     }
 
     public CorridorLeft(int index, int x, int y, int z, Direction direction) {
@@ -31,7 +30,7 @@ public class CorridorLeft extends RefugePiece {
     }
 
     public CorridorLeft(CompoundTag compoundTag) {
-        super(ModStructures.REFUGE_CORRIDOR_LEFT, compoundTag);
+        super(RefugePieces.REFUGE_CORRIDOR_LEFT, compoundTag);
     }
 
     public static BoundingBox getBaseBoundingBox(Direction direction) {
