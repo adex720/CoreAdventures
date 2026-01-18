@@ -71,6 +71,6 @@ public class StairsUp extends RefugePiece {
         Direction clockWise = direction.getClockWise();
         fill(level, random, startPos.relative(clockWise, -2).relative(direction, 11).above(13), clockWise, 5, 1, this::getWallBlock); // first row of normal ceiling on upper floor
 
-        fill(level, random, startPos.relative(direction, 2).relative(clockWise, -1).above(4), clockWise, 3, 1, _ -> getStairBlock(direction, true)); // lowest row of ceiling stairs
+        fill(level, random, startPos.relative(direction, 2).relative(clockWise, -1).above(4), clockWise, 3, 1, _ -> getStairBlock(direction.getOpposite(), true)); // lowest row of ceiling stairs
     }
 }

@@ -58,11 +58,11 @@ public class StairsDown extends RefugePiece {
     public void createBlocks(WorldGenLevel level, RandomSource random) {
         createWalls(level, random, startPos, direction, 3); // upper corridor
         createWalls(level, random, startPos.relative(direction, 12).below(9), direction, 3); // lower corridor
-        createStairs(level, random, startPos.relative(direction, 11).below(9), direction.getOpposite(), 9, this::getWallBlock); // stairs
+        createStairs(level, random, startPos.relative(direction, 11).below(8), direction.getOpposite(), 9, this::getWallBlock); // stairs
 
         Direction clockWise = direction.getClockWise();
         fill(level, random, startPos.relative(clockWise, -2).relative(direction, 3).above(4), clockWise, 5, 1, this::getWallBlock); // last row of normal ceiling on upper floor
 
-        fill(level, random, startPos.relative(direction, 12).relative(clockWise, -1).below(5), clockWise, 3, 1, _ -> getStairBlock(direction.getOpposite(), true)); // lowest row of ceiling stairs
+        fill(level, random, startPos.relative(direction, 12).relative(clockWise, -1).below(5), clockWise, 3, 1, _ -> getStairBlock(direction, true)); // lowest row of ceiling stairs
     }
 }
