@@ -21,15 +21,16 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
+    // TODO: use correct block class for stairs, slabs and walls
     public static final Block HARDENED_STONE = register("hardened_stone", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block HARDENED_STONE_SLAB = registerSlab("hardened_stone_slab", HARDENED_STONE);
-    public static final Block HARDENED_STONE_STAIRS = registerStairs("hardened_stone_stairs", HARDENED_STONE);
-    public static final Block HARDENED_STONE_WALL = registerWall("hardened_stone_wall", HARDENED_STONE);
+    public static final SlabBlock HARDENED_STONE_SLAB = registerSlab("hardened_stone_slab", HARDENED_STONE);
+    public static final StairBlock HARDENED_STONE_STAIRS = registerStairs("hardened_stone_stairs", HARDENED_STONE);
+    public static final WallBlock HARDENED_STONE_WALL = registerWall("hardened_stone_wall", HARDENED_STONE);
 
     public static final Block HARDENED_STONE_BRICKS = register("hardened_stone_bricks", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block HARDENED_STONE_BRICKS_SLAB = registerSlab("hardened_stone_bricks_slab", HARDENED_STONE_BRICKS);
-    public static final Block HARDENED_STONE_BRICKS_STAIRS = registerStairs("hardened_stone_bricks_stairs", HARDENED_STONE_BRICKS);
-    public static final Block HARDENED_STONE_BRICKS_WALL = registerWall("hardened_stone_bricks_wall", HARDENED_STONE_BRICKS);
+    public static final SlabBlock HARDENED_STONE_BRICKS_SLAB = registerSlab("hardened_stone_bricks_slab", HARDENED_STONE_BRICKS);
+    public static final StairBlock HARDENED_STONE_BRICKS_STAIRS = registerStairs("hardened_stone_bricks_stairs", HARDENED_STONE_BRICKS);
+    public static final WallBlock HARDENED_STONE_BRICKS_WALL = registerWall("hardened_stone_bricks_wall", HARDENED_STONE_BRICKS);
 
     public static final Block CRACKED_HARDENED_STONE_BRICKS = register("cracked_hardened_stone_bricks", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
 
@@ -149,16 +150,16 @@ public class ModBlocks {
         return Registry.register(BuiltInRegistries.BLOCK, blockKey, block);
     }
 
-    private static Block registerSlab(String string, Block block) {
-        return register(string, SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(block));
+    private static SlabBlock registerSlab(String string, Block block) {
+        return (SlabBlock) register(string, SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(block));
     }
 
-    private static Block registerStairs(String string, Block block) {
-        return register(string, properties -> new StairBlock(block.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(block));
+    private static StairBlock registerStairs(String string, Block block) {
+        return (StairBlock) register(string, properties -> new StairBlock(block.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(block));
     }
 
-    private static Block registerWall(String string, Block block) {
-        return register(string, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(block).forceSolidOn());
+    private static WallBlock registerWall(String string, Block block) {
+        return (WallBlock) register(string, WallBlock::new, BlockBehaviour.Properties.ofFullCopy(block).forceSolidOn());
     }
 
     private static ResourceKey<Block> keyOfBlock(String name) {

@@ -2,6 +2,7 @@ package com.adex.data.structure.refuge.piece;
 
 import com.adex.block.ModBlocks;
 import com.adex.data.structure.ModStructures;
+import com.adex.data.structure.refuge.ContinuationPoint;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

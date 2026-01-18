@@ -53,8 +53,32 @@ public class RefugeBuilder {
 
     private static PieceCreator[] createPieceCreator() {
         return new PieceCreator[]{
-                new PieceCreator(BossRoom::new, 5, 1, 2, BossRoom::getBaseBoundingBox), //TODO: min distance to 5
-                new PieceCreator(ThreeWayRoom::new, 10, 5, ThreeWayRoom::getBaseBoundingBox)
+                new PieceCreator(BossRoom::new, 5, 1, 5, BossRoom::getBaseBoundingBox),
+                // This BlockPos is only used for collision detection.
+                // Endpoints are placed inside existing corridors, so they can't have correct bounding box here
+                new PieceCreator(EndPointPiece::new, 4, 2, 4, _ -> new BoundingBox(BlockPos.ZERO)), //TODO: make custom bounding box to prevent spawning where it is the only possible piece
+                new PieceCreator(CorridorShort::new, 4, 10, CorridorShort::getBaseBoundingBox),
+                new PieceCreator(CorridorLong::new, 4, 10, CorridorLong::getBaseBoundingBox),
+                new PieceCreator(CorridorChest::new, 1, 5, CorridorChest::getBaseBoundingBox),
+                new PieceCreator(CorridorLeft::new, 5, 5, CorridorLeft::getBaseBoundingBox),
+                new PieceCreator(CorridorRight::new, 5, 5, CorridorRight::getBaseBoundingBox),
+                new PieceCreator(TurnLeft::new, 5, 5, CorridorRight::getBaseBoundingBox),
+                new PieceCreator(TurnRight::new, 5, 5, CorridorRight::getBaseBoundingBox),
+                new PieceCreator(StairsUp::new, 10, 5, StairsUp::getBaseBoundingBox),
+                new PieceCreator(StairsDown::new, 10, 5, StairsDown::getBaseBoundingBox),
+                new PieceCreator(StairsChest::new, 2, 1, StairsChest::getBaseBoundingBox),
+                new PieceCreator(LadderUp::new, 10, 5, LadderUp::getBaseBoundingBox),
+                new PieceCreator(LadderDown::new, 10, 5, LadderDown::getBaseBoundingBox),
+                new PieceCreator(ThreeWayLeft::new, 10, 2, ThreeWayLeft::getBaseBoundingBox),
+                new PieceCreator(ThreeWayMiddle::new, 10, 2, ThreeWayMiddle::getBaseBoundingBox),
+                new PieceCreator(ThreeWayRight::new, 10, 2, ThreeWayRight::getBaseBoundingBox),
+                new PieceCreator(LoweringThreeWayLeft::new, 5, 1, LoweringThreeWayLeft::getBaseBoundingBox),
+                new PieceCreator(LoweringThreeWayMiddle::new, 5, 1, LoweringThreeWayMiddle::getBaseBoundingBox),
+                new PieceCreator(LoweringThreeWayRight::new, 5, 1, LoweringThreeWayRight::getBaseBoundingBox),
+                new PieceCreator(RisingThreeWayLeft::new, 5, 1, RisingThreeWayLeft::getBaseBoundingBox),
+                new PieceCreator(RisingThreeWayMiddle::new, 5, 1, RisingThreeWayMiddle::getBaseBoundingBox),
+                new PieceCreator(RisingThreeWayRight::new, 5, 1, RisingThreeWayRight::getBaseBoundingBox),
+                new PieceCreator(EightWay::new, 10, 1, 2, EightWay::getBaseBoundingBox)
         };
     }
 
@@ -75,6 +99,7 @@ public class RefugeBuilder {
     public void clear() {
         builder.clear();
         openPoints.clear();
+        roomCount = 0;
 
         for (PieceCreator pieceCreator : pieceCreators) pieceCreator.placed = 0;
     }
@@ -147,8 +172,8 @@ public class RefugeBuilder {
         builder.addPiece(piece);
         openPoints.addAll(piece.getContinuationPoints(piece.getStartPos(), piece.getDirection(), piece.getGenDepth() + 1));
         boundingBoxes.add(piece.getBoundingBox());
-        roomCount++;
 
+        if (!(piece instanceof EndPointPiece)) roomCount++;
         if (piece instanceof BossRoom) hasBossRoom = true;
     }
 

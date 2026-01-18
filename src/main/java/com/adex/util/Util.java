@@ -13,6 +13,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.phys.Vec3;
@@ -52,6 +53,15 @@ public class Util {
         return element;
     }
 
+    public static Rotation getDirectionDifference(Direction base, Direction compare) {
+        if (base.get2DDataValue() == -1 || compare.get2DDataValue() == -1)
+            throw new IllegalArgumentException("Cannot get difference for direction UP or DOWN");
+
+        if (base == compare) return Rotation.NONE;
+        if (base.getClockWise() == compare) return Rotation.CLOCKWISE_90;
+        if (base.getCounterClockWise() == compare) return Rotation.COUNTERCLOCKWISE_90;
+        return Rotation.CLOCKWISE_180;
+    }
 
     /**
      * Returns 0 if the list is empty.
