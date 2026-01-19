@@ -49,7 +49,7 @@ public class LadderHigh extends RefugePiece {
         createWalls(level, random, startPos, direction, 3); // start corridor
 
         BlockPos ceilingMiddle = startPos.relative(direction, 4).above(43);
-        fill(level, random, new BoundingBox(ceilingMiddle).inflatedBy(2), this::getWallBlock); // ceiling
+        fill(level, random, new BoundingBox(ceilingMiddle).inflatedBy(2, 0, 2), this::getWallBlock); // ceiling
         fill(level, random, startPos.relative(direction, 3).relative(direction.getCounterClockWise(), 2), direction, direction.getClockWise(), 4, 5, this::getWallBlock); // floor under ladder
 
         LadderUp.createLadders(level, startPos.relative(direction, 5).above(1), 42, Util.getDirectionDifference(Direction.SOUTH, direction)); // ladders
