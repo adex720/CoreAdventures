@@ -1,5 +1,6 @@
 package com.adex.data.structure.refuge.piece;
 
+import com.adex.data.loottable.ModLootTables;
 import com.adex.data.structure.refuge.RefugePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -37,5 +38,7 @@ public class CorridorChest extends CorridorLong {
     @Override
     public void createBlocks(WorldGenLevel level, RandomSource random) {
         super.createBlocks(level, random);
+        BlockPos chestPos = startPos.relative(direction, 7).relative(direction.getClockWise(), -1).above();
+        createChest(level, random, chestPos, direction.getClockWise(), ModLootTables.REFUGE_BASIC);
     }
 }

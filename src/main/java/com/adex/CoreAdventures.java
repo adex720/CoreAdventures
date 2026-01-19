@@ -4,6 +4,7 @@ import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.block.ModBlocks;
 import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
+import com.adex.data.loottable.ModLootTables;
 import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.RefugePieces;
 import com.adex.enchantment.effect.ModEnchantmentEffectComponents;
@@ -57,6 +58,7 @@ public class CoreAdventures implements ModInitializer {
         ModStructures.initialize();
         RefugePieces.initialize();
 
+        ModLootTables.initialize();
         ModDamageTypes.initialize();
 
         ModEvents.initialize();
