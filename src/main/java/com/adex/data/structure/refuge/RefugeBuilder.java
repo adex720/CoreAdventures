@@ -66,7 +66,8 @@ public class RefugeBuilder {
                 // Endpoints are placed inside existing corridors, so they can't have correct bounding box here
                 new PieceCreator(EndPointPiece::new, 4, 2, 4, _ -> new BoundingBox(BlockPos.ZERO)), //TODO: make custom bounding box to prevent spawning where it is the only possible piece
                 new PieceCreator(EmptyRoom::new, 5, 1, EmptyRoom::getBaseBoundingBox),
-                new PieceCreator(CorridorShort::new, 4, 10, CorridorShort::getBaseBoundingBox),
+                new PieceCreator(TreasureRoom::new, 5, 1, 2, TreasureRoom::getBaseBoundingBox),
+                new PieceCreator(CorridorShort::new, 3, 10, CorridorShort::getBaseBoundingBox),
                 new PieceCreator(CorridorLong::new, 4, 10, CorridorLong::getBaseBoundingBox),
                 new PieceCreator(CorridorChest::new, 1, 5, CorridorChest::getBaseBoundingBox),
                 new PieceCreator(CorridorLeft::new, 5, 5, CorridorLeft::getBaseBoundingBox),

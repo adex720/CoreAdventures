@@ -14,7 +14,7 @@ public class RefugePieces {
 
     public static final StructurePieceType REFUGE_BOSS_ROOM = registerPiece(BossRoom::new, "rfboss");
     public static final StructurePieceType REFUGE_EMPTY_ROOM = registerPiece(EmptyRoom::new, "rfempty");
-
+    public static final StructurePieceType REFUGE_TREASURE_ROOM = registerPiece(TreasureRoom::new, "rftreasure");
 
 
     public static final StructurePieceType REFUGE_CORRIDOR_LONG = registerPiece(CorridorLong::new, "rfcorrlo");
