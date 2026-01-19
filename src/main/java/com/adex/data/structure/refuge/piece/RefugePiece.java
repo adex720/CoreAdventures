@@ -145,22 +145,35 @@ public abstract class RefugePiece extends StructurePiece {
         }
     }
 
+    public void fill(WorldGenLevel level, RandomSource random, BoundingBox boundingBox, Function<RandomSource, BlockState> block, boolean onlyAir) {
+        for (int x = boundingBox.minX(); x <= boundingBox.maxX(); x++) {
+            for (int y = boundingBox.minY(); y <= boundingBox.maxY(); y++) {
+                for (int z = boundingBox.minZ(); z <= boundingBox.maxZ(); z++) {
+                    BlockPos pos = new BlockPos(x, y, z);
+                    if (!onlyAir || level.getBlockState(pos).isAir()) {
+                        level.setBlock(pos, block.apply(random), 2);
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * @param direction cardinal
-     * @param offset    non-negative
-     * @param yOffset   non-negative
+     * @param width     non-negative
+     * @param height    non-negative
      */
-    public void fill(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction, int offset, int yOffset, Function<RandomSource, BlockState> block) {
-        for (int x = 0; x < offset; x++) {
-            for (int y = 0; y < yOffset; y++) {
+    public void fill(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction, int width, int height, Function<RandomSource, BlockState> block) {
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
                 level.setBlock(startPos.relative(direction, x).above(y), block.apply(random), 2);
             }
         }
     }
 
-    public void fill(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction1, Direction direction2, int offset1, int offset2, Function<RandomSource, BlockState> block) {
-        for (int x = 0; x < offset1; x++) {
-            for (int y = 0; y < offset2; y++) {
+    public void fill(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction1, Direction direction2, int width1, int width2, Function<RandomSource, BlockState> block) {
+        for (int x = 0; x < width1; x++) {
+            for (int y = 0; y < width2; y++) {
                 level.setBlock(startPos.relative(direction1, x).relative(direction2, y), block.apply(random), 2);
             }
         }
@@ -355,6 +368,14 @@ public abstract class RefugePiece extends StructurePiece {
     public BlockState getWallBlock(RandomSource random) {
         return random.nextFloat() < 0.1f ? ModBlocks.CRACKED_HARDENED_STONE_BRICKS.defaultBlockState()
                 : ModBlocks.HARDENED_STONE_BRICKS.defaultBlockState();
+    }
+
+    public Function<RandomSource, BlockState> either(BlockState state1, BlockState state2) {
+        return random -> random.nextBoolean() ? state1 : state2;
+    }
+
+    public Function<RandomSource, BlockState> either(BlockState state1, BlockState state2, float change) {
+        return random -> random.nextFloat() < change ? state1 : state2;
     }
 
     public BlockState getStairBlock(Direction direction, boolean top) {
