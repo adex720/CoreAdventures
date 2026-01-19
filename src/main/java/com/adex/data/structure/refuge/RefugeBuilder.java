@@ -79,6 +79,7 @@ public class RefugeBuilder {
                 new PieceCreator(LadderUp::new, 10, 5, LadderUp::getBaseBoundingBox),
                 new PieceCreator(LadderDown::new, 10, 5, LadderDown::getBaseBoundingBox),
                 new PieceCreator(LadderHigh::new, 1, 1, 3, LadderHigh::getBaseBoundingBox),
+                new PieceCreator(LadderHidden::new, 10, 1, 3, LadderHidden::getBaseBoundingBox),
                 new PieceCreator(ThreeWayLeft::new, 10, 2, ThreeWayLeft::getBaseBoundingBox),
                 new PieceCreator(ThreeWayMiddle::new, 10, 2, ThreeWayMiddle::getBaseBoundingBox),
                 new PieceCreator(ThreeWayRight::new, 10, 2, ThreeWayRight::getBaseBoundingBox),
