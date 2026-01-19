@@ -9,6 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
@@ -47,7 +48,7 @@ public class TreeRoom extends ElevenWideRoom {
         BlockPos treePos = frontLeft.relative(direction, 4).relative(clockwise, 4);
 
         BlockState log = ModBlocks.JUNIPER_LOG.defaultBlockState();
-        BlockState leaves = ModBlocks.JUNIPER_LEAVES.defaultBlockState();
+        BlockState leaves = ModBlocks.JUNIPER_LEAVES.defaultBlockState().setValue(LeavesBlock.PERSISTENT, true);
         BlockState flower = Blocks.ROSE_BUSH.defaultBlockState();
         BlockState grass = Blocks.SHORT_GRASS.defaultBlockState();
 
