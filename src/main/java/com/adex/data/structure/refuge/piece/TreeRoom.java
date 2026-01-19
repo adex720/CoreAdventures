@@ -15,19 +15,6 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 public class TreeRoom extends ElevenWideRoom {
 
-    private static final Block[] GOLEM_BLOCKS = new Block[]{
-            ModBlocks.CHALCEDONY_GOLEM_BLOCK,
-            ModBlocks.GARNET_GOLEM_BLOCK,
-            ModBlocks.JADE_GOLEM_BLOCK,
-            ModBlocks.JASPER_GOLEM_BLOCK,
-            ModBlocks.ONYX_GOLEM_BLOCK,
-            ModBlocks.OPAL_GOLEM_BLOCK,
-            ModBlocks.RUBY_GOLEM_BLOCK,
-            ModBlocks.SAPPHIRE_GOLEM_BLOCK,
-            ModBlocks.SPINEL_GOLEM_BLOCK,
-            ModBlocks.TIGERS_EYE_GOLEM_BLOCK,
-    };
-
     public TreeRoom(int index, int x, int y, int z, Direction direction) {
         super(RefugePieces.REFUGE_TREE_ROOM, index, getBaseBoundingBox(direction).moved(x, y, z), direction, new BlockPos(x, y, z));
     }
