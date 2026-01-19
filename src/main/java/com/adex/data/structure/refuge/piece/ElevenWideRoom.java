@@ -1,5 +1,6 @@
 package com.adex.data.structure.refuge.piece;
 
+import com.adex.data.loottable.ModLootTables;
 import com.adex.data.structure.refuge.ContinuationPoint;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -47,5 +48,31 @@ public class ElevenWideRoom extends RefugePiece {
         createOneWideWalls(level, random, boundingBox);
         Direction side = direction.getClockWise();
         fill(level, random, BoundingBox.fromCorners(startPos.above(1).relative(side, -1), startPos.above(3).relative(side, 1)), this::air);
+    }
+
+    public void addRandomTreasureChest(WorldGenLevel level, RandomSource random) {
+        BlockPos chestPos;
+        Direction chestDirection;
+
+        switch (random.nextInt(4)) {
+            case 0 -> {
+                chestPos = startPos.relative(direction, 3).relative(direction.getCounterClockWise(), 4).above(1);
+                chestDirection = direction.getClockWise();
+            }
+            case 1 -> {
+                chestPos = startPos.relative(direction, 3).relative(direction.getClockWise(), 4).above(1);
+                chestDirection = direction.getCounterClockWise();
+            }
+            case 2 -> {
+                chestPos = startPos.relative(direction, 7).relative(direction.getCounterClockWise(), 4).above(1);
+                chestDirection = direction.getClockWise();
+            }
+            default -> {
+                chestPos = startPos.relative(direction, 7).relative(direction.getClockWise(), 4).above(1);
+                chestDirection = direction.getCounterClockWise();
+            }
+        }
+
+        createChest(level, random, chestPos, chestDirection, ModLootTables.REFUGE_TREASURE);
     }
 }
