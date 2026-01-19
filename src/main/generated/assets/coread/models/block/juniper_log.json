@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "coread:block/juniper_log_top",
+    "side": "coread:block/juniper_log_side"
+  }
+}

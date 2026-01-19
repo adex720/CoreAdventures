@@ -64,6 +64,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createTrivialBlock(ModBlocks.SAPPHIRE_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.SPINEL_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.TIGERS_EYE_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
+
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LOG, TexturedModel.COLUMN);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
     }
 
     @Override

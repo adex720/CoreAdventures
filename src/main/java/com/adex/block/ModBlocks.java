@@ -3,6 +3,7 @@ package com.adex.block;
 import com.adex.CoreAdventures;
 import com.adex.entity.ModEntities;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -117,6 +118,8 @@ public class ModBlocks {
     public static final Block SPINEL_BLOCK = register("spinel_block", GolemSpawningBlock.with(SPINEL_GOLEM_BLOCK, ModEntities.SPINEL_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
     public static final Block TIGERS_EYE_BLOCK = register("tigers_eye_block", GolemSpawningBlock.with(TIGERS_EYE_GOLEM_BLOCK, ModEntities.TIGERS_EYE_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
 
+    public static final Block JUNIPER_LOG = register("juniper_log", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(blockState -> blockState.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MapColor.WOOD : MapColor.PODZOL).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
+    public static final Block JUNIPER_LEAVES = register("juniper_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
 
     public static final Block REINFORCED_ANCIENT_DEBRIS = register("reinforced_ancient_debris",
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0F, 1200.0F).sound(SoundType.ANCIENT_DEBRIS).pushReaction(PushReaction.BLOCK));
@@ -194,6 +197,9 @@ public class ModBlocks {
             itemGroup.accept(ModBlocks.SAPPHIRE_ORE.asItem());
             itemGroup.accept(ModBlocks.SPINEL_ORE.asItem());
             itemGroup.accept(ModBlocks.TIGERS_EYE_ORE.asItem());
+
+            itemGroup.accept(ModBlocks.JUNIPER_LOG.asItem());
+            itemGroup.accept(ModBlocks.JUNIPER_LEAVES.asItem());
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(itemGroup -> {
@@ -280,6 +286,9 @@ public class ModBlocks {
             itemGroup.accept(ModBlocks.SAPPHIRE_GOLEM_BLOCK.asItem());
             itemGroup.accept(ModBlocks.SPINEL_GOLEM_BLOCK.asItem());
             itemGroup.accept(ModBlocks.TIGERS_EYE_GOLEM_BLOCK.asItem());
+
+            itemGroup.accept(ModBlocks.JUNIPER_LOG.asItem());
+            itemGroup.accept(ModBlocks.JUNIPER_LEAVES.asItem());
 
             itemGroup.accept(ModBlocks.REINFORCED_ANCIENT_DEBRIS.asItem());
         });
