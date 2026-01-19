@@ -78,7 +78,7 @@ public class RefugeBuilder {
                 new PieceCreator(StairsChest::new, 2, 1, StairsChest::getBaseBoundingBox),
                 new PieceCreator(LadderUp::new, 10, 5, LadderUp::getBaseBoundingBox),
                 new PieceCreator(LadderDown::new, 10, 5, LadderDown::getBaseBoundingBox),
-                new PieceCreator(LadderHigh::new, 1, 1, 3, LadderDown::getBaseBoundingBox),
+                new PieceCreator(LadderHigh::new, 1, 1, 3, LadderHigh::getBaseBoundingBox),
                 new PieceCreator(ThreeWayLeft::new, 10, 2, ThreeWayLeft::getBaseBoundingBox),
                 new PieceCreator(ThreeWayMiddle::new, 10, 2, ThreeWayMiddle::getBaseBoundingBox),
                 new PieceCreator(ThreeWayRight::new, 10, 2, ThreeWayRight::getBaseBoundingBox),
@@ -110,6 +110,7 @@ public class RefugeBuilder {
         builder.clear();
         openPoints.clear();
         roomCount = 0;
+        hasBossRoom = false;
 
         for (PieceCreator pieceCreator : pieceCreators) pieceCreator.placed = 0;
     }

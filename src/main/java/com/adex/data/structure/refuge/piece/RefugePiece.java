@@ -5,13 +5,18 @@ import com.adex.data.structure.refuge.ContinuationPoint;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.SlabType;
@@ -20,6 +25,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.storage.loot.LootTable;
 import org.jspecify.annotations.NonNull;
 
 import java.util.List;
@@ -148,6 +154,26 @@ public abstract class RefugePiece extends StructurePiece {
         for (int x = 0; x < offset; x++) {
             for (int y = 0; y < yOffset; y++) {
                 level.setBlock(startPos.relative(direction, x).above(y), block.apply(random), 2);
+            }
+        }
+    }
+
+    public void fill(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction1, Direction direction2, int offset1, int offset2, Function<RandomSource, BlockState> block) {
+        for (int x = 0; x < offset1; x++) {
+            for (int y = 0; y < offset2; y++) {
+                level.setBlock(startPos.relative(direction1, x).relative(direction2, y), block.apply(random), 2);
+            }
+        }
+    }
+
+    public void createChest(ServerLevelAccessor serverLevelAccessor, RandomSource random, BlockPos pos, Direction direction, ResourceKey<LootTable> lootTable) {
+        BlockState state = Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, direction);
+
+        if (!serverLevelAccessor.getBlockState(pos).is(Blocks.CHEST)) {
+            serverLevelAccessor.setBlock(pos, state, 2);
+            BlockEntity blockEntity = serverLevelAccessor.getBlockEntity(pos);
+            if (blockEntity instanceof ChestBlockEntity chestBlockEntity) {
+                chestBlockEntity.setLootTable(lootTable, random.nextLong());
             }
         }
     }

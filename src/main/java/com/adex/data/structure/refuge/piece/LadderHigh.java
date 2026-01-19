@@ -23,7 +23,7 @@ public class LadderHigh extends RefugePiece {
     private static final int OFFSET_Z = 0;
 
     public LadderHigh(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
-        super(RefugePieces.REFUGE_EIGHT_WAY, index, boundingBox, direction, pos);
+        super(RefugePieces.REFUGE_LADDER_HIGH, index, boundingBox, direction, pos);
     }
 
     public LadderHigh(int index, int x, int y, int z, Direction direction) {
@@ -31,7 +31,7 @@ public class LadderHigh extends RefugePiece {
     }
 
     public LadderHigh(CompoundTag compoundTag) {
-        super(RefugePieces.REFUGE_EIGHT_WAY, compoundTag);
+        super(RefugePieces.REFUGE_LADDER_HIGH, compoundTag);
     }
 
     public static BoundingBox getBaseBoundingBox(Direction direction) {
@@ -50,6 +50,7 @@ public class LadderHigh extends RefugePiece {
 
         BlockPos ceilingMiddle = startPos.relative(direction, 4).above(43);
         fill(level, random, new BoundingBox(ceilingMiddle).inflatedBy(2), this::getWallBlock); // ceiling
+        fill(level, random, startPos.relative(direction, 3).relative(direction.getCounterClockWise(), 2), direction, direction.getClockWise(), 4, 5, this::getWallBlock); // floor under ladder
 
         LadderUp.createLadders(level, startPos.relative(direction, 5).above(1), 42, Util.getDirectionDifference(Direction.SOUTH, direction)); // ladders
     }
