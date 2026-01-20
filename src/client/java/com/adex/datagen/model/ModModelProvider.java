@@ -7,6 +7,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.data.BlockFamilies;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -65,7 +68,21 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createTrivialBlock(ModBlocks.SPINEL_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.TIGERS_EYE_GOLEM_BLOCK, TexturedModel.CUBE_TOP_BOTTOM);
 
-        blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LOG, TexturedModel.COLUMN);
+        blockStateModelGenerator.woodProvider(ModBlocks.JUNIPER_LOG).logWithHorizontal(ModBlocks.JUNIPER_LOG).wood(ModBlocks.JUNIPER_WOOD);
+        blockStateModelGenerator.woodProvider(ModBlocks.STRIPPED_JUNIPER_LOG).logWithHorizontal(ModBlocks.STRIPPED_JUNIPER_LOG).wood(ModBlocks.STRIPPED_JUNIPER_WOOD);
+        BlockFamily juniperFamily = BlockFamilies.familyBuilder(ModBlocks.JUNIPER_PLANKS)
+                .slab(ModBlocks.JUNIPER_SLAB)
+                .stairs(ModBlocks.JUNIPER_STAIRS)
+                .fence(ModBlocks.JUNIPER_FENCE)
+                .fenceGate(ModBlocks.JUNIPER_FENCE_GATE)
+                .pressurePlate(ModBlocks.JUNIPER_PRESSURE_PLATE)
+                .trapdoor(ModBlocks.JUNIPER_TRAPDOOR)
+                .door(ModBlocks.JUNIPER_DOOR)
+                .button(ModBlocks.JUNIPER_BUTTON)
+                .sign(ModBlocks.JUNIPER_SIGN, ModBlocks.JUNIPER_WALL_SIGN).getFamily();
+        blockStateModelGenerator.family(ModBlocks.JUNIPER_PLANKS).generateFor(juniperFamily);
+        blockStateModelGenerator.createShelf(ModBlocks.JUNIPER_SHELF, ModBlocks.STRIPPED_JUNIPER_LOG);
+        blockStateModelGenerator.createHangingSign(ModBlocks.STRIPPED_JUNIPER_LOG, ModBlocks.JUNIPER_HANGING_SIGN, ModBlocks.JUNIPER_WALL_HANGING_SIGN);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
     }
 

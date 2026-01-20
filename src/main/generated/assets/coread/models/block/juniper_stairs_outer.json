@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "coread:block/juniper_planks",
+    "side": "coread:block/juniper_planks",
+    "top": "coread:block/juniper_planks"
+  }
+}

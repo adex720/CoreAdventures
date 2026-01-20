@@ -1,7 +1,9 @@
 package com.adex;
 
 import com.adex.advancement.criterion.ModCriterionTriggers;
+import com.adex.block.ModBlockSetTypes;
 import com.adex.block.ModBlocks;
+import com.adex.block.ModWoodTypes;
 import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.data.loottable.ModLootTables;
@@ -37,6 +39,9 @@ public class CoreAdventures implements ModInitializer {
 
         ModArmorMaterials.initialize();
         ModDataComponents.initialize();
+
+        ModBlockSetTypes.initialize();
+        ModWoodTypes.initialize();
 
         ModItems.initialize();
         ModBlocks.initialize();

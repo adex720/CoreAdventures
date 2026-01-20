@@ -3,7 +3,7 @@ package com.adex.block;
 import com.adex.CoreAdventures;
 import com.adex.entity.ModEntities;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.core.Direction;
+import net.fabricmc.fabric.mixin.lookup.BlockEntityTypeAccessor;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -13,6 +13,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -117,11 +119,32 @@ public class ModBlocks {
     public static final Block SPINEL_BLOCK = register("spinel_block", GolemSpawningBlock.with(SPINEL_GOLEM_BLOCK, ModEntities.SPINEL_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
     public static final Block TIGERS_EYE_BLOCK = register("tigers_eye_block", GolemSpawningBlock.with(TIGERS_EYE_GOLEM_BLOCK, ModEntities.TIGERS_EYE_GOLEM), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0f, 6.0f).sound(SoundType.METAL));
 
-    public static final Block JUNIPER_LOG = register("juniper_log", RotatedPillarBlock::new, BlockBehaviour.Properties.of().mapColor(blockState -> blockState.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? MapColor.WOOD : MapColor.PODZOL).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
-    public static final Block JUNIPER_LEAVES = register("juniper_leaves", properties -> new TintedParticleLeavesBlock(0.01F, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
+    public static final Block JUNIPER_LOG = register("juniper_log", RotatedPillarBlock::new, Blocks.logProperties(MapColor.WOOD, MapColor.PODZOL, SoundType.WOOD));
+    public static final Block JUNIPER_WOOD = register("juniper_wood", RotatedPillarBlock::new, juniperProperties());
+    public static final Block STRIPPED_JUNIPER_LOG = register("stripped_juniper_log", RotatedPillarBlock::new, Blocks.logProperties(MapColor.WOOD, MapColor.PODZOL, SoundType.WOOD));
+    public static final Block STRIPPED_JUNIPER_WOOD = register("stripped_juniper_wood", RotatedPillarBlock::new, juniperProperties());
+
+    public static final Block JUNIPER_PLANKS = register("juniper_planks", juniperProperties());
+    public static final Block JUNIPER_SHELF = register("juniper_shelf", ShelfBlock::new, juniperProperties().sound(SoundType.SHELF));
+    public static final Block JUNIPER_SLAB = registerSlab("juniper_slab", JUNIPER_PLANKS);
+    public static final Block JUNIPER_STAIRS = registerStairs("juniper_stairs", JUNIPER_PLANKS);
+    public static final Block JUNIPER_FENCE = register("juniper_fence", FenceBlock::new, juniperProperties());
+    public static final Block JUNIPER_FENCE_GATE = register("juniper_fence_gate", properties -> new FenceGateBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().forceSolidOn());
+    public static final Block JUNIPER_PRESSURE_PLATE = register("juniper_pressure_plate", properties -> new PressurePlateBlock(ModBlockSetTypes.JUNIPER, properties), juniperProperties().forceSolidOn().noCollision().pushReaction(PushReaction.DESTROY));
+    public static final Block JUNIPER_TRAPDOOR = register("juniper_trapdoor", properties -> new TrapDoorBlock(ModBlockSetTypes.JUNIPER, properties), juniperProperties().strength(3.0f).noOcclusion().isValidSpawn(Blocks::never));
+    public static final Block JUNIPER_DOOR = register("juniper_door", properties -> new DoorBlock(ModBlockSetTypes.JUNIPER, properties), juniperProperties().strength(3.0f).noOcclusion().pushReaction(PushReaction.DESTROY));
+    public static final Block JUNIPER_BUTTON = register("juniper_button", properties -> new ButtonBlock(ModBlockSetTypes.JUNIPER, 30, properties), Blocks.buttonProperties());
+    public static final Block JUNIPER_SIGN = register("juniper_sign", properties -> new StandingSignBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().forceSolidOn().noCollision().strength(1.0f));
+    public static final Block JUNIPER_WALL_SIGN = register("juniper_wall_sign", properties -> new WallSignBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().overrideLootTable(JUNIPER_SIGN.getLootTable()).overrideDescription(JUNIPER_SIGN.getDescriptionId()).forceSolidOn().noCollision().strength(1.0f));
+    public static final Block JUNIPER_HANGING_SIGN = register("juniper_hanging_sign", properties -> new CeilingHangingSignBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().forceSolidOn().noCollision().strength(1.0f));
+    public static final Block JUNIPER_WALL_HANGING_SIGN = register("juniper_wall_hanging_sign", properties -> new WallHangingSignBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().overrideLootTable(JUNIPER_HANGING_SIGN.getLootTable()).overrideDescription(JUNIPER_HANGING_SIGN.getDescriptionId()).forceSolidOn().noCollision().strength(1.0f));
+    //TODO: TreeGrowerB
+    public static final Block JUNIPER_SAPLING = register("juniper_sapling", properties -> new SaplingBlock(TreeGrower.SPRUCE, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
+    public static final Block POTTED_JUNIPER_SAPLING = register("potted_juniper_sapling", properties -> new FlowerPotBlock(JUNIPER_SAPLING, properties), Blocks.flowerPotProperties());
+    public static final Block JUNIPER_LEAVES = register("juniper_leaves", properties -> new TintedParticleLeavesBlock(0.01f, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2f).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
 
     public static final Block REINFORCED_ANCIENT_DEBRIS = register("reinforced_ancient_debris",
-            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0F, 1200.0F).sound(SoundType.ANCIENT_DEBRIS).pushReaction(PushReaction.BLOCK));
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0f, 1200.0f).sound(SoundType.ANCIENT_DEBRIS).pushReaction(PushReaction.BLOCK));
 
     public static final Block CORE_PORTAL_BLOCK = registerWithoutBlockItem("core_portal_block", CorePortalBlock::new,
             BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(_ -> 11).pushReaction(PushReaction.BLOCK));
@@ -172,124 +195,164 @@ public class ModBlocks {
         return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
 
+    public static BlockBehaviour.Properties juniperProperties() {
+        return BlockBehaviour.Properties.of().strength(2.0f, 3.0f).mapColor(MapColor.PODZOL).sound(SoundType.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava();
+    }
+
     public static void initialize() {
         addToItemGroups();
+        addValidBlockEntities();
+    }
+
+    private static void addValidBlockEntities() {
+        addValidBlockEntityBlock(ModBlocks.JUNIPER_SHELF, BlockEntityType.SHELF);
+        addValidBlockEntityBlock(ModBlocks.JUNIPER_SIGN, BlockEntityType.SIGN);
+        addValidBlockEntityBlock(ModBlocks.JUNIPER_HANGING_SIGN, BlockEntityType.HANGING_SIGN);
+    }
+
+    private static void addValidBlockEntityBlock(Block block, BlockEntityType<?> blockEntityType) {
+        ((BlockEntityTypeAccessor) blockEntityType).getBlocks().add(block);
     }
 
     private static void addToItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(itemGroup -> {
-            itemGroup.accept(ModBlocks.HARDENED_STONE.asItem());
+            itemGroup.accept(HARDENED_STONE.asItem());
 
-            itemGroup.accept(ModBlocks.GABBRO.asItem());
-            itemGroup.accept(ModBlocks.LARVIKITE.asItem());
-            itemGroup.accept(ModBlocks.SERPENTINITE.asItem());
-            itemGroup.accept(ModBlocks.SLATE.asItem());
-            itemGroup.accept(ModBlocks.TRAVERTINE.asItem());
+            itemGroup.accept(GABBRO.asItem());
+            itemGroup.accept(LARVIKITE.asItem());
+            itemGroup.accept(SERPENTINITE.asItem());
+            itemGroup.accept(SLATE.asItem());
+            itemGroup.accept(TRAVERTINE.asItem());
 
-            itemGroup.accept(ModBlocks.CHALCEDONY_ORE.asItem());
-            itemGroup.accept(ModBlocks.GARNET_ORE.asItem());
-            itemGroup.accept(ModBlocks.JADE_ORE.asItem());
-            itemGroup.accept(ModBlocks.JASPER_ORE.asItem());
-            itemGroup.accept(ModBlocks.ONYX_ORE.asItem());
-            itemGroup.accept(ModBlocks.OPAL_ORE.asItem());
-            itemGroup.accept(ModBlocks.RUBY_ORE.asItem());
-            itemGroup.accept(ModBlocks.SAPPHIRE_ORE.asItem());
-            itemGroup.accept(ModBlocks.SPINEL_ORE.asItem());
-            itemGroup.accept(ModBlocks.TIGERS_EYE_ORE.asItem());
+            itemGroup.accept(CHALCEDONY_ORE.asItem());
+            itemGroup.accept(GARNET_ORE.asItem());
+            itemGroup.accept(JADE_ORE.asItem());
+            itemGroup.accept(JASPER_ORE.asItem());
+            itemGroup.accept(ONYX_ORE.asItem());
+            itemGroup.accept(OPAL_ORE.asItem());
+            itemGroup.accept(RUBY_ORE.asItem());
+            itemGroup.accept(SAPPHIRE_ORE.asItem());
+            itemGroup.accept(SPINEL_ORE.asItem());
+            itemGroup.accept(TIGERS_EYE_ORE.asItem());
 
-            itemGroup.accept(ModBlocks.JUNIPER_LOG.asItem());
-            itemGroup.accept(ModBlocks.JUNIPER_LEAVES.asItem());
+            itemGroup.accept(JUNIPER_LOG.asItem());
+            itemGroup.accept(JUNIPER_LEAVES.asItem());
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(itemGroup -> {
-            itemGroup.accept(ModBlocks.HARDENED_STONE.asItem());
-            itemGroup.accept(ModBlocks.HARDENED_STONE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.HARDENED_STONE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.HARDENED_STONE_WALL.asItem());
+            itemGroup.accept(HARDENED_STONE.asItem());
+            itemGroup.accept(HARDENED_STONE_SLAB.asItem());
+            itemGroup.accept(HARDENED_STONE_STAIRS.asItem());
+            itemGroup.accept(HARDENED_STONE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.HARDENED_STONE_BRICKS.asItem());
-            itemGroup.accept(ModBlocks.HARDENED_STONE_BRICKS_SLAB.asItem());
-            itemGroup.accept(ModBlocks.HARDENED_STONE_BRICKS_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.HARDENED_STONE_BRICKS_WALL.asItem());
+            itemGroup.accept(HARDENED_STONE_BRICKS.asItem());
+            itemGroup.accept(HARDENED_STONE_BRICKS_SLAB.asItem());
+            itemGroup.accept(HARDENED_STONE_BRICKS_STAIRS.asItem());
+            itemGroup.accept(HARDENED_STONE_BRICKS_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.CRACKED_HARDENED_STONE_BRICKS.asItem());
+            itemGroup.accept(CRACKED_HARDENED_STONE_BRICKS.asItem());
 
-            itemGroup.accept(ModBlocks.GABBRO.asItem());
-            itemGroup.accept(ModBlocks.GABBRO_SLAB.asItem());
-            itemGroup.accept(ModBlocks.GABBRO_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.GABBRO_WALL.asItem());
+            itemGroup.accept(GABBRO.asItem());
+            itemGroup.accept(GABBRO_SLAB.asItem());
+            itemGroup.accept(GABBRO_STAIRS.asItem());
+            itemGroup.accept(GABBRO_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.POLISHED_GABBRO.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_GABBRO_SLAB.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_GABBRO_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_GABBRO_WALL.asItem());
+            itemGroup.accept(POLISHED_GABBRO.asItem());
+            itemGroup.accept(POLISHED_GABBRO_SLAB.asItem());
+            itemGroup.accept(POLISHED_GABBRO_STAIRS.asItem());
+            itemGroup.accept(POLISHED_GABBRO_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.LARVIKITE.asItem());
-            itemGroup.accept(ModBlocks.LARVIKITE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.LARVIKITE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.LARVIKITE_WALL.asItem());
+            itemGroup.accept(LARVIKITE.asItem());
+            itemGroup.accept(LARVIKITE_SLAB.asItem());
+            itemGroup.accept(LARVIKITE_STAIRS.asItem());
+            itemGroup.accept(LARVIKITE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.POLISHED_LARVIKITE.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_LARVIKITE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_LARVIKITE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_LARVIKITE_WALL.asItem());
+            itemGroup.accept(POLISHED_LARVIKITE.asItem());
+            itemGroup.accept(POLISHED_LARVIKITE_SLAB.asItem());
+            itemGroup.accept(POLISHED_LARVIKITE_STAIRS.asItem());
+            itemGroup.accept(POLISHED_LARVIKITE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.SERPENTINITE.asItem());
-            itemGroup.accept(ModBlocks.SERPENTINITE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.SERPENTINITE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.SERPENTINITE_WALL.asItem());
+            itemGroup.accept(SERPENTINITE.asItem());
+            itemGroup.accept(SERPENTINITE_SLAB.asItem());
+            itemGroup.accept(SERPENTINITE_STAIRS.asItem());
+            itemGroup.accept(SERPENTINITE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.POLISHED_SERPENTINITE.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_SERPENTINITE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_SERPENTINITE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_SERPENTINITE_WALL.asItem());
+            itemGroup.accept(POLISHED_SERPENTINITE.asItem());
+            itemGroup.accept(POLISHED_SERPENTINITE_SLAB.asItem());
+            itemGroup.accept(POLISHED_SERPENTINITE_STAIRS.asItem());
+            itemGroup.accept(POLISHED_SERPENTINITE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.SLATE.asItem());
-            itemGroup.accept(ModBlocks.SLATE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.SLATE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.SLATE_WALL.asItem());
+            itemGroup.accept(SLATE.asItem());
+            itemGroup.accept(SLATE_SLAB.asItem());
+            itemGroup.accept(SLATE_STAIRS.asItem());
+            itemGroup.accept(SLATE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.POLISHED_SLATE.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_SLATE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_SLATE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_SLATE_WALL.asItem());
+            itemGroup.accept(POLISHED_SLATE.asItem());
+            itemGroup.accept(POLISHED_SLATE_SLAB.asItem());
+            itemGroup.accept(POLISHED_SLATE_STAIRS.asItem());
+            itemGroup.accept(POLISHED_SLATE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.TRAVERTINE.asItem());
-            itemGroup.accept(ModBlocks.TRAVERTINE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.TRAVERTINE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.TRAVERTINE_WALL.asItem());
+            itemGroup.accept(TRAVERTINE.asItem());
+            itemGroup.accept(TRAVERTINE_SLAB.asItem());
+            itemGroup.accept(TRAVERTINE_STAIRS.asItem());
+            itemGroup.accept(TRAVERTINE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.POLISHED_TRAVERTINE.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_TRAVERTINE_SLAB.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_TRAVERTINE_STAIRS.asItem());
-            itemGroup.accept(ModBlocks.POLISHED_TRAVERTINE_WALL.asItem());
+            itemGroup.accept(POLISHED_TRAVERTINE.asItem());
+            itemGroup.accept(POLISHED_TRAVERTINE_SLAB.asItem());
+            itemGroup.accept(POLISHED_TRAVERTINE_STAIRS.asItem());
+            itemGroup.accept(POLISHED_TRAVERTINE_WALL.asItem());
 
-            itemGroup.accept(ModBlocks.CHALCEDONY_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.GARNET_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.JADE_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.JASPER_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.ONYX_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.OPAL_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.RUBY_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.SAPPHIRE_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.SPINEL_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.TIGERS_EYE_BLOCK.asItem());
+            itemGroup.accept(CHALCEDONY_BLOCK.asItem());
+            itemGroup.accept(GARNET_BLOCK.asItem());
+            itemGroup.accept(JADE_BLOCK.asItem());
+            itemGroup.accept(JASPER_BLOCK.asItem());
+            itemGroup.accept(ONYX_BLOCK.asItem());
+            itemGroup.accept(OPAL_BLOCK.asItem());
+            itemGroup.accept(RUBY_BLOCK.asItem());
+            itemGroup.accept(SAPPHIRE_BLOCK.asItem());
+            itemGroup.accept(SPINEL_BLOCK.asItem());
+            itemGroup.accept(TIGERS_EYE_BLOCK.asItem());
 
-            itemGroup.accept(ModBlocks.CHALCEDONY_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.GARNET_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.JADE_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.JASPER_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.ONYX_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.OPAL_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.RUBY_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.SAPPHIRE_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.SPINEL_GOLEM_BLOCK.asItem());
-            itemGroup.accept(ModBlocks.TIGERS_EYE_GOLEM_BLOCK.asItem());
+            itemGroup.accept(CHALCEDONY_GOLEM_BLOCK.asItem());
+            itemGroup.accept(GARNET_GOLEM_BLOCK.asItem());
+            itemGroup.accept(JADE_GOLEM_BLOCK.asItem());
+            itemGroup.accept(JASPER_GOLEM_BLOCK.asItem());
+            itemGroup.accept(ONYX_GOLEM_BLOCK.asItem());
+            itemGroup.accept(OPAL_GOLEM_BLOCK.asItem());
+            itemGroup.accept(RUBY_GOLEM_BLOCK.asItem());
+            itemGroup.accept(SAPPHIRE_GOLEM_BLOCK.asItem());
+            itemGroup.accept(SPINEL_GOLEM_BLOCK.asItem());
+            itemGroup.accept(TIGERS_EYE_GOLEM_BLOCK.asItem());
 
-            itemGroup.accept(ModBlocks.JUNIPER_LOG.asItem());
-            itemGroup.accept(ModBlocks.JUNIPER_LEAVES.asItem());
+            itemGroup.accept(JUNIPER_LOG.asItem());
+            itemGroup.accept(JUNIPER_WOOD.asItem());
+            itemGroup.accept(STRIPPED_JUNIPER_LOG.asItem());
+            itemGroup.accept(STRIPPED_JUNIPER_WOOD.asItem());
 
-            itemGroup.accept(ModBlocks.REINFORCED_ANCIENT_DEBRIS.asItem());
+            itemGroup.accept(JUNIPER_PLANKS.asItem());
+            itemGroup.accept(JUNIPER_SHELF.asItem());
+            itemGroup.accept(JUNIPER_SLAB.asItem());
+            itemGroup.accept(JUNIPER_STAIRS.asItem());
+            itemGroup.accept(JUNIPER_FENCE.asItem());
+            itemGroup.accept(JUNIPER_FENCE_GATE.asItem());
+            itemGroup.accept(JUNIPER_PRESSURE_PLATE.asItem());
+            itemGroup.accept(JUNIPER_TRAPDOOR.asItem());
+            itemGroup.accept(JUNIPER_DOOR.asItem());
+            itemGroup.accept(JUNIPER_BUTTON.asItem());
+            itemGroup.accept(JUNIPER_SIGN.asItem());
+            itemGroup.accept(JUNIPER_HANGING_SIGN.asItem());
+            itemGroup.accept(JUNIPER_SAPLING.asItem());
+            itemGroup.accept(JUNIPER_LEAVES.asItem());
+
+            itemGroup.accept(REINFORCED_ANCIENT_DEBRIS.asItem());
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(itemGroup -> {
+            itemGroup.accept(JUNIPER_FENCE_GATE.asItem());
+            itemGroup.accept(JUNIPER_PRESSURE_PLATE.asItem());
+            itemGroup.accept(JUNIPER_TRAPDOOR.asItem());
+            itemGroup.accept(JUNIPER_DOOR.asItem());
+            itemGroup.accept(JUNIPER_BUTTON.asItem());
         });
     }
 

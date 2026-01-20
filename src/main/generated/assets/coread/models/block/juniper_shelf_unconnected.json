@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_unconnected",
+  "textures": {
+    "all": "coread:block/juniper_shelf",
+    "particle": "coread:block/stripped_juniper_log"
+  }
+}
