@@ -22,7 +22,6 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
-    // TODO: use correct block class for stairs, slabs and walls
     public static final Block HARDENED_STONE = register("hardened_stone", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
     public static final SlabBlock HARDENED_STONE_SLAB = registerSlab("hardened_stone_slab", HARDENED_STONE);
     public static final StairBlock HARDENED_STONE_STAIRS = registerStairs("hardened_stone_stairs", HARDENED_STONE);
@@ -36,54 +35,54 @@ public class ModBlocks {
     public static final Block CRACKED_HARDENED_STONE_BRICKS = register("cracked_hardened_stone_bricks", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
 
     public static final Block GABBRO = register("gabbro", BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block GABBRO_SLAB = registerSlab("gabbro_slab", GABBRO);
-    public static final Block GABBRO_STAIRS = registerStairs("gabbro_stairs", GABBRO);
-    public static final Block GABBRO_WALL = registerWall("gabbro_wall", GABBRO);
+    public static final SlabBlock GABBRO_SLAB = registerSlab("gabbro_slab", GABBRO);
+    public static final StairBlock GABBRO_STAIRS = registerStairs("gabbro_stairs", GABBRO);
+    public static final WallBlock GABBRO_WALL = registerWall("gabbro_wall", GABBRO);
 
     public static final Block POLISHED_GABBRO = register("polished_gabbro", BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block POLISHED_GABBRO_SLAB = registerSlab("polished_gabbro_slab", POLISHED_GABBRO);
-    public static final Block POLISHED_GABBRO_STAIRS = registerStairs("polished_gabbro_stairs", POLISHED_GABBRO);
-    public static final Block POLISHED_GABBRO_WALL = registerWall("polished_gabbro_wall", POLISHED_GABBRO);
+    public static final SlabBlock POLISHED_GABBRO_SLAB = registerSlab("polished_gabbro_slab", POLISHED_GABBRO);
+    public static final StairBlock POLISHED_GABBRO_STAIRS = registerStairs("polished_gabbro_stairs", POLISHED_GABBRO);
+    public static final WallBlock POLISHED_GABBRO_WALL = registerWall("polished_gabbro_wall", POLISHED_GABBRO);
 
     public static final Block LARVIKITE = register("larvikite", BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block LARVIKITE_SLAB = registerSlab("larvikite_slab", LARVIKITE);
-    public static final Block LARVIKITE_STAIRS = registerStairs("larvikite_stairs", LARVIKITE);
-    public static final Block LARVIKITE_WALL = registerWall("larvikite_wall", LARVIKITE);
+    public static final SlabBlock LARVIKITE_SLAB = registerSlab("larvikite_slab", LARVIKITE);
+    public static final StairBlock LARVIKITE_STAIRS = registerStairs("larvikite_stairs", LARVIKITE);
+    public static final WallBlock LARVIKITE_WALL = registerWall("larvikite_wall", LARVIKITE);
 
     public static final Block POLISHED_LARVIKITE = register("polished_larvikite", BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block POLISHED_LARVIKITE_SLAB = registerSlab("polished_larvikite_slab", POLISHED_LARVIKITE);
-    public static final Block POLISHED_LARVIKITE_STAIRS = registerStairs("polished_larvikite_stairs", POLISHED_LARVIKITE);
-    public static final Block POLISHED_LARVIKITE_WALL = registerWall("polished_larvikite_wall", POLISHED_LARVIKITE);
+    public static final SlabBlock POLISHED_LARVIKITE_SLAB = registerSlab("polished_larvikite_slab", POLISHED_LARVIKITE);
+    public static final StairBlock POLISHED_LARVIKITE_STAIRS = registerStairs("polished_larvikite_stairs", POLISHED_LARVIKITE);
+    public static final WallBlock POLISHED_LARVIKITE_WALL = registerWall("polished_larvikite_wall", POLISHED_LARVIKITE);
 
     public static final Block SERPENTINITE = register("serpentinite", BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block SERPENTINITE_SLAB = registerSlab("serpentinite_slab", SERPENTINITE);
-    public static final Block SERPENTINITE_STAIRS = registerStairs("serpentinite_stairs", SERPENTINITE);
-    public static final Block SERPENTINITE_WALL = registerWall("serpentinite_wall", SERPENTINITE);
+    public static final SlabBlock SERPENTINITE_SLAB = registerSlab("serpentinite_slab", SERPENTINITE);
+    public static final StairBlock SERPENTINITE_STAIRS = registerStairs("serpentinite_stairs", SERPENTINITE);
+    public static final WallBlock SERPENTINITE_WALL = registerWall("serpentinite_wall", SERPENTINITE);
 
     public static final Block POLISHED_SERPENTINITE = register("polished_serpentinite", BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block POLISHED_SERPENTINITE_SLAB = registerSlab("polished_serpentinite_slab", POLISHED_SERPENTINITE);
-    public static final Block POLISHED_SERPENTINITE_STAIRS = registerStairs("polished_serpentinite_stairs", POLISHED_SERPENTINITE);
-    public static final Block POLISHED_SERPENTINITE_WALL = registerWall("polished_serpentinite_wall", POLISHED_SERPENTINITE);
+    public static final SlabBlock POLISHED_SERPENTINITE_SLAB = registerSlab("polished_serpentinite_slab", POLISHED_SERPENTINITE);
+    public static final StairBlock POLISHED_SERPENTINITE_STAIRS = registerStairs("polished_serpentinite_stairs", POLISHED_SERPENTINITE);
+    public static final WallBlock POLISHED_SERPENTINITE_WALL = registerWall("polished_serpentinite_wall", POLISHED_SERPENTINITE);
 
     public static final Block SLATE = register("slate", BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block SLATE_SLAB = registerSlab("slate_slab", SLATE);
-    public static final Block SLATE_STAIRS = registerStairs("slate_stairs", SLATE);
-    public static final Block SLATE_WALL = registerWall("slate_wall", SLATE);
+    public static final SlabBlock SLATE_SLAB = registerSlab("slate_slab", SLATE);
+    public static final StairBlock SLATE_STAIRS = registerStairs("slate_stairs", SLATE);
+    public static final WallBlock SLATE_WALL = registerWall("slate_wall", SLATE);
 
     public static final Block POLISHED_SLATE = register("polished_slate", BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block POLISHED_SLATE_SLAB = registerSlab("polished_slate_slab", POLISHED_SLATE);
-    public static final Block POLISHED_SLATE_STAIRS = registerStairs("polished_slate_stairs", POLISHED_SLATE);
-    public static final Block POLISHED_SLATE_WALL = registerWall("polished_slate_wall", POLISHED_SLATE);
+    public static final SlabBlock POLISHED_SLATE_SLAB = registerSlab("polished_slate_slab", POLISHED_SLATE);
+    public static final StairBlock POLISHED_SLATE_STAIRS = registerStairs("polished_slate_stairs", POLISHED_SLATE);
+    public static final WallBlock POLISHED_SLATE_WALL = registerWall("polished_slate_wall", POLISHED_SLATE);
 
     public static final Block TRAVERTINE = register("travertine", BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block TRAVERTINE_SLAB = registerSlab("travertine_slab", TRAVERTINE);
-    public static final Block TRAVERTINE_STAIRS = registerStairs("travertine_stairs", TRAVERTINE);
-    public static final Block TRAVERTINE_WALL = registerWall("travertine_wall", TRAVERTINE);
+    public static final SlabBlock TRAVERTINE_SLAB = registerSlab("travertine_slab", TRAVERTINE);
+    public static final StairBlock TRAVERTINE_STAIRS = registerStairs("travertine_stairs", TRAVERTINE);
+    public static final WallBlock TRAVERTINE_WALL = registerWall("travertine_wall", TRAVERTINE);
 
     public static final Block POLISHED_TRAVERTINE = register("polished_travertine", BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
-    public static final Block POLISHED_TRAVERTINE_SLAB = registerSlab("polished_travertine_slab", POLISHED_TRAVERTINE);
-    public static final Block POLISHED_TRAVERTINE_STAIRS = registerStairs("polished_travertine_stairs", POLISHED_TRAVERTINE);
-    public static final Block POLISHED_TRAVERTINE_WALL = registerWall("polished_travertine_wall", POLISHED_TRAVERTINE);
+    public static final SlabBlock POLISHED_TRAVERTINE_SLAB = registerSlab("polished_travertine_slab", POLISHED_TRAVERTINE);
+    public static final StairBlock POLISHED_TRAVERTINE_STAIRS = registerStairs("polished_travertine_stairs", POLISHED_TRAVERTINE);
+    public static final WallBlock POLISHED_TRAVERTINE_WALL = registerWall("polished_travertine_wall", POLISHED_TRAVERTINE);
 
     public static final Block CHALCEDONY_ORE = register("chalcedony_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
     public static final Block GARNET_ORE = register("garnet_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
