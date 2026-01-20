@@ -2,18 +2,15 @@ package com.adex.data.structure.refuge.piece;
 
 import com.adex.data.structure.refuge.ContinuationPoint;
 import com.adex.data.structure.refuge.RefugePieces;
-import com.adex.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.util.RandomSource;
 
 import java.util.List;
 
 public class RootPiece extends ThreeWayMiddle {
 
-    public RootPiece(RandomSource random, int x, int y, int z) {
-        Direction direction = Util.randomCardinalDirection(random);
+    public RootPiece(int x, int y, int z, Direction direction) {
         super(RefugePieces.REFUGE_ROOT_PIECE, 0, x, y, z, direction);
     }
 

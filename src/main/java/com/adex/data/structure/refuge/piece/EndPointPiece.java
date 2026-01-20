@@ -30,7 +30,7 @@ public class EndPointPiece extends RefugePiece {
 
     /**
      * This BoundingBox should only be used when filtering valid pieces in refuge generation.
-     * The returned bounding is not where the end point would be placed,
+     * The returned bounding is not where the end point would be placeCount,
      * but instead used to prevent EndPointPiece PieceCreator being used in a place where EndPointPiece is the only piece that can spawn.
      */
     public static BoundingBox getBoundingBoxForPlacement(Direction direction) {
