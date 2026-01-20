@@ -62,9 +62,7 @@ public class RefugeBuilder {
     private static PieceCreator[] createPieceCreator() {
         return new PieceCreator[]{
                 new PieceCreator(BossRoom::new, 5, 1, 5, BossRoom::getBaseBoundingBox),
-                // This BlockPos is only used for collision detection.
-                // Endpoints are placed inside existing corridors, so they can't have correct bounding box here
-                new PieceCreator(EndPointPiece::new, 4, 2, 4, _ -> new BoundingBox(BlockPos.ZERO)), //TODO: make custom bounding box to prevent spawning where it is the only possible piece
+                new PieceCreator(EndPointPiece::new, 1, 2, 4, EndPointPiece::getBoundingBoxForPlacement),
                 new PieceCreator(EmptyRoom::new, 5, 1, EmptyRoom::getBaseBoundingBox),
                 new PieceCreator(TreasureRoom::new, 5, 1, 2, TreasureRoom::getBaseBoundingBox),
                 new PieceCreator(TreeRoom::new, 5, 2, 2, TreeRoom::getBaseBoundingBox),

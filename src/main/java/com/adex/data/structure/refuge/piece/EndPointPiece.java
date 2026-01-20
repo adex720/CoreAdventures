@@ -21,11 +21,20 @@ public class EndPointPiece extends RefugePiece {
     }
 
     public EndPointPiece(int depth, int x, int y, int z, Direction direction) {
-        this(direction.getClockWise(), new BlockPos(x, y+1, z), depth);
+        this(direction.getClockWise(), new BlockPos(x, y + 1, z), depth);
     }
 
     public EndPointPiece(CompoundTag compoundTag) {
         super(RefugePieces.REFUGE_END_POINT, compoundTag);
+    }
+
+    /**
+     * This BoundingBox should only be used when filtering valid pieces in refuge generation.
+     * The returned bounding is not where the end point would be placed,
+     * but instead used to prevent EndPointPiece PieceCreator being used in a place where EndPointPiece is the only piece that can spawn.
+     */
+    public static BoundingBox getBoundingBoxForPlacement(Direction direction) {
+        return RefugePiece.boundingBox(0, 0, 0, -3, 0, 0, 7, 7, 15, direction);
     }
 
     @Override
