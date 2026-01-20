@@ -54,7 +54,7 @@ public class LadderUp extends RefugePiece {
 
         Direction clockWise = direction.getClockWise();
         fill(level, random, startPos.relative(clockWise, -2).relative(direction, 5), clockWise, 5, 4, this::getWallBlock); // end of lowed corridor
-        fill(level, random, startPos.relative(clockWise, -2).relative(direction, 1).above(4), clockWise, 4, 5, this::getWallBlock); // start of upper corridor
+        fill(level, random, startPos.relative(clockWise, -2).relative(direction, 1).above(8), clockWise, 5, 4, this::getWallBlock); // start of upper corridor
 
         LadderUp.createLadders(level, startPos.relative(direction, 4).above(1), 6, Util.getDirectionDifference(Direction.SOUTH, direction)); // ladders
     }

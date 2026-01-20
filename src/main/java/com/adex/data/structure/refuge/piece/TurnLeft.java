@@ -47,6 +47,6 @@ public class TurnLeft extends RefugePiece {
         Direction counterClockWise = direction.getCounterClockWise();
         createWalls(level, random, startPos, direction, 9); // first corridor
         createWalls(level, random, startPos.relative(direction, 7).relative(counterClockWise, 2), counterClockWise, 6); // second corridor
-        fill(level, random, startPos.relative(direction, 9).relative(counterClockWise, 2), counterClockWise, 5, 5, this::getWallBlock); // end of first corridor
+        fill(level, random, startPos.relative(direction, 9).relative(counterClockWise, -2), counterClockWise, 5, 5, this::getWallBlock); // end of first corridor
     }
 }
