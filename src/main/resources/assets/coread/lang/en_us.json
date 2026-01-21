@@ -96,6 +96,7 @@
   "block.coread.juniper_wood": "Juniper Wood",
   "block.coread.stripped_juniper_log": "Stripped Juniper Log",
   "block.coread.stripped_juniper_wood": "Stripped Juniper Wood",
+  "block.coread.juniper_shelf": "Juniper Shelf",
   "block.coread.juniper_slab": "Juniper Slab",
   "block.coread.juniper_stairs": "Juniper Stairs",
   "block.coread.juniper_fence": "Juniper Fence",
@@ -106,6 +107,7 @@
   "block.coread.juniper_button": "Juniper Button",
   "block.coread.juniper_sign": "Juniper Sign",
   "block.coread.juniper_hanging_sign": "Juniper Hanging Sign",
+  "block.coread.juniper_sapling": "Juniper Sapling",
   "block.coread.juniper_leaves": "Juniper Leaves",
 
   "block.coread.core_portal_block": "Core Portal",

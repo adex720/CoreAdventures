@@ -143,11 +143,9 @@ public class ModBlocks {
     public static final Block POTTED_JUNIPER_SAPLING = register("potted_juniper_sapling", properties -> new FlowerPotBlock(JUNIPER_SAPLING, properties), Blocks.flowerPotProperties());
     public static final Block JUNIPER_LEAVES = register("juniper_leaves", properties -> new TintedParticleLeavesBlock(0.01f, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2f).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
 
-    public static final Block REINFORCED_ANCIENT_DEBRIS = register("reinforced_ancient_debris",
-            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0f, 1200.0f).sound(SoundType.ANCIENT_DEBRIS).pushReaction(PushReaction.BLOCK));
+    public static final Block REINFORCED_ANCIENT_DEBRIS = register("reinforced_ancient_debris", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0f, 1200.0f).sound(SoundType.ANCIENT_DEBRIS).pushReaction(PushReaction.BLOCK));
 
-    public static final Block CORE_PORTAL_BLOCK = registerWithoutBlockItem("core_portal_block", CorePortalBlock::new,
-            BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(_ -> 11).pushReaction(PushReaction.BLOCK));
+    public static final Block CORE_PORTAL_BLOCK = registerWithoutBlockItem("core_portal_block", CorePortalBlock::new, BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(_ -> 11).pushReaction(PushReaction.BLOCK));
 
     private static Block register(String name, BlockBehaviour.Properties settings) {
         return register(name, Block::new, settings);

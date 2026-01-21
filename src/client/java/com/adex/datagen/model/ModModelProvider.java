@@ -9,6 +9,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -82,6 +83,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.family(ModBlocks.JUNIPER_PLANKS).generateFor(juniperFamily);
         blockStateModelGenerator.createShelf(ModBlocks.JUNIPER_SHELF, ModBlocks.STRIPPED_JUNIPER_LOG);
         blockStateModelGenerator.createHangingSign(ModBlocks.STRIPPED_JUNIPER_LOG, ModBlocks.JUNIPER_HANGING_SIGN, ModBlocks.JUNIPER_WALL_HANGING_SIGN);
+        blockStateModelGenerator.createPlantWithDefaultItem(ModBlocks.JUNIPER_SAPLING, ModBlocks.POTTED_JUNIPER_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
     }
 
