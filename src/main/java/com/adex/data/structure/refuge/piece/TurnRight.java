@@ -47,6 +47,6 @@ public class TurnRight extends RefugePiece {
         Direction clockWise = direction.getClockWise();
         createWalls(level, random, startPos, direction, 9); // first corridor
         createWalls(level, random, startPos.relative(direction, 7).relative(clockWise, 2), clockWise, 6); // second corridor
-        fill(level, random, startPos.relative(direction, 9).relative(clockWise, 2), clockWise, 5, 5, this::getWallBlock); // end of first corridor
+        fill(level, random, startPos.relative(direction, 9).relative(clockWise, -2), clockWise, 5, 5, this::getWallBlock); // end of first corridor
     }
 }
