@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "coread:juniper_log",
+    "coread:juniper_wood",
+    "coread:stripped_juniper_log",
+    "coread:stripped_juniper_wood"
+  ]
+}
