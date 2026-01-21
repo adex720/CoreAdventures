@@ -5,6 +5,7 @@ import com.adex.entity.golem.GolemModel;
 import com.adex.mixin.client.ModelLayersAccessor;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.resources.Identifier;
 
 public class ModModelLayers {
@@ -19,6 +20,9 @@ public class ModModelLayers {
     public static final ModelLayerLocation SAPPHIRE_GOLEM = register("sapphire_golem");
     public static final ModelLayerLocation SPINEL_GOLEM = register("spinel_golem");
     public static final ModelLayerLocation TIGERS_EYE_GOLEM = register("tigers_eye_golem");
+
+    public static final ModelLayerLocation JUNIPER_BOAT = register("boat/juniper");
+    public static final ModelLayerLocation JUNIPER_CHEST_BOAT = register("chest_boat/juniper");
 
     private static ModelLayerLocation register(String name) {
         ModelLayerLocation modelLayerLocation = new ModelLayerLocation(Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name), "main");
@@ -37,5 +41,8 @@ public class ModModelLayers {
         EntityModelLayerRegistry.registerModelLayer(SAPPHIRE_GOLEM, GolemModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(SPINEL_GOLEM, GolemModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(TIGERS_EYE_GOLEM, GolemModel::createBodyLayer);
+
+        EntityModelLayerRegistry.registerModelLayer(JUNIPER_BOAT, BoatModel::createBoatModel);
+        EntityModelLayerRegistry.registerModelLayer(JUNIPER_CHEST_BOAT, BoatModel::createChestBoatModel);
     }
 }

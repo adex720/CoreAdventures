@@ -6,6 +6,7 @@ import com.adex.entity.golem.*;
 import com.adex.entity.projectile.projectile.DynamiteProjectile;
 import com.adex.entity.projectile.projectile.GolemFireball;
 import com.adex.entity.projectile.projectile.HeatBall;
+import com.adex.item.ModItems;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -14,6 +15,9 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.vehicle.boat.Boat;
+import net.minecraft.world.entity.vehicle.boat.ChestBoat;
+import net.minecraft.world.item.Items;
 
 public class ModEntities {
 
@@ -32,29 +36,43 @@ public class ModEntities {
     public static final ResourceKey<EntityType<?>> HEAT_BALL_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat_ball"));
     public static final ResourceKey<EntityType<?>> DYNAMITE_PROJECTILE_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "dynamite_projectile"));
 
-    public static final EntityType<ChalcedonyGolem> CHALCEDONY_GOLEM = create(CHALCEDONY_GOLEM_KEY, ChalcedonyGolem.builder(ChalcedonyGolem::new));
-    public static final EntityType<GarnetGolem> GARNET_GOLEM = create(GARNET_GOLEM_KEY, GarnetGolem.builder(GarnetGolem::new));
-    public static final EntityType<JadeGolem> JADE_GOLEM = create(JADE_GOLEM_KEY, JadeGolem.builder(JadeGolem::new));
-    public static final EntityType<JasperGolem> JASPER_GOLEM = create(JASPER_GOLEM_KEY, JasperGolem.builder(JasperGolem::new));
-    public static final EntityType<OnyxGolem> ONYX_GOLEM = create(ONYX_GOLEM_KEY, OnyxGolem.builder(OnyxGolem::new));
-    public static final EntityType<OpalGolem> OPAL_GOLEM = create(OPAL_GOLEM_KEY, OpalGolem.builder(OpalGolem::new));
-    public static final EntityType<RubyGolem> RUBY_GOLEM = create(RUBY_GOLEM_KEY, RubyGolem.builder(RubyGolem::new));
-    public static final EntityType<SapphireGolem> SAPPHIRE_GOLEM = create(SAPPHIRE_GOLEM_KEY, SapphireGolem.builder(SapphireGolem::new));
-    public static final EntityType<SpinelGolem> SPINEL_GOLEM = create(SPINEL_GOLEM_KEY, SpinelGolem.builder(SpinelGolem::new));
-    public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = create(TIGERS_EYE_GOLEM_KEY, TigersEyeGolem.builder(TigersEyeGolem::new));
+    public static final EntityType<ChalcedonyGolem> CHALCEDONY_GOLEM = register(CHALCEDONY_GOLEM_KEY, ChalcedonyGolem.builder(ChalcedonyGolem::new));
+    public static final EntityType<GarnetGolem> GARNET_GOLEM = register(GARNET_GOLEM_KEY, GarnetGolem.builder(GarnetGolem::new));
+    public static final EntityType<JadeGolem> JADE_GOLEM = register(JADE_GOLEM_KEY, JadeGolem.builder(JadeGolem::new));
+    public static final EntityType<JasperGolem> JASPER_GOLEM = register(JASPER_GOLEM_KEY, JasperGolem.builder(JasperGolem::new));
+    public static final EntityType<OnyxGolem> ONYX_GOLEM = register(ONYX_GOLEM_KEY, OnyxGolem.builder(OnyxGolem::new));
+    public static final EntityType<OpalGolem> OPAL_GOLEM = register(OPAL_GOLEM_KEY, OpalGolem.builder(OpalGolem::new));
+    public static final EntityType<RubyGolem> RUBY_GOLEM = register(RUBY_GOLEM_KEY, RubyGolem.builder(RubyGolem::new));
+    public static final EntityType<SapphireGolem> SAPPHIRE_GOLEM = register(SAPPHIRE_GOLEM_KEY, SapphireGolem.builder(SapphireGolem::new));
+    public static final EntityType<SpinelGolem> SPINEL_GOLEM = register(SPINEL_GOLEM_KEY, SpinelGolem.builder(SpinelGolem::new));
+    public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = register(TIGERS_EYE_GOLEM_KEY, TigersEyeGolem.builder(TigersEyeGolem::new));
 
-    public static final EntityType<GolemFireball> GOLEM_FIREBALL_ENTITY = create(GOLEM_FIREBALL_KEY,
+
+    public static final EntityType<Boat> JUNIPER_BOAT = register("juniper_boat",
+            EntityType.Builder.<Boat>of((entityType, level) -> new Boat(entityType, level, () -> ModItems.JUNIPER_BOAT), MobCategory.MISC)
+                    .noLootTable().sized(1.375F, 0.5625F).eyeHeight(0.5625F).clientTrackingRange(10));
+    public static final EntityType<ChestBoat> JUNIPER_CHEST_BOAT = register("juniper_chest_boat",
+            EntityType.Builder.<ChestBoat>of((entityType, level) -> new ChestBoat(entityType, level, () -> ModItems.JUNIPER_CHEST_BOAT), MobCategory.MISC)
+                    .noLootTable().sized(1.375F, 0.5625F).eyeHeight(0.5625F).clientTrackingRange(10));
+
+    public static final EntityType<GolemFireball> GOLEM_FIREBALL_ENTITY = register(GOLEM_FIREBALL_KEY,
             EntityType.Builder.<GolemFireball>of(GolemFireball::new, MobCategory.MISC)
                     .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
-    public static final EntityType<HeatBall> HEAT_BALL_ENTITY = create(HEAT_BALL_KEY,
+    public static final EntityType<HeatBall> HEAT_BALL_ENTITY = register(HEAT_BALL_KEY,
             EntityType.Builder.<HeatBall>of(HeatBall::new, MobCategory.MISC)
                     .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
-    public static final EntityType<DynamiteProjectile> DYNAMITE_PROJECTILE = create(DYNAMITE_PROJECTILE_KEY,
+    public static final EntityType<DynamiteProjectile> DYNAMITE_PROJECTILE = register(DYNAMITE_PROJECTILE_KEY,
             EntityType.Builder.<DynamiteProjectile>of(DynamiteProjectile::new, MobCategory.MISC)
                     .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
 
-    private static <T extends Entity> EntityType<T> create(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder) {
+
+    private static <T extends Entity> EntityType<T> register(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder) {
         return Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
+    }
+
+    private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
+        ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
+        return register(key, builder);
     }
 
     public static void initialize() {

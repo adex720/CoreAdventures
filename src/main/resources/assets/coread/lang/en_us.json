@@ -96,6 +96,7 @@
   "block.coread.juniper_wood": "Juniper Wood",
   "block.coread.stripped_juniper_log": "Stripped Juniper Log",
   "block.coread.stripped_juniper_wood": "Stripped Juniper Wood",
+  "block.coread.juniper_planks": "Juniper Planks",
   "block.coread.juniper_shelf": "Juniper Shelf",
   "block.coread.juniper_slab": "Juniper Slab",
   "block.coread.juniper_stairs": "Juniper Stairs",
@@ -182,6 +183,9 @@
   "item.coread.gem_leggings": "Gem Leggings",
   "item.coread.gem_boots": "Gem Boots",
 
+  "item.coread.juniper_boat": "Juniper Boat",
+  "item.coread.juniper_chest_boat": "Juniper Chest Boat",
+
   "item.coread.dynamite": "Dynamite",
 
   "item.coread.chalcedony_golem_spawn_egg": "Chalcedony Golem Spawn Egg",
@@ -193,7 +197,7 @@
   "item.coread.ruby_golem_spawn_egg": "Ruby Golem Spawn Egg",
   "item.coread.sapphire_golem_spawn_egg": "Sapphire Golem Spawn Egg",
   "item.coread.spinel_golem_spawn_egg": "Spinel Golem Spawn Egg",
-  "item.coread.tigers_eye_golem_spawn_egg": "Tigers Eye Golem Spawn Egg",
+  "item.coread.tigers_eye_golem_spawn_egg": "Tiger's Eye Golem Spawn Egg",
 
   "entity.coread.chalcedony_golem": "Chalcedony Golem",
   "entity.coread.garnet_golem": "Garnet Golem",
@@ -204,7 +208,14 @@
   "entity.coread.ruby_golem": "Ruby Golem",
   "entity.coread.sapphire_golem": "Sapphire Golem",
   "entity.coread.spinel_golem": "Spinel Golem",
-  "entity.coread.tigers_eye_golem": "Tigers Eye Golem",
+  "entity.coread.tigers_eye_golem": "Tiger's Eye Golem",
+
+  "entity.coread.juniper_boat": "Juniper Boat",
+  "entity.coread.juniper_chest_boat": "Juniper Chest Boat",
+
+  "entity.coread.golem_fireball": "Fireball",
+  "entity.coread.heat_ball": "Heat Ball",
+  "entity.coread.dynamite_projectile": "Dynamite",
 
   "enchantment.coread.chaining": "Chaining",
   "enchantment.coread.heat_protection": "Heat Protection",

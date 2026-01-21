@@ -9,6 +9,8 @@ d619fd2b3d54239e4d53aa1ac7a7a8387a3a7eaa data/coread/loot_table/blocks/gabbro.js
 93ad1a3a159d7a99eb7d8eb72f3ef258e1829ea6 data/coread/loot_table/blocks/jade_ore.json
 0720aa8f8cd1790e2c5b71567f54755dbad54023 data/coread/loot_table/blocks/jasper_block.json
 98729f7b86588622db1f46be1cda943cc9a69751 data/coread/loot_table/blocks/jasper_ore.json
+0e534b536a3015b9e6d9b005d2119b49e4617d81 data/coread/loot_table/blocks/juniper_log.json
+40439a8274c040cf3e28d580260ac5d7104bba86 data/coread/loot_table/blocks/juniper_wood.json
 102cc1a81362f0403de917de1327d46617ae08a7 data/coread/loot_table/blocks/larvikite.json
 d5843ca2ba0c204f4dd794af1ee0ce4be001c859 data/coread/loot_table/blocks/onyx_block.json
 84d49bfb417f95e7d8b83f946519e6957b344cd2 data/coread/loot_table/blocks/onyx_ore.json
@@ -23,6 +25,8 @@ a7c38e8b93df21b91e6157968fb56395e3898c17 data/coread/loot_table/blocks/serpentin
 b42d5473db01c4f8794166129c883d9ddb8c072b data/coread/loot_table/blocks/slate.json
 b212a34d20b03501571f30416e060cf06255097a data/coread/loot_table/blocks/spinel_block.json
 90d281de96a938f8b1ccf3623072614e60674b2b data/coread/loot_table/blocks/spinel_ore.json
+8d83a349b2ff93eae1a6989ddad873a6a5d7e1eb data/coread/loot_table/blocks/stripped_juniper_log.json
+b830d1344435014afa5fe8c9a6158a31b3ee6189 data/coread/loot_table/blocks/stripped_juniper_wood.json
 4eff84812c64c8541141d0383a8ebef683986154 data/coread/loot_table/blocks/tigers_eye_block.json
 0678340ba11cc3aa2604c81008fec4be3f934678 data/coread/loot_table/blocks/tigers_eye_ore.json
 50e91a7f9dd782344396695db7d8fe4c48d123b0 data/coread/loot_table/blocks/travertine.json

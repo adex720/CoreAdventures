@@ -16,6 +16,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -98,6 +99,10 @@ public class ModItems {
     public static final Item GEM_CHESTPLATE = registerGemArmor("gem_chestplate", ArmorType.CHESTPLATE);
     public static final Item GEM_LEGGINGS = registerGemArmor("gem_leggings", ArmorType.LEGGINGS);
     public static final Item GEM_BOOTS = registerGemArmor("gem_boots", ArmorType.BOOTS);
+
+
+    public static final Item JUNIPER_BOAT = register("juniper_boat", properties -> new BoatItem(ModEntities.JUNIPER_BOAT, properties), new Item.Properties().stacksTo(1));
+    public static final Item JUNIPER_CHEST_BOAT = register("juniper_chest_boat", properties -> new BoatItem(ModEntities.JUNIPER_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
 
 
     public static final Item DYNAMITE = register("dynamite", new Item.Properties());
@@ -277,6 +282,11 @@ public class ModItems {
             itemGroup.accept(GEM_CHESTPLATE);
             itemGroup.accept(GEM_LEGGINGS);
             itemGroup.accept(GEM_BOOTS);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((itemGroup) -> {
+            itemGroup.accept(JUNIPER_BOAT);
+            itemGroup.accept(JUNIPER_CHEST_BOAT);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register((itemGroup) -> {
