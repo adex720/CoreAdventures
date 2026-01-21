@@ -12,7 +12,7 @@ public class Refuge extends Structure {
 
     public static final MapCodec<Refuge> CODEC = simpleCodec(Refuge::new);
 
-    protected Refuge(StructureSettings structureSettings) {
+    public Refuge(StructureSettings structureSettings) {
         super(structureSettings);
     }
 
@@ -25,6 +25,6 @@ public class Refuge extends Structure {
 
     @Override
     public @NonNull StructureType<?> type() {
-        return ModStructures.REFUGE;
+        return ModStructures.REFUGE_TYPE;
     }
 }

@@ -1,0 +1,39 @@
+{
+  "parent": "coread:root",
+  "criteria": {
+    "entered_refuge": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "coread:refuge"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.coread.core.find_refuge.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:hardened_stone_bricks"
+    },
+    "title": {
+      "translate": "advancements.coread.core.find_refuge.title"
+    }
+  },
+  "requirements": [
+    [
+      "entered_refuge"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

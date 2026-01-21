@@ -1,5 +1,5 @@
 {
-  "parent": "coread:root",
+  "parent": "coread:find_refuge",
   "criteria": {
     "summoned_chalcedony_golem": {
       "conditions": {

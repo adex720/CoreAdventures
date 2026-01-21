@@ -3,6 +3,7 @@ package com.adex.datagen;
 import com.adex.advancement.criterion.CoolWithIceTrigger;
 import com.adex.block.ModBlocks;
 import com.adex.data.dimension.ModDimensions;
+import com.adex.data.structure.ModStructures;
 import com.adex.data.tag.ModTags;
 import com.adex.entity.ModEntities;
 import com.adex.item.ModItems;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import org.jspecify.annotations.NonNull;
@@ -38,6 +40,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
     public void generateAdvancement(HolderLookup.Provider provider, @NonNull Consumer<AdvancementHolder> consumer) {
         HolderLookup<Item> itemHolderLookup = provider.lookupOrThrow(Registries.ITEM);
         HolderLookup<EntityType<?>> entityHolderLookup = provider.lookupOrThrow(Registries.ENTITY_TYPE);
+        HolderLookup<Structure> structureHolderLookup = provider.lookupOrThrow(Registries.STRUCTURE);
 
         ContextAwarePredicate fullChalcedonyArmor = hasArmor(itemHolderLookup, ModItems.CHALCEDONY_HELMET, ModItems.CHALCEDONY_CHESTPLATE, ModItems.CHALCEDONY_LEGGINGS, ModItems.CHALCEDONY_BOOTS);
         ContextAwarePredicate fullGarnetArmor = hasArmor(itemHolderLookup, ModItems.GARNET_HELMET, ModItems.GARNET_CHESTPLATE, ModItems.GARNET_LEGGINGS, ModItems.GARNET_BOOTS);
@@ -140,8 +143,21 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                 .rewards(AdvancementRewards.Builder.experience(50))
                 .save(consumer, ModDataGenerator.getIdentifierString("cool_with_blue_ice"));
 
-        AdvancementHolder summonGolem = Advancement.Builder.advancement()
+        AdvancementHolder enterRefuge = Advancement.Builder.advancement()
                 .parent(root)
+                .display(ModBlocks.HARDENED_STONE_BRICKS,
+                        Component.translatable("advancements.coread.core.find_refuge.title"),
+                        Component.translatable("advancements.coread.core.find_refuge.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false)
+                .addCriterion("entered_refuge", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structureHolderLookup.getOrThrow(ModStructures.REFUGE_KEY))))
+                .save(consumer, ModDataGenerator.getIdentifierString("find_refuge"));
+
+        AdvancementHolder summonGolem = Advancement.Builder.advancement()
+                .parent(enterRefuge)
                 .display(ModBlocks.GARNET_GOLEM_BLOCK,
                         Component.translatable("advancements.coread.core.summon_golem.title"),
                         Component.translatable("advancements.coread.core.summon_golem.description"),
