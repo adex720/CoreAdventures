@@ -54,6 +54,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         dropOre(ModBlocks.SPINEL_ORE, ModItems.SPINEL);
         dropOre(ModBlocks.TIGERS_EYE_ORE, ModItems.TIGERS_EYE);
 
+        dropSelf(ModBlocks.JUNIPER_LOG);
+        dropSelf(ModBlocks.JUNIPER_WOOD);
+        dropSelf(ModBlocks.STRIPPED_JUNIPER_LOG);
+        dropSelf(ModBlocks.STRIPPED_JUNIPER_WOOD);
+
         dropSelf(ModBlocks.REINFORCED_ANCIENT_DEBRIS);
     }
 
