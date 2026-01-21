@@ -6,6 +6,7 @@ import com.adex.block.ModBlocks;
 import com.adex.block.ModWoodTypes;
 import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
+import com.adex.data.feature.ModTreeGrowers;
 import com.adex.data.loottable.ModLootTables;
 import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.RefugePieces;
@@ -43,6 +44,9 @@ public class CoreAdventures implements ModInitializer {
         ModBlockSetTypes.initialize();
         ModWoodTypes.initialize();
 
+        ModFeatures.initialize();
+        ModTreeGrowers.initialize();
+
         ModItems.initialize();
         ModBlocks.initialize();
 
@@ -59,7 +63,6 @@ public class CoreAdventures implements ModInitializer {
         ModPayloads.initialize();
 
         ModDimensions.initialize();
-        ModFeatures.initialize();
         ModStructures.initialize();
         RefugePieces.initialize();
 

@@ -1,6 +1,7 @@
 package com.adex.block;
 
 import com.adex.CoreAdventures;
+import com.adex.data.feature.ModTreeGrowers;
 import com.adex.entity.ModEntities;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.mixin.lookup.BlockEntityTypeAccessor;
@@ -126,8 +127,8 @@ public class ModBlocks {
 
     public static final Block JUNIPER_PLANKS = register("juniper_planks", juniperProperties());
     public static final Block JUNIPER_SHELF = register("juniper_shelf", ShelfBlock::new, juniperProperties().sound(SoundType.SHELF));
-    public static final Block JUNIPER_SLAB = registerSlab("juniper_slab", JUNIPER_PLANKS);
-    public static final Block JUNIPER_STAIRS = registerStairs("juniper_stairs", JUNIPER_PLANKS);
+    public static final SlabBlock JUNIPER_SLAB = registerSlab("juniper_slab", JUNIPER_PLANKS);
+    public static final StairBlock JUNIPER_STAIRS = registerStairs("juniper_stairs", JUNIPER_PLANKS);
     public static final Block JUNIPER_FENCE = register("juniper_fence", FenceBlock::new, juniperProperties());
     public static final Block JUNIPER_FENCE_GATE = register("juniper_fence_gate", properties -> new FenceGateBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().forceSolidOn());
     public static final Block JUNIPER_PRESSURE_PLATE = register("juniper_pressure_plate", properties -> new PressurePlateBlock(ModBlockSetTypes.JUNIPER, properties), juniperProperties().forceSolidOn().noCollision().pushReaction(PushReaction.DESTROY));
@@ -138,8 +139,7 @@ public class ModBlocks {
     public static final Block JUNIPER_WALL_SIGN = register("juniper_wall_sign", properties -> new WallSignBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().overrideLootTable(JUNIPER_SIGN.getLootTable()).overrideDescription(JUNIPER_SIGN.getDescriptionId()).forceSolidOn().noCollision().strength(1.0f));
     public static final Block JUNIPER_HANGING_SIGN = register("juniper_hanging_sign", properties -> new CeilingHangingSignBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().forceSolidOn().noCollision().strength(1.0f));
     public static final Block JUNIPER_WALL_HANGING_SIGN = register("juniper_wall_hanging_sign", properties -> new WallHangingSignBlock(ModWoodTypes.JUNIPER, properties), juniperProperties().overrideLootTable(JUNIPER_HANGING_SIGN.getLootTable()).overrideDescription(JUNIPER_HANGING_SIGN.getDescriptionId()).forceSolidOn().noCollision().strength(1.0f));
-    //TODO: TreeGrowerB
-    public static final Block JUNIPER_SAPLING = register("juniper_sapling", properties -> new SaplingBlock(TreeGrower.SPRUCE, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
+    public static final Block JUNIPER_SAPLING = register("juniper_sapling", properties -> new SaplingBlock(ModTreeGrowers.JUNIPER, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
     public static final Block POTTED_JUNIPER_SAPLING = register("potted_juniper_sapling", properties -> new FlowerPotBlock(JUNIPER_SAPLING, properties), Blocks.flowerPotProperties());
     public static final Block JUNIPER_LEAVES = register("juniper_leaves", properties -> new TintedParticleLeavesBlock(0.01f, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2f).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
 
