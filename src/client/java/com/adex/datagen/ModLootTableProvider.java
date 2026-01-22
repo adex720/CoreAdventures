@@ -113,7 +113,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         dropSelf(ModBlocks.JUNIPER_FENCE_GATE);
         dropSelf(ModBlocks.JUNIPER_PRESSURE_PLATE);
         dropSelf(ModBlocks.JUNIPER_TRAPDOOR);
-        dropSelf(ModBlocks.JUNIPER_DOOR);
+        add(ModBlocks.JUNIPER_DOOR, this::createDoorTable);
         dropSelf(ModBlocks.JUNIPER_BUTTON);
         dropSelf(ModBlocks.JUNIPER_SIGN);
         dropSelf(ModBlocks.JUNIPER_HANGING_SIGN);
