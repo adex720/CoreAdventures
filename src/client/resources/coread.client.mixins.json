@@ -5,8 +5,7 @@
   "client": [
     "GuiMixin",
     "ModelLayersAccessor",
-    "WorldOpenFlowsMixin",
-    "HolderGetterMixin"
+    "WorldOpenFlowsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

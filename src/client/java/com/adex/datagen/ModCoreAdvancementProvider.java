@@ -3,7 +3,7 @@ package com.adex.datagen;
 import com.adex.advancement.criterion.CoolWithIceTrigger;
 import com.adex.block.ModBlocks;
 import com.adex.data.dimension.ModDimensions;
-import com.adex.data.structure.ModStructures;
+import com.adex.data.structure.refuge.Refuge;
 import com.adex.data.tag.ModTags;
 import com.adex.entity.ModEntities;
 import com.adex.item.ModItems;
@@ -153,7 +153,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false)
-                .addCriterion("entered_refuge", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structureHolderLookup.getOrThrow(ModStructures.REFUGE_KEY))))
+                .addCriterion("entered_refuge", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structureHolderLookup.getOrThrow(Refuge.REFUGE_KEY))))
                 .save(consumer, ModDataGenerator.getIdentifierString("find_refuge"));
 
         AdvancementHolder summonGolem = Advancement.Builder.advancement()

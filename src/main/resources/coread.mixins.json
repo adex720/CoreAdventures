@@ -21,6 +21,7 @@
     "PortalShapeAccessor",
     "PortalShapeMixin",
     "ServerPlayerMixin",
+    "StructuresMixin",
     "ThrownSplashPotionMixin"
   ],
   "injectors": {
