@@ -1,3 +1,4 @@
 // 1.21.11	-999999999-01-01T00:00:00	Core Adventures/minecraft:chest Loot Table
 bedf061c1f533762c8febc4c1e60d9eb3a31ea91 data/coread/loot_table/chests/refuge_basic.json
+f43a9eb3197308c47468a04da7900501b5260ca0 data/coread/loot_table/chests/refuge_portal.json
 edbdca106c64159141d2cc6677c9c31583a44752 data/coread/loot_table/chests/refuge_treasure.json

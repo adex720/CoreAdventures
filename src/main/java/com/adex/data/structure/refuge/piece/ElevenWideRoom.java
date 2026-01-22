@@ -5,10 +5,12 @@ import com.adex.data.structure.refuge.ContinuationPoint;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.List;
 
@@ -51,6 +53,10 @@ public class ElevenWideRoom extends RefugePiece {
     }
 
     public void addRandomTreasureChest(WorldGenLevel level, RandomSource random) {
+        addRandomTreasureChest(level, random, ModLootTables.REFUGE_TREASURE);
+    }
+
+    public void addRandomTreasureChest(WorldGenLevel level, RandomSource random, ResourceKey<LootTable> lootTable) {
         BlockPos chestPos;
         Direction chestDirection;
 
@@ -73,6 +79,6 @@ public class ElevenWideRoom extends RefugePiece {
             }
         }
 
-        createChest(level, random, chestPos, chestDirection, ModLootTables.REFUGE_TREASURE);
+        createChest(level, random, chestPos, chestDirection, lootTable);
     }
 }

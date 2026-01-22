@@ -10,13 +10,13 @@ public class ModLootTables {
 
     public static final ResourceKey<LootTable> REFUGE_BASIC = register("chests/refuge_basic");
     public static final ResourceKey<LootTable> REFUGE_TREASURE = register("chests/refuge_treasure");
+    public static final ResourceKey<LootTable> REFUGE_PORTAL_ROOM = register("chests/refuge_portal");
 
     private static ResourceKey<LootTable> register(String name) {
         return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
 
     public static void initialize() {
-
     }
 
 }

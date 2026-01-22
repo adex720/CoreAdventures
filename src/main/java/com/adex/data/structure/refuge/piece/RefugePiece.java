@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
@@ -382,6 +383,11 @@ public abstract class RefugePiece extends StructurePiece {
         return ModBlocks.HARDENED_STONE_BRICKS_STAIRS.defaultBlockState()
                 .setValue(StairBlock.FACING, direction)
                 .setValue(StairBlock.HALF, top ? Half.TOP : Half.BOTTOM);
+    }
+
+    public BlockState getStairBlock(Direction direction, boolean top, StairsShape shape) {
+        return getStairBlock(direction, top)
+                .setValue(StairBlock.SHAPE, shape);
     }
 
     public BlockState getSlabBlock(boolean top) {

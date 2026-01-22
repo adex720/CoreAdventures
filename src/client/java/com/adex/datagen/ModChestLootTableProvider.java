@@ -1,11 +1,13 @@
 package com.adex.datagen;
 
+import com.adex.block.ModBlocks;
 import com.adex.data.loottable.ModLootTables;
 import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -33,6 +35,11 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
         generator.accept(ModLootTables.REFUGE_TREASURE, LootTable.lootTable()
                 .withPool(withCoreGems(ConstantValue.exactly(4), UniformGenerator.between(4, 6)))
                 .withPool(withCoreArmors(ConstantValue.exactly(1), ConstantValue.exactly(1))));
+
+        generator.accept(ModLootTables.REFUGE_PORTAL_ROOM, LootTable.lootTable()
+                .withPool(withCoreGems(ConstantValue.exactly(4), UniformGenerator.between(4, 6)))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModBlocks.REINFORCED_ANCIENT_DEBRIS)).apply(SetItemCountFunction.setCount(UniformGenerator.between(3, 8))))
+                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.FIRE_CHARGE)).apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 3)))));
     }
 
     private LootPool.Builder withCoreGems(NumberProvider rolls, NumberProvider stackSize) {
