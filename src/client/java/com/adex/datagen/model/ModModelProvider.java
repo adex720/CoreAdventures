@@ -7,8 +7,11 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.properties.numeric.CompassAngle;
+import net.minecraft.client.renderer.item.properties.numeric.CompassAngleState;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.world.item.Item;
 import org.jspecify.annotations.NonNull;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -162,6 +165,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.JUNIPER_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.DYNAMITE, ModelTemplates.FLAT_ITEM);
 
+        createRefugeCompass(itemModelGenerator, ModItems.REFUGE_COMPASS);
+
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.GARNET_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.JADE_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
@@ -172,6 +177,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.SPINEL_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
+    }
+
+    private void createRefugeCompass(ItemModelGenerators itemModelGenerator, Item compass) {
+        // Creating a custom CompassTarget required overriding an abstract package-private method and thus is not possible.
+        // Therefore, refuge compass is given the CompassTarget NONE and the targetting is handled via mixin.
+        itemModelGenerator.itemModelOutput.accept(compass, ItemModelUtils.rangeSelect(new CompassAngle(true, CompassAngleState.CompassTarget.NONE), 32.0f, itemModelGenerator.createCompassModels(compass)));
     }
 
     @Override

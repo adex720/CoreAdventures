@@ -44,6 +44,9 @@ public class ColorPalette {
     public static final ColorPalette TIGERS_EYE_HUMANOID = matchVanillaHumanoidWith6(0xff622609, 0xff70350e, 0xffc7a80f, 0xffd2c808, 0xffe9de10, 0xfff8ed25);
     public static final ColorPalette TIGERS_EYE_ARMOR = matchVanillaArmorWith6(0xff622609, 0xff70350e, 0xffc7a80f, 0xffd2c808, 0xffe9de10, 0xfff8ed25);
 
+    public static final ColorPalette RECOVERY_COMPASS = new ColorPalette(List.of(0xff0d0d0d, 0xff212e2b, 0xff005479, 0xff006694, 0xff105257, 0xff138e99, 0xff14bbc6, 0xff29dfeb));
+    public static final ColorPalette REFUGE_COMPASS = new ColorPalette(List.of(0xff130906, 0xff231310, 0xff26120c, 0xff311610, 0xff462721, 0xff4c3530, 0xff5e4843, 0xff70645e));
+
 
     public final List<Integer> colors;
     public final int colorCount;

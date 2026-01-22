@@ -22,6 +22,7 @@ import com.adex.item.ModItems;
 import com.adex.data.tag.ModTags;
 import com.adex.item.armor.ModArmorMaterials;
 import com.adex.payload.ModPayloads;
+import com.adex.payload.ModServerReceivers;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -61,6 +62,7 @@ public class CoreAdventures implements ModInitializer {
         ModCriterionTriggers.initialize();
 
         ModPayloads.initialize();
+        ModServerReceivers.initialize();
 
         ModDimensions.initialize();
         ModStructures.initialize();

@@ -108,6 +108,9 @@ public class ModItems {
     public static final Item DYNAMITE = register("dynamite", new Item.Properties());
 
 
+    public static final Item REFUGE_COMPASS = register("refuge_compass", new Item.Properties());
+
+
     public static final Item CHALCEDONY_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.CHALCEDONY_GOLEM);
     public static final Item GARNET_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.GARNET_GOLEM);
     public static final Item JADE_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.JADE_GOLEM);
@@ -287,6 +290,8 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((itemGroup) -> {
             itemGroup.accept(JUNIPER_BOAT);
             itemGroup.accept(JUNIPER_CHEST_BOAT);
+
+            itemGroup.accept(REFUGE_COMPASS);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register((itemGroup) -> {
