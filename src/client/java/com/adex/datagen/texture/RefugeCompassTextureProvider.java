@@ -4,7 +4,6 @@ import com.adex.datagen.ModDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.Item;
 import org.jspecify.annotations.NonNull;
 
 import java.awt.image.BufferedImage;
