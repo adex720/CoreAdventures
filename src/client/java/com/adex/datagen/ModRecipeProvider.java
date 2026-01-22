@@ -10,13 +10,10 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 import java.util.List;
@@ -44,6 +41,60 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         @Override
         public void buildRecipes() {
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_SLAB, ModBlocks.HARDENED_STONE);
+            stairs(ModBlocks.HARDENED_STONE_STAIRS, ModBlocks.HARDENED_STONE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_WALL, ModBlocks.HARDENED_STONE);
+
+            twoByTwo(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE, 4);
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_BRICKS_SLAB, ModBlocks.HARDENED_STONE_BRICKS);
+            stairs(ModBlocks.HARDENED_STONE_BRICKS_STAIRS, ModBlocks.HARDENED_STONE_BRICKS);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_BRICKS_WALL, ModBlocks.HARDENED_STONE_BRICKS);
+
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GABBRO_SLAB, ModBlocks.GABBRO);
+            stairs(ModBlocks.GABBRO_STAIRS, ModBlocks.GABBRO);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GABBRO_WALL, ModBlocks.GABBRO);
+
+            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GABBRO, ModBlocks.GABBRO);
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GABBRO_SLAB, ModBlocks.POLISHED_GABBRO);
+            stairs(ModBlocks.POLISHED_GABBRO_STAIRS, ModBlocks.POLISHED_GABBRO);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GABBRO_WALL, ModBlocks.POLISHED_GABBRO);
+
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LARVIKITE_SLAB, ModBlocks.LARVIKITE);
+            stairs(ModBlocks.LARVIKITE_STAIRS, ModBlocks.LARVIKITE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LARVIKITE_WALL, ModBlocks.LARVIKITE);
+
+            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_LARVIKITE, ModBlocks.LARVIKITE);
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_LARVIKITE_SLAB, ModBlocks.POLISHED_LARVIKITE);
+            stairs(ModBlocks.POLISHED_LARVIKITE_STAIRS, ModBlocks.POLISHED_LARVIKITE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_LARVIKITE_WALL, ModBlocks.POLISHED_LARVIKITE);
+
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SERPENTINITE_SLAB, ModBlocks.SERPENTINITE);
+            stairs(ModBlocks.SERPENTINITE_STAIRS, ModBlocks.SERPENTINITE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SERPENTINITE_WALL, ModBlocks.SERPENTINITE);
+
+            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SERPENTINITE, ModBlocks.SERPENTINITE);
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SERPENTINITE_SLAB, ModBlocks.POLISHED_SERPENTINITE);
+            stairs(ModBlocks.POLISHED_SERPENTINITE_STAIRS, ModBlocks.POLISHED_SERPENTINITE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SERPENTINITE_WALL, ModBlocks.POLISHED_SERPENTINITE);
+
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLATE_SLAB, ModBlocks.SLATE);
+            stairs(ModBlocks.SLATE_STAIRS, ModBlocks.SLATE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLATE_WALL, ModBlocks.SLATE);
+
+            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SLATE, ModBlocks.SLATE);
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SLATE_SLAB, ModBlocks.POLISHED_SLATE);
+            stairs(ModBlocks.POLISHED_SLATE_STAIRS, ModBlocks.POLISHED_SLATE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SLATE_WALL, ModBlocks.POLISHED_SLATE);
+
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRAVERTINE_SLAB, ModBlocks.TRAVERTINE);
+            stairs(ModBlocks.TRAVERTINE_STAIRS, ModBlocks.TRAVERTINE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRAVERTINE_WALL, ModBlocks.TRAVERTINE);
+
+            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_TRAVERTINE, ModBlocks.TRAVERTINE);
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_TRAVERTINE_SLAB, ModBlocks.POLISHED_TRAVERTINE);
+            stairs(ModBlocks.POLISHED_TRAVERTINE_STAIRS, ModBlocks.POLISHED_TRAVERTINE);
+            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_TRAVERTINE_WALL, ModBlocks.POLISHED_TRAVERTINE);
+
             itemsToBlock(ModItems.CHALCEDONY, ModBlocks.CHALCEDONY_BLOCK.asItem());
             itemsToBlock(ModItems.GARNET, ModBlocks.GARNET_BLOCK.asItem());
             itemsToBlock(ModItems.JADE, ModBlocks.JADE_BLOCK.asItem());
@@ -108,7 +159,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             sign(ModBlocks.JUNIPER_SIGN, ModBlocks.JUNIPER_PLANKS);
             hangingSign(ModBlocks.JUNIPER_HANGING_SIGN, ModBlocks.STRIPPED_JUNIPER_LOG);
             woodenBoat(ModItems.JUNIPER_BOAT, ModBlocks.JUNIPER_PLANKS);
-            chestBoat(ModItems.JUNIPER_CHEST_BOAT,ModItems.JUNIPER_BOAT);
+            chestBoat(ModItems.JUNIPER_CHEST_BOAT, ModItems.JUNIPER_BOAT);
         }
 
         /**
@@ -226,6 +277,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         public void sign(ItemLike stairs, ItemLike ingredient) {
             signBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        }
+
+        public void twoByTwo(RecipeCategory recipeCategory, ItemLike result, ItemLike ingredient, int count) {
+            shaped(recipeCategory, result, count)
+                    .define('#', ingredient)
+                    .pattern("##")
+                    .pattern("##")
+                    .unlockedBy(getHasName(ingredient), has(ingredient))
+                    .save(output);
         }
     }
 }

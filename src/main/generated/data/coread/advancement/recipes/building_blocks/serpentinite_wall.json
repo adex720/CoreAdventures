@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_serpentinite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:serpentinite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "coread:serpentinite_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_serpentinite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "coread:serpentinite_wall"
+    ]
+  }
+}

@@ -10,7 +10,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import org.jspecify.annotations.NonNull;
@@ -26,12 +25,59 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         dropSelf(ModBlocks.HARDENED_STONE);
+        dropSelf(ModBlocks.HARDENED_STONE_SLAB);
+        dropSelf(ModBlocks.HARDENED_STONE_STAIRS);
+        dropSelf(ModBlocks.HARDENED_STONE_WALL);
+        dropSelf(ModBlocks.HARDENED_STONE_BRICKS);
+        dropSelf(ModBlocks.HARDENED_STONE_BRICKS_SLAB);
+        dropSelf(ModBlocks.HARDENED_STONE_BRICKS_STAIRS);
+        dropSelf(ModBlocks.HARDENED_STONE_BRICKS_WALL);
 
         dropSelf(ModBlocks.GABBRO);
+        dropSelf(ModBlocks.GABBRO_SLAB);
+        dropSelf(ModBlocks.GABBRO_STAIRS);
+        dropSelf(ModBlocks.GABBRO_WALL);
+        dropSelf(ModBlocks.POLISHED_GABBRO);
+        dropSelf(ModBlocks.POLISHED_GABBRO_SLAB);
+        dropSelf(ModBlocks.POLISHED_GABBRO_STAIRS);
+        dropSelf(ModBlocks.POLISHED_GABBRO_WALL);
+
         dropSelf(ModBlocks.LARVIKITE);
+        dropSelf(ModBlocks.LARVIKITE_SLAB);
+        dropSelf(ModBlocks.LARVIKITE_STAIRS);
+        dropSelf(ModBlocks.LARVIKITE_WALL);
+        dropSelf(ModBlocks.POLISHED_LARVIKITE);
+        dropSelf(ModBlocks.POLISHED_LARVIKITE_SLAB);
+        dropSelf(ModBlocks.POLISHED_LARVIKITE_STAIRS);
+        dropSelf(ModBlocks.POLISHED_LARVIKITE_WALL);
+
         dropSelf(ModBlocks.SERPENTINITE);
+        dropSelf(ModBlocks.SERPENTINITE_SLAB);
+        dropSelf(ModBlocks.SERPENTINITE_STAIRS);
+        dropSelf(ModBlocks.SERPENTINITE_WALL);
+        dropSelf(ModBlocks.POLISHED_SERPENTINITE);
+        dropSelf(ModBlocks.POLISHED_SERPENTINITE_SLAB);
+        dropSelf(ModBlocks.POLISHED_SERPENTINITE_STAIRS);
+        dropSelf(ModBlocks.POLISHED_SERPENTINITE_WALL);
+
         dropSelf(ModBlocks.SLATE);
+        dropSelf(ModBlocks.SLATE_SLAB);
+        dropSelf(ModBlocks.SLATE_STAIRS);
+        dropSelf(ModBlocks.SLATE_WALL);
+        dropSelf(ModBlocks.POLISHED_SLATE);
+        dropSelf(ModBlocks.POLISHED_SLATE_SLAB);
+        dropSelf(ModBlocks.POLISHED_SLATE_STAIRS);
+        dropSelf(ModBlocks.POLISHED_SLATE_WALL);
+
         dropSelf(ModBlocks.TRAVERTINE);
+        dropSelf(ModBlocks.TRAVERTINE_SLAB);
+        dropSelf(ModBlocks.TRAVERTINE_STAIRS);
+        dropSelf(ModBlocks.TRAVERTINE_WALL);
+        dropSelf(ModBlocks.POLISHED_TRAVERTINE);
+        dropSelf(ModBlocks.POLISHED_TRAVERTINE_SLAB);
+        dropSelf(ModBlocks.POLISHED_TRAVERTINE_STAIRS);
+        dropSelf(ModBlocks.POLISHED_TRAVERTINE_WALL);
+
 
         dropSelf(ModBlocks.CHALCEDONY_BLOCK);
         dropSelf(ModBlocks.GARNET_BLOCK);
