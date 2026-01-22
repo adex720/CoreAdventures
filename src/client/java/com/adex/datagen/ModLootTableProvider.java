@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import org.jspecify.annotations.NonNull;
@@ -58,6 +59,21 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         dropSelf(ModBlocks.JUNIPER_WOOD);
         dropSelf(ModBlocks.STRIPPED_JUNIPER_LOG);
         dropSelf(ModBlocks.STRIPPED_JUNIPER_WOOD);
+        dropSelf(ModBlocks.JUNIPER_PLANKS);
+        dropSelf(ModBlocks.JUNIPER_SHELF);
+        dropSelf(ModBlocks.JUNIPER_SLAB);
+        dropSelf(ModBlocks.JUNIPER_STAIRS);
+        dropSelf(ModBlocks.JUNIPER_FENCE);
+        dropSelf(ModBlocks.JUNIPER_FENCE_GATE);
+        dropSelf(ModBlocks.JUNIPER_PRESSURE_PLATE);
+        dropSelf(ModBlocks.JUNIPER_TRAPDOOR);
+        dropSelf(ModBlocks.JUNIPER_DOOR);
+        dropSelf(ModBlocks.JUNIPER_BUTTON);
+        dropSelf(ModBlocks.JUNIPER_SIGN);
+        dropSelf(ModBlocks.JUNIPER_HANGING_SIGN);
+        dropSelf(ModBlocks.JUNIPER_SAPLING);
+        dropPottedContents(ModBlocks.POTTED_JUNIPER_SAPLING);
+        add(ModBlocks.JUNIPER_LEAVES, block -> createLeavesDrops(block, ModBlocks.JUNIPER_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
 
         dropSelf(ModBlocks.REINFORCED_ANCIENT_DEBRIS);
     }

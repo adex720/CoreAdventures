@@ -1,6 +1,7 @@
 package com.adex.datagen;
 
 import com.adex.block.ModBlocks;
+import com.adex.data.tag.ModTags;
 import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -9,9 +10,13 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 import java.util.List;
@@ -87,6 +92,23 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             armor(ModItems.SPINEL, ModItems.SPINEL_HELMET, ModItems.SPINEL_CHESTPLATE, ModItems.SPINEL_LEGGINGS, ModItems.SPINEL_BOOTS);
             armor(ModItems.TIGERS_EYE, ModItems.TIGERS_EYE_HELMET, ModItems.TIGERS_EYE_CHESTPLATE, ModItems.TIGERS_EYE_LEGGINGS, ModItems.TIGERS_EYE_BOOTS);
             armor(ModItems.SHINY_GEM_MIXTURE, ModItems.GEM_HELMET, ModItems.GEM_CHESTPLATE, ModItems.GEM_LEGGINGS, ModItems.GEM_BOOTS);
+
+            woodFromLogs(ModBlocks.JUNIPER_WOOD, ModBlocks.JUNIPER_LOG);
+            woodFromLogs(ModBlocks.STRIPPED_JUNIPER_WOOD, ModBlocks.STRIPPED_JUNIPER_LOG);
+            planksFromLog(ModBlocks.JUNIPER_PLANKS, ModTags.JUNIPER_LOGS_ITEM, 4);
+            shelf(ModBlocks.JUNIPER_SHELF, ModBlocks.STRIPPED_JUNIPER_LOG);
+            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.JUNIPER_SLAB, ModBlocks.JUNIPER_PLANKS);
+            stairs(ModBlocks.JUNIPER_STAIRS, ModBlocks.JUNIPER_PLANKS);
+            fence(ModBlocks.JUNIPER_FENCE, ModBlocks.JUNIPER_PLANKS);
+            fenceGate(ModBlocks.JUNIPER_FENCE_GATE, ModBlocks.JUNIPER_PLANKS);
+            pressurePlate(ModBlocks.JUNIPER_PRESSURE_PLATE, ModBlocks.JUNIPER_PLANKS);
+            trapdoor(ModBlocks.JUNIPER_TRAPDOOR, ModBlocks.JUNIPER_PLANKS);
+            door(ModBlocks.JUNIPER_DOOR, ModBlocks.JUNIPER_PLANKS);
+            button(ModBlocks.JUNIPER_BUTTON, ModBlocks.JUNIPER_PLANKS);
+            sign(ModBlocks.JUNIPER_SIGN, ModBlocks.JUNIPER_PLANKS);
+            hangingSign(ModBlocks.JUNIPER_HANGING_SIGN, ModBlocks.STRIPPED_JUNIPER_LOG);
+            woodenBoat(ModItems.JUNIPER_BOAT, ModBlocks.JUNIPER_PLANKS);
+            chestBoat(ModItems.JUNIPER_CHEST_BOAT,ModItems.JUNIPER_BOAT);
         }
 
         /**
@@ -176,6 +198,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 builder.unlockedBy(getHasName(item), has(item));
             }
             builder.save(output);
+        }
+
+        public void stairs(ItemLike stairs, ItemLike ingredient) {
+            stairBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        }
+
+        public void fence(ItemLike stairs, ItemLike ingredient) {
+            fenceBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        }
+
+        public void fenceGate(ItemLike stairs, ItemLike ingredient) {
+            fenceGateBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        }
+
+        public void trapdoor(ItemLike stairs, ItemLike ingredient) {
+            trapdoorBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        }
+
+        public void door(ItemLike stairs, ItemLike ingredient) {
+            doorBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        }
+
+        public void button(ItemLike stairs, ItemLike ingredient) {
+            buttonBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        }
+
+        public void sign(ItemLike stairs, ItemLike ingredient) {
+            signBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
         }
     }
 }
