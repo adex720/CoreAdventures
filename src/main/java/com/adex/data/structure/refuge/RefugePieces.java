@@ -28,6 +28,8 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_CORRIDOR_CHEST = registerPiece(CorridorChest::new, "rfcorrch");
     public static final StructurePieceType REFUGE_TURN_LEFT = registerPiece(TurnLeft::new, "rfturnl");
     public static final StructurePieceType REFUGE_TURN_RIGHT = registerPiece(TurnRight::new, "rfturnr");
+    public static final StructurePieceType REFUGE_TURN_U_RIGHT = registerPiece(TurnURight::new, "rfturnur");
+    public static final StructurePieceType REFUGE_TURN_U_LEFT = registerPiece(TurnULeft::new, "rfturnul");
 
     public static final StructurePieceType REFUGE_STAIRS_UP = registerPiece(StairsUp::new, "rfstairu");
     public static final StructurePieceType REFUGE_STAIRS_DOWN = registerPiece(StairsDown::new, "rfstaird");

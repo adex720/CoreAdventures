@@ -101,6 +101,8 @@ public class RefugeBuilder {
                 new PieceCreator(CorridorRight::new, 5, 5, CorridorRight::getBaseBoundingBox),
                 new PieceCreator(TurnLeft::new, 5, 5, TurnLeft::getBaseBoundingBox),
                 new PieceCreator(TurnRight::new, 5, 5, TurnRight::getBaseBoundingBox),
+                new PieceCreator(TurnULeft::new, 5, 3, TurnULeft::getBaseBoundingBox),
+                new PieceCreator(TurnURight::new, 5, 3, TurnURight::getBaseBoundingBox),
                 new PieceCreator(StairsUp::new, 10, 5, StairsUp::getBaseBoundingBox),
                 new PieceCreator(StairsDown::new, 10, 5, StairsDown::getBaseBoundingBox),
                 new PieceCreator(StairsChest::new, 2, 1, StairsChest::getBaseBoundingBox),
