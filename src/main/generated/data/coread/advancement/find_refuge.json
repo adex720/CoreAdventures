@@ -1,5 +1,5 @@
 {
-  "parent": "coread:root",
+  "parent": "coread:follow_refuge_compass",
   "criteria": {
     "entered_refuge": {
       "conditions": {

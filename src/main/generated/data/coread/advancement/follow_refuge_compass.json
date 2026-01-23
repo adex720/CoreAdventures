@@ -1,0 +1,44 @@
+{
+  "parent": "coread:root",
+  "criteria": {
+    "have_refuge_compass_in_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:refuge_compass"
+          }
+        ],
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "coread:core"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.coread.core.follow_refuge_compass.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:refuge_compass"
+    },
+    "title": {
+      "translate": "advancements.coread.core.follow_refuge_compass.title"
+    }
+  },
+  "requirements": [
+    [
+      "have_refuge_compass_in_core"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

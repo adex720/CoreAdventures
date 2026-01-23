@@ -143,8 +143,21 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                 .rewards(AdvancementRewards.Builder.experience(50))
                 .save(consumer, ModDataGenerator.getIdentifierString("cool_with_blue_ice"));
 
-        AdvancementHolder enterRefuge = Advancement.Builder.advancement()
+        AdvancementHolder followRefugeCompass = Advancement.Builder.advancement()
                 .parent(root)
+                .display(ModItems.REFUGE_COMPASS,
+                        Component.translatable("advancements.coread.core.follow_refuge_compass.title"),
+                        Component.translatable("advancements.coread.core.follow_refuge_compass.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false)
+                .addCriterion("obtain_refuge_compass_in_core", TriggerHelper.inventoryChangedInDimension(ModDimensions.CORE, ModItems.REFUGE_COMPASS))
+                .save(consumer, ModDataGenerator.getIdentifierString("follow_refuge_compass"));
+
+        AdvancementHolder enterRefuge = Advancement.Builder.advancement()
+                .parent(followRefugeCompass)
                 .display(ModBlocks.HARDENED_STONE_BRICKS,
                         Component.translatable("advancements.coread.core.find_refuge.title"),
                         Component.translatable("advancements.coread.core.find_refuge.description"),
