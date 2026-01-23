@@ -11,16 +11,11 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ChestBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.Half;
-import net.minecraft.world.level.block.state.properties.SlabType;
-import net.minecraft.world.level.block.state.properties.StairsShape;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
@@ -176,6 +171,16 @@ public abstract class RefugePiece extends StructurePiece {
         for (int x = 0; x < width1; x++) {
             for (int y = 0; y < width2; y++) {
                 level.setBlock(startPos.relative(direction1, x).relative(direction2, y), block.apply(random), 2);
+            }
+        }
+    }
+
+    public void fill(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction1, Direction direction2, int width1, int width2, int height, Function<RandomSource, BlockState> block) {
+        for (int x = 0; x < width1; x++) {
+            for (int z = 0; z < width2; z++) {
+                for (int y = 0; y < height; y++) {
+                    level.setBlock(startPos.relative(direction1, x).relative(direction2, z).above(y), block.apply(random), 2);
+                }
             }
         }
     }
@@ -395,8 +400,78 @@ public abstract class RefugePiece extends StructurePiece {
                 .setValue(SlabBlock.TYPE, top ? SlabType.TOP : SlabType.BOTTOM);
     }
 
+    @SuppressWarnings("unused")
     public BlockState air(RandomSource random) {
         return Blocks.AIR.defaultBlockState();
+    }
+
+    /**
+     * @param direction Wanted direction of redstone signal.
+     * @param delay     Delay setting: 1-4
+     * @return {@link BlockState} of {@link Blocks#REPEATER} with given values.
+     */
+    public static BlockState repeater(Direction direction, int delay) {
+        // Value of FACING is opposite to the direction of passable redstone signal
+        return Blocks.REPEATER.defaultBlockState().setValue(RepeaterBlock.FACING, direction.getOpposite()).setValue(RepeaterBlock.DELAY, delay);
+    }
+
+    /**
+     * Creates a block state for redstone wire with a side connection to every provided direction.
+     * If exactly one direction is provided, an additional connection is made to the opposite direction.
+     *
+     * @param direction Connection directions
+     * @return {@link BlockState} of {@link Blocks#REDSTONE_WIRE} with given connections.
+     */
+    public static BlockState getRedstone(Direction... direction) {
+        BlockState state = Blocks.REDSTONE_WIRE.defaultBlockState();
+        if (direction.length == 0) return state;
+
+        if (direction.length == 1) {
+            // Connected by side to given direction and its opposite
+            return state.setValue(redstoneDirection(direction[0]), RedstoneSide.SIDE)
+                    .setValue(redstoneDirection(direction[0].getOpposite()), RedstoneSide.SIDE);
+        }
+
+        // Add side connection to all directions
+        for (Direction d : direction) {
+            state = state.setValue(redstoneDirection(d), RedstoneSide.SIDE);
+        }
+
+        return state;
+    }
+
+    /**
+     * Creates a block state for redstone wire with a single up connection.
+     * If only the up connection direction is provided, an additional side connection is made to the opposite direction.
+     * Every other provided direction will have a side connection.
+     *
+     * @param upDirection Direction to set connection up
+     * @param connections Side connection directions
+     * @return {@link BlockState} of {@link Blocks#REDSTONE_WIRE} with given connections.
+     */
+    public static BlockState getUpRedstone(Direction upDirection, Direction... connections) {
+        BlockState state = Blocks.REDSTONE_WIRE.defaultBlockState().setValue(redstoneDirection(upDirection), RedstoneSide.UP);
+
+        // Add side connection to opposite direction if up is the only connection
+        if (connections.length == 0)
+            return state.setValue(redstoneDirection(upDirection.getOpposite()), RedstoneSide.SIDE);
+
+        // Add rest of side connections
+        for (Direction direction : connections) {
+            state = state.setValue(redstoneDirection(direction), RedstoneSide.SIDE);
+        }
+
+        return state;
+    }
+
+    /**
+     * Returns the redstone wire side property corresponding to the given direction.
+     *
+     * @param direction Wanted direction
+     * @return Redstone side
+     */
+    public static EnumProperty<RedstoneSide> redstoneDirection(Direction direction) {
+        return RedStoneWireBlock.PROPERTY_BY_DIRECTION.get(direction);
     }
 
 }

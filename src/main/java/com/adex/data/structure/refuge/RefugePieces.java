@@ -18,7 +18,6 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_TREE_ROOM = registerPiece(TreeRoom::new, "rftree");
     public static final StructurePieceType REFUGE_PORTAL_ROOM = registerPiece(PortalRoom::new, "rfportal");
 
-
     public static final StructurePieceType REFUGE_CORRIDOR_LONG = registerPiece(CorridorLong::new, "rfcorrlo");
     public static final StructurePieceType REFUGE_CORRIDOR_SHORT = registerPiece(CorridorShort::new, "rfcorrsh");
     public static final StructurePieceType REFUGE_CORRIDOR_LEFT = registerPiece(CorridorLeft::new, "rfcorrle");
@@ -44,13 +43,13 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_LOWERING_THREE_WAY_MIDDLE = registerPiece(LoweringThreeWayMiddle::new, "rflthreem");
     public static final StructurePieceType REFUGE_LOWERING_THREE_WAY_LEFT = registerPiece(LoweringThreeWayLeft::new, "rflthreel");
     public static final StructurePieceType REFUGE_LOWERING_THREE_WAY_RIGHT = registerPiece(LoweringThreeWayRight::new, "rflthreer");
+    public static final StructurePieceType REFUGE_REDSTONE_THREE_WAY = registerPiece(RedstoneThreeWay::new, "rfredthree");
     public static final StructurePieceType REFUGE_EIGHT_WAY = registerPiece(EightWay::new, "rfeight");
 
     private static StructurePieceType registerPiece(StructurePieceType.ContextlessType structurePieceType, String name) {
         return Registry.register(BuiltInRegistries.STRUCTURE_PIECE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name), structurePieceType);
     }
 
-    public static void initialize(){
-
+    public static void initialize() {
     }
 }

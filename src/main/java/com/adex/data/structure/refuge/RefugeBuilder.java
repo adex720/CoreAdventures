@@ -92,6 +92,7 @@ public class RefugeBuilder {
                 new PieceCreator(TreasureRoom::new, 5, 1, 2, TreasureRoom::getBaseBoundingBox),
                 new PieceCreator(TreeRoom::new, 5, 2, 2, TreeRoom::getBaseBoundingBox),
                 new PieceCreator(PortalRoom::new, 5, 1, 2, PortalRoom::getBaseBoundingBox),
+                new PieceCreator(RedstoneThreeWay::new, 10, 1, 5, RedstoneThreeWay::getBaseBoundingBox),
                 new PieceCreator(CorridorShort::new, 3, 10, CorridorShort::getBaseBoundingBox),
                 new PieceCreator(CorridorLong::new, 4, 10, CorridorLong::getBaseBoundingBox),
                 new PieceCreator(CorridorChest::new, 1, 5, CorridorChest::getBaseBoundingBox),
