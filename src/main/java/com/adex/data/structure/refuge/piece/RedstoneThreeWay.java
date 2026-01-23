@@ -1,6 +1,5 @@
 package com.adex.data.structure.refuge.piece;
 
-import com.adex.block.ModBlocks;
 import com.adex.data.loottable.ModLootTables;
 import com.adex.data.structure.refuge.ContinuationPoint;
 import com.adex.data.structure.refuge.RefugePieces;
@@ -12,7 +11,6 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.piston.PistonBaseBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.List;
@@ -58,8 +56,8 @@ public class RedstoneThreeWay extends RefugePiece {
 
         BlockState lever = Blocks.LEVER.defaultBlockState().setValue(LeverBlock.FACING, counterClockWise);
         BlockState air = Blocks.AIR.defaultBlockState();
-        BlockState slab = ModBlocks.HARDENED_STONE_BRICKS_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP);
-        BlockState stair = ModBlocks.HARDENED_STONE_BRICKS_STAIRS.defaultBlockState().setValue(StairBlock.FACING, counterClockWise);
+        BlockState slab = getSlabBlock(true);
+        BlockState stair = getStairBlock(counterClockWise, false);
 
         // Here front = towards end of secret corridor
         // forward = back and front

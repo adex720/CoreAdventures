@@ -18,6 +18,9 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_TREE_ROOM = registerPiece(TreeRoom::new, "rftree");
     public static final StructurePieceType REFUGE_PORTAL_ROOM = registerPiece(PortalRoom::new, "rfportal");
 
+    public static final StructurePieceType REFUGE_END_CHEST_ROOM = registerPiece(EndChestRoom::new, "rfendchest");
+    public static final StructurePieceType REFUGE_END_TRAP_CHEST_ROOM = registerPiece(EndTrapChestRoom::new, "rfendtrap");
+
     public static final StructurePieceType REFUGE_CORRIDOR_LONG = registerPiece(CorridorLong::new, "rfcorrlo");
     public static final StructurePieceType REFUGE_CORRIDOR_SHORT = registerPiece(CorridorShort::new, "rfcorrsh");
     public static final StructurePieceType REFUGE_CORRIDOR_LEFT = registerPiece(CorridorLeft::new, "rfcorrle");

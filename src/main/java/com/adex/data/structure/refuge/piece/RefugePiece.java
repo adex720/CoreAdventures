@@ -197,6 +197,18 @@ public abstract class RefugePiece extends StructurePiece {
         }
     }
 
+    public void createTrapChest(ServerLevelAccessor serverLevelAccessor, RandomSource random, BlockPos pos, Direction direction, ResourceKey<LootTable> lootTable) {
+        BlockState state = Blocks.TRAPPED_CHEST.defaultBlockState().setValue(ChestBlock.FACING, direction);
+
+        if (!serverLevelAccessor.getBlockState(pos).is(Blocks.TRAPPED_CHEST)) {
+            serverLevelAccessor.setBlock(pos, state, 2);
+            BlockEntity blockEntity = serverLevelAccessor.getBlockEntity(pos);
+            if (blockEntity instanceof ChestBlockEntity chestBlockEntity) {
+                chestBlockEntity.setLootTable(lootTable, random.nextLong());
+            }
+        }
+    }
+
     public List<BlockPos> getWallLayer(BlockPos pos, Direction side) {
         return List.of(
                 pos.relative(side, -2),
