@@ -21,7 +21,7 @@ public class EndPointPiece extends RefugePiece {
     }
 
     public EndPointPiece(int depth, int x, int y, int z, Direction direction) {
-        this(direction.getClockWise(), new BlockPos(x, y + 1, z), depth);
+        this(direction.getClockWise(), new BlockPos(x, y + 1, z).relative(direction.getOpposite(), 1), depth);
     }
 
     public EndPointPiece(CompoundTag compoundTag) {
