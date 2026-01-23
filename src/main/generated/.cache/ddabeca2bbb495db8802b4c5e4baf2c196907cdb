@@ -1,6 +1,7 @@
 // 1.21.11	-999999999-01-01T00:00:00	Core Adventures/Loot table provider
 4a1c6d522aa371713f76bd2853c2b8d1c21e0292 data/coread/loot_table/blocks/chalcedony_block.json
 8c5bc4f3b41c0319ab73fb2917da09e0848aead9 data/coread/loot_table/blocks/chalcedony_ore.json
+76e9a588149558263b2603cf408f8a38151ac73a data/coread/loot_table/blocks/cracked_hardened_stone_bricks.json
 d619fd2b3d54239e4d53aa1ac7a7a8387a3a7eaa data/coread/loot_table/blocks/gabbro.json
 70d685e7111b7dff43e34aa74666cdf2336e09af data/coread/loot_table/blocks/gabbro_slab.json
 10b6ff000a0fdf8fc9534819ea4b8a14162c1fc9 data/coread/loot_table/blocks/gabbro_stairs.json
@@ -15,6 +16,7 @@ d508d1edbcd81e7eb245e193e6cbf0afaf4796db data/coread/loot_table/blocks/hardened_
 2e9747dc69afd1b21ee01b62219e349b717cdc34 data/coread/loot_table/blocks/hardened_stone_slab.json
 22587457d8429c4d945bb75a286094dc051cb6f0 data/coread/loot_table/blocks/hardened_stone_stairs.json
 9a8d8e59f608ceb0d9b0d68fb338db79382d1994 data/coread/loot_table/blocks/hardened_stone_wall.json
+fcb4da76d2c39ef216c9237e3dfa596dab3867d7 data/coread/loot_table/blocks/heavy_hardened_stone_bricks.json
 534104702b90130ae06a750017cc6d12be45da98 data/coread/loot_table/blocks/jade_block.json
 93ad1a3a159d7a99eb7d8eb72f3ef258e1829ea6 data/coread/loot_table/blocks/jade_ore.json
 0720aa8f8cd1790e2c5b71567f54755dbad54023 data/coread/loot_table/blocks/jasper_block.json

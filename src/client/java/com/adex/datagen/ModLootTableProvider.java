@@ -78,6 +78,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         dropSelf(ModBlocks.POLISHED_TRAVERTINE_STAIRS);
         dropSelf(ModBlocks.POLISHED_TRAVERTINE_WALL);
 
+        dropSelf(ModBlocks.CRACKED_HARDENED_STONE_BRICKS);
+        dropSelf(ModBlocks.HEAVY_HARDENED_STONE_BRICKS);
+
 
         dropSelf(ModBlocks.CHALCEDONY_BLOCK);
         dropSelf(ModBlocks.GARNET_BLOCK);

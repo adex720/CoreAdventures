@@ -95,6 +95,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             stairs(ModBlocks.POLISHED_TRAVERTINE_STAIRS, ModBlocks.POLISHED_TRAVERTINE);
             wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_TRAVERTINE_WALL, ModBlocks.POLISHED_TRAVERTINE);
 
+            oreSmeltingAndBlasting(ModBlocks.HARDENED_STONE_BRICKS, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_HARDENED_STONE_BRICKS, 1.0f, 200, "hardened_stone_bricks_smelting");
+            twoByTwo(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HEAVY_HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE_BRICKS, 1);
+
             itemsToBlock(ModItems.CHALCEDONY, ModBlocks.CHALCEDONY_BLOCK.asItem());
             itemsToBlock(ModItems.GARNET, ModBlocks.GARNET_BLOCK.asItem());
             itemsToBlock(ModItems.JADE, ModBlocks.JADE_BLOCK.asItem());

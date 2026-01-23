@@ -35,6 +35,7 @@ public class ModBlocks {
     public static final WallBlock HARDENED_STONE_BRICKS_WALL = registerWall("hardened_stone_bricks_wall", HARDENED_STONE_BRICKS);
 
     public static final Block CRACKED_HARDENED_STONE_BRICKS = register("cracked_hardened_stone_bricks", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
+    public static final Block HEAVY_HARDENED_STONE_BRICKS = register("heavy_hardened_stone_bricks", BlockBehaviour.Properties.ofFullCopy(HARDENED_STONE_BRICKS).pushReaction(PushReaction.BLOCK));
 
     public static final Block GABBRO = register("gabbro", BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(4.0f, 9.0f));
     public static final SlabBlock GABBRO_SLAB = registerSlab("gabbro_slab", GABBRO);
@@ -248,6 +249,7 @@ public class ModBlocks {
             itemGroup.accept(HARDENED_STONE_BRICKS_WALL.asItem());
 
             itemGroup.accept(CRACKED_HARDENED_STONE_BRICKS.asItem());
+            itemGroup.accept(HEAVY_HARDENED_STONE_BRICKS.asItem());
 
             itemGroup.accept(GABBRO.asItem());
             itemGroup.accept(GABBRO_SLAB.asItem());

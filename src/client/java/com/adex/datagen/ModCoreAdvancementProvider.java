@@ -153,7 +153,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false)
-                .addCriterion("obtain_refuge_compass_in_core", TriggerHelper.inventoryChangedInDimension(ModDimensions.CORE, ModItems.REFUGE_COMPASS))
+                .addCriterion("have_refuge_compass_in_core", TriggerHelper.inventoryChangedInDimension(ModDimensions.CORE, ModItems.REFUGE_COMPASS))
                 .save(consumer, ModDataGenerator.getIdentifierString("follow_refuge_compass"));
 
         AdvancementHolder enterRefuge = Advancement.Builder.advancement()

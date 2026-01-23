@@ -36,6 +36,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.family(ModBlocks.TRAVERTINE).slab(ModBlocks.TRAVERTINE_SLAB).stairs(ModBlocks.TRAVERTINE_STAIRS).wall(ModBlocks.TRAVERTINE_WALL);
 
         blockStateModelGenerator.createTrivialCube(ModBlocks.CRACKED_HARDENED_STONE_BRICKS);
+        blockStateModelGenerator.createTrivialCube(ModBlocks.HEAVY_HARDENED_STONE_BRICKS);
 
         blockStateModelGenerator.createTrivialCube(ModBlocks.CHALCEDONY_ORE);
         blockStateModelGenerator.createTrivialCube(ModBlocks.GARNET_ORE);

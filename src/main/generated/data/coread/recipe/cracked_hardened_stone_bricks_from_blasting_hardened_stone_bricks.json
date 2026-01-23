@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "group": "hardened_stone_bricks_smelting",
+  "ingredient": "coread:hardened_stone_bricks",
+  "result": {
+    "id": "coread:cracked_hardened_stone_bricks"
+  }
+}
