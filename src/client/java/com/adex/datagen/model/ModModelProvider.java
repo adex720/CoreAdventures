@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.item.properties.numeric.CompassAngleState;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 public class ModModelProvider extends FabricModelProvider {
