@@ -20,6 +20,8 @@
     "PortalDimensionMixin",
     "PortalShapeAccessor",
     "PortalShapeMixin",
+    "PrimedTntAccessor",
+    "TntBlockMixin",
     "ServerPlayerMixin",
     "StructuresMixin",
     "ThrownSplashPotionMixin"

@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.item.properties.numeric.CompassAngleState;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -88,6 +89,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createHangingSign(ModBlocks.STRIPPED_JUNIPER_LOG, ModBlocks.JUNIPER_HANGING_SIGN, ModBlocks.JUNIPER_WALL_HANGING_SIGN);
         blockStateModelGenerator.createPlantWithDefaultItem(ModBlocks.JUNIPER_SAPLING, ModBlocks.POTTED_JUNIPER_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
+
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.STRONG_TNT, TexturedModel.CUBE_TOP_BOTTOM);
     }
 
     @Override

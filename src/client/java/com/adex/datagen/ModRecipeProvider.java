@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 import java.util.List;
@@ -163,6 +164,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             hangingSign(ModBlocks.JUNIPER_HANGING_SIGN, ModBlocks.STRIPPED_JUNIPER_LOG);
             woodenBoat(ModItems.JUNIPER_BOAT, ModBlocks.JUNIPER_PLANKS);
             chestBoat(ModItems.JUNIPER_CHEST_BOAT, ModItems.JUNIPER_BOAT);
+
+            nineToOne(ModBlocks.STRONG_TNT, ModItems.DYNAMITE, RecipeCategory.REDSTONE);
         }
 
         /**
@@ -182,6 +185,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             shapeless(RecipeCategory.BUILDING_BLOCKS, block)
                     .requires(item, 9)
                     .unlockedBy(getHasName(item), has(item))
+                    .save(output);
+        }
+
+        public void nineToOne(ItemLike result, ItemLike ingredient, RecipeCategory recipeCategory) {
+            shaped(recipeCategory, result)
+                    .define('#', ingredient)
+                    .pattern("###")
+                    .pattern("###")
+                    .pattern("###")
+                    .unlockedBy("has_item", has(ingredient))
                     .save(output);
         }
 

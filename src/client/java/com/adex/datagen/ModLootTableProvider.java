@@ -4,14 +4,21 @@ import com.adex.block.ModBlocks;
 import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.TntBlock;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -125,6 +132,15 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         add(ModBlocks.JUNIPER_LEAVES, block -> createLeavesDrops(block, ModBlocks.JUNIPER_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
 
         dropSelf(ModBlocks.REINFORCED_ANCIENT_DEBRIS);
+
+        crateTnt(ModBlocks.STRONG_TNT);
+    }
+
+    public void crateTnt(Block block) {
+        add(block, LootTable.lootTable().withPool(applyExplosionCondition(block,
+                LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TntBlock.UNSTABLE, false)))))));
     }
 
     public void dropOre(Block block, Item item) {

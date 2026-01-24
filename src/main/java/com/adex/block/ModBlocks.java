@@ -3,22 +3,34 @@ package com.adex.block;
 import com.adex.CoreAdventures;
 import com.adex.data.feature.ModTreeGrowers;
 import com.adex.entity.ModEntities;
+import com.adex.entity.PrimedStrongTnt;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.mixin.lookup.BlockEntityTypeAccessor;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.core.dispenser.BlockSource;
+import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import org.jspecify.annotations.NonNull;
 
 import java.util.function.Function;
 
@@ -147,6 +159,8 @@ public class ModBlocks {
 
     public static final Block CORE_PORTAL_BLOCK = registerWithoutBlockItem("core_portal_block", CorePortalBlock::new, BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(_ -> 11).pushReaction(PushReaction.BLOCK));
 
+    public static final StrongTntBlock STRONG_TNT = (StrongTntBlock) register("strong_tnt", properties -> new StrongTntBlock(properties, 8.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
+
     private static Block register(String name, BlockBehaviour.Properties settings) {
         return register(name, Block::new, settings);
     }
@@ -200,12 +214,17 @@ public class ModBlocks {
     public static void initialize() {
         addToItemGroups();
         addValidBlockEntities();
+        addDispenseItemBehaviors();
     }
 
     private static void addValidBlockEntities() {
         addValidBlockEntityBlock(ModBlocks.JUNIPER_SHELF, BlockEntityType.SHELF);
         addValidBlockEntityBlock(ModBlocks.JUNIPER_SIGN, BlockEntityType.SIGN);
         addValidBlockEntityBlock(ModBlocks.JUNIPER_HANGING_SIGN, BlockEntityType.HANGING_SIGN);
+    }
+
+    private static void addDispenseItemBehaviors() {
+        STRONG_TNT.registerDispenseBehavior();
     }
 
     private static void addValidBlockEntityBlock(Block block, BlockEntityType<?> blockEntityType) {
@@ -352,6 +371,11 @@ public class ModBlocks {
             itemGroup.accept(JUNIPER_TRAPDOOR.asItem());
             itemGroup.accept(JUNIPER_DOOR.asItem());
             itemGroup.accept(JUNIPER_BUTTON.asItem());
+            itemGroup.accept(STRONG_TNT.asItem());
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(itemGroup -> {
+            itemGroup.accept(STRONG_TNT.asItem());
         });
     }
 

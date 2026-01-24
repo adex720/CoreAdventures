@@ -46,6 +46,9 @@ public class ModEntities {
     public static final EntityType<SpinelGolem> SPINEL_GOLEM = register(SPINEL_GOLEM_KEY, SpinelGolem.builder(SpinelGolem::new));
     public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = register(TIGERS_EYE_GOLEM_KEY, TigersEyeGolem.builder(TigersEyeGolem::new));
 
+    public static final EntityType<PrimedStrongTnt> PRIMED_STRONG_TNT = register("strong_tnt",
+            EntityType.Builder.of((PrimedStrongTnt::new), MobCategory.MISC).noLootTable().fireImmune()
+                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
 
     public static final EntityType<Boat> JUNIPER_BOAT = register("juniper_boat",
             EntityType.Builder.<Boat>of((entityType, level) -> new Boat(entityType, level, () -> ModItems.JUNIPER_BOAT), MobCategory.MISC)
