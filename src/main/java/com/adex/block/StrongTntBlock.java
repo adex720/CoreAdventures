@@ -46,7 +46,7 @@ public class StrongTntBlock extends TntBlock {
     public void wasExploded(ServerLevel serverLevel, @NonNull BlockPos blockPos, @NonNull Explosion explosion) {
         if (serverLevel.getGameRules().get(GameRules.TNT_EXPLODES)) {
             int fuseTimer = serverLevel.random.nextInt(PrimedStrongTnt.DEFAULT_FUSE_TIME / 4) + PrimedStrongTnt.DEFAULT_FUSE_TIME / 8;
-            PrimedStrongTnt primedTnt = PrimedStrongTnt.create(serverLevel, blockPos, explosionPower, fuseTimer, explosion.getIndirectSourceEntity());
+            PrimedStrongTnt primedTnt = PrimedStrongTnt.create(this, serverLevel, blockPos, explosionPower, fuseTimer, explosion.getIndirectSourceEntity());
             serverLevel.addFreshEntity(primedTnt);
         }
     }
@@ -59,9 +59,9 @@ public class StrongTntBlock extends TntBlock {
 
             if (level.getGameRules().get(GameRules.TNT_EXPLODES)) {
                 BlockPos pos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
-                PrimedStrongTnt tnt = PrimedStrongTnt.create(level, pos, explosionPower, null);
+                PrimedStrongTnt tnt = PrimedStrongTnt.create(StrongTntBlock.this, level, pos, explosionPower, null);
                 level.addFreshEntity(tnt);
-                level.playSound(null, tnt.getX(), tnt.getY(), tnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.playSound(null, tnt.getX(), tnt.getY(), tnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0f, 1.0f);
                 level.gameEvent(null, GameEvent.ENTITY_PLACE, pos);
                 itemStack.shrink(1);
                 setSuccess(true);

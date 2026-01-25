@@ -24,10 +24,10 @@ public abstract class TntBlockMixin extends Block {
     private static PrimedTnt modifyExplosionPower(PrimedTnt tnt, @Local(argsOnly = true) Level level, @Local(argsOnly = true) BlockPos pos, @Local(argsOnly = true) LivingEntity primer) {
         Block block = level.getBlockState(pos).getBlock();
         if (block instanceof StrongTntBlock strongTnt) {
-            return PrimedStrongTnt.create(level, pos, strongTnt.getExplosionPower(), primer);
+            return PrimedStrongTnt.create(strongTnt, level, pos, strongTnt.getExplosionPower(), primer);
         }
 
-        // Fused tnt is vanilla tnt, return unmodified value
+        // If fused tnt is vanilla tnt, return unmodified value
         return tnt;
     }
 

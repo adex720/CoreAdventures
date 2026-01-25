@@ -4,7 +4,6 @@ import com.adex.entity.golem.*;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.client.renderer.entity.TntRenderer;
 
 public class ModEntityRenderers {
 
@@ -20,7 +19,11 @@ public class ModEntityRenderers {
         EntityRenderers.register(ModEntities.SPINEL_GOLEM, SpinelGolemRenderer::new);
         EntityRenderers.register(ModEntities.TIGERS_EYE_GOLEM, TigersEyeGolemRenderer::new);
 
-        EntityRenderers.register(ModEntities.PRIMED_STRONG_TNT, TntRenderer::new);
+        EntityRenderers.register(ModEntities.PRIMED_RED_TNT, StrongTntRenderer::new);
+        EntityRenderers.register(ModEntities.PRIMED_ORANGE_TNT, StrongTntRenderer::new);
+        EntityRenderers.register(ModEntities.PRIMED_YELLOW_TNT, StrongTntRenderer::new);
+        EntityRenderers.register(ModEntities.PRIMED_GREEN_TNT, StrongTntRenderer::new);
+        EntityRenderers.register(ModEntities.PRIMED_BLUE_TNT, StrongTntRenderer::new);
 
         EntityRenderers.register(ModEntities.JUNIPER_BOAT, context -> new BoatRenderer(context, ModModelLayers.JUNIPER_BOAT));
         EntityRenderers.register(ModEntities.JUNIPER_CHEST_BOAT, context -> new BoatRenderer(context, ModModelLayers.JUNIPER_CHEST_BOAT));

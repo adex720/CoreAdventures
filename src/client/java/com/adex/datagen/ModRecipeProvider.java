@@ -320,6 +320,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     public enum UnlockStyle {
-        ANY, FIRST, SECOND;
+        ANY, FIRST, SECOND
     }
 }

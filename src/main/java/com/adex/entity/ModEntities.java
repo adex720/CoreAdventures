@@ -1,6 +1,7 @@
 package com.adex.entity;
 
 import com.adex.CoreAdventures;
+import com.adex.block.ModBlocks;
 import com.adex.entity.ai.PotionAttackGoal;
 import com.adex.entity.golem.*;
 import com.adex.entity.projectile.projectile.DynamiteProjectile;
@@ -46,8 +47,20 @@ public class ModEntities {
     public static final EntityType<SpinelGolem> SPINEL_GOLEM = register(SPINEL_GOLEM_KEY, SpinelGolem.builder(SpinelGolem::new));
     public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = register(TIGERS_EYE_GOLEM_KEY, TigersEyeGolem.builder(TigersEyeGolem::new));
 
-    public static final EntityType<PrimedStrongTnt> PRIMED_STRONG_TNT = register("strong_tnt",
-            EntityType.Builder.of((PrimedStrongTnt::new), MobCategory.MISC).noLootTable().fireImmune()
+    public static final EntityType<PrimedStrongTnt> PRIMED_RED_TNT = register("red_tnt",
+            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.RED_TNT), MobCategory.MISC).noLootTable().fireImmune()
+                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
+    public static final EntityType<PrimedStrongTnt> PRIMED_ORANGE_TNT = register("orange_tnt",
+            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.ORANGE_TNT), MobCategory.MISC).noLootTable().fireImmune()
+                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
+    public static final EntityType<PrimedStrongTnt> PRIMED_YELLOW_TNT = register("yellow_tnt",
+            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.YELLOW_TNT), MobCategory.MISC).noLootTable().fireImmune()
+                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
+    public static final EntityType<PrimedStrongTnt> PRIMED_GREEN_TNT = register("green_tnt",
+            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.GREEN_TNT), MobCategory.MISC).noLootTable().fireImmune()
+                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
+    public static final EntityType<PrimedStrongTnt> PRIMED_BLUE_TNT = register("blue_tnt",
+            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.BLUE_TNT), MobCategory.MISC).noLootTable().fireImmune()
                     .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
 
     public static final EntityType<Boat> JUNIPER_BOAT = register("juniper_boat",

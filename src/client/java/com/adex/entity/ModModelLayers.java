@@ -6,6 +6,7 @@ import com.adex.mixin.client.ModelLayersAccessor;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
+import net.minecraft.client.model.object.cart.MinecartModel;
 import net.minecraft.resources.Identifier;
 
 public class ModModelLayers {
@@ -23,6 +24,12 @@ public class ModModelLayers {
 
     public static final ModelLayerLocation JUNIPER_BOAT = register("boat/juniper");
     public static final ModelLayerLocation JUNIPER_CHEST_BOAT = register("chest_boat/juniper");
+
+    public static final ModelLayerLocation RED_TNT = register("tnt/red");
+    public static final ModelLayerLocation ORANGE_TNT = register("tnt/orange");
+    public static final ModelLayerLocation YELLOW_TNT = register("tnt/yellow");
+    public static final ModelLayerLocation GREEN_TNT = register("tnt/green");
+    public static final ModelLayerLocation BLUE_TNT = register("tnt/blue");
 
     private static ModelLayerLocation register(String name) {
         ModelLayerLocation modelLayerLocation = new ModelLayerLocation(Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name), "main");
@@ -44,5 +51,11 @@ public class ModModelLayers {
 
         EntityModelLayerRegistry.registerModelLayer(JUNIPER_BOAT, BoatModel::createBoatModel);
         EntityModelLayerRegistry.registerModelLayer(JUNIPER_CHEST_BOAT, BoatModel::createChestBoatModel);
+
+        EntityModelLayerRegistry.registerModelLayer(RED_TNT,  MinecartModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(ORANGE_TNT, MinecartModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(YELLOW_TNT, MinecartModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(GREEN_TNT, MinecartModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(BLUE_TNT, MinecartModel::createBodyLayer);
     }
 }
