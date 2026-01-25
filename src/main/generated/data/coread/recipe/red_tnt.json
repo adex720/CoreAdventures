@@ -2,15 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": "coread:dynamite"
+    "#": "coread:dynamite",
+    "X": "minecraft:tnt"
   },
   "pattern": [
-    "###",
-    "###",
-    "###"
+    " # ",
+    "#X#",
+    " # "
   ],
   "result": {
     "count": 1,
-    "id": "coread:strong_tnt"
+    "id": "coread:red_tnt"
   }
 }

@@ -41,31 +41,43 @@ public class ModBlockTextureProvider extends ModTextureProvider<Identifier> {
         BufferedImage golemBlockBottom;
         BufferedImage golemBlockSide;
         BufferedImage golemBlockTop;
+        BufferedImage tntBottom;
+        BufferedImage tntSide;
+        BufferedImage tntTop;
         try {
             golemBlockBottom = ModTextureProvider.getTexture("block\\chalcedony_golem_block_bottom.png");
             golemBlockSide = ModTextureProvider.getTexture("block\\chalcedony_golem_block_side.png");
             golemBlockTop = ModTextureProvider.getTexture("block\\chalcedony_golem_block_top.png");
+            tntBottom = ModTextureProvider.getTexture("block\\tnt_bottom.png");
+            tntSide = ModTextureProvider.getTexture("block\\tnt_side.png");
+            tntTop = ModTextureProvider.getTexture("block\\tnt_top.png");
         } catch (IOException e) {
             ModDataGenerator.LOGGER.error("Failed to load base armor item textures: {}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));
             return;
         }
 
-        recolorTopBottom(ModBlocks.CHALCEDONY_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR);
-        recolorTopBottom(ModBlocks.GARNET_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.GARNET_ARMOR);
-        recolorTopBottom(ModBlocks.JADE_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.JADE_ARMOR);
-        recolorTopBottom(ModBlocks.JASPER_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.JASPER_ARMOR);
-        recolorTopBottom(ModBlocks.ONYX_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.ONYX_ARMOR);
-        //recolorTopBottom(ModBlocks.OPAL_GOLEM_BLOCK, golemBlockBottom,golemBlockSide,golemBlockTop, ColorPalette.OPAL);
-        recolorTopBottom(ModBlocks.RUBY_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.RUBY_ARMOR);
-        recolorTopBottom(ModBlocks.SAPPHIRE_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.SAPPHIRE_ARMOR);
-        recolorTopBottom(ModBlocks.SPINEL_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.SPINEL_ARMOR);
-        //recolorTopBottom(ModBlocks.TIGERS_EYE_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.TIGERS_EYE_ARMOR);
+        recolorTopBottom(ModBlocks.CHALCEDONY_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.CHALCEDONY_ARMOR);
+        recolorTopBottom(ModBlocks.GARNET_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.GARNET_ARMOR);
+        recolorTopBottom(ModBlocks.JADE_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.JADE_ARMOR);
+        recolorTopBottom(ModBlocks.JASPER_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.JASPER_ARMOR);
+        recolorTopBottom(ModBlocks.ONYX_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.ONYX_ARMOR);
+        //recolorTopBottom(ModBlocks.OPAL_GOLEM_BLOCK, golemBlockBottom,golemBlockSide,golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.OPAL_ARMOR);
+        recolorTopBottom(ModBlocks.RUBY_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.RUBY_ARMOR);
+        recolorTopBottom(ModBlocks.SAPPHIRE_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.SAPPHIRE_ARMOR);
+        recolorTopBottom(ModBlocks.SPINEL_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.SPINEL_ARMOR);
+        //recolorTopBottom(ModBlocks.TIGERS_EYE_GOLEM_BLOCK, golemBlockBottom, golemBlockSide, golemBlockTop, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.TIGERS_EYE_ARMOR);
+
+        recolorTopBottom(ModBlocks.RED_TNT, tntBottom, tntSide, tntTop, ColorPalette.TNT, ColorPalette.RED_TNT);
+        recolorTopBottom(ModBlocks.ORANGE_TNT, tntBottom, tntSide, tntTop, ColorPalette.TNT, ColorPalette.ORANGE_TNT);
+        recolorTopBottom(ModBlocks.YELLOW_TNT, tntBottom, tntSide, tntTop, ColorPalette.TNT, ColorPalette.YELLOW_TNT);
+        recolorTopBottom(ModBlocks.GREEN_TNT, tntBottom, tntSide, tntTop, ColorPalette.TNT, ColorPalette.GREEN_TNT);
+        recolorTopBottom(ModBlocks.BLUE_TNT, tntBottom, tntSide, tntTop, ColorPalette.TNT, ColorPalette.BLUE_TNT);
     }
 
-    public void recolorTopBottom(Block block, BufferedImage bottomImage, BufferedImage sideImage, BufferedImage topImage, ColorPalette palette) {
-        recolorBaseItem(block, "_bottom", bottomImage, ColorPalette.CHALCEDONY_ARMOR, palette);
-        recolorBaseItem(block, "_side", sideImage, ColorPalette.CHALCEDONY_ARMOR, palette);
-        recolorBaseItem(block, "_top", topImage, ColorPalette.CHALCEDONY_ARMOR, palette);
+    public void recolorTopBottom(Block block, BufferedImage bottomImage, BufferedImage sideImage, BufferedImage topImage, ColorPalette base, ColorPalette palette) {
+        recolorBaseItem(block, "_bottom", bottomImage, base, palette);
+        recolorBaseItem(block, "_side", sideImage, base, palette);
+        recolorBaseItem(block, "_top", topImage, base, palette);
     }
 
     public void recolorBaseItem(Block block, String name, BufferedImage image, ColorPalette original, ColorPalette palette) {

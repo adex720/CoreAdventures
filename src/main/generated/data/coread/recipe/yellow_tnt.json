@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "coread:orange_tnt",
+    "coread:orange_tnt"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:yellow_tnt"
+  }
+}

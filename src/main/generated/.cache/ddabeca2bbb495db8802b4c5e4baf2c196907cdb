@@ -1,4 +1,5 @@
 // 1.21.11	-999999999-01-01T00:00:00	Core Adventures/Loot table provider
+06c2b493f1f8109a27e23aa34c99907e6f0adefd data/coread/loot_table/blocks/blue_tnt.json
 4a1c6d522aa371713f76bd2853c2b8d1c21e0292 data/coread/loot_table/blocks/chalcedony_block.json
 8c5bc4f3b41c0319ab73fb2917da09e0848aead9 data/coread/loot_table/blocks/chalcedony_ore.json
 76e9a588149558263b2603cf408f8a38151ac73a data/coread/loot_table/blocks/cracked_hardened_stone_bricks.json
@@ -8,6 +9,7 @@ d619fd2b3d54239e4d53aa1ac7a7a8387a3a7eaa data/coread/loot_table/blocks/gabbro.js
 ea13e112f4b167beafca9f9423cca356ec0bab60 data/coread/loot_table/blocks/gabbro_wall.json
 0dd8958db16e504f17e6a8364cf0deebae2a467a data/coread/loot_table/blocks/garnet_block.json
 2141a90496f3510384c2f20c81531f7ca31e29cb data/coread/loot_table/blocks/garnet_ore.json
+ed256c49f7942dc10225c90cada6522c44c14806 data/coread/loot_table/blocks/green_tnt.json
 33e18f0acaaab11a1b75a353d39ad306ec86817d data/coread/loot_table/blocks/hardened_stone.json
 981eb3e537d6b13c2475dcc1cd98f2a6f74abe7e data/coread/loot_table/blocks/hardened_stone_bricks.json
 d508d1edbcd81e7eb245e193e6cbf0afaf4796db data/coread/loot_table/blocks/hardened_stone_bricks_slab.json
@@ -45,6 +47,7 @@ d5843ca2ba0c204f4dd794af1ee0ce4be001c859 data/coread/loot_table/blocks/onyx_bloc
 84d49bfb417f95e7d8b83f946519e6957b344cd2 data/coread/loot_table/blocks/onyx_ore.json
 6cf381b0c89c2179f5b77d9367f77e1b31c405c8 data/coread/loot_table/blocks/opal_block.json
 7bb9a663fe2cc7161eccd8a1e80737602afd2cbf data/coread/loot_table/blocks/opal_ore.json
+3ef21f1b3bed4a57ea9151946f3f8c63bed03e17 data/coread/loot_table/blocks/orange_tnt.json
 a0a8b7e725bb87d853867b1a7c506b45c5e3f532 data/coread/loot_table/blocks/polished_gabbro.json
 0e2ef5de10d4e076a184ae06c19a76e808cd8c8b data/coread/loot_table/blocks/polished_gabbro_slab.json
 88021e5741c09d1868b3fcdc67dba368accadeb9 data/coread/loot_table/blocks/polished_gabbro_stairs.json
@@ -66,6 +69,7 @@ fb82f41be763d5a4d8c7dbb6fd0222aa8ed041db data/coread/loot_table/blocks/polished_
 246a5ce8dd2957702b9da63bf63006bdb7560f92 data/coread/loot_table/blocks/polished_travertine_stairs.json
 1944e8b9b1f38804adf9647694308df894082bd2 data/coread/loot_table/blocks/polished_travertine_wall.json
 1b6ec36d902330f0a84aba72ad3a538719b0a0fb data/coread/loot_table/blocks/potted_juniper_sapling.json
+71121b97d938594e5852c4c6478c4df612a239d8 data/coread/loot_table/blocks/red_tnt.json
 60ae1293e138d3e7f1b79950e0e8dcad645a0be4 data/coread/loot_table/blocks/reinforced_ancient_debris.json
 a0ed8724d2a4d37bf99561e57bbfec1f3e9ac73a data/coread/loot_table/blocks/ruby_block.json
 902b360b0b6999bcb68917cdaec413d30d5064ce data/coread/loot_table/blocks/ruby_ore.json
@@ -83,10 +87,10 @@ b212a34d20b03501571f30416e060cf06255097a data/coread/loot_table/blocks/spinel_bl
 90d281de96a938f8b1ccf3623072614e60674b2b data/coread/loot_table/blocks/spinel_ore.json
 8d83a349b2ff93eae1a6989ddad873a6a5d7e1eb data/coread/loot_table/blocks/stripped_juniper_log.json
 b830d1344435014afa5fe8c9a6158a31b3ee6189 data/coread/loot_table/blocks/stripped_juniper_wood.json
-900d55e3091b1c4731cf97390498112326f4e073 data/coread/loot_table/blocks/strong_tnt.json
 4eff84812c64c8541141d0383a8ebef683986154 data/coread/loot_table/blocks/tigers_eye_block.json
 0678340ba11cc3aa2604c81008fec4be3f934678 data/coread/loot_table/blocks/tigers_eye_ore.json
 50e91a7f9dd782344396695db7d8fe4c48d123b0 data/coread/loot_table/blocks/travertine.json
 01525067b4a9620793a2f8e0183e651c8d96f63f data/coread/loot_table/blocks/travertine_slab.json
 6a0f0e2cbe8cd80fb81ad7f47b7144360860c30c data/coread/loot_table/blocks/travertine_stairs.json
 1745650976801a50cd0cecad7c42cfb98e6068ca data/coread/loot_table/blocks/travertine_wall.json
+c3ffef320b673cd50931fe9ce1a3897098731355 data/coread/loot_table/blocks/yellow_tnt.json

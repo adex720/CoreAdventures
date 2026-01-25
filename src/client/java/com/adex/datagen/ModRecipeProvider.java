@@ -6,14 +6,12 @@ import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 import java.util.List;
@@ -164,7 +162,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             woodenBoat(ModItems.JUNIPER_BOAT, ModBlocks.JUNIPER_PLANKS);
             chestBoat(ModItems.JUNIPER_CHEST_BOAT, ModItems.JUNIPER_BOAT);
 
-            nineToOne(ModBlocks.STRONG_TNT, ModItems.DYNAMITE, RecipeCategory.REDSTONE);
+            surroundBy4(ModBlocks.RED_TNT, Blocks.TNT, ModItems.DYNAMITE, RecipeCategory.REDSTONE, UnlockStyle.SECOND);
+            nToOne(ModBlocks.ORANGE_TNT, ModBlocks.RED_TNT, RecipeCategory.REDSTONE, 2);
+            nToOne(ModBlocks.YELLOW_TNT, ModBlocks.ORANGE_TNT, RecipeCategory.REDSTONE, 2);
+            nToOne(ModBlocks.GREEN_TNT, ModBlocks.YELLOW_TNT, RecipeCategory.REDSTONE, 2);
+            nToOne(ModBlocks.BLUE_TNT, ModBlocks.GREEN_TNT, RecipeCategory.REDSTONE, 2);
         }
 
         /**
@@ -187,13 +189,26 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .save(output);
         }
 
-        public void nineToOne(ItemLike result, ItemLike ingredient, RecipeCategory recipeCategory) {
-            shaped(recipeCategory, result)
-                    .define('#', ingredient)
-                    .pattern("###")
-                    .pattern("###")
-                    .pattern("###")
-                    .unlockedBy("has_item", has(ingredient))
+        public void surroundBy4(ItemLike result, ItemLike inner, ItemLike outer, RecipeCategory recipeCategory, UnlockStyle unlockStyle) {
+            ShapedRecipeBuilder builder = shaped(recipeCategory, result)
+                    .define('#', outer)
+                    .define('X', inner)
+                    .pattern(" # ")
+                    .pattern("#X#")
+                    .pattern(" # ");
+
+            if (unlockStyle == UnlockStyle.ANY || unlockStyle == UnlockStyle.FIRST)
+                builder.unlockedBy(getHasName(inner), has(inner));
+            if (unlockStyle == UnlockStyle.ANY || unlockStyle == UnlockStyle.SECOND)
+                builder.unlockedBy(getHasName(outer), has(outer));
+
+            builder.save(output);
+        }
+
+        public void nToOne(ItemLike result, ItemLike ingredient, RecipeCategory recipeCategory, int n) {
+            shapeless(recipeCategory, result)
+                    .requires(ingredient, n)
+                    .unlockedBy(getHasName(ingredient), has(ingredient))
                     .save(output);
         }
 
@@ -302,5 +317,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .unlockedBy(getHasName(ingredient), has(ingredient))
                     .save(output);
         }
+    }
+
+    public enum UnlockStyle {
+        ANY, FIRST, SECOND;
     }
 }

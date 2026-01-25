@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "coread:strong_tnt",
+              "block": "coread:blue_tnt",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "unstable": "false"
               }
             }
           ],
-          "name": "coread:strong_tnt"
+          "name": "coread:blue_tnt"
         }
       ],
       "rolls": 1.0

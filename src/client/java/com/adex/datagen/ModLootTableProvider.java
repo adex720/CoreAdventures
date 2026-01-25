@@ -132,12 +132,16 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         dropSelf(ModBlocks.REINFORCED_ANCIENT_DEBRIS);
 
-        crateTnt(ModBlocks.STRONG_TNT);
+        crateTnt(ModBlocks.RED_TNT);
+        crateTnt(ModBlocks.ORANGE_TNT);
+        crateTnt(ModBlocks.YELLOW_TNT);
+        crateTnt(ModBlocks.GREEN_TNT);
+        crateTnt(ModBlocks.BLUE_TNT);
     }
 
     public void crateTnt(Block block) {
         add(block, LootTable.lootTable().withPool(applyExplosionCondition(block,
-                LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block)
+                LootPool.lootPool().setRolls(ConstantValue.exactly(1.0f)).add(LootItem.lootTableItem(block)
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TntBlock.UNSTABLE, false)))))));
     }

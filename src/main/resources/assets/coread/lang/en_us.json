@@ -114,7 +114,11 @@
 
   "block.coread.core_portal_block": "Core Portal",
 
-  "block.coread.strong_tnt": "Strong TNT",
+  "block.coread.red_tnt": "Red TNT",
+  "block.coread.orange_tnt": "Orange TNT",
+  "block.coread.yellow_tnt": "Yellow TNT",
+  "block.coread.green_tnt": "Green TNT",
+  "block.coread.blue_tnt": "Blue TNT",
 
   "item.coread.chalcedony": "Chalcedony",
   "item.coread.garnet": "Garnet",

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_red_tnt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "coread:red_tnt"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "coread:orange_tnt"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_red_tnt"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "coread:orange_tnt"
+    ]
+  }
+}

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_green_tnt": {
       "conditions": {
         "items": [
           {
-            "items": "coread:dynamite"
+            "items": "coread:green_tnt"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "coread:strong_tnt"
+        "recipe": "coread:blue_tnt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_item"
+      "has_green_tnt"
     ]
   ],
   "rewards": {
     "recipes": [
-      "coread:strong_tnt"
+      "coread:blue_tnt"
     ]
   }
 }

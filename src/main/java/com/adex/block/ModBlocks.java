@@ -147,7 +147,11 @@ public class ModBlocks {
 
     public static final Block CORE_PORTAL_BLOCK = registerWithoutBlockItem("core_portal_block", CorePortalBlock::new, BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(_ -> 11).pushReaction(PushReaction.BLOCK));
 
-    public static final StrongTntBlock STRONG_TNT = (StrongTntBlock) register("strong_tnt", properties -> new StrongTntBlock(properties, 8.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
+    public static final StrongTntBlock RED_TNT = (StrongTntBlock) register("red_tnt", properties -> new StrongTntBlock(properties, 8.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
+    public static final StrongTntBlock ORANGE_TNT = (StrongTntBlock) register("orange_tnt", properties -> new StrongTntBlock(properties, 12.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
+    public static final StrongTntBlock YELLOW_TNT = (StrongTntBlock) register("yellow_tnt", properties -> new StrongTntBlock(properties, 18.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
+    public static final StrongTntBlock GREEN_TNT = (StrongTntBlock) register("green_tnt", properties -> new StrongTntBlock(properties, 30.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
+    public static final StrongTntBlock BLUE_TNT = (StrongTntBlock) register("blue_tnt", properties -> new StrongTntBlock(properties, 45.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
 
     private static Block register(String name, BlockBehaviour.Properties settings) {
         return register(name, Block::new, settings);
@@ -212,7 +216,11 @@ public class ModBlocks {
     }
 
     private static void addDispenseItemBehaviors() {
-        STRONG_TNT.registerDispenseBehavior();
+        RED_TNT.registerDispenseBehavior();
+        ORANGE_TNT.registerDispenseBehavior();
+        YELLOW_TNT.registerDispenseBehavior();
+        GREEN_TNT.registerDispenseBehavior();
+        BLUE_TNT.registerDispenseBehavior();
     }
 
     private static void addValidBlockEntityBlock(Block block, BlockEntityType<?> blockEntityType) {
@@ -359,11 +367,19 @@ public class ModBlocks {
             itemGroup.accept(JUNIPER_TRAPDOOR.asItem());
             itemGroup.accept(JUNIPER_DOOR.asItem());
             itemGroup.accept(JUNIPER_BUTTON.asItem());
-            itemGroup.accept(STRONG_TNT.asItem());
+            itemGroup.accept(RED_TNT.asItem());
+            itemGroup.accept(ORANGE_TNT.asItem());
+            itemGroup.accept(YELLOW_TNT.asItem());
+            itemGroup.accept(GREEN_TNT.asItem());
+            itemGroup.accept(BLUE_TNT.asItem());
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(itemGroup -> {
-            itemGroup.accept(STRONG_TNT.asItem());
+            itemGroup.accept(RED_TNT.asItem());
+            itemGroup.accept(ORANGE_TNT.asItem());
+            itemGroup.accept(YELLOW_TNT.asItem());
+            itemGroup.accept(GREEN_TNT.asItem());
+            itemGroup.accept(BLUE_TNT.asItem());
         });
     }
 

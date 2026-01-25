@@ -47,6 +47,13 @@ public class ColorPalette {
     public static final ColorPalette RECOVERY_COMPASS = new ColorPalette(List.of(0xff0d0d0d, 0xff212e2b, 0xff005479, 0xff006694, 0xff105257, 0xff138e99, 0xff14bbc6, 0xff29dfeb));
     public static final ColorPalette REFUGE_COMPASS = new ColorPalette(List.of(0xff130906, 0xff231310, 0xff26120c, 0xff311610, 0xff462721, 0xff4c3530, 0xff5e4843, 0xff70645e));
 
+    public static final ColorPalette TNT = new ColorPalette(List.of(0xff912d11, 0xffb11527, 0xffdb2f1a, 0xffea4318));
+    public static final ColorPalette RED_TNT = new ColorPalette(List.of(0xff630000, 0xff830505, 0xffb21616, 0xffb21616));
+    public static final ColorPalette ORANGE_TNT = new ColorPalette(List.of(0xff965408, 0xffad6007, 0xffc56b04, 0xffda7807));
+    public static final ColorPalette YELLOW_TNT = new ColorPalette(List.of(0xffa38906, 0xffbd9f0a, 0xffd6b50f, 0xffe9c513));
+    public static final ColorPalette GREEN_TNT = new ColorPalette(List.of(0xff317e07, 0xff3a9608, 0xff47b30c, 0xff51cc0f));
+    public static final ColorPalette BLUE_TNT = new ColorPalette(List.of(0xff0d719c, 0xff0f88bc, 0xff1ba0d8, 0xff30b5ef));
+
 
     public final List<Integer> colors;
     public final int colorCount;
