@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
+
     public ModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
@@ -39,59 +40,60 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         @Override
         public void buildRecipes() {
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_SLAB, ModBlocks.HARDENED_STONE);
-            stairs(ModBlocks.HARDENED_STONE_STAIRS, ModBlocks.HARDENED_STONE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_WALL, ModBlocks.HARDENED_STONE);
+            slabCraftingAndStonecutting(ModBlocks.HARDENED_STONE_SLAB, ModBlocks.HARDENED_STONE);
+            stairsCraftingAndStonecutting(ModBlocks.HARDENED_STONE_STAIRS, ModBlocks.HARDENED_STONE);
+            wallCraftingAndStonecutting(ModBlocks.HARDENED_STONE_WALL, ModBlocks.HARDENED_STONE);
 
             twoByTwo(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE, 4);
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_BRICKS_SLAB, ModBlocks.HARDENED_STONE_BRICKS);
-            stairs(ModBlocks.HARDENED_STONE_BRICKS_STAIRS, ModBlocks.HARDENED_STONE_BRICKS);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_BRICKS_WALL, ModBlocks.HARDENED_STONE_BRICKS);
+            stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE);
+            slabCraftingAndStonecutting(ModBlocks.HARDENED_STONE_BRICKS_SLAB, ModBlocks.HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE);
+            stairsCraftingAndStonecutting(ModBlocks.HARDENED_STONE_BRICKS_STAIRS, ModBlocks.HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE);
+            wallCraftingAndStonecutting(ModBlocks.HARDENED_STONE_BRICKS_WALL, ModBlocks.HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE);
 
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GABBRO_SLAB, ModBlocks.GABBRO);
-            stairs(ModBlocks.GABBRO_STAIRS, ModBlocks.GABBRO);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GABBRO_WALL, ModBlocks.GABBRO);
+            slabCraftingAndStonecutting(ModBlocks.GABBRO_SLAB, ModBlocks.GABBRO);
+            stairsCraftingAndStonecutting(ModBlocks.GABBRO_STAIRS, ModBlocks.GABBRO);
+            wallCraftingAndStonecutting(ModBlocks.GABBRO_WALL, ModBlocks.GABBRO);
 
-            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GABBRO, ModBlocks.GABBRO);
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GABBRO_SLAB, ModBlocks.POLISHED_GABBRO);
-            stairs(ModBlocks.POLISHED_GABBRO_STAIRS, ModBlocks.POLISHED_GABBRO);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_GABBRO_WALL, ModBlocks.POLISHED_GABBRO);
+            polishedCraftingAndStonecutting(ModBlocks.POLISHED_GABBRO, ModBlocks.GABBRO);
+            slabCraftingAndStonecutting(ModBlocks.POLISHED_GABBRO_SLAB, ModBlocks.POLISHED_GABBRO, ModBlocks.GABBRO);
+            stairsCraftingAndStonecutting(ModBlocks.POLISHED_GABBRO_STAIRS, ModBlocks.POLISHED_GABBRO, ModBlocks.GABBRO);
+            wallCraftingAndStonecutting(ModBlocks.POLISHED_GABBRO_WALL, ModBlocks.POLISHED_GABBRO, ModBlocks.GABBRO);
 
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LARVIKITE_SLAB, ModBlocks.LARVIKITE);
-            stairs(ModBlocks.LARVIKITE_STAIRS, ModBlocks.LARVIKITE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LARVIKITE_WALL, ModBlocks.LARVIKITE);
+            slabCraftingAndStonecutting(ModBlocks.LARVIKITE_SLAB, ModBlocks.LARVIKITE);
+            stairsCraftingAndStonecutting(ModBlocks.LARVIKITE_STAIRS, ModBlocks.LARVIKITE);
+            wallCraftingAndStonecutting(ModBlocks.LARVIKITE_WALL, ModBlocks.LARVIKITE);
 
-            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_LARVIKITE, ModBlocks.LARVIKITE);
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_LARVIKITE_SLAB, ModBlocks.POLISHED_LARVIKITE);
-            stairs(ModBlocks.POLISHED_LARVIKITE_STAIRS, ModBlocks.POLISHED_LARVIKITE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_LARVIKITE_WALL, ModBlocks.POLISHED_LARVIKITE);
+            polishedCraftingAndStonecutting(ModBlocks.POLISHED_LARVIKITE, ModBlocks.LARVIKITE);
+            slabCraftingAndStonecutting(ModBlocks.POLISHED_LARVIKITE_SLAB, ModBlocks.POLISHED_LARVIKITE, ModBlocks.LARVIKITE);
+            stairsCraftingAndStonecutting(ModBlocks.POLISHED_LARVIKITE_STAIRS, ModBlocks.POLISHED_LARVIKITE, ModBlocks.LARVIKITE);
+            wallCraftingAndStonecutting(ModBlocks.POLISHED_LARVIKITE_WALL, ModBlocks.POLISHED_LARVIKITE, ModBlocks.LARVIKITE);
 
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SERPENTINITE_SLAB, ModBlocks.SERPENTINITE);
-            stairs(ModBlocks.SERPENTINITE_STAIRS, ModBlocks.SERPENTINITE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SERPENTINITE_WALL, ModBlocks.SERPENTINITE);
+            slabCraftingAndStonecutting(ModBlocks.SERPENTINITE_SLAB, ModBlocks.SERPENTINITE);
+            stairsCraftingAndStonecutting(ModBlocks.SERPENTINITE_STAIRS, ModBlocks.SERPENTINITE);
+            wallCraftingAndStonecutting(ModBlocks.SERPENTINITE_WALL, ModBlocks.SERPENTINITE);
 
-            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SERPENTINITE, ModBlocks.SERPENTINITE);
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SERPENTINITE_SLAB, ModBlocks.POLISHED_SERPENTINITE);
-            stairs(ModBlocks.POLISHED_SERPENTINITE_STAIRS, ModBlocks.POLISHED_SERPENTINITE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SERPENTINITE_WALL, ModBlocks.POLISHED_SERPENTINITE);
+            polishedCraftingAndStonecutting(ModBlocks.POLISHED_SERPENTINITE, ModBlocks.SERPENTINITE);
+            slabCraftingAndStonecutting(ModBlocks.POLISHED_SERPENTINITE_SLAB, ModBlocks.POLISHED_SERPENTINITE, ModBlocks.SERPENTINITE);
+            stairsCraftingAndStonecutting(ModBlocks.POLISHED_SERPENTINITE_STAIRS, ModBlocks.POLISHED_SERPENTINITE, ModBlocks.SERPENTINITE);
+            wallCraftingAndStonecutting(ModBlocks.POLISHED_SERPENTINITE_WALL, ModBlocks.POLISHED_SERPENTINITE, ModBlocks.SERPENTINITE);
 
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLATE_SLAB, ModBlocks.SLATE);
-            stairs(ModBlocks.SLATE_STAIRS, ModBlocks.SLATE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLATE_WALL, ModBlocks.SLATE);
+            slabCraftingAndStonecutting(ModBlocks.SLATE_SLAB, ModBlocks.SLATE);
+            stairsCraftingAndStonecutting(ModBlocks.SLATE_STAIRS, ModBlocks.SLATE);
+            wallCraftingAndStonecutting(ModBlocks.SLATE_WALL, ModBlocks.SLATE);
 
-            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SLATE, ModBlocks.SLATE);
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SLATE_SLAB, ModBlocks.POLISHED_SLATE);
-            stairs(ModBlocks.POLISHED_SLATE_STAIRS, ModBlocks.POLISHED_SLATE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SLATE_WALL, ModBlocks.POLISHED_SLATE);
+            polishedCraftingAndStonecutting(ModBlocks.POLISHED_SLATE, ModBlocks.SLATE);
+            slabCraftingAndStonecutting(ModBlocks.POLISHED_SLATE_SLAB, ModBlocks.POLISHED_SLATE, ModBlocks.SLATE);
+            stairsCraftingAndStonecutting(ModBlocks.POLISHED_SLATE_STAIRS, ModBlocks.POLISHED_SLATE, ModBlocks.SLATE);
+            wallCraftingAndStonecutting(ModBlocks.POLISHED_SLATE_WALL, ModBlocks.POLISHED_SLATE, ModBlocks.SLATE);
 
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRAVERTINE_SLAB, ModBlocks.TRAVERTINE);
-            stairs(ModBlocks.TRAVERTINE_STAIRS, ModBlocks.TRAVERTINE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRAVERTINE_WALL, ModBlocks.TRAVERTINE);
+            slabCraftingAndStonecutting(ModBlocks.TRAVERTINE_SLAB, ModBlocks.TRAVERTINE);
+            stairsCraftingAndStonecutting(ModBlocks.TRAVERTINE_STAIRS, ModBlocks.TRAVERTINE);
+            wallCraftingAndStonecutting(ModBlocks.TRAVERTINE_WALL, ModBlocks.TRAVERTINE);
 
-            polished(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_TRAVERTINE, ModBlocks.TRAVERTINE);
-            slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_TRAVERTINE_SLAB, ModBlocks.POLISHED_TRAVERTINE);
-            stairs(ModBlocks.POLISHED_TRAVERTINE_STAIRS, ModBlocks.POLISHED_TRAVERTINE);
-            wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_TRAVERTINE_WALL, ModBlocks.POLISHED_TRAVERTINE);
+            polishedCraftingAndStonecutting(ModBlocks.POLISHED_TRAVERTINE, ModBlocks.TRAVERTINE);
+            slabCraftingAndStonecutting(ModBlocks.POLISHED_TRAVERTINE_SLAB, ModBlocks.POLISHED_TRAVERTINE, ModBlocks.TRAVERTINE);
+            stairsCraftingAndStonecutting(ModBlocks.POLISHED_TRAVERTINE_STAIRS, ModBlocks.POLISHED_TRAVERTINE, ModBlocks.TRAVERTINE);
+            wallCraftingAndStonecutting(ModBlocks.POLISHED_TRAVERTINE_WALL, ModBlocks.POLISHED_TRAVERTINE, ModBlocks.TRAVERTINE);
 
             oreSmeltingAndBlasting(ModBlocks.HARDENED_STONE_BRICKS, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_HARDENED_STONE_BRICKS, 1.0f, 200, "hardened_stone_bricks_smelting");
             twoByTwo(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HEAVY_HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE_BRICKS, 1);
@@ -272,6 +274,24 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .save(output);
         }
 
+        /**
+         * Creates a polished block recipe for crafting table and stonecutter
+         *
+         * @param polished   Polished item
+         * @param ingredient Item to use in recipe
+         */
+        public void polishedCraftingAndStonecutting(ItemLike polished, ItemLike ingredient) {
+            polished(RecipeCategory.BUILDING_BLOCKS, polished, ingredient);
+            stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, polished, ingredient);
+        }
+
+        /**
+         * Generates a recipe requiring exactly one of each provided ingredient
+         *
+         * @param category Recipe category
+         * @param result   Reward item
+         * @param items    Ingredients
+         */
         public void fromItems(RecipeCategory category, Item result, ItemLike... items) {
             ShapelessRecipeBuilder builder = shapeless(category, result);
             for (ItemLike item : items) {
@@ -281,32 +301,119 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             builder.save(output);
         }
 
+        /**
+         * Creates a stairs recipe for crafting table and stonecutter.
+         * A crafting recipe is generated only for the first given ingredient.
+         * A unique stonecutter recipe is generated for each given ingredient.
+         *
+         * @param slab        Slab item
+         * @param ingredients Items to use as ingredient
+         */
+        public void slabCraftingAndStonecutting(ItemLike slab, ItemLike... ingredients) {
+            slab(RecipeCategory.BUILDING_BLOCKS, slab, ingredients[0]);
+            for (ItemLike ingredient : ingredients) {
+                stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, slab, ingredient, 2);
+            }
+        }
+
+        /**
+         * Creates a stairs recipe for crafting table and stonecutter.
+         * A crafting recipe is generated only for the first given ingredient.
+         * A unique recipe is generated for each given ingredient.
+         *
+         * @param wall        Wall item
+         * @param ingredients Items to use as ingredient
+         */
+        public void wallCraftingAndStonecutting(ItemLike wall, ItemLike... ingredients) {
+            wall(RecipeCategory.BUILDING_BLOCKS, wall, ingredients[0]);
+            for (ItemLike ingredient : ingredients) {
+                stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, wall, ingredient);
+            }
+        }
+
+        /**
+         * Creates a stairs recipe for crafting table.
+         * A crafting recipe is generated only for the first given ingredient.
+         * A unique recipe is generated for each given ingredient.
+         *
+         * @param stairs      Stairs item
+         * @param ingredients Items to use as ingredient
+         */
+        public void stairsCraftingAndStonecutting(ItemLike stairs, ItemLike... ingredients) {
+            stairBuilder(stairs, Ingredient.of(ingredients[0])).unlockedBy(getHasName(ingredients[0]), has(ingredients[0])).save(output);
+            for (ItemLike ingredient : ingredients) {
+                stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, stairs, ingredient);
+            }
+        }
+
+        /**
+         * Creates a stairs recipe for crafting table
+         *
+         * @param stairs     Stairs item
+         * @param ingredient Item to use in recipe
+         */
         public void stairs(ItemLike stairs, ItemLike ingredient) {
             stairBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
         }
 
-        public void fence(ItemLike stairs, ItemLike ingredient) {
-            fenceBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        /**
+         * Creates a fence recipe for crafting table
+         *
+         * @param fence      Fence item
+         * @param ingredient Item to use in recipe
+         */
+        public void fence(ItemLike fence, ItemLike ingredient) {
+            fenceBuilder(fence, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
         }
 
-        public void fenceGate(ItemLike stairs, ItemLike ingredient) {
-            fenceGateBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        /**
+         * Creates a fence gate recipe for crafting table
+         *
+         * @param fenceGate  Fence gate item
+         * @param ingredient Item to use in recipe
+         */
+        public void fenceGate(ItemLike fenceGate, ItemLike ingredient) {
+            fenceGateBuilder(fenceGate, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
         }
 
-        public void trapdoor(ItemLike stairs, ItemLike ingredient) {
-            trapdoorBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        /**
+         * Creates a trapdoor recipe for crafting table
+         *
+         * @param trapdoor   Trapdoor item
+         * @param ingredient Item to use in recipe
+         */
+        public void trapdoor(ItemLike trapdoor, ItemLike ingredient) {
+            trapdoorBuilder(trapdoor, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
         }
 
-        public void door(ItemLike stairs, ItemLike ingredient) {
-            doorBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        /**
+         * Creates a door recipe for crafting table
+         *
+         * @param door       Door item
+         * @param ingredient Item to use in recipe
+         */
+        public void door(ItemLike door, ItemLike ingredient) {
+            doorBuilder(door, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
         }
 
-        public void button(ItemLike stairs, ItemLike ingredient) {
-            buttonBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        /**
+         * Creates a button recipe for crafting table
+         *
+         * @param button     Button item
+         * @param ingredient Item to use in recipe
+         */
+        public void button(ItemLike button, ItemLike ingredient) {
+            buttonBuilder(button, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
         }
 
-        public void sign(ItemLike stairs, ItemLike ingredient) {
-            signBuilder(stairs, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
+        /**
+         * Creates a sign recipe for crafting table
+         *
+         * @param sign       Sign item
+         * @param ingredient Item to use in recipe
+         */
+        public void sign(ItemLike sign, ItemLike ingredient) {
+            signBuilder(sign, Ingredient.of(ingredient)).unlockedBy(getHasName(ingredient), has(ingredient)).save(output);
         }
 
         public void twoByTwo(RecipeCategory recipeCategory, ItemLike result, ItemLike ingredient, int count) {

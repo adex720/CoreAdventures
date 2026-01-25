@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "coread:gabbro",
+  "result": {
+    "count": 2,
+    "id": "coread:polished_gabbro_slab"
+  }
+}

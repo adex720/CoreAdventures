@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "coread:polished_larvikite",
+  "result": {
+    "count": 1,
+    "id": "coread:polished_larvikite_stairs"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "coread:hardened_stone",
+  "result": {
+    "count": 2,
+    "id": "coread:hardened_stone_bricks_slab"
+  }
+}
