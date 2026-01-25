@@ -2,6 +2,7 @@ package com.adex.entity;
 
 import com.adex.CoreAdventures;
 import com.adex.block.ModBlocks;
+import com.adex.block.StrongTntBlock;
 import com.adex.entity.ai.PotionAttackGoal;
 import com.adex.entity.golem.*;
 import com.adex.entity.projectile.projectile.DynamiteProjectile;
@@ -47,38 +48,28 @@ public class ModEntities {
     public static final EntityType<SpinelGolem> SPINEL_GOLEM = register(SPINEL_GOLEM_KEY, SpinelGolem.builder(SpinelGolem::new));
     public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = register(TIGERS_EYE_GOLEM_KEY, TigersEyeGolem.builder(TigersEyeGolem::new));
 
-    public static final EntityType<PrimedStrongTnt> PRIMED_RED_TNT = register("red_tnt",
-            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.RED_TNT), MobCategory.MISC).noLootTable().fireImmune()
-                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
-    public static final EntityType<PrimedStrongTnt> PRIMED_ORANGE_TNT = register("orange_tnt",
-            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.ORANGE_TNT), MobCategory.MISC).noLootTable().fireImmune()
-                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
-    public static final EntityType<PrimedStrongTnt> PRIMED_YELLOW_TNT = register("yellow_tnt",
-            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.YELLOW_TNT), MobCategory.MISC).noLootTable().fireImmune()
-                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
-    public static final EntityType<PrimedStrongTnt> PRIMED_GREEN_TNT = register("green_tnt",
-            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.GREEN_TNT), MobCategory.MISC).noLootTable().fireImmune()
-                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
-    public static final EntityType<PrimedStrongTnt> PRIMED_BLUE_TNT = register("blue_tnt",
-            EntityType.Builder.of(PrimedStrongTnt.of(ModBlocks.BLUE_TNT), MobCategory.MISC).noLootTable().fireImmune()
-                    .sized(0.98F, 0.98F).eyeHeight(0.15F).clientTrackingRange(10).updateInterval(10));
+    public static final EntityType<PrimedStrongTnt> PRIMED_RED_TNT = registerTnt(ModBlocks.RED_TNT, "red_tnt");
+    public static final EntityType<PrimedStrongTnt> PRIMED_ORANGE_TNT = registerTnt(ModBlocks.ORANGE_TNT, "orange_tnt");
+    public static final EntityType<PrimedStrongTnt> PRIMED_YELLOW_TNT = registerTnt(ModBlocks.YELLOW_TNT, "yellow_tnt");
+    public static final EntityType<PrimedStrongTnt> PRIMED_GREEN_TNT = registerTnt(ModBlocks.GREEN_TNT, "green_tnt");
+    public static final EntityType<PrimedStrongTnt> PRIMED_BLUE_TNT = registerTnt(ModBlocks.BLUE_TNT, "blue_tnt");
 
     public static final EntityType<Boat> JUNIPER_BOAT = register("juniper_boat",
             EntityType.Builder.<Boat>of((entityType, level) -> new Boat(entityType, level, () -> ModItems.JUNIPER_BOAT), MobCategory.MISC)
-                    .noLootTable().sized(1.375F, 0.5625F).eyeHeight(0.5625F).clientTrackingRange(10));
+                    .noLootTable().sized(1.375f, 0.5625f).eyeHeight(0.5625f).clientTrackingRange(10));
     public static final EntityType<ChestBoat> JUNIPER_CHEST_BOAT = register("juniper_chest_boat",
             EntityType.Builder.<ChestBoat>of((entityType, level) -> new ChestBoat(entityType, level, () -> ModItems.JUNIPER_CHEST_BOAT), MobCategory.MISC)
-                    .noLootTable().sized(1.375F, 0.5625F).eyeHeight(0.5625F).clientTrackingRange(10));
+                    .noLootTable().sized(1.375f, 0.5625f).eyeHeight(0.5625f).clientTrackingRange(10));
 
     public static final EntityType<GolemFireball> GOLEM_FIREBALL_ENTITY = register(GOLEM_FIREBALL_KEY,
             EntityType.Builder.<GolemFireball>of(GolemFireball::new, MobCategory.MISC)
-                    .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
+                    .sized(0.3125f, 0.3125f).clientTrackingRange(4).updateInterval(10).noLootTable());
     public static final EntityType<HeatBall> HEAT_BALL_ENTITY = register(HEAT_BALL_KEY,
             EntityType.Builder.<HeatBall>of(HeatBall::new, MobCategory.MISC)
-                    .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
+                    .sized(0.3125f, 0.3125f).clientTrackingRange(4).updateInterval(10).noLootTable());
     public static final EntityType<DynamiteProjectile> DYNAMITE_PROJECTILE = register(DYNAMITE_PROJECTILE_KEY,
             EntityType.Builder.<DynamiteProjectile>of(DynamiteProjectile::new, MobCategory.MISC)
-                    .sized(0.3125F, 0.3125F).clientTrackingRange(4).updateInterval(10).noLootTable());
+                    .sized(0.3125f, 0.3125f).clientTrackingRange(4).updateInterval(10).noLootTable());
 
 
     private static <T extends Entity> EntityType<T> register(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder) {
@@ -88,6 +79,11 @@ public class ModEntities {
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
         ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
         return register(key, builder);
+    }
+
+    private static EntityType<PrimedStrongTnt> registerTnt(StrongTntBlock block, String name) {
+        return register(name, EntityType.Builder.of(PrimedStrongTnt.of(block), MobCategory.MISC).noLootTable().fireImmune()
+                .sized(0.98f, 0.98f).eyeHeight(0.15f).clientTrackingRange(10).updateInterval(10));
     }
 
     public static void initialize() {
