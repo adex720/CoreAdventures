@@ -11,18 +11,17 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.dispenser.BoatDispenseItemBehavior;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.BoatItem;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.level.block.DispenserBlock;
 
 import java.util.function.Function;
 
@@ -212,6 +211,14 @@ public class ModItems {
 
     public static void initialize() {
         addToItemGroups();
+        registerDispenseBehaviors();
+    }
+
+    private static void registerDispenseBehaviors(){
+        DispenserBlock.registerBehavior(JUNIPER_BOAT, new BoatDispenseItemBehavior(ModEntities.JUNIPER_BOAT));
+        DispenserBlock.registerBehavior(JUNIPER_CHEST_BOAT, new BoatDispenseItemBehavior(ModEntities.JUNIPER_CHEST_BOAT));
+        DispenserBlock.registerBehavior(SPEED_BOAT, new BoatDispenseItemBehavior(ModEntities.SPEED_BOAT));
+        DispenserBlock.registerBehavior(SPEED_CHEST_BOAT, new BoatDispenseItemBehavior(ModEntities.SPEED_CHEST_BOAT));
     }
 
     private static void addToItemGroups() {
