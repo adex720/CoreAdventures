@@ -10,7 +10,6 @@
     "DataComponentMapBuilderAccessor",
     "DefaultAttributesAccessor",
     "EnchantmentHelperMixin",
-    "FoodDataAccessor",
     "FoodDataMixin",
     "ItemPropertiesAccessor",
     "ItemPropertiesMixin",
@@ -21,10 +20,10 @@
     "PortalShapeAccessor",
     "PortalShapeMixin",
     "PrimedTntAccessor",
-    "TntBlockMixin",
     "ServerPlayerMixin",
     "StructuresMixin",
-    "ThrownSplashPotionMixin"
+    "ThrownSplashPotionMixin",
+    "TntBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

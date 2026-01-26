@@ -21,6 +21,9 @@ public class FoodDataMixin {
     @Shadow
     private int foodLevel;
 
+    @Shadow
+    private int tickTimer;
+
     /**
      * Prevent natural health generation when overheating.
      */
@@ -38,19 +41,20 @@ public class FoodDataMixin {
     /**
      * Check for increased food regeneration
      */
-    @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/world/food/FoodData;tickTimer:I", opcode = Opcodes.PUTFIELD), method = "tick")
+    @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/world/food/FoodData;tickTimer:I", ordinal = 0, opcode = Opcodes.PUTFIELD), method = "tick")
     private void handleTick2(FoodData foodData, int base, @Local(argsOnly = true) ServerPlayer player) {
+        tickTimer = base;
         if (base == 0) return;
 
         float total = 0.0f;
         for (EquipmentSlot equipmentSlot : EquipmentSlot.VALUES) {
             Item item = player.getItemBySlot(equipmentSlot).getItem();
-            Float resistance = item.components().get(ModDataComponents.POTION_RESISTANCE);
+            Float resistance = item.components().get(ModDataComponents.REGENERATION_BOOST);
             if (resistance != null) total += resistance;
         }
 
         if (total > 0.0f) {
-            ((FoodDataAccessor) foodData).coread$setTickTimer(base + (int) (total + player.getRandom().nextFloat()));
+            tickTimer = base + (int) (total + player.getRandom().nextFloat());
         }
     }
 }
