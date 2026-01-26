@@ -61,7 +61,10 @@ public class ModEntities {
             EntityType.Builder.<ChestBoat>of((entityType, level) -> new ChestBoat(entityType, level, () -> ModItems.JUNIPER_CHEST_BOAT), MobCategory.MISC)
                     .noLootTable().sized(1.375f, 0.5625f).eyeHeight(0.5625f).clientTrackingRange(10));
     public static final EntityType<FastBoat> SPEED_BOAT = register("speed_boat",
-            EntityType.Builder.<FastBoat>of((entityType, level) -> new FastBoat(entityType, level, () -> ModItems.SPEED_BOAT, 25f), MobCategory.MISC)
+            EntityType.Builder.<FastBoat>of((entityType, level) -> new FastBoat(entityType, level, () -> ModItems.SPEED_BOAT, 2.5f), MobCategory.MISC)
+                    .noLootTable().sized(1.375f, 0.5625f).eyeHeight(0.5625f).clientTrackingRange(10));
+    public static final EntityType<FastChestBoat> SPEED_CHEST_BOAT = register("speed_chest_boat",
+            EntityType.Builder.<FastChestBoat>of((entityType, level) -> new FastChestBoat(entityType, level, () -> ModItems.SPEED_CHEST_BOAT, 2.5f), MobCategory.MISC)
                     .noLootTable().sized(1.375f, 0.5625f).eyeHeight(0.5625f).clientTrackingRange(10));
 
     public static final EntityType<GolemFireball> GOLEM_FIREBALL_ENTITY = register(GOLEM_FIREBALL_KEY,

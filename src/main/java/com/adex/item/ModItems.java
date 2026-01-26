@@ -106,6 +106,7 @@ public class ModItems {
     public static final Item JUNIPER_BOAT = register("juniper_boat", properties -> new BoatItem(ModEntities.JUNIPER_BOAT, properties), new Item.Properties().stacksTo(1));
     public static final Item JUNIPER_CHEST_BOAT = register("juniper_chest_boat", properties -> new BoatItem(ModEntities.JUNIPER_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
     public static final Item SPEED_BOAT = register("speed_boat", properties -> new BoatItem(ModEntities.SPEED_BOAT, properties), new Item.Properties().stacksTo(1));
+    public static final Item SPEED_CHEST_BOAT = register("speed_chest_boat", properties -> new BoatItem(ModEntities.SPEED_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
 
 
     public static final Item DYNAMITE = register("dynamite", new Item.Properties());
@@ -296,6 +297,7 @@ public class ModItems {
             itemGroup.accept(JUNIPER_BOAT);
             itemGroup.accept(JUNIPER_CHEST_BOAT);
             itemGroup.accept(SPEED_BOAT);
+            itemGroup.accept(SPEED_CHEST_BOAT);
 
             itemGroup.accept(REFUGE_COMPASS);
         });

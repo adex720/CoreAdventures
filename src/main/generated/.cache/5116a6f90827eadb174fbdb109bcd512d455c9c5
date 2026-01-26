@@ -259,6 +259,7 @@ f29eca1d52df9ab5cde6cfa90a7147e6c64051f9 assets/coread/items/slate_slab.json
 045bc845815b395747f7eb5a64abd975c1c23ea6 assets/coread/items/slate_stairs.json
 99e167f90aee4a4f6bc7aaebc24973f6d652c0c8 assets/coread/items/slate_wall.json
 758ea2593da98548d6b1ecaeee75f40fc5dd1fd9 assets/coread/items/speed_boat.json
+f9d301c2828b88aa8a0d6ef938b42f43a7f463e0 assets/coread/items/speed_chest_boat.json
 c2c8c5344c8f33934047a516a9a95453aa22d7f2 assets/coread/items/spinel.json
 f974043c882484677c968f8e1ea6cd3871da633c assets/coread/items/spinel_block.json
 72a78e0c88dda892ba463baec4616800b3a65566 assets/coread/items/spinel_boots.json
@@ -584,6 +585,7 @@ ab93cd10cf65067eeb377e52119bcd9c68a113f3 assets/coread/models/item/sapphire_gole
 62312d26e8d77406fc227adf07228e9a160bdc90 assets/coread/models/item/sapphire_leggings.json
 7247a5d82b5ac01c5b2c0735c10f4b4dad104de5 assets/coread/models/item/shiny_gem_mixture.json
 a182694fd2cd447f1a02d72bf8eac4613f4c1775 assets/coread/models/item/speed_boat.json
+70ee676649cdb277f512a7e5bb939b57ad1133e0 assets/coread/models/item/speed_chest_boat.json
 b2afbfd522acc95ade80d9a92c9a92e44d2112ed assets/coread/models/item/spinel.json
 c33443227210acc4a80a36d7a7eb0a62b8eff037 assets/coread/models/item/spinel_boots.json
 6084b64ae92b00dbdda0eab728bd0c7d0674f383 assets/coread/models/item/spinel_chestplate.json

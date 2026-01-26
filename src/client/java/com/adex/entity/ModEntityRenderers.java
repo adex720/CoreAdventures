@@ -28,6 +28,7 @@ public class ModEntityRenderers {
         EntityRenderers.register(ModEntities.JUNIPER_BOAT, context -> new BoatRenderer(context, ModModelLayers.JUNIPER_BOAT));
         EntityRenderers.register(ModEntities.JUNIPER_CHEST_BOAT, context -> new BoatRenderer(context, ModModelLayers.JUNIPER_CHEST_BOAT));
         EntityRenderers.register(ModEntities.SPEED_BOAT, context -> new BoatRenderer(context, ModModelLayers.SPEED_BOAT));
+        EntityRenderers.register(ModEntities.SPEED_CHEST_BOAT, context -> new BoatRenderer(context, ModModelLayers.SPEED_CHEST_BOAT));
 
         EntityRenderers.register(ModEntities.GOLEM_FIREBALL_ENTITY, context -> new ThrownItemRenderer<>(context, 3.0f, true));
         EntityRenderers.register(ModEntities.HEAT_BALL_ENTITY, context -> new ThrownItemRenderer<>(context, 3.0f, true));

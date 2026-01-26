@@ -19,9 +19,11 @@ public class ModEntityTextureProvider extends ModTextureProvider<EntityType<?>> 
 
     private final PackOutput.PathProvider entityTextureProvider;
     private final PackOutput.PathProvider boatTextureProvider;
+    private final PackOutput.PathProvider chestBoatTextureProvider;
 
     private final Map<EntityType<?>, BufferedImage> golems;
     private final Map<EntityType<?>, BufferedImage> boats;
+    private final Map<EntityType<?>, BufferedImage> chestBoats;
 
     public ModEntityTextureProvider(FabricDataOutput packOutput) {
         super(packOutput);
@@ -32,16 +34,21 @@ public class ModEntityTextureProvider extends ModTextureProvider<EntityType<?>> 
         boatTextureProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity\\boat");
         boats = new HashMap<>();
         addGenerator(boats);
+
+        chestBoatTextureProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity\\chest_boat");
+        chestBoats = new HashMap<>();
+        addGenerator(chestBoats);
     }
 
     @Override
     public Path getPath(EntityType<?> key, int id) {
         if (id == 0) return entityTextureProvider.file(EntityType.getKey(key), "png");
-        return boatTextureProvider.file(boatIdentifier(key), "png");
+        if (id == 1) return boatTextureProvider.file(boatIdentifier(key), "png");
+        return chestBoatTextureProvider.file(boatIdentifier(key), "png");
     }
 
     /**
-     * Removes _boat from the identifier
+     * Removes everything after the first _ from the identifier path
      */
     public Identifier boatIdentifier(EntityType<?> entity) {
         Identifier identifier = EntityType.getKey(entity);
@@ -54,9 +61,11 @@ public class ModEntityTextureProvider extends ModTextureProvider<EntityType<?>> 
     public void buildTextures() {
         BufferedImage golem;
         BufferedImage boat;
+        BufferedImage chestBoat;
         try {
             golem = ModTextureProvider.getTexture("entity\\chalcedony_golem.png");
             boat = ModTextureProvider.getTexture("entity\\boat\\juniper.png");
+            chestBoat = ModTextureProvider.getTexture("entity\\chest_boat\\juniper.png");
         } catch (IOException e) {
             ModDataGenerator.LOGGER.error("Failed to load base entity textures: {}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));
             return;
@@ -74,6 +83,7 @@ public class ModEntityTextureProvider extends ModTextureProvider<EntityType<?>> 
         //recolorGolem(ModEntities.TIGERS_EYE_GOLEM, golems, ColorPalette.TIGERS_EYE_ARMOR);
 
         recolorBoat(ModEntities.SPEED_BOAT, boat, ColorPalette.CHALCEDONY_BOAT);
+        recolorChestBoat(ModEntities.SPEED_CHEST_BOAT, chestBoat, ColorPalette.CHALCEDONY_BOAT);
     }
 
     public void recolorGolem(EntityType<?> entityType, BufferedImage humanoidImage, ColorPalette palette) {
@@ -82,6 +92,10 @@ public class ModEntityTextureProvider extends ModTextureProvider<EntityType<?>> 
 
     public void recolorBoat(EntityType<?> entityType, BufferedImage humanoidImage, ColorPalette palette) {
         boats.put(entityType, replaceColorPalette(humanoidImage, ColorPalette.JUNIPER, palette));
+    }
+
+    public void recolorChestBoat(EntityType<?> entityType, BufferedImage humanoidImage, ColorPalette palette) {
+        chestBoats.put(entityType, replaceColorPalette(humanoidImage, ColorPalette.JUNIPER, palette));
     }
 
     @Override

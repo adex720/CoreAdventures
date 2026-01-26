@@ -195,6 +195,7 @@
   "item.coread.juniper_boat": "Juniper Boat",
   "item.coread.juniper_chest_boat": "Juniper Chest Boat",
   "item.coread.speed_boat": "Speed Boat",
+  "item.coread.speed_chest_boat": "Speed Chest Boat",
 
   "item.coread.dynamite": "Dynamite",
   "item.coread.refuge_compass": "Refuge Compass",
@@ -223,6 +224,8 @@
 
   "entity.coread.juniper_boat": "Juniper Boat",
   "entity.coread.juniper_chest_boat": "Juniper Chest Boat",
+  "entity.coread.speed_boat": "Speed Boat",
+  "entity.coread.speed_boat_chest_boat": "Speed Chest Boat",
 
   "entity.coread.golem_fireball": "Fireball",
   "entity.coread.heat_ball": "Heat Ball",
