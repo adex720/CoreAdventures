@@ -2,7 +2,7 @@
   "parent": "coread:root",
   "criteria": {
     "cool_with_any": {
-      "trigger": "coread:cool_with_ice"
+      "trigger": "coread:cool_in_core"
     }
   },
   "display": {

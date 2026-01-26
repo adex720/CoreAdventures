@@ -1,6 +1,6 @@
 package com.adex.datagen;
 
-import com.adex.advancement.criterion.CoolWithIceTrigger;
+import com.adex.advancement.criterion.CoolInCoreTrigger;
 import com.adex.block.ModBlocks;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.data.structure.refuge.Refuge;
@@ -126,7 +126,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false)
-                .addCriterion("cool_with_any", CoolWithIceTrigger.TriggerInstance.coolsWithAny())
+                .addCriterion("cool_with_any", CoolInCoreTrigger.TriggerInstance.coolsWithAny())
                 .save(consumer, ModDataGenerator.getIdentifierString("cool_with_any"));
 
         AdvancementHolder coolWithBlueIce = Advancement.Builder.advancement()
@@ -139,7 +139,7 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false)
-                .addCriterion("cool_with_blue_ice", CoolWithIceTrigger.TriggerInstance.coolsWith(Blocks.BLUE_ICE))
+                .addCriterion("cool_with_blue_ice", CoolInCoreTrigger.TriggerInstance.coolsWith(Blocks.BLUE_ICE))
                 .rewards(AdvancementRewards.Builder.experience(50))
                 .save(consumer, ModDataGenerator.getIdentifierString("cool_with_blue_ice"));
 

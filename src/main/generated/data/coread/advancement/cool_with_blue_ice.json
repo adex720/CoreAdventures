@@ -5,7 +5,7 @@
       "conditions": {
         "block": "minecraft:blue_ice"
       },
-      "trigger": "coread:cool_with_ice"
+      "trigger": "coread:cool_in_core"
     }
   },
   "display": {

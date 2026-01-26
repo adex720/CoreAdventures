@@ -18,6 +18,7 @@ public class ModTags {
     public static final TagKey<Block> GOLEM_UNBREAKABLE_BLOCKS = registerBlock("golem_unbreakable_blocks");
 
     public static final TagKey<Block> JUNIPER_LOGS = registerBlock("juniper_logs");
+    public static final TagKey<Block> COOLS_IN_CORE = registerBlock("cools_in_core");
 
     public static final TagKey<Item> REPAIRS_CHALCEDONY_ARMOR = registerItem("repairs_chalcedony_armor");
     public static final TagKey<Item> REPAIRS_GARNET_ARMOR = registerItem("repairs_garnet_armor");

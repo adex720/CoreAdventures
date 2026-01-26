@@ -1,6 +1,7 @@
 package com.adex.mixin;
 
 import com.adex.data.dimension.ModDimensions;
+import com.adex.data.tag.ModTags;
 import com.adex.entity.attribute.HeatManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -17,7 +18,7 @@ public class BlockBehaviourMixin {
 
     @Inject(at = @At("HEAD"), method = "onPlace")
     private void onPlaceIce(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState2, boolean bl, CallbackInfo ci) {
-        if (!blockState.is(BlockTags.ICE) || level.dimension() != ModDimensions.CORE) return;
+        if (!blockState.is(ModTags.COOLS_IN_CORE) || level.dimension() != ModDimensions.CORE) return;
 
         HeatManager.applyCooling(level, blockPos, blockState);
     }

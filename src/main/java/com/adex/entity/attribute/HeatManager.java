@@ -25,6 +25,7 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
@@ -163,6 +164,9 @@ public class HeatManager {
         if (block == Blocks.ICE) cooling = 2.0d;
         else if (block == Blocks.PACKED_ICE) cooling = 20.0d;
         else if (block == Blocks.BLUE_ICE) cooling = 200.0d;
+        else if (block == Blocks.SNOW_BLOCK) cooling = 2.0d;
+        else if (block == Blocks.POWDER_SNOW) cooling = 2.0d;
+        else if (block == Blocks.SNOW) cooling = state.getValue(SnowLayerBlock.LAYERS) * 0.25d;
 
         if (cooling < 0.0d) return;
         applyCooling(level, pos.getCenter(), cooling, state);
@@ -178,7 +182,7 @@ public class HeatManager {
                 if (player.getAttributeValue(ModAttributes.HEAT) > 0.0d) {
                     addHeat(player, -cooling);
                     if (player instanceof ServerPlayer serverPlayer) {
-                        ModCriterionTriggers.COOL_WITH_ICE.trigger(serverPlayer, state);
+                        ModCriterionTriggers.COOL_IN_CORE.trigger(serverPlayer, state);
                     }
                 }
             }

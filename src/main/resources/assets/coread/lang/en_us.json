@@ -242,11 +242,11 @@
   "advancements.coread.core.get_full_gem_armor.title": "Shiniest Style",
   "advancements.coread.core.get_full_gem_armor.description": "Get a full suit of gem armor",
   "advancements.coread.core.cool_with_any.title": "Cool Moment",
-  "advancements.coread.core.cool_with_any.description": "Cool down next to ice in core",
+  "advancements.coread.core.cool_with_any.description": "Cool down next to ice or snow in core",
   "advancements.coread.core.cool_with_blue_ice.title": "Sub Zero experience",
   "advancements.coread.core.cool_with_blue_ice.description": "Cool down next to blue ice in core",
   "advancements.coread.core.follow_refuge_compass.title": "Refuge Lookout",
-  "advancements.coread.core.follow_refuge_compass.description": "Follow a Refuge Compass in the core",
+  "advancements.coread.core.follow_refuge_compass.description": "Follow a Refuge Compass in core",
   "advancements.coread.core.find_refuge.title": "Cave Civilization",
   "advancements.coread.core.find_refuge.description": "Enter a refuge",
   "advancements.coread.core.summon_golem.title": "Golem Power",
@@ -258,7 +258,7 @@
   "advancements.coread.core.kill_all_golems.title": "Rainbow Sweep",
   "advancements.coread.core.kill_all_golems.description": "Defeat a golem of every type",
 
-  "death.attack.heat": "%1$s died from heat",
+  "death.attack.heat": "%1$s overheated",
 
   "tag.item.coread.repairs_chalcedony_armor": "Repairs Chalcedony Armor",
   "tag.item.coread.repairs_garnet_armor": "Repairs Garnet Armor",
