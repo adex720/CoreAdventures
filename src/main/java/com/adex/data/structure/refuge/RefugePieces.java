@@ -35,6 +35,7 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_STAIRS_UP = registerPiece(StairsUp::new, "rfstairu");
     public static final StructurePieceType REFUGE_STAIRS_DOWN = registerPiece(StairsDown::new, "rfstaird");
     public static final StructurePieceType REFUGE_STAIRS_CHEST = registerPiece(StairsChest::new, "rfstairc");
+    public static final StructurePieceType REFUGE_STAIRS_EIGHT = registerPiece(StairsEight::new, "rfstaire");
     public static final StructurePieceType REFUGE_LADDER_UP = registerPiece(LadderUp::new, "rfladderu");
     public static final StructurePieceType REFUGE_LADDER_DOWN = registerPiece(LadderDown::new, "rfladderd");
     public static final StructurePieceType REFUGE_LADDER_HIGH = registerPiece(LadderHigh::new, "rfladderh");
