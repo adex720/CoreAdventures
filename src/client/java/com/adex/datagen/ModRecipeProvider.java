@@ -164,6 +164,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             woodenBoat(ModItems.JUNIPER_BOAT, ModBlocks.JUNIPER_PLANKS);
             chestBoat(ModItems.JUNIPER_CHEST_BOAT, ModItems.JUNIPER_BOAT);
 
+            chestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
+
             surroundBy4(ModBlocks.RED_TNT, Blocks.TNT, ModItems.DYNAMITE, RecipeCategory.REDSTONE, UnlockStyle.SECOND);
             nToOne(ModBlocks.ORANGE_TNT, ModBlocks.RED_TNT, RecipeCategory.REDSTONE, 2);
             nToOne(ModBlocks.YELLOW_TNT, ModBlocks.ORANGE_TNT, RecipeCategory.REDSTONE, 2);
