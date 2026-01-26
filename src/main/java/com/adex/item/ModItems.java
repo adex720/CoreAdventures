@@ -108,6 +108,7 @@ public class ModItems {
     public static final Item SPEED_CHEST_BOAT = register("speed_chest_boat", properties -> new BoatItem(ModEntities.SPEED_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
 
 
+    public static final Item CHALCEDONY_SHARD = register("chalcedony_shard", new Item.Properties());
     public static final Item DYNAMITE = register("dynamite", new Item.Properties());
 
 
@@ -238,6 +239,7 @@ public class ModItems {
             itemGroup.accept(RED_GEM_MIXTURE);
             itemGroup.accept(SHINY_GEM_MIXTURE);
 
+            itemGroup.accept(CHALCEDONY_SHARD);
             itemGroup.accept(DYNAMITE);
         });
 

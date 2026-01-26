@@ -164,6 +164,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             woodenBoat(ModItems.JUNIPER_BOAT, ModBlocks.JUNIPER_PLANKS);
             chestBoat(ModItems.JUNIPER_CHEST_BOAT, ModItems.JUNIPER_BOAT);
 
+            customBoat(ModItems.SPEED_BOAT, ModItems.CHALCEDONY_SHARD);
             chestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
 
             surroundBy4(ModBlocks.RED_TNT, Blocks.TNT, ModItems.DYNAMITE, RecipeCategory.REDSTONE, UnlockStyle.SECOND);
@@ -214,6 +215,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .requires(ingredient, n)
                     .unlockedBy(getHasName(ingredient), has(ingredient))
                     .save(output);
+        }
+
+        /**
+         * Creates a boat recipe in the boat recipe group unlocked by having at least one ingredient in inventory.
+         *
+         * @param output     Boat item
+         * @param ingredient Ingredient item
+         */
+        public void customBoat(ItemLike output, ItemLike ingredient) {
+            this.shaped(RecipeCategory.TRANSPORTATION, output)
+                    .define('#', ingredient)
+                    .pattern("# #")
+                    .pattern("###")
+                    .group("boat")
+                    .unlockedBy(getHasName(ingredient), has(ingredient))
+                    .save(this.output);
         }
 
         /**
