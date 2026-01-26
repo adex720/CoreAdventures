@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_speed_boat": {
+    "has_chalcedony_shard": {
       "conditions": {
         "items": [
           {
-            "items": "coread:speed_boat"
+            "items": "coread:chalcedony_shard"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_speed_boat"
+      "has_chalcedony_shard"
     ]
   ],
   "rewards": {
