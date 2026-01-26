@@ -42,6 +42,7 @@ public class ModArmorMaterials {
     public static final ResourceKey<EquipmentAsset> SPINEL_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "spinel"));
     public static final ResourceKey<EquipmentAsset> TIGERS_EYE_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "tigers_eye"));
     public static final ResourceKey<EquipmentAsset> GEM_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "gem"));
+    public static final ResourceKey<EquipmentAsset> LAVA_GOGGLES_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "lava_goggles"));
 
     public static final ArmorMaterial CHALCEDONY_ARMOR_MATERIAL = createGemArmorMaterial(CHALCEDONY_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_CHALCEDONY_ARMOR);
     public static final ArmorMaterial GARNET_ARMOR_MATERIAL = createGemArmorMaterial(GARNET_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_GARNET_ARMOR);
@@ -54,6 +55,10 @@ public class ModArmorMaterials {
     public static final ArmorMaterial SPINEL_ARMOR_MATERIAL = createGemArmorMaterial(SPINEL_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_SPINEL_ARMOR);
     public static final ArmorMaterial TIGERS_EYE_ARMOR_MATERIAL = createGemArmorMaterial(TIGERS_EYE_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_TIGERS_EYE_ARMOR);
     public static final ArmorMaterial GEM_ARMOR_MATERIAL = createGemArmorMaterial(GEM_ARMOR_MATERIAL_KEY, ModTags.REPAIRS_GEM_ARMOR);
+
+    public static final ArmorMaterial LAVA_GOGGLES_ARMOR_MATERIAL = new ArmorMaterial(15,
+            Map.of(ArmorType.HELMET, 0, ArmorType.CHESTPLATE, 0, ArmorType.LEGGINGS, 0, ArmorType.BOOTS, 0),
+            10, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0f, 0.0f, ModTags.REPAIRS_LAVA_GOGGLES, LAVA_GOGGLES_ARMOR_MATERIAL_KEY);
 
 
     public static ArmorMaterial createGemArmorMaterial(ResourceKey<EquipmentAsset> material, TagKey<Item> repair) {

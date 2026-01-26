@@ -139,6 +139,7 @@ public class HeatManager {
     public static float getHeatResistance(ArmorMaterial armorMaterial) {
         if (armorMaterial == ArmorMaterials.COPPER || armorMaterial == ArmorMaterials.IRON || armorMaterial == ArmorMaterials.GOLD)
             return -1.0f;
+        if (armorMaterial == ModArmorMaterials.LAVA_GOGGLES_ARMOR_MATERIAL) return 0.0f;
 
         if (armorMaterial == ArmorMaterials.LEATHER || armorMaterial == ArmorMaterials.CHAINMAIL) return 1.0f;
         if (armorMaterial == ArmorMaterials.NETHERITE || armorMaterial == ArmorMaterials.ARMADILLO_SCUTE || armorMaterial == ArmorMaterials.TURTLE_SCUTE)

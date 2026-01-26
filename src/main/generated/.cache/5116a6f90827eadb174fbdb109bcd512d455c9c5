@@ -187,6 +187,7 @@ f54a9fd39ebfaae985983d9e8d2e66e6b8aaa3bb assets/coread/items/larvikite.json
 023b942c50d92bc3755c06d34525fb25c3143164 assets/coread/items/larvikite_slab.json
 61126510335e1ac5f33f435b9519bdbc001398bb assets/coread/items/larvikite_stairs.json
 0232a21464ac5e9be406f0a407ce23864081876a assets/coread/items/larvikite_wall.json
+5836877e738cd9442535b9822fd386a6cbaafd94 assets/coread/items/lava_goggles.json
 abc43159abefdbee737c93dbbba8b38926bced3b assets/coread/items/onyx.json
 d4b57598dc4c440292e114621489a824c61a0c23 assets/coread/items/onyx_block.json
 699633b1d904553f6fd1c451947c461135b6e8fa assets/coread/items/onyx_boots.json
@@ -522,6 +523,7 @@ ba40a0365772e886d778c163e2ec3077c018e94a assets/coread/models/item/juniper_boat.
 3e976f380791255f91589296455402b640379b30 assets/coread/models/item/juniper_hanging_sign.json
 f0396b0a3eee8944fcd69e5abf8a23d6a03474ce assets/coread/models/item/juniper_sapling.json
 45bcb7e253fa4eeec4e4ad785551a5c89c0d284e assets/coread/models/item/juniper_sign.json
+64c2f9280ca919f45313c2e53b5c62c5b216b1dd assets/coread/models/item/lava_goggles.json
 db0476030d3df190564cd04f08a6e56c1713eccb assets/coread/models/item/onyx.json
 84f3f630a53b6a870b5bed8438987f8819a1fb63 assets/coread/models/item/onyx_boots.json
 125270563ff31577cb4ec25ae9fc56e3b62d2a57 assets/coread/models/item/onyx_chestplate.json

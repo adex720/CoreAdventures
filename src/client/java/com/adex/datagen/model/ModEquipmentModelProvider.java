@@ -22,5 +22,6 @@ public class ModEquipmentModelProvider extends AbstractEquipmentModelProvider {
         generateEquipment(ModArmorMaterials.SPINEL_ARMOR_MATERIAL);
         generateEquipment(ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL);
         generateEquipment(ModArmorMaterials.GEM_ARMOR_MATERIAL);
+        generateEquipment(ModArmorMaterials.LAVA_GOGGLES_ARMOR_MATERIAL);
     }
 }

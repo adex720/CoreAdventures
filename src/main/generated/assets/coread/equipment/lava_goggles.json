@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "coread:lava_goggles"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "coread:lava_goggles"
+      }
+    ]
+  }
+}

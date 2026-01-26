@@ -190,6 +190,8 @@
   "item.coread.gem_leggings": "Gem Leggings",
   "item.coread.gem_boots": "Gem Boots",
 
+  "item.coread.lava_goggles": "Lava Goggles",
+
   "item.coread.juniper_boat": "Juniper Boat",
   "item.coread.juniper_chest_boat": "Juniper Chest Boat",
 
@@ -269,6 +271,8 @@
   "tag.item.coread.repairs_spinel_armor": "Repairs Spinel Armor",
   "tag.item.coread.repairs_tigers_eye_armor": "Repairs Tiger's Eye Armor",
   "tag.item.coread.repairs_gem_armor": "Repairs Gem Armor",
+  "tag.item.coread.repairs_lava_goggles": "Repairs Lava Goggles",
+
   "tag.item.coread.core_armor": "Gem Armor",
   "tag.item.coread.juniper_logs": "Juniper Logs",
 

@@ -5,6 +5,7 @@
   "client": [
     "CompassAngleStateMixin",
     "GuiMixin",
+    "LavaFogEnvironmentMixin",
     "ModelLayersAccessor",
     "WorldOpenFlowsMixin"
   ],

@@ -100,6 +100,8 @@ public class ModItems {
     public static final Item GEM_LEGGINGS = registerGemArmor("gem_leggings", ArmorType.LEGGINGS);
     public static final Item GEM_BOOTS = registerGemArmor("gem_boots", ArmorType.BOOTS);
 
+    public static final Item LAVA_GOGGLES = registerHelmet("lava_goggles", ModArmorMaterials.LAVA_GOGGLES_ARMOR_MATERIAL);
+
 
     public static final Item JUNIPER_BOAT = register("juniper_boat", properties -> new BoatItem(ModEntities.JUNIPER_BOAT, properties), new Item.Properties().stacksTo(1));
     public static final Item JUNIPER_CHEST_BOAT = register("juniper_chest_boat", properties -> new BoatItem(ModEntities.JUNIPER_CHEST_BOAT, properties), new Item.Properties().stacksTo(1));
@@ -285,6 +287,8 @@ public class ModItems {
             itemGroup.accept(GEM_CHESTPLATE);
             itemGroup.accept(GEM_LEGGINGS);
             itemGroup.accept(GEM_BOOTS);
+
+            itemGroup.accept(LAVA_GOGGLES);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((itemGroup) -> {
