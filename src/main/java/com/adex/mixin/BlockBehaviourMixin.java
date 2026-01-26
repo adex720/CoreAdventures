@@ -4,7 +4,6 @@ import com.adex.data.dimension.ModDimensions;
 import com.adex.data.tag.ModTags;
 import com.adex.entity.attribute.HeatManager;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;

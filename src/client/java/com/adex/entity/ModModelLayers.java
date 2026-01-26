@@ -24,6 +24,7 @@ public class ModModelLayers {
 
     public static final ModelLayerLocation JUNIPER_BOAT = register("boat/juniper");
     public static final ModelLayerLocation JUNIPER_CHEST_BOAT = register("chest_boat/juniper");
+    public static final ModelLayerLocation SPEED_BOAT = register("boat/speed");
 
     public static final ModelLayerLocation RED_TNT = register("tnt/red");
     public static final ModelLayerLocation ORANGE_TNT = register("tnt/orange");
@@ -51,8 +52,9 @@ public class ModModelLayers {
 
         EntityModelLayerRegistry.registerModelLayer(JUNIPER_BOAT, BoatModel::createBoatModel);
         EntityModelLayerRegistry.registerModelLayer(JUNIPER_CHEST_BOAT, BoatModel::createChestBoatModel);
+        EntityModelLayerRegistry.registerModelLayer(SPEED_BOAT, BoatModel::createBoatModel);
 
-        EntityModelLayerRegistry.registerModelLayer(RED_TNT,  MinecartModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(RED_TNT, MinecartModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ORANGE_TNT, MinecartModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(YELLOW_TNT, MinecartModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(GREEN_TNT, MinecartModel::createBodyLayer);

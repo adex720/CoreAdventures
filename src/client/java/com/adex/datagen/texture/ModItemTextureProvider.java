@@ -42,12 +42,14 @@ public class ModItemTextureProvider extends ModTextureProvider<Item> {
         BufferedImage leggings;
         BufferedImage boots;
         BufferedImage spawnEgg;
+        BufferedImage boat;
         try {
             helmet = ModTextureProvider.getTexture("item\\diamond_helmet.png");
             chestplate = ModTextureProvider.getTexture("item\\diamond_chestplate.png");
             leggings = ModTextureProvider.getTexture("item\\diamond_leggings.png");
             boots = ModTextureProvider.getTexture("item\\diamond_boots.png");
             spawnEgg = ModTextureProvider.getTexture("item\\chalcedony_golem_spawn_egg.png");
+            boat = ModTextureProvider.getTexture("item\\juniper_boat.png");
         } catch (IOException e) {
             ModDataGenerator.LOGGER.error("Failed to load base armor item textures: {}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));
             return;
@@ -74,6 +76,8 @@ public class ModItemTextureProvider extends ModTextureProvider<Item> {
         recolorBaseItem(ModItems.SAPPHIRE_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.SAPPHIRE_ARMOR);
         recolorBaseItem(ModItems.SPINEL_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.SPINEL_ARMOR);
         recolorBaseItem(ModItems.TIGERS_EYE_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.TIGERS_EYE_ARMOR);
+
+        recolorBaseItem(ModItems.SPEED_BOAT, boat, ColorPalette.JUNIPER, ColorPalette.CHALCEDONY_BOAT);
     }
 
     public void recolorBaseArmor(Item helmet, Item chestplate, Item leggings, Item boots, BufferedImage helmetImage, BufferedImage chestplateImage, BufferedImage leggingsImage, BufferedImage bootsImage, ColorPalette palette) {
