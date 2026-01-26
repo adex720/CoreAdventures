@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "coread:juniper_chest_boat"
+    "coread:juniper_chest_boat",
+    "coread:speed_chest_boat"
   ]
 }

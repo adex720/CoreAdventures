@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "coread:juniper_boat"
+    "coread:juniper_boat",
+    "coread:speed_boat"
   ]
 }
