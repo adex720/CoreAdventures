@@ -167,6 +167,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             customBoat(ModItems.SPEED_BOAT, ModItems.CHALCEDONY_SHARD);
             chestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
 
+            heatStabilizer(ModBlocks.HEAT_STABILIZER);
             lavaGoggles(ModItems.LAVA_GOGGLES);
 
             surroundBy4(ModBlocks.RED_TNT, Blocks.TNT, ModItems.DYNAMITE, RecipeCategory.REDSTONE, UnlockStyle.SECOND);
@@ -455,6 +456,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .define('J', ModItems.JASPER_FRAGMENT)
                     .define('G', Blocks.GLASS_PANE)
                     .unlockedBy(getHasName(ModItems.JASPER_FRAGMENT), has(ModItems.JASPER_FRAGMENT))
+                    .save(output);
+        }
+
+        public void heatStabilizer(ItemLike heatStabilizer) {
+            shaped(RecipeCategory.COMBAT, heatStabilizer)
+                    .pattern("FFF")
+                    .pattern("FBF")
+                    .pattern("FFF")
+                    .define('B', ModBlocks.GARNET_BLOCK)
+                    .define('F', ModItems.GARNET_FRAGMENT)
+                    .unlockedBy(getHasName(ModBlocks.GARNET_BLOCK), has(ModBlocks.GARNET_BLOCK))
+                    .unlockedBy(getHasName(ModItems.GARNET_FRAGMENT), has(ModItems.GARNET_FRAGMENT))
                     .save(output);
         }
     }

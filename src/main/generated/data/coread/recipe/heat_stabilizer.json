@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": "coread:garnet_block",
+    "F": "coread:garnet_fragment"
+  },
+  "pattern": [
+    "FFF",
+    "FBF",
+    "FFF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:heat_stabilizer"
+  }
+}
