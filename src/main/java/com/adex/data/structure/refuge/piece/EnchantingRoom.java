@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
-public class EnchantingRoom extends FiveByFiveRoom {
+public class EnchantingRoom extends FiveWideRoom {
 
     public EnchantingRoom(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
         super(RefugePieces.REFUGE_ENCHANTING_ROOM, index, boundingBox, direction, pos);

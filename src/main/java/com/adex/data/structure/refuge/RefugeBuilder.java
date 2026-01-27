@@ -95,6 +95,7 @@ public class RefugeBuilder {
                 new PieceCreator(BedRoom::new, 2, 5, 6, BedRoom::getBaseBoundingBox),
                 new PieceCreator(EnchantingRoom::new, 5, 1, 2, EnchantingRoom::getBaseBoundingBox),
                 new PieceCreator(BrewingRoom::new, 5, 1, 2, BrewingRoom::getBaseBoundingBox),
+                new PieceCreator(MusicRoom::new, 5, 1, 2, MusicRoom::getBaseBoundingBox),
                 new PieceCreator(EndChestRoom::new, 3, 2, 3, EndChestRoom::getBaseBoundingBox),
                 new PieceCreator(EndTrapChestRoom::new, 2, 1, 3, EndTrapChestRoom::getBaseBoundingBox),
                 new PieceCreator(CorridorShort::new, 5, 10, CorridorShort::getBaseBoundingBox),

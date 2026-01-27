@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.LecternBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
-public class BrewingRoom extends FiveByFiveRoom {
+public class BrewingRoom extends FiveWideRoom {
 
     public BrewingRoom(int index, BoundingBox boundingBox, Direction direction, BlockPos pos) {
         super(RefugePieces.REFUGE_BREWING_ROOM, index, boundingBox, direction, pos);
