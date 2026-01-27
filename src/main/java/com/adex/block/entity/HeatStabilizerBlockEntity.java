@@ -2,6 +2,7 @@ package com.adex.block.entity;
 
 import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.block.HeatStabilizerBlock;
+import com.adex.data.dimension.ModDimensions;
 import com.adex.data.tag.ModTags;
 import com.adex.effect.ModEffects;
 import com.adex.entity.statistics.ModStats;
@@ -57,8 +58,13 @@ public class HeatStabilizerBlockEntity extends BlockEntity {
         if (fuel <= 0) return;
         fuel--;
 
+        // Update LIT blockState if needed
         checkBlockState(level, pos);
 
+        // Don't give effect outside core
+        if (level.dimension() != ModDimensions.CORE) return;
+
+        // Give effect to all players within range
         Vec3 centerPos = pos.getCenter();
         AABB searchArea = AABB.ofSize(centerPos, range, range, range);
         for (Player player : level.getEntitiesOfClass(Player.class, searchArea)) {
@@ -66,6 +72,10 @@ public class HeatStabilizerBlockEntity extends BlockEntity {
         }
     }
 
+    /**
+     * Gives the player {@link ModEffects#HEAT_IMMUNITY} and
+     * triggers {@link ModCriterionTriggers#BECOME_HEAT_IMMUNE} if on server side.
+     */
     private void apply(Player player) {
         player.addEffect(new MobEffectInstance(ModEffects.HEAT_IMMUNITY, UPDATE_INTERVAL + 1, 0, false, false));
 
@@ -73,6 +83,9 @@ public class HeatStabilizerBlockEntity extends BlockEntity {
             ModCriterionTriggers.BECOME_HEAT_IMMUNE.trigger(serverPlayer);
     }
 
+    /**
+     * Checks and updates the owner {@link BlockState} if needed.
+     */
     private void checkBlockState(Level level, BlockPos pos) {
         BlockState old = level.getBlockState(pos);
         boolean shouldBeLit = fuel > 0;
@@ -90,6 +103,12 @@ public class HeatStabilizerBlockEntity extends BlockEntity {
         return InteractionResult.SUCCESS;
     }
 
+    /**
+     * Consumes one item from the itemStack and updates player statistics.
+     *
+     * @param player    Player who interacted
+     * @param itemStack ItemStack used
+     */
     private void updateHand(Player player, ItemStack itemStack) {
         player.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
         player.awardStat(ModStats.INTERACT_WITH_HEAT_STABILIZER);
