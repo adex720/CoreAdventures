@@ -167,6 +167,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             customBoat(ModItems.SPEED_BOAT, ModItems.CHALCEDONY_SHARD);
             chestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
 
+            lavaGoggles(ModItems.LAVA_GOGGLES);
+
             surroundBy4(ModBlocks.RED_TNT, Blocks.TNT, ModItems.DYNAMITE, RecipeCategory.REDSTONE, UnlockStyle.SECOND);
             nToOne(ModBlocks.ORANGE_TNT, ModBlocks.RED_TNT, RecipeCategory.REDSTONE, 2);
             nToOne(ModBlocks.YELLOW_TNT, ModBlocks.ORANGE_TNT, RecipeCategory.REDSTONE, 2);
@@ -441,6 +443,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .pattern("##")
                     .pattern("##")
                     .unlockedBy(getHasName(ingredient), has(ingredient))
+                    .save(output);
+        }
+
+        public void lavaGoggles(Item goggles) {
+            shaped(RecipeCategory.COMBAT, goggles)
+                    .pattern("LJL")
+                    .pattern("JGJ")
+                    .pattern(" J ")
+                    .define('L', Items.LEATHER)
+                    .define('J', ModItems.JASPER_FRAGMENT)
+                    .define('G', Blocks.GLASS_PANE)
+                    .unlockedBy(getHasName(ModItems.JASPER_FRAGMENT), has(ModItems.JASPER_FRAGMENT))
                     .save(output);
         }
     }

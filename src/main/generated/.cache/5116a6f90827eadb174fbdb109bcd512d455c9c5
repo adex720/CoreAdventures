@@ -159,6 +159,7 @@ bb0989f95a276de5e00475a6bcefea206b7fc50e assets/coread/items/jasper.json
 89a9c81b7f200ce671203f34ab6f2334276b31b6 assets/coread/items/jasper_block.json
 ac9bfc57bccc1912c8e8841704d98d7a800b9468 assets/coread/items/jasper_boots.json
 f7f0c262538094a8f8d251ec4c937fec1fb9d14a assets/coread/items/jasper_chestplate.json
+91dfed00626e9acd09768ba9e57ded8e2ab7b87e assets/coread/items/jasper_fragment.json
 2a4f6cbbbee48858c6cd3b21ccce93559a2920bb assets/coread/items/jasper_golem_block.json
 0d02a940ddff4922f42491feb91aef3fc5f65b5a assets/coread/items/jasper_golem_spawn_egg.json
 1b635215c181d091eaf6a2ba4fd1a2f33c1e8916 assets/coread/items/jasper_helmet.json
@@ -518,6 +519,7 @@ dcf83ab461bbddce28b5fb9e926bc77e5b944d3a assets/coread/models/item/jade_golem_sp
 0b81d9aa10432257367f6a2a205cada96adc9004 assets/coread/models/item/jasper.json
 8d8dd87f1d36090e5c2db586bf6c6df0018a7690 assets/coread/models/item/jasper_boots.json
 e2128a300f2f98f7d56990a438f0b27035b8432c assets/coread/models/item/jasper_chestplate.json
+a7b1ad0d42e9a7ec63fc951da37bc9bb6acad3ca assets/coread/models/item/jasper_fragment.json
 b0c5df6b231b6401bd2adbeaf66921d5ce1b55cf assets/coread/models/item/jasper_golem_spawn_egg.json
 cb0ac40a78afae9389a6c4c21378e7708a4fe21e assets/coread/models/item/jasper_helmet.json
 2dffb010fe92b4931444350b458c6c12042e0d70 assets/coread/models/item/jasper_leggings.json

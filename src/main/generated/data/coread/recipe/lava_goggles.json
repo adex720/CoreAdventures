@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": "minecraft:glass_pane",
+    "J": "coread:jasper_fragment",
+    "L": "minecraft:leather"
+  },
+  "pattern": [
+    "LJL",
+    "JGJ",
+    " J "
+  ],
+  "result": {
+    "count": 1,
+    "id": "coread:lava_goggles"
+  }
+}

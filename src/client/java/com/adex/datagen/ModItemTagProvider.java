@@ -52,7 +52,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(HEAD_ARMOR)
                 .add(ModItems.CHALCEDONY_HELMET, ModItems.GARNET_HELMET, ModItems.JADE_HELMET, ModItems.JASPER_HELMET,
                         ModItems.ONYX_HELMET, ModItems.OPAL_HELMET, ModItems.RUBY_HELMET, ModItems.SAPPHIRE_HELMET,
-                        ModItems.SPINEL_HELMET, ModItems.TIGERS_EYE_HELMET, ModItems.GEM_HELMET)
+                        ModItems.SPINEL_HELMET, ModItems.TIGERS_EYE_HELMET, ModItems.GEM_HELMET, ModItems.LAVA_GOGGLES)
                 .setReplace(false);
 
         valueLookupBuilder(FOOT_ARMOR_ENCHANTABLE)
