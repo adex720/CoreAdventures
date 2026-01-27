@@ -4,6 +4,7 @@ import com.adex.CoreAdventures;
 import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
+import com.adex.effect.ModEffects;
 import com.adex.item.ModDataComponents;
 import com.adex.item.armor.ModArmorMaterials;
 import net.minecraft.core.BlockPos;
@@ -52,11 +53,13 @@ public class HeatManager {
             return;
         }
 
+        // Reset heat if gameMode is CREATIVE or SPECTATOR
         if (player.gameMode() == GameType.CREATIVE || player.gameMode() == GameType.SPECTATOR) {
             player.getAttribute(ModAttributes.HEAT).removeModifier(HEAT_AMOUNT);
             return;
         }
 
+        // Reduce heat if not in core
         Level level = player.level();
         if (level.dimension() != ModDimensions.CORE) {
             addHeat(player, -DEFAULT_HEATING_RATE / BASE_HEAT_RESISTANCE);
@@ -64,6 +67,10 @@ public class HeatManager {
             return;
         }
 
+        // Don't modify heat if player has HEAT_IMMUNITY
+        if (player.hasEffect(ModEffects.HEAT_IMMUNITY)) return;
+
+        // Increase heat
         double newValue = addHeat(player, DEFAULT_HEATING_RATE / getHeatResistance(player));
         double reduction = 0.0d; // How much heat to reduce for taken damage
 

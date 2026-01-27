@@ -131,6 +131,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         add(ModBlocks.JUNIPER_LEAVES, block -> createLeavesDrops(block, ModBlocks.JUNIPER_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
 
         dropSelf(ModBlocks.REINFORCED_ANCIENT_DEBRIS);
+        dropSelf(ModBlocks.HEAT_STABILIZER);
 
         crateTnt(ModBlocks.RED_TNT);
         crateTnt(ModBlocks.ORANGE_TNT);

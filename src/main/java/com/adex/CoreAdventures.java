@@ -4,12 +4,14 @@ import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.block.ModBlockSetTypes;
 import com.adex.block.ModBlocks;
 import com.adex.block.ModWoodTypes;
+import com.adex.block.entity.ModBlockEntities;
 import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.data.feature.ModTreeGrowers;
 import com.adex.data.loottable.ModLootTables;
 import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.RefugePieces;
+import com.adex.effect.ModEffects;
 import com.adex.enchantment.effect.ModEnchantmentEffectComponents;
 import com.adex.enchantment.effect.ModEnchantmentEffects;
 import com.adex.entity.ModEntities;
@@ -50,9 +52,11 @@ public class CoreAdventures implements ModInitializer {
 
         ModItems.initialize();
         ModBlocks.initialize();
+        ModBlockEntities.initialize();
 
         ModAttributes.initialize();
         ModPoiTypes.initialize();
+        ModEffects.initialize();
 
         ModEntities.initialize();
 

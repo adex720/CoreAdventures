@@ -92,6 +92,7 @@
   "block.coread.tigers_eye_golem_block": "Tiger's Eye Golem block",
 
   "block.coread.reinforced_ancient_debris": "Reinforced Ancient Debris",
+  "block.coread.heat_stabilizer": "Heat Stabilizer",
 
   "block.coread.juniper_log": "Juniper Log",
   "block.coread.juniper_wood": "Juniper Wood",
@@ -235,6 +236,8 @@
 
   "enchantment.coread.chaining": "Chaining",
   "enchantment.coread.heat_protection": "Heat Protection",
+
+  "effect.coread.heat_immunity": "Heat Immunity",
 
   "advancements.coread.story.light_core_portal.title": "Deep Adventures Await",
   "advancements.coread.story.light_core_portal.description": "Build a core portal from reinforced ancient debris and light it",
