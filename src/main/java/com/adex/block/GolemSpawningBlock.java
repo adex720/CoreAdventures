@@ -1,6 +1,7 @@
 package com.adex.block;
 
 import com.adex.entity.golem.Golem;
+import com.adex.entity.statistics.ModStats;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -63,6 +64,7 @@ public class GolemSpawningBlock extends Block {
         level.addFreshEntity(golem);
 
         for (ServerPlayer serverPlayer : level.getEntitiesOfClass(ServerPlayer.class, golem.getBoundingBox().inflate(5.0))) {
+            serverPlayer.awardStat(ModStats.SUMMON_GOLEM);
             CriteriaTriggers.SUMMONED_ENTITY.trigger(serverPlayer, golem);
         }
     }

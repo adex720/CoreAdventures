@@ -10,6 +10,7 @@ import net.minecraft.stats.Stats;
 public class ModStats {
 
     public static final Identifier INTERACT_WITH_HEAT_STABILIZER = register("interact_with_heat_stabilizer");
+    public static final Identifier SUMMON_GOLEM = register("summon_golem");
 
     private static Identifier register(String name) {
         Identifier identifier = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name);
@@ -18,5 +19,6 @@ public class ModStats {
 
     public static void initialize() {
         Stats.CUSTOM.get(INTERACT_WITH_HEAT_STABILIZER, StatFormatter.DEFAULT);
+        Stats.CUSTOM.get(SUMMON_GOLEM, StatFormatter.DEFAULT);
     }
 }
