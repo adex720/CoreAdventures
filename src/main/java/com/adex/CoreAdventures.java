@@ -17,6 +17,7 @@ import com.adex.enchantment.effect.ModEnchantmentEffects;
 import com.adex.entity.ModEntities;
 import com.adex.entity.attribute.ModAttributes;
 import com.adex.entity.poi.ModPoiTypes;
+import com.adex.entity.statistics.ModStats;
 import com.adex.event.ModEvents;
 import com.adex.data.feature.ModFeatures;
 import com.adex.item.ModDataComponents;
@@ -57,6 +58,7 @@ public class CoreAdventures implements ModInitializer {
         ModAttributes.initialize();
         ModPoiTypes.initialize();
         ModEffects.initialize();
+        ModStats.initialize();
 
         ModEntities.initialize();
 

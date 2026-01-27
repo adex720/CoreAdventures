@@ -282,9 +282,12 @@
   "tag.item.coread.repairs_tigers_eye_armor": "Repairs Tiger's Eye Armor",
   "tag.item.coread.repairs_gem_armor": "Repairs Gem Armor",
   "tag.item.coread.repairs_lava_goggles": "Repairs Lava Goggles",
+  "tag.item.coread.heat_stabilizer_fuel": "Heat Stabilizer Fuel",
 
   "tag.item.coread.core_armor": "Gem Armor",
   "tag.item.coread.juniper_logs": "Juniper Logs",
+
+  "stat.coread.interact_with_heat_stabilizer": "Interactions with Heat Stabilizer",
 
   "attribute.name.heat": "Heat",
   "attribute.name.heat_protection": "Heat Protection",

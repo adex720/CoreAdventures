@@ -3,9 +3,9 @@ package com.adex.block.entity;
 import com.adex.block.HeatStabilizerBlock;
 import com.adex.data.tag.ModTags;
 import com.adex.effect.ModEffects;
+import com.adex.entity.statistics.ModStats;
 import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.NonNull;
 
@@ -83,12 +82,12 @@ public class HeatStabilizerBlockEntity extends BlockEntity {
         fuel += 10;
         checkBlockState(level, pos);
         if (!level.isClientSide()) updateHand(player, item);
-        return InteractionResult.CONSUME;
+        return InteractionResult.SUCCESS;
     }
 
     private void updateHand(Player player, ItemStack itemStack) {
-        // TODO: create stat for fueling
         player.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
+        player.awardStat(ModStats.INTERACT_WITH_HEAT_STABILIZER);
         itemStack.consume(1, player);
     }
 }
