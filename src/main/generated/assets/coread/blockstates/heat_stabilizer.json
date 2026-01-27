@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "lit=false": {
       "model": "coread:block/heat_stabilizer"
+    },
+    "lit=true": {
+      "model": "coread:block/heat_stabilizer_lit"
     }
   }
 }

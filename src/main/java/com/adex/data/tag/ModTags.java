@@ -37,6 +37,8 @@ public class ModTags {
 
     public static final TagKey<Item> CORE_ARMOR = registerItem("core_armor");
 
+    public static final TagKey<Item> HEAT_STABILIZER_FUEL = registerItem("heat_stabilizer_fuel");
+
     public static final TagKey<Biome> CORE_BIOMES = registerBiome("core");
 
     public static final TagKey<DamageType> CHALCEDONY_PROTECTIVE_ARMOR = registerDamageType("chalcedony_protective_armor");

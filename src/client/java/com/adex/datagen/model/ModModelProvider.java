@@ -1,17 +1,24 @@
 package com.adex.datagen.model;
 
+import com.adex.block.HeatStabilizerBlock;
 import com.adex.block.ModBlocks;
 import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.MultiVariant;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.properties.numeric.CompassAngle;
 import net.minecraft.client.renderer.item.properties.numeric.CompassAngleState;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jspecify.annotations.NonNull;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -89,7 +96,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createPlantWithDefaultItem(ModBlocks.JUNIPER_SAPLING, ModBlocks.POTTED_JUNIPER_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
 
-        blockStateModelGenerator.createTrivialCube(ModBlocks.HEAT_STABILIZER);
+        createBooleanPropertyCube(blockStateModelGenerator, ModBlocks.HEAT_STABILIZER, HeatStabilizerBlock.LIT, "lit");
 
         blockStateModelGenerator.createTrivialBlock(ModBlocks.RED_TNT, TexturedModel.CUBE_TOP_BOTTOM);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.ORANGE_TNT, TexturedModel.CUBE_TOP_BOTTOM);
@@ -200,6 +207,14 @@ public class ModModelProvider extends FabricModelProvider {
         // Creating a custom CompassTarget required overriding an abstract package-private method and thus is not possible.
         // Therefore, refuge compass is given the CompassTarget NONE and the targetting is handled via mixin.
         itemModelGenerator.itemModelOutput.accept(compass, ItemModelUtils.rangeSelect(new CompassAngle(true, CompassAngleState.CompassTarget.NONE), 32.0f, itemModelGenerator.createCompassModels(compass)));
+    }
+
+    public void createBooleanPropertyCube(BlockModelGenerators generator, Block block, BooleanProperty property, String name) {
+        MultiVariant falseVariant = BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(block, generator.modelOutput));
+        Identifier identifier = TextureMapping.getBlockTexture(block, "_" + name);
+        MultiVariant trueVariant = BlockModelGenerators.plainVariant(TexturedModel.CUBE.get(block).updateTextures(
+                textureMapping -> textureMapping.put(TextureSlot.ALL, identifier)).createWithSuffix(block, "_" + name, generator.modelOutput));
+        generator.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(BlockModelGenerators.createBooleanModelDispatch(property, trueVariant, falseVariant)));
     }
 
     @Override
