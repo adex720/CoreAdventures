@@ -1,0 +1,26 @@
+{
+  "parent": "coread:cool_with_any",
+  "criteria": {
+    "became_heat_immune": {
+      "trigger": "coread:become_heat_immune"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.coread.core.become_heat_immune.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:heat_stabilizer"
+    },
+    "title": {
+      "translate": "advancements.coread.core.become_heat_immune.title"
+    }
+  },
+  "requirements": [
+    [
+      "became_heat_immune"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -22,6 +22,7 @@ public class LightCorePortalTrigger extends SimpleCriterionTrigger<LightCorePort
     }
 
     public record TriggerInstance(Optional<ContextAwarePredicate> player) implements SimpleCriterionTrigger.SimpleInstance {
+
         public static final Codec<LightCorePortalTrigger.TriggerInstance> CODEC = RecordCodecBuilder.create(
                 instance -> instance.group(EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(LightCorePortalTrigger.TriggerInstance::player))
                         .apply(instance, LightCorePortalTrigger.TriggerInstance::new));

@@ -1,5 +1,6 @@
 package com.adex.datagen;
 
+import com.adex.advancement.criterion.BecomeHeatImmuneTrigger;
 import com.adex.advancement.criterion.CoolInCoreTrigger;
 import com.adex.block.ModBlocks;
 import com.adex.data.dimension.ModDimensions;
@@ -142,6 +143,19 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("cool_with_blue_ice", CoolInCoreTrigger.TriggerInstance.coolsWith(Blocks.BLUE_ICE))
                 .rewards(AdvancementRewards.Builder.experience(50))
                 .save(consumer, ModDataGenerator.getIdentifierString("cool_with_blue_ice"));
+
+        AdvancementHolder becomeHeatImmune = Advancement.Builder.advancement()
+                .parent(coolWithIce)
+                .display(ModBlocks.HEAT_STABILIZER,
+                        Component.translatable("advancements.coread.core.become_heat_immune.title"),
+                        Component.translatable("advancements.coread.core.become_heat_immune.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false)
+                .addCriterion("became_heat_immune", BecomeHeatImmuneTrigger.TriggerInstance.becomeHeatImmune())
+                .save(consumer, ModDataGenerator.getIdentifierString("become_heat_immune"));
 
         AdvancementHolder followRefugeCompass = Advancement.Builder.advancement()
                 .parent(root)

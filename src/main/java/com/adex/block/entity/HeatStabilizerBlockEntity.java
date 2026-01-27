@@ -1,10 +1,12 @@
 package com.adex.block.entity;
 
+import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.block.HeatStabilizerBlock;
 import com.adex.data.tag.ModTags;
 import com.adex.effect.ModEffects;
 import com.adex.entity.statistics.ModStats;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -66,6 +68,9 @@ public class HeatStabilizerBlockEntity extends BlockEntity {
 
     private void apply(Player player) {
         player.addEffect(new MobEffectInstance(ModEffects.HEAT_IMMUNITY, UPDATE_INTERVAL + 1, 0, false, false));
+
+        if (player instanceof ServerPlayer serverPlayer)
+            ModCriterionTriggers.BECOME_HEAT_IMMUNE.trigger(serverPlayer);
     }
 
     private void checkBlockState(Level level, BlockPos pos) {
