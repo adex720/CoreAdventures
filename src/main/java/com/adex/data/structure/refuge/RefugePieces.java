@@ -17,6 +17,7 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_TREASURE_ROOM = registerPiece(TreasureRoom::new, "rftreasure");
     public static final StructurePieceType REFUGE_TREE_ROOM = registerPiece(TreeRoom::new, "rftree");
     public static final StructurePieceType REFUGE_PORTAL_ROOM = registerPiece(PortalRoom::new, "rfportal");
+    public static final StructurePieceType REFUGE_FARM_ROOM = registerPiece(FarmRoom::new, "rffarm");
     public static final StructurePieceType REFUGE_BED_ROOM = registerPiece(BedRoom::new, "rfbed");
     public static final StructurePieceType REFUGE_ENCHANTING_ROOM = registerPiece(EnchantingRoom::new, "rfenchant");
     public static final StructurePieceType REFUGE_BREWING_ROOM = registerPiece(BrewingRoom::new, "rfbrew");
