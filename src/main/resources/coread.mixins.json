@@ -13,6 +13,7 @@
     "DefaultAttributesAccessor",
     "EnchantmentHelperMixin",
     "FoodDataMixin",
+    "GoalSelectorAccessor",
     "ItemPropertiesAccessor",
     "ItemPropertiesMixin",
     "PathNavigationAccessor",

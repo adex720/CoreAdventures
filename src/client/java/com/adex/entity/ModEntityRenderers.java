@@ -1,9 +1,7 @@
 package com.adex.entity;
 
 import com.adex.entity.golem.*;
-import com.adex.entity.sentry.SentryRenderer;
 import com.adex.entity.sentry.TraderSentryRenderer;
-import com.adex.entity.sentry.WarriorSentry;
 import com.adex.entity.sentry.WarriorSentryRenderer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;

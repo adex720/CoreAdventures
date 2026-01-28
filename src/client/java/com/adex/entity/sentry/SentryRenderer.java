@@ -1,7 +1,6 @@
 package com.adex.entity.sentry;
 
 import com.adex.CoreAdventures;
-import com.adex.entity.ModModelLayers;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
