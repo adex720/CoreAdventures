@@ -194,7 +194,7 @@ public class Sentry extends Monster {
 
     public void lookAtIfPossible(Entity entity) {
         GoalSelectorAccessor goalSelector = (GoalSelectorAccessor) this.goalSelector;
-        if (goalSelector.coread$getDisabledFlags().contains(Goal.Flag.LOOK)
+        if (goalSelector.coread$getLockedFlags().containsKey(Goal.Flag.LOOK)
                 || goalSelector.coread$getDisabledFlags().contains(Goal.Flag.LOOK)) {
             return;
         }
