@@ -8,7 +8,10 @@ import com.adex.entity.golem.*;
 import com.adex.entity.projectile.projectile.DynamiteProjectile;
 import com.adex.entity.projectile.projectile.GolemFireball;
 import com.adex.entity.projectile.projectile.HeatBall;
+import com.adex.entity.sentry.Sentry;
 import com.adex.item.ModItems;
+import com.adex.mixin.DefaultAttributesAccessor;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -16,37 +19,30 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.vehicle.boat.Boat;
 import net.minecraft.world.entity.vehicle.boat.ChestBoat;
 
 public class ModEntities {
 
-    public static final ResourceKey<EntityType<?>> CHALCEDONY_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "chalcedony_golem"));
-    public static final ResourceKey<EntityType<?>> GARNET_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "garnet_golem"));
-    public static final ResourceKey<EntityType<?>> JADE_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "jade_golem"));
-    public static final ResourceKey<EntityType<?>> JASPER_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "jasper_golem"));
-    public static final ResourceKey<EntityType<?>> ONYX_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "onyx_golem"));
-    public static final ResourceKey<EntityType<?>> OPAL_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "opal_golem"));
-    public static final ResourceKey<EntityType<?>> RUBY_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "ruby_golem"));
-    public static final ResourceKey<EntityType<?>> SAPPHIRE_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "sapphire_golem"));
-    public static final ResourceKey<EntityType<?>> SPINEL_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "spinel_golem"));
-    public static final ResourceKey<EntityType<?>> TIGERS_EYE_GOLEM_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "tigers_eye_golem"));
-
     public static final ResourceKey<EntityType<?>> GOLEM_FIREBALL_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "golem_fireball"));
     public static final ResourceKey<EntityType<?>> HEAT_BALL_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat_ball"));
     public static final ResourceKey<EntityType<?>> DYNAMITE_PROJECTILE_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "dynamite_projectile"));
 
-    public static final EntityType<ChalcedonyGolem> CHALCEDONY_GOLEM = register(CHALCEDONY_GOLEM_KEY, ChalcedonyGolem.builder(ChalcedonyGolem::new));
-    public static final EntityType<GarnetGolem> GARNET_GOLEM = register(GARNET_GOLEM_KEY, GarnetGolem.builder(GarnetGolem::new));
-    public static final EntityType<JadeGolem> JADE_GOLEM = register(JADE_GOLEM_KEY, JadeGolem.builder(JadeGolem::new));
-    public static final EntityType<JasperGolem> JASPER_GOLEM = register(JASPER_GOLEM_KEY, JasperGolem.builder(JasperGolem::new));
-    public static final EntityType<OnyxGolem> ONYX_GOLEM = register(ONYX_GOLEM_KEY, OnyxGolem.builder(OnyxGolem::new));
-    public static final EntityType<OpalGolem> OPAL_GOLEM = register(OPAL_GOLEM_KEY, OpalGolem.builder(OpalGolem::new));
-    public static final EntityType<RubyGolem> RUBY_GOLEM = register(RUBY_GOLEM_KEY, RubyGolem.builder(RubyGolem::new));
-    public static final EntityType<SapphireGolem> SAPPHIRE_GOLEM = register(SAPPHIRE_GOLEM_KEY, SapphireGolem.builder(SapphireGolem::new));
-    public static final EntityType<SpinelGolem> SPINEL_GOLEM = register(SPINEL_GOLEM_KEY, SpinelGolem.builder(SpinelGolem::new));
-    public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = register(TIGERS_EYE_GOLEM_KEY, TigersEyeGolem.builder(TigersEyeGolem::new));
+    public static final EntityType<ChalcedonyGolem> CHALCEDONY_GOLEM = register("chalcedony_golem", ChalcedonyGolem.builder(ChalcedonyGolem::new));
+    public static final EntityType<GarnetGolem> GARNET_GOLEM = register("garnet_golem", GarnetGolem.builder(GarnetGolem::new));
+    public static final EntityType<JadeGolem> JADE_GOLEM = register("jade_golem", JadeGolem.builder(JadeGolem::new));
+    public static final EntityType<JasperGolem> JASPER_GOLEM = register("jasper_golem", JasperGolem.builder(JasperGolem::new));
+    public static final EntityType<OnyxGolem> ONYX_GOLEM = register("onyx_golem", OnyxGolem.builder(OnyxGolem::new));
+    public static final EntityType<OpalGolem> OPAL_GOLEM = register("opal_golem", OpalGolem.builder(OpalGolem::new));
+    public static final EntityType<RubyGolem> RUBY_GOLEM = register("ruby_golem", RubyGolem.builder(RubyGolem::new));
+    public static final EntityType<SapphireGolem> SAPPHIRE_GOLEM = register("sapphire_golem", SapphireGolem.builder(SapphireGolem::new));
+    public static final EntityType<SpinelGolem> SPINEL_GOLEM = register("spinel_golem", SpinelGolem.builder(SpinelGolem::new));
+    public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = register("tigers_eye_golem", TigersEyeGolem.builder(TigersEyeGolem::new));
+
+    public static final EntityType<Sentry> SENTRY = register("sentry", Sentry.builder(Sentry::new));
 
     public static final EntityType<PrimedStrongTnt> PRIMED_RED_TNT = registerTnt(ModBlocks.RED_TNT, "red_tnt");
     public static final EntityType<PrimedStrongTnt> PRIMED_ORANGE_TNT = registerTnt(ModBlocks.ORANGE_TNT, "orange_tnt");
@@ -104,6 +100,12 @@ public class ModEntities {
         Golem.registerAttributes(SPINEL_GOLEM);
         Golem.registerAttributes(TIGERS_EYE_GOLEM);
 
+        registerAttributes(SENTRY, Sentry.createAttributes());
+
         PotionAttackGoal.initializeEffects();
+    }
+
+    private static void registerAttributes(EntityType<? extends LivingEntity> entityType, AttributeSupplier.Builder builder) {
+        DefaultAttributesAccessor.coread$getSuppliers().put(entityType, builder.build());
     }
 }

@@ -1,4 +1,4 @@
-package com.adex.entity.statistics;
+package com.adex.statistics;
 
 import com.adex.CoreAdventures;
 import net.minecraft.core.Registry;

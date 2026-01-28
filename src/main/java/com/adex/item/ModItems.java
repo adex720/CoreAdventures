@@ -128,6 +128,8 @@ public class ModItems {
     public static final Item SPINEL_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.SPINEL_GOLEM);
     public static final Item TIGERS_EYE_GOLEM_SPAWN_EGG = registerSpawnEgg(ModEntities.TIGERS_EYE_GOLEM);
 
+    public static final Item SENTRY_SPAWN_EGG = registerSpawnEgg(ModEntities.SENTRY);
+
     public static Item register(String name, Item.Properties settings) {
         return register(name, Item::new, settings);
     }
@@ -326,6 +328,8 @@ public class ModItems {
             itemGroup.accept(SAPPHIRE_GOLEM_SPAWN_EGG);
             itemGroup.accept(SPINEL_GOLEM_SPAWN_EGG);
             itemGroup.accept(TIGERS_EYE_GOLEM_SPAWN_EGG);
+
+            itemGroup.accept(SENTRY_SPAWN_EGG);
         });
     }
 

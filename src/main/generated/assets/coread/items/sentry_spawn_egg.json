@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "coread:item/sentry_spawn_egg"
+  }
+}

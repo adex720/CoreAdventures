@@ -200,6 +200,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.SPINEL_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
+
+        itemModelGenerator.generateFlatItem(ModItems.SENTRY_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
     }
 
     private void createRefugeCompass(ItemModelGenerators itemModelGenerator, Item compass) {

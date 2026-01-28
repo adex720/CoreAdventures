@@ -2,6 +2,7 @@ package com.adex.entity;
 
 import com.adex.CoreAdventures;
 import com.adex.entity.golem.GolemModel;
+import com.adex.entity.sentry.SentryModel;
 import com.adex.mixin.client.ModelLayersAccessor;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -21,6 +22,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation SAPPHIRE_GOLEM = register("sapphire_golem");
     public static final ModelLayerLocation SPINEL_GOLEM = register("spinel_golem");
     public static final ModelLayerLocation TIGERS_EYE_GOLEM = register("tigers_eye_golem");
+
+    public static final ModelLayerLocation SENTRY = register("sentry");
 
     public static final ModelLayerLocation JUNIPER_BOAT = register("boat/juniper");
     public static final ModelLayerLocation JUNIPER_CHEST_BOAT = register("chest_boat/juniper");
@@ -50,6 +53,8 @@ public class ModModelLayers {
         EntityModelLayerRegistry.registerModelLayer(SAPPHIRE_GOLEM, GolemModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(SPINEL_GOLEM, GolemModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(TIGERS_EYE_GOLEM, GolemModel::createBodyLayer);
+
+        EntityModelLayerRegistry.registerModelLayer(SENTRY, SentryModel::createBodyLayer);
 
         EntityModelLayerRegistry.registerModelLayer(JUNIPER_BOAT, BoatModel::createBoatModel);
         EntityModelLayerRegistry.registerModelLayer(JUNIPER_CHEST_BOAT, BoatModel::createChestBoatModel);

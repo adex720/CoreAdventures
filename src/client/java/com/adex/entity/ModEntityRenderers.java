@@ -1,6 +1,7 @@
 package com.adex.entity;
 
 import com.adex.entity.golem.*;
+import com.adex.entity.sentry.SentryRenderer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -18,6 +19,8 @@ public class ModEntityRenderers {
         EntityRenderers.register(ModEntities.SAPPHIRE_GOLEM, SapphireGolemRenderer::new);
         EntityRenderers.register(ModEntities.SPINEL_GOLEM, SpinelGolemRenderer::new);
         EntityRenderers.register(ModEntities.TIGERS_EYE_GOLEM, TigersEyeGolemRenderer::new);
+
+        EntityRenderers.register(ModEntities.SENTRY, SentryRenderer::new);
 
         EntityRenderers.register(ModEntities.PRIMED_RED_TNT, StrongTntRenderer::new);
         EntityRenderers.register(ModEntities.PRIMED_ORANGE_TNT, StrongTntRenderer::new);

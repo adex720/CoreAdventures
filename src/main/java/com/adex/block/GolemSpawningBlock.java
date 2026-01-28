@@ -1,7 +1,7 @@
 package com.adex.block;
 
 import com.adex.entity.golem.Golem;
-import com.adex.entity.statistics.ModStats;
+import com.adex.statistics.ModStats;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

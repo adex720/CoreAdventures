@@ -5,7 +5,7 @@ import com.adex.block.HeatStabilizerBlock;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.data.tag.ModTags;
 import com.adex.effect.ModEffects;
-import com.adex.entity.statistics.ModStats;
+import com.adex.statistics.ModStats;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
