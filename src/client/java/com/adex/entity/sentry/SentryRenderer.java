@@ -3,11 +3,11 @@ package com.adex.entity.sentry;
 import com.adex.CoreAdventures;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.NonNull;
 
-public class SentryRenderer<T extends Sentry> extends MobRenderer<T, SentryRenderState, SentryModel> {
+public class SentryRenderer<T extends Sentry> extends HumanoidMobRenderer<T, SentryRenderState, SentryModel> {
 
     private final Identifier layerLocation;
 
@@ -25,5 +25,4 @@ public class SentryRenderer<T extends Sentry> extends MobRenderer<T, SentryRende
     public SentryRenderState createRenderState() {
         return new SentryRenderState();
     }
-
 }

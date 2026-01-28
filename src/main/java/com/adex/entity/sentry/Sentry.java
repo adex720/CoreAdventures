@@ -3,11 +3,10 @@ package com.adex.entity.sentry;
 import com.adex.entity.ai.SpreadAngerGoal;
 import com.adex.mixin.GoalSelectorAccessor;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -15,10 +14,13 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
 
@@ -200,6 +202,22 @@ public class Sentry extends Monster {
         }
 
         lookAt(entity, 30.0f, 30.0f);
+    }
+
+    @Override
+    public @Nullable SpawnGroupData finalizeSpawn(@NonNull ServerLevelAccessor level, @NonNull DifficultyInstance difficulty, @NonNull EntitySpawnReason spawnReason, @Nullable SpawnGroupData spawnGroupData) {
+        spawnGroupData = super.finalizeSpawn(level, difficulty, spawnReason, spawnGroupData);
+
+        RandomSource random = level.getRandom();
+        float difficultyMultiplier = difficulty.getDifficulty().getId() * 0.1f;
+
+        setItemSlot(EquipmentSlot.MAINHAND, createMainHandItem(random, difficultyMultiplier));
+
+        return spawnGroupData;
+    }
+
+    public ItemStack createMainHandItem(RandomSource random, float difficultyMultiplier) {
+        return ItemStack.EMPTY;
     }
 
     public enum GoalState {
