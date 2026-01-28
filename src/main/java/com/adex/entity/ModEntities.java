@@ -9,6 +9,8 @@ import com.adex.entity.projectile.projectile.DynamiteProjectile;
 import com.adex.entity.projectile.projectile.GolemFireball;
 import com.adex.entity.projectile.projectile.HeatBall;
 import com.adex.entity.sentry.Sentry;
+import com.adex.entity.sentry.TraderSentry;
+import com.adex.entity.sentry.WarriorSentry;
 import com.adex.item.ModItems;
 import com.adex.mixin.DefaultAttributesAccessor;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -42,7 +44,8 @@ public class ModEntities {
     public static final EntityType<SpinelGolem> SPINEL_GOLEM = register("spinel_golem", SpinelGolem.builder(SpinelGolem::new));
     public static final EntityType<TigersEyeGolem> TIGERS_EYE_GOLEM = register("tigers_eye_golem", TigersEyeGolem.builder(TigersEyeGolem::new));
 
-    public static final EntityType<Sentry> SENTRY = register("sentry", Sentry.builder(Sentry::new));
+    public static final EntityType<TraderSentry> TRADER_SENTRY = register("trader_sentry", TraderSentry.builder(TraderSentry::new));
+    public static final EntityType<WarriorSentry> WARRIOR_SENTRY = register("warrior_sentry", WarriorSentry.builder(WarriorSentry::new));
 
     public static final EntityType<PrimedStrongTnt> PRIMED_RED_TNT = registerTnt(ModBlocks.RED_TNT, "red_tnt");
     public static final EntityType<PrimedStrongTnt> PRIMED_ORANGE_TNT = registerTnt(ModBlocks.ORANGE_TNT, "orange_tnt");
@@ -100,7 +103,8 @@ public class ModEntities {
         Golem.registerAttributes(SPINEL_GOLEM);
         Golem.registerAttributes(TIGERS_EYE_GOLEM);
 
-        registerAttributes(SENTRY, Sentry.createAttributes());
+        registerAttributes(TRADER_SENTRY, TraderSentry.createAttributes());
+        registerAttributes(WARRIOR_SENTRY, WarriorSentry.createAttributes());
 
         PotionAttackGoal.initializeEffects();
     }

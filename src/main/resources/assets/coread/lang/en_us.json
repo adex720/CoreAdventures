@@ -215,7 +215,8 @@
   "item.coread.spinel_golem_spawn_egg": "Spinel Golem Spawn Egg",
   "item.coread.tigers_eye_golem_spawn_egg": "Tiger's Eye Golem Spawn Egg",
 
-  "item.coread.sentry_spawn_egg": "Sentry Spawn Egg",
+  "item.coread.trader_sentry_spawn_egg": "Trader Sentry Spawn Egg",
+  "item.coread.warrior_sentry_spawn_egg": "Sentry Warrior Spawn Egg",
 
   "entity.coread.chalcedony_golem": "Chalcedony Golem",
   "entity.coread.garnet_golem": "Garnet Golem",
@@ -228,7 +229,8 @@
   "entity.coread.spinel_golem": "Spinel Golem",
   "entity.coread.tigers_eye_golem": "Tiger's Eye Golem",
 
-  "entity.coread.sentry": "Sentry",
+  "entity.coread.trader_sentry": "Trader Sentry",
+  "entity.coread.warrior_sentry": "Sentry Warrior",
 
   "entity.coread.juniper_boat": "Juniper Boat",
   "entity.coread.juniper_chest_boat": "Juniper Chest Boat",

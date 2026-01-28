@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "coread:item/sentry_spawn_egg"
+    "model": "coread:item/trader_sentry_spawn_egg"
   }
 }

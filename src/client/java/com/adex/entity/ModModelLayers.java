@@ -23,7 +23,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation SPINEL_GOLEM = register("spinel_golem");
     public static final ModelLayerLocation TIGERS_EYE_GOLEM = register("tigers_eye_golem");
 
-    public static final ModelLayerLocation SENTRY = register("sentry");
+    public static final ModelLayerLocation TRADER_SENTRY = register("trader_sentry");
+    public static final ModelLayerLocation WARRIOR_SENTRY = register("warrior_sentry");
 
     public static final ModelLayerLocation JUNIPER_BOAT = register("boat/juniper");
     public static final ModelLayerLocation JUNIPER_CHEST_BOAT = register("chest_boat/juniper");
@@ -54,7 +55,8 @@ public class ModModelLayers {
         EntityModelLayerRegistry.registerModelLayer(SPINEL_GOLEM, GolemModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(TIGERS_EYE_GOLEM, GolemModel::createBodyLayer);
 
-        EntityModelLayerRegistry.registerModelLayer(SENTRY, SentryModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(TRADER_SENTRY, SentryModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(WARRIOR_SENTRY, SentryModel::createBodyLayer);
 
         EntityModelLayerRegistry.registerModelLayer(JUNIPER_BOAT, BoatModel::createBoatModel);
         EntityModelLayerRegistry.registerModelLayer(JUNIPER_CHEST_BOAT, BoatModel::createChestBoatModel);

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "coread:item/sentry_spawn_egg"
+    "layer0": "coread:item/trader_sentry_spawn_egg"
   }
 }
