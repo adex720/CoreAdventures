@@ -2,6 +2,7 @@ package com.adex.datagen;
 
 import com.adex.advancement.criterion.BecomeHeatImmuneTrigger;
 import com.adex.advancement.criterion.CoolInCoreTrigger;
+import com.adex.advancement.criterion.TradeWithSentryTrigger;
 import com.adex.block.ModBlocks;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.data.structure.refuge.Refuge;
@@ -182,6 +183,19 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         false)
                 .addCriterion("entered_refuge", PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structureHolderLookup.getOrThrow(Refuge.REFUGE_KEY))))
                 .save(consumer, ModDataGenerator.getIdentifierString("find_refuge"));
+
+        AdvancementHolder tradeWithTraderSentry = Advancement.Builder.advancement()
+                .parent(enterRefuge)
+                .display(ModItems.JASPER_FRAGMENT,
+                        Component.translatable("advancements.coread.core.trade_with_trader_sentry.title"),
+                        Component.translatable("advancements.coread.core.trade_with_trader_sentry.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false)
+                .addCriterion("traded_with_trader_sentry", TradeWithSentryTrigger.TriggerInstance.tradeWithSentry())
+                .save(consumer, ModDataGenerator.getIdentifierString("trade_with_trader_sentry"));
 
         AdvancementHolder summonGolem = Advancement.Builder.advancement()
                 .parent(enterRefuge)

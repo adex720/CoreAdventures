@@ -11,6 +11,7 @@ public class ModCriterionTriggers {
     public static final LightCorePortalTrigger LIGHT_CORE_PORTAL = register("light_core_portal", new LightCorePortalTrigger());
     public static final CoolInCoreTrigger COOL_IN_CORE = register("cool_in_core", new CoolInCoreTrigger());
     public static final BecomeHeatImmuneTrigger BECOME_HEAT_IMMUNE = register("become_heat_immune", new BecomeHeatImmuneTrigger());
+    public static final TradeWithSentryTrigger TRADE_WITH_SENTRY = register("trade_with_sentry", new TradeWithSentryTrigger());
 
     public static <T extends CriterionTrigger<?>> T register(String name, T criterionTrigger) {
         return Registry.register(BuiltInRegistries.TRIGGER_TYPES, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name), criterionTrigger);

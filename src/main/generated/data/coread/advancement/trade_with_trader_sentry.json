@@ -1,0 +1,26 @@
+{
+  "parent": "coread:find_refuge",
+  "criteria": {
+    "traded_with_trader_sentry": {
+      "trigger": "coread:trade_with_sentry"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.coread.core.trade_with_trader_sentry.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:jasper_fragment"
+    },
+    "title": {
+      "translate": "advancements.coread.core.trade_with_trader_sentry.title"
+    }
+  },
+  "requirements": [
+    [
+      "traded_with_trader_sentry"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

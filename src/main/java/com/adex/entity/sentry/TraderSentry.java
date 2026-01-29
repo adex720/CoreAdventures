@@ -1,5 +1,6 @@
 package com.adex.entity.sentry;
 
+import com.adex.advancement.criterion.ModCriterionTriggers;
 import com.adex.data.loottable.ModLootTables;
 import com.adex.data.tag.ModTags;
 import com.adex.entity.ai.GiveTradeItemGoal;
@@ -9,6 +10,7 @@ import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.Vec3i;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -22,7 +24,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -172,8 +173,12 @@ public class TraderSentry extends Sentry {
     }
 
     public void finishTrade() {
-        throwItems(getTradeItems());
+        Player player = throwItems(getTradeItems());
         decreaseAnger(2, false);
+
+        if (player instanceof ServerPlayer serverPlayer) {
+            ModCriterionTriggers.TRADE_WITH_SENTRY.trigger(serverPlayer);
+        }
 
         setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
         ticksBeforeGoalUpdate = 20;
@@ -187,16 +192,26 @@ public class TraderSentry extends Sentry {
         return lootTable.getRandomItems(new LootParams.Builder((ServerLevel) level()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.PIGLIN_BARTER));
     }
 
-    public void throwItems(List<ItemStack> items) {
-        if (items.isEmpty()) return;
+    /**
+     * Throws the given items to nearest player if distance to the player is at most 5,
+     * otherwise in a random direction.
+     *
+     * @param items ItemStacks to drop
+     * @return Player who items where thrown at, or null if no player was close enough
+     */
+    public @Nullable Player throwItems(List<ItemStack> items) {
+        if (items.isEmpty()) return null;
 
-        Vec3 throwPos = getThrowPos(level().getNearestPlayer(this, 5.0d)).add(0.0d, 1.0d, 0.0d);
+        Player player = level().getNearestPlayer(this, 5.0d);
+        Vec3 throwPos = getThrowPos(player).add(0.0d, 1.0d, 0.0d);
         swing(InteractionHand.MAIN_HAND);
         lookAt(EntityAnchorArgument.Anchor.FEET, throwPos);
 
         for (ItemStack item : items) {
             BehaviorUtils.throwItem(this, item, throwPos);
         }
+
+        return player;
     }
 
     public Vec3 getThrowPos(@Nullable Player player) {
