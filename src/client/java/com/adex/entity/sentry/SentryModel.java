@@ -4,6 +4,8 @@ import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.HumanoidArm;
 
 public class SentryModel extends HumanoidModel<SentryRenderState> {
 
@@ -29,6 +31,52 @@ public class SentryModel extends HumanoidModel<SentryRenderState> {
 
     @Override
     public void setupAnim(SentryRenderState renderState) {
+        if (renderState.lookingAtItem) {
+            holdItem(renderState);
+            return;
+        }
+
         super.setupAnim(renderState);
     }
+
+    public ModelPart getMainHand(SentryRenderState renderState) {
+        return renderState.mainArm == HumanoidArm.RIGHT ? rightArm : leftArm;
+    }
+
+    public void legsStanding() {
+        rightLeg.xRot = 0.0f;
+        leftLeg.xRot = 0.0f;
+        rightLeg.yRot = 0.005f;
+        leftLeg.yRot = -0.005f;
+        rightLeg.zRot = 0.005f;
+        leftLeg.zRot = -0.005f;
+    }
+
+    public void holdItem(SentryRenderState renderState) {
+        legsStanding();
+
+        ModelPart mainHand = getMainHand(renderState);
+
+        float currentXHandRotation = mainHand.xRot;
+        float wantedXHandRotation = -0.9f;
+        float step = 0.05f;
+
+        float currentYHandRotation = mainHand.yRot;
+        float wantedYHandRotation = mainHand == rightArm ? -0.5f : 0.5f;
+        float currentXHeadRotation = head.xRot;
+        float wantedXHeadRotation = 0.5f;
+        float currentYHeadRotation = head.yRot;
+        float wantedYHeadRotation = 0.0f;
+
+        float difference = Math.abs(currentXHandRotation - wantedXHandRotation);
+        // ratio between movement this tick and total required movement
+        float progress = difference <= step ? 1.0f : step / difference;
+
+        // Modify every rotation the same percentage of the required rotation
+        mainHand.xRot = Mth.rotLerpRad(progress, currentXHandRotation, wantedXHandRotation);
+        mainHand.yRot = Mth.rotLerpRad(progress, currentYHandRotation, wantedYHandRotation);
+        head.xRot = Mth.rotLerpRad(progress, currentXHeadRotation, wantedXHeadRotation);
+        head.yRot = Mth.rotLerpRad(progress, currentYHeadRotation, wantedYHeadRotation);
+    }
+
 }

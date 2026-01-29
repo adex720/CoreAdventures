@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#coread:core_gems",
+    "#coread:core_gem_blocks",
+    "#coread:core_armor"
+  ]
+}

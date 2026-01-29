@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "coread:chalcedony_block",
+    "coread:garnet_block",
+    "coread:jade_block",
+    "coread:jasper_block",
+    "coread:onyx_block",
+    "coread:opal_block",
+    "coread:ruby_block",
+    "coread:sapphire_block",
+    "coread:spinel_block",
+    "coread:tigers_eye_block"
+  ]
+}

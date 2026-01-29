@@ -20,6 +20,8 @@ public class ModTags {
     public static final TagKey<Block> JUNIPER_LOGS = registerBlock("juniper_logs");
     public static final TagKey<Block> COOLS_IN_CORE = registerBlock("cools_in_core");
 
+    public static final TagKey<Block> CORE_GEM_BLOCKS = registerBlock("core_gems");
+
     public static final TagKey<Item> REPAIRS_CHALCEDONY_ARMOR = registerItem("repairs_chalcedony_armor");
     public static final TagKey<Item> REPAIRS_GARNET_ARMOR = registerItem("repairs_garnet_armor");
     public static final TagKey<Item> REPAIRS_JADE_ARMOR = registerItem("repairs_jade_armor");
@@ -38,6 +40,10 @@ public class ModTags {
     public static final TagKey<Item> CORE_ARMOR = registerItem("core_armor");
 
     public static final TagKey<Item> HEAT_STABILIZER_FUEL = registerItem("heat_stabilizer_fuel");
+
+    public static final TagKey<Item> CORE_GEMS = registerItem("core_gems");
+    public static final TagKey<Item> CORE_GEM_BLOCK_ITEMS = registerItem("core_gems");
+    public static final TagKey<Item> TRADER_SENTRY_LIKES = registerItem("trader_sentry_likes");
 
     public static final TagKey<Biome> CORE_BIOMES = registerBiome("core");
 

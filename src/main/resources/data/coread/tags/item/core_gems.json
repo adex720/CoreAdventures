@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "coread:chalcedony",
+    "coread:garnet",
+    "coread:jade",
+    "coread:jasper",
+    "coread:onyx",
+    "coread:opal",
+    "coread:ruby",
+    "coread:sapphire",
+    "coread:spinel",
+    "coread:tigers_eye",
+    "coread:blue_gem_mixture",
+    "coread:red_gem_mixture",
+    "coread:shiny_gem_mixture"
+  ]
+}

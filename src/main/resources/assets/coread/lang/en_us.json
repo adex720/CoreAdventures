@@ -293,7 +293,10 @@
   "tag.item.coread.heat_stabilizer_fuel": "Heat Stabilizer Fuel",
 
   "tag.item.coread.core_armor": "Gem Armor",
+  "tag.item.coread.core_gems": "Core Gems",
+  "tag.item.coread.core_gem_blocks": "Core Gem Blocks",
   "tag.item.coread.juniper_logs": "Juniper Logs",
+  "tag.item.coread.trader_sentry_likes": "Trader Sentry Likes",
 
   "stat.coread.interact_with_heat_stabilizer": "Interactions with Heat Stabilizer",
 

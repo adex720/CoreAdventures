@@ -62,6 +62,7 @@ public class Sentry extends Monster {
         super.readAdditionalSaveData(input);
         anger = input.getIntOr("anger", 0);
         goalState = GoalState.getById(input.getIntOr("goal_state", 1));
+        registerGoals();
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -82,10 +83,26 @@ public class Sentry extends Monster {
         registerGoals();
     }
 
-    @Override
-    protected void registerGoals() {
+    public void removeGoals() {
+        // stop running goals
+        for (WrappedGoal goal : goalSelector.getAvailableGoals()) {
+            if (goal.isRunning()) goal.stop();
+        }
+        for (WrappedGoal goal : targetSelector.getAvailableGoals()) {
+            if (goal.isRunning()) goal.stop();
+        }
+
+        // remove all goals
         goalSelector.removeAllGoals(_ -> true);
         targetSelector.removeAllGoals(_ -> true);
+
+        // reset locked flags
+        resetLockedGoals();
+    }
+
+    @Override
+    protected void registerGoals() {
+        removeGoals();
 
         switch (goalState) {
             case NEUTRAL -> registerGoals(getNeutralGoals(), getNeutralTargets());
@@ -98,16 +115,19 @@ public class Sentry extends Monster {
         targets.forEach(targetSelector::addGoal);
     }
 
+    protected Map<Integer, Goal> getEmptyTargets() {
+        return Map.of();
+    }
+
     protected Map<Integer, Goal> getNeutralGoals() {
-        return Map.of(10, new SpreadAngerGoal(this, 16.0d, 40),
-                45, new RandomLookAroundGoal(this),
+        return Map.of(45, new RandomLookAroundGoal(this),
                 46, new LookAtPlayerGoal(this, Player.class, 8.0f),
                 47, new LookAtPlayerGoal(this, LivingEntity.class, 8.0f),
                 50, new WaterAvoidingRandomStrollGoal(this, 1.0d));
     }
 
     protected Map<Integer, Goal> getNeutralTargets() {
-        return Map.of();
+        return getEmptyTargets();
     }
 
     protected Map<Integer, Goal> getAggressiveGoals() {
@@ -122,6 +142,10 @@ public class Sentry extends Monster {
     protected Map<Integer, Goal> getAggressiveTargets() {
         return Map.of(1, new HurtByTargetGoal(this),
                 2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 0, false, false, this::isValidPlayerTarget));
+    }
+
+    public void resetLockedGoals() {
+        ((GoalSelectorAccessor) goalSelector).coread$getLockedFlags().clear();
     }
 
     protected boolean isValidPlayerTarget(LivingEntity livingEntity, ServerLevel level) {
@@ -184,6 +208,13 @@ public class Sentry extends Monster {
         if (!(damageSource.getEntity() instanceof Player player)) return;
         if (player.isCreative() || player.isSpectator()) return;
 
+        hurtBySurvivalPlayer();
+    }
+
+    /**
+     * Run when hit by a player whose game mode is survival or adventure
+     */
+    public void hurtBySurvivalPlayer() {
         setAnger(32);
     }
 

@@ -48,7 +48,7 @@ public class MoveAwayFromCorePortalGoal extends Goal {
         if (result.get().distManhattan(golem.blockPosition()) >= distance) return false;
 
         MoveTowardsCorePortalGoal.IS_GOLEM_PATHFINDING = true;
-        path = golem.getNavigation().createPath(Util.getBlocksNAway(result.get(), (int) distance, level, Util::isFullBlockWithAirAbove), (int) (distance * 2));
+        path = golem.getNavigation().createPath(Util.getBlocksNAway(result.get(), (int) distance, level, Util::isFullBlockWithAirAbove), 0);
         MoveTowardsCorePortalGoal.IS_GOLEM_PATHFINDING = false;
         return path != null;
     }
