@@ -173,16 +173,25 @@ public class Sentry extends Monster {
         increaseAnger(-1);
     }
 
-    public void decreaseAnger(int amount) {
-        increaseAnger(-amount);
-    }
-
     public int getAnger() {
         return anger;
     }
 
     public boolean shouldAttackPlayer() {
         return anger > 0;
+    }
+
+    public void setAnger(int value, boolean updateGoals) {
+        anger = Math.clamp(value, MIN_ANGER, MAX_ANGER);
+        if (updateGoals) updateGoals();
+    }
+
+    public void increaseAnger(int amount, boolean updateGoals) {
+        setAnger(anger + amount, updateGoals);
+    }
+
+    public void decreaseAnger(int amount, boolean updateGoals) {
+        increaseAnger(-amount, updateGoals);
     }
 
     /**

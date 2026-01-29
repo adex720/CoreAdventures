@@ -172,6 +172,7 @@ public class TraderSentry extends Sentry {
 
     public void finishTrade() {
         throwItems(getTradeItems());
+        decreaseAnger(2, false);
 
         setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
         ticksBeforeGoalUpdate = 20;
