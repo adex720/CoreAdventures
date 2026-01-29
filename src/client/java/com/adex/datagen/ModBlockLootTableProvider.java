@@ -22,9 +22,9 @@ import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModLootTableProvider extends FabricBlockLootTableProvider {
+public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 
-    public ModLootTableProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+    public ModBlockLootTableProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
         super(output, lookup);
     }
 
@@ -155,6 +155,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public @NonNull String getName() {
-        return "Loot table provider";
+        return "Block loot table provider";
     }
 }

@@ -12,6 +12,8 @@ public class ModLootTables {
     public static final ResourceKey<LootTable> REFUGE_TREASURE = register("chests/refuge_treasure");
     public static final ResourceKey<LootTable> REFUGE_PORTAL_ROOM = register("chests/refuge_portal");
 
+    public static final ResourceKey<LootTable> TRADER_SENTRY_TRADES = register("gameplay/trader_sentry_trade");
+
     private static ResourceKey<LootTable> register(String name) {
         return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }

@@ -1,0 +1,99 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "coread:chalcedony_shard"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "coread:garnet_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "coread:jasper_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "coread:dynamite"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "coread:gabbro",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "coread:larvikite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "coread:slate",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "coread:serpentinite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "coread:travertine",
+          "weight": 2
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

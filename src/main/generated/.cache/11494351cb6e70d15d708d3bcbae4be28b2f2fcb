@@ -1,4 +1,4 @@
-// 1.21.11	-999999999-01-01T00:00:00	Core Adventures/Loot table provider
+// 1.21.11	-999999999-01-01T00:00:00	Core Adventures/Block loot table provider
 06c2b493f1f8109a27e23aa34c99907e6f0adefd data/coread/loot_table/blocks/blue_tnt.json
 4a1c6d522aa371713f76bd2853c2b8d1c21e0292 data/coread/loot_table/blocks/chalcedony_block.json
 8c5bc4f3b41c0319ab73fb2917da09e0848aead9 data/coread/loot_table/blocks/chalcedony_ore.json

@@ -1,5 +1,6 @@
 package com.adex.entity.sentry;
 
+import com.adex.data.loottable.ModLootTables;
 import com.adex.data.tag.ModTags;
 import com.adex.entity.ai.GiveTradeItemGoal;
 import com.adex.entity.ai.LookAtItemGoal;
@@ -182,7 +183,7 @@ public class TraderSentry extends Sentry {
         MinecraftServer server = level().getServer();
         if (server == null) return Collections.emptyList();
 
-        LootTable lootTable = server.reloadableRegistries().getLootTable(BuiltInLootTables.PIGLIN_BARTERING);
+        LootTable lootTable = server.reloadableRegistries().getLootTable(ModLootTables.TRADER_SENTRY_TRADES);
         return lootTable.getRandomItems(new LootParams.Builder((ServerLevel) level()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.PIGLIN_BARTER));
     }
 
@@ -211,10 +212,15 @@ public class TraderSentry extends Sentry {
         return new Vec3(random.nextDouble() * 2.0d - 1.0d, 0.0d, random.nextDouble() * 2.0d - 1.0d);
     }
 
+    public void cancelTrade(boolean updateGoals) {
+        setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+        if (updateGoals) updateGoals();
+    }
+
     @Override
     public void hurtBySurvivalPlayer() {
-        // super calls updateGoals(), so hand is emptied before that
-        setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+        // super calls updateGoals(), so no need to call it a second time when hand is emptied before that
+        cancelTrade(false);
 
         super.hurtBySurvivalPlayer();
     }
