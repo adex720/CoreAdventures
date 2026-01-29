@@ -1,7 +1,9 @@
 package com.adex.entity.sentry;
 
+import com.adex.data.structure.ModStructures;
 import com.adex.entity.ai.SpreadAngerGoal;
 import com.adex.mixin.GoalSelectorAccessor;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -9,6 +11,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -19,6 +22,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.AABB;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
@@ -258,6 +262,17 @@ public class Sentry extends Monster {
 
     public ItemStack createMainHandItem(RandomSource random, float difficultyMultiplier) {
         return ItemStack.EMPTY;
+    }
+
+    public static void chestOpened(ServerLevel level, Player player, BlockPos pos) {
+        if (player.isCreative() || player.isSpectator() || player.isInvisible()) return;
+
+        // Only anger if chest is in a refuge
+        if (level.structureManager().getAllStructuresAt(pos).entrySet().stream()
+                .noneMatch(structureLongSetEntry -> structureLongSetEntry.getKey().type() == ModStructures.REFUGE_TYPE))
+            return;
+
+        level.getEntitiesOfClass(Sentry.class, new AABB(pos).inflate(32.0d)).forEach(sentry -> sentry.setAnger(32));
     }
 
     public enum GoalState {

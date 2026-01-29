@@ -9,6 +9,7 @@
     "BaseFireBlockMixin",
     "BlockBehaviourMixin",
     "BlockMixin",
+    "ChestBlockMixin",
     "DataComponentMapBuilderAccessor",
     "DefaultAttributesAccessor",
     "EnchantmentHelperMixin",
