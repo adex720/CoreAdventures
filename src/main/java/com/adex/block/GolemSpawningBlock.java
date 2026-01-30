@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
@@ -40,6 +41,8 @@ public class GolemSpawningBlock extends Block {
     }
 
     public boolean shouldSpawn(Level level, BlockPos pos, BlockState state) {
+        if (level.getDifficulty() == Difficulty.PEACEFUL) return false;
+
         if (state.getBlock() != this) return false;
         if (level.getBlockState(pos.below()).getBlock() != below) return false;
 
