@@ -43,19 +43,24 @@ public class SentryModel extends HumanoidModel<SentryRenderState> {
         return renderState.mainArm == HumanoidArm.RIGHT ? rightArm : leftArm;
     }
 
+    public ModelPart getOffHand(SentryRenderState renderState) {
+        return renderState.mainArm == HumanoidArm.LEFT ? rightArm : leftArm;
+    }
+
     public void legsStanding() {
         rightLeg.xRot = 0.0f;
         leftLeg.xRot = 0.0f;
-        rightLeg.yRot = 0.005f;
-        leftLeg.yRot = -0.005f;
-        rightLeg.zRot = 0.005f;
-        leftLeg.zRot = -0.005f;
+        rightLeg.yRot = 0.0f;
+        leftLeg.yRot = 0.0f;
+        rightLeg.zRot = 0.0f;
+        leftLeg.zRot = 0.0f;
     }
 
     public void holdItem(SentryRenderState renderState) {
         legsStanding();
 
         ModelPart mainHand = getMainHand(renderState);
+        ModelPart offHand = getOffHand(renderState);
 
         float currentXHandRotation = mainHand.xRot;
         float wantedXHandRotation = -0.9f;
@@ -77,6 +82,10 @@ public class SentryModel extends HumanoidModel<SentryRenderState> {
         mainHand.yRot = Mth.rotLerpRad(progress, currentYHandRotation, wantedYHandRotation);
         head.xRot = Mth.rotLerpRad(progress, currentXHeadRotation, wantedXHeadRotation);
         head.yRot = Mth.rotLerpRad(progress, currentYHeadRotation, wantedYHeadRotation);
+
+        offHand.xRot = 0.0f;
+        offHand.yRot = 0.0f;
+        offHand.zRot = 0.0f;
     }
 
 }

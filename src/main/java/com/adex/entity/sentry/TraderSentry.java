@@ -12,6 +12,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
@@ -22,6 +23,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -131,6 +133,10 @@ public class TraderSentry extends Sentry {
     @Override
     public void onItemPickup(@NonNull ItemEntity itemEntity) {
         super.onItemPickup(itemEntity);
+        startTrade();
+    }
+
+    public void startTrade() {
         lookedTicks = 0;
         updateGoals();
     }
@@ -149,6 +155,9 @@ public class TraderSentry extends Sentry {
 
     @Override
     public boolean canPickUpLoot() {
+        if (level() instanceof ServerLevel serverLevel && !serverLevel.getGameRules().get(GameRules.MOB_GRIEFING))
+            return false;
+
         return !isHoldingItem();
     }
 
@@ -160,6 +169,20 @@ public class TraderSentry extends Sentry {
     @Override
     public boolean canHoldItem(@NonNull ItemStack itemStack) {
         return canPickUpLoot() && itemStack.is(ModTags.TRADER_SENTRY_LIKES);
+    }
+
+    @Override
+    public @NonNull InteractionResult mobInteract(@NonNull Player player, @NonNull InteractionHand hand) {
+        ItemStack item = player.getItemInHand(hand);
+        if (!canHoldItem(item)) return InteractionResult.PASS;
+
+        setItemInHand(InteractionHand.MAIN_HAND, item.copyWithCount(1));
+        startTrade();
+
+        if (!player.isCreative() && !player.isSpectator())
+            item.shrink(1);
+
+        return InteractionResult.SUCCESS;
     }
 
     @Override
