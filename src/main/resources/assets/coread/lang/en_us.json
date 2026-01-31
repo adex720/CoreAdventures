@@ -278,6 +278,10 @@
   "advancements.coread.core.kill_all_golems.title": "Rainbow Sweep",
   "advancements.coread.core.kill_all_golems.description": "Defeat a Golem of every type",
 
+  "options.coread.heat_bar_offset": "Heat Bar Offset",
+  "options.coread.heat_bar_offset.value": "%1$s",
+  "options.coread.heat_bar_offset.tooltip": "You only need non-zero values if the heat bar is rendered on top of something another mod renders.",
+
   "death.attack.heat": "%1$s overheated",
 
   "tag.item.coread.repairs_chalcedony_armor": "Repairs Chalcedony Armor",

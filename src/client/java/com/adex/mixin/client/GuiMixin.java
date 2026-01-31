@@ -1,5 +1,6 @@
 package com.adex.mixin.client;
 
+import com.adex.option.ModOptions;
 import com.adex.overlay.HeatHud;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
@@ -14,6 +15,9 @@ public class GuiMixin {
 
     @Inject(at = @At("HEAD"), method = "renderArmor")
     private static void renderArmor(GuiGraphics guiGraphics, Player player, int startY, int rows, int rowHeight, int startX, CallbackInfo ci) {
-        HeatHud.render(guiGraphics, player, player.getArmorValue() > 0 ? startY : startY + rowHeight, rows, rowHeight, startX);
+        int yOffsetRows = ModOptions.getModOptions().heatBarOffset().get();
+        if (player.getArmorValue() > 0) yOffsetRows++;
+
+        HeatHud.render(guiGraphics, player, startY + (1 - yOffsetRows) * rowHeight, rows, rowHeight, startX);
     }
 }

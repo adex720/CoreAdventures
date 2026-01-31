@@ -7,7 +7,9 @@
     "GuiMixin",
     "LavaFogEnvironmentMixin",
     "ModelLayersAccessor",
+    "OptionsMixin",
     "ScreenEffectRendererMixin",
+    "VideoSettingsScreenMixin",
     "WorldOpenFlowsMixin"
   ],
   "injectors": {
