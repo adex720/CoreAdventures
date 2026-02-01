@@ -87,7 +87,7 @@ public class RefugeBuilder {
     private static PieceCreator[] createPieceCreator() {
         return new PieceCreator[]{
                 new PieceCreator(BossRoom::new, 5, 1, 5, BossRoom::getBaseBoundingBox),
-                new PieceCreator(EndPointPiece::new, 1, 2, 4, EndPointPiece::getBoundingBoxForPlacement),
+                new PieceCreator(EndPointPiece::new, 1, 5, 4, EndPointPiece::getBoundingBoxForPlacement),
                 new PieceCreator(EmptyRoom::new, 5, 1, EmptyRoom::getBaseBoundingBox),
                 new PieceCreator(TreasureRoom::new, 5, 1, 2, TreasureRoom::getBaseBoundingBox),
                 new PieceCreator(TreeRoom::new, 5, 2, 2, TreeRoom::getBaseBoundingBox),
@@ -104,6 +104,8 @@ public class RefugeBuilder {
                 new PieceCreator(CorridorShort::new, 5, 10, CorridorShort::getBaseBoundingBox),
                 new PieceCreator(CorridorLong::new, 10, 10, CorridorLong::getBaseBoundingBox),
                 new PieceCreator(CorridorChest::new, 3, 5, CorridorChest::getBaseBoundingBox),
+                new PieceCreator(CorridorJailLeft::new, 5, 2, CorridorJailLeft::getBaseBoundingBox),
+                new PieceCreator(CorridorJailRight::new, 5, 2, CorridorJailRight::getBaseBoundingBox),
                 new PieceCreator(CorridorLeft::new, 5, 5, CorridorLeft::getBaseBoundingBox),
                 new PieceCreator(CorridorRight::new, 5, 5, CorridorRight::getBaseBoundingBox),
                 new PieceCreator(TurnLeft::new, 5, 5, TurnLeft::getBaseBoundingBox),

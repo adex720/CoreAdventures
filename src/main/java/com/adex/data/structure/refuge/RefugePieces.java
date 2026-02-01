@@ -33,6 +33,8 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_CORRIDOR_LEFT = registerPiece(CorridorLeft::new, "rfcorrle");
     public static final StructurePieceType REFUGE_CORRIDOR_RIGHT = registerPiece(CorridorRight::new, "rfcorrri");
     public static final StructurePieceType REFUGE_CORRIDOR_CHEST = registerPiece(CorridorChest::new, "rfcorrch");
+    public static final StructurePieceType REFUGE_CORRIDOR_JAIL_LEFT = registerPiece(CorridorJailLeft::new, "rfjaill");
+    public static final StructurePieceType REFUGE_CORRIDOR_JAIL_RIGHT = registerPiece(CorridorJailRight::new, "rfjailr");
     public static final StructurePieceType REFUGE_TURN_LEFT = registerPiece(TurnLeft::new, "rfturnl");
     public static final StructurePieceType REFUGE_TURN_RIGHT = registerPiece(TurnRight::new, "rfturnr");
     public static final StructurePieceType REFUGE_TURN_U_RIGHT = registerPiece(TurnURight::new, "rfturnur");
