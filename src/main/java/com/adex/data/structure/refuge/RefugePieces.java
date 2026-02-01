@@ -59,6 +59,7 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_LOWERING_THREE_WAY_LEFT = registerPiece(LoweringThreeWayLeft::new, "rflthreel");
     public static final StructurePieceType REFUGE_LOWERING_THREE_WAY_RIGHT = registerPiece(LoweringThreeWayRight::new, "rflthreer");
     public static final StructurePieceType REFUGE_REDSTONE_THREE_WAY = registerPiece(RedstoneThreeWay::new, "rfredthree");
+    public static final StructurePieceType REFUGE_REDSTONE_THREE_WAY_TRAP = registerPiece(RedstoneThreeWayTrap::new, "rfredthreet");
     public static final StructurePieceType REFUGE_EIGHT_WAY = registerPiece(EightWay::new, "rfeight");
 
     private static StructurePieceType registerPiece(StructurePieceType.ContextlessType structurePieceType, String name) {

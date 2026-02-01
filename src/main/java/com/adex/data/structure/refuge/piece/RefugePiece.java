@@ -477,6 +477,28 @@ public abstract class RefugePiece extends StructurePiece {
     }
 
     /**
+     * Creates a block state for redstone wire with two up connection.
+     * Every other provided direction will have a side connection.
+     *
+     * @param upDirection1 First direction to set connection up
+     * @param upDirection2 Second direction to set connection up
+     * @param connections  Side connection directions
+     * @return {@link BlockState} of {@link Blocks#REDSTONE_WIRE} with given connections.
+     */
+    public static BlockState get2UpRedstone(Direction upDirection1, Direction upDirection2, Direction... connections) {
+        BlockState state = Blocks.REDSTONE_WIRE.defaultBlockState()
+                .setValue(redstoneDirection(upDirection1), RedstoneSide.UP)
+                .setValue(redstoneDirection(upDirection2), RedstoneSide.UP);
+
+        // Add rest of side connections
+        for (Direction direction : connections) {
+            state = state.setValue(redstoneDirection(direction), RedstoneSide.SIDE);
+        }
+
+        return state;
+    }
+
+    /**
      * Returns the redstone wire side property corresponding to the given direction.
      *
      * @param direction Wanted direction

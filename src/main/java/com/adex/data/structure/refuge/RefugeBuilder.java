@@ -130,6 +130,7 @@ public class RefugeBuilder {
                 new PieceCreator(RisingThreeWayMiddle::new, 5, 1, RisingThreeWayMiddle::getBaseBoundingBox),
                 new PieceCreator(RisingThreeWayRight::new, 5, 1, RisingThreeWayRight::getBaseBoundingBox),
                 new PieceCreator(RedstoneThreeWay::new, 10, 1, 5, RedstoneThreeWay::getBaseBoundingBox),
+                new PieceCreator(RedstoneThreeWayTrap::new, 10, 1, 7, RedstoneThreeWayTrap::getBaseBoundingBox),
                 new PieceCreator(EightWay::new, 10, 1, 2, EightWay::getBaseBoundingBox)
         };
     }
