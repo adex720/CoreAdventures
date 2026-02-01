@@ -99,62 +99,62 @@ public class RedstoneThreeWayTrap extends RefugePiece {
 
         // bottom piston redstone
         fill(level, random, startPos.below(5).relative(direction, 1).relative(counterClockWise, 1), clockWise, 3, 1, _ -> repeater1);
-        level.setBlock(startPos.below(5).relative(direction, 2).relative(clockWise, 1), redstoneLeftFront, 2);
-        level.setBlock(startPos.below(5).relative(direction, 2), redstoneLeftFrontRight, 2);
-        level.setBlock(startPos.below(5).relative(direction, 2).relative(counterClockWise, 1), redstoneFrontRightBack, 2);
+        setBlock(level, startPos.below(5).relative(direction, 2).relative(clockWise, 1), redstoneLeftFront);
+        setBlock(level, startPos.below(5).relative(direction, 2), redstoneLeftFrontRight);
+        setBlock(level, startPos.below(5).relative(direction, 2).relative(counterClockWise, 1), redstoneFrontRightBack);
 
         // middle piston redstone
         fill(level, random, startPos.below(3).relative(direction, 1).relative(counterClockWise, 1), clockWise, 3, 1, _ -> repeater1);
-        level.setBlock(startPos.below(3).relative(direction, 2).relative(clockWise, 1), redstoneLeftFront, 2);
-        level.setBlock(startPos.below(3).relative(direction, 2), redstoneAll, 2);
-        level.setBlock(startPos.below(3).relative(direction, 2).relative(counterClockWise, 1), redstoneLeftFrontRight, 2);
+        setBlock(level, startPos.below(3).relative(direction, 2).relative(clockWise, 1), redstoneLeftFront);
+        setBlock(level, startPos.below(3).relative(direction, 2), redstoneAll);
+        setBlock(level, startPos.below(3).relative(direction, 2).relative(counterClockWise, 1), redstoneLeftFrontRight);
 
         // top piston redstone
         fill(level, random, startPos.below(1).relative(direction, 1).relative(counterClockWise, 1), clockWise, 3, 1, _ -> repeater3);
-        level.setBlock(startPos.below(2).relative(direction, 2).relative(counterClockWise, 1), slab, 2);
+        setBlock(level, startPos.below(2).relative(direction, 2).relative(counterClockWise, 1), slab);
 
-        level.setBlock(startPos.below(1).relative(direction, 2).relative(clockWise, 1), redstoneLeftFront, 2);
-        level.setBlock(startPos.below(1).relative(direction, 2), redstoneLeftFrontRight, 2);
-        level.setBlock(startPos.below(1).relative(direction, 2).relative(counterClockWise, 1), redstoneLeftFrontRight, 2);
+        setBlock(level, startPos.below(1).relative(direction, 2).relative(clockWise, 1), redstoneLeftFront);
+        setBlock(level, startPos.below(1).relative(direction, 2), redstoneLeftFrontRight);
+        setBlock(level, startPos.below(1).relative(direction, 2).relative(counterClockWise, 1), redstoneLeftFrontRight);
 
         // middle to top wire
-        level.setBlock(startPos.below(1).relative(direction, 2).relative(counterClockWise, 2), air, 2);
-        level.setBlock(startPos.below(2).relative(direction, 2).relative(counterClockWise, 2), redstoneSideways, 2);
+        setBlock(level, startPos.below(1).relative(direction, 2).relative(counterClockWise, 2), air);
+        setBlock(level, startPos.below(2).relative(direction, 2).relative(counterClockWise, 2), redstoneSideways);
 
         // middle to bottom wire
-        level.setBlock(startPos.below(3).relative(direction, 3), redstoneForward, 2);
-        level.setBlock(startPos.below(3).relative(direction, 4), repeater2, 2);
-        level.setBlock(startPos.below(3).relative(direction, 5), redstoneUpRightFrontLeft, 2);
-        level.setBlock(startPos.below(3).relative(direction, 5).relative(counterClockWise, 1), air, 2);
-        level.setBlock(startPos.below(4).relative(direction, 5).relative(counterClockWise, 1), redstoneUpRightFront, 2);
-        level.setBlock(startPos.below(4).relative(direction, 4).relative(counterClockWise, 1), air, 2);
-        level.setBlock(startPos.below(5).relative(direction, 4).relative(counterClockWise, 1), redstoneUpBack, 2);
-        level.setBlock(startPos.below(5).relative(direction, 3).relative(counterClockWise, 1), redstoneForward, 2);
+        setBlock(level, startPos.below(3).relative(direction, 3), redstoneForward);
+        setBlock(level, startPos.below(3).relative(direction, 4), repeater2);
+        setBlock(level, startPos.below(3).relative(direction, 5), redstoneUpRightFrontLeft);
+        setBlock(level, startPos.below(3).relative(direction, 5).relative(counterClockWise, 1), air);
+        setBlock(level, startPos.below(4).relative(direction, 5).relative(counterClockWise, 1), redstoneUpRightFront);
+        setBlock(level, startPos.below(4).relative(direction, 4).relative(counterClockWise, 1), air);
+        setBlock(level, startPos.below(5).relative(direction, 4).relative(counterClockWise, 1), redstoneUpBack);
+        setBlock(level, startPos.below(5).relative(direction, 3).relative(counterClockWise, 1), redstoneForward);
 
         // middle to right lever
-        level.setBlock(startPos.below(2).relative(direction, 5), air, 2);
-        level.setBlock(startPos.below(2).relative(clockWise, 1).relative(direction, 5), redstone2UpRightBackLeft, 2);
-        level.setBlock(startPos.below(1).relative(clockWise, 1).relative(direction, 5), air, 2);
-        level.setBlock(startPos.below(1).relative(clockWise, 2).relative(direction, 5), redstoneUpRight, 2);
-        level.setBlock(startPos.relative(clockWise, 2).relative(direction, 5), air, 2);
-        level.setBlock(startPos.relative(clockWise, 3).relative(direction, 5), redstoneUpRight, 2);
-        level.setBlock(startPos.above(1).relative(clockWise, 3).relative(direction, 5), air, 2);
-        level.setBlock(startPos.above(1).relative(clockWise, 4).relative(direction, 5), redstoneUpRight, 2);
-        level.setBlock(startPos.above(2).relative(clockWise, 4).relative(direction, 5), air, 2);
-        level.setBlock(startPos.above(2).relative(clockWise, 5).relative(direction, 5), redstoneSideways, 2);
+        setBlock(level, startPos.below(2).relative(direction, 5), air);
+        setBlock(level, startPos.below(2).relative(clockWise, 1).relative(direction, 5), redstone2UpRightBackLeft);
+        setBlock(level, startPos.below(1).relative(clockWise, 1).relative(direction, 5), air);
+        setBlock(level, startPos.below(1).relative(clockWise, 2).relative(direction, 5), redstoneUpRight);
+        setBlock(level, startPos.relative(clockWise, 2).relative(direction, 5), air);
+        setBlock(level, startPos.relative(clockWise, 3).relative(direction, 5), redstoneUpRight);
+        setBlock(level, startPos.above(1).relative(clockWise, 3).relative(direction, 5), air);
+        setBlock(level, startPos.above(1).relative(clockWise, 4).relative(direction, 5), redstoneUpRight);
+        setBlock(level, startPos.above(2).relative(clockWise, 4).relative(direction, 5), air);
+        setBlock(level, startPos.above(2).relative(clockWise, 5).relative(direction, 5), redstoneSideways);
 
         // middle to left lever
-        level.setBlock(startPos.below(1).relative(clockWise, 1).relative(direction, 6), redstoneUpBack, 2);
-        level.setBlock(startPos.relative(clockWise, 1).relative(direction, 6), air, 2);
-        level.setBlock(startPos.relative(clockWise, 1).relative(direction, 7), redstoneUpLeftFront, 2);
-        level.setBlock(startPos.above(1).relative(clockWise, 1).relative(direction, 7), air, 2);
-        level.setBlock(startPos.above(1).relative(direction, 7), redstoneUpLeft, 2);
-        level.setBlock(startPos.above(2).relative(direction, 7), air, 2);
-        level.setBlock(startPos.above(2).relative(counterClockWise, 1).relative(direction, 7), redstoneSideways, 2);
+        setBlock(level, startPos.below(1).relative(clockWise, 1).relative(direction, 6), redstoneUpBack);
+        setBlock(level, startPos.relative(clockWise, 1).relative(direction, 6), air);
+        setBlock(level, startPos.relative(clockWise, 1).relative(direction, 7), redstoneUpLeftFront);
+        setBlock(level, startPos.above(1).relative(clockWise, 1).relative(direction, 7), air);
+        setBlock(level, startPos.above(1).relative(direction, 7), redstoneUpLeft);
+        setBlock(level, startPos.above(2).relative(direction, 7), air);
+        setBlock(level, startPos.above(2).relative(counterClockWise, 1).relative(direction, 7), redstoneSideways);
 
         // levers
-        level.setBlock(startPos.relative(clockWise, 5).relative(direction, 3).above(2), leverBack, 2);
-        level.setBlock(startPos.relative(counterClockWise, 3).relative(direction, 7).above(2), leverRight, 2);
+        setBlock(level, startPos.relative(clockWise, 5).relative(direction, 3).above(2), leverBack);
+        setBlock(level, startPos.relative(counterClockWise, 3).relative(direction, 7).above(2), leverRight);
 
     }
 }

@@ -8,7 +8,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.*;
@@ -76,17 +75,21 @@ public abstract class RefugePiece extends StructurePiece {
     }
 
     @Override
-    public void postProcess(@NonNull WorldGenLevel worldGenLevel, @NonNull StructureManager structureManager, @NonNull ChunkGenerator chunkGenerator, @NonNull RandomSource randomSource, @NonNull BoundingBox writeArea, @NonNull ChunkPos chunkPos, @NonNull BlockPos blockPos) {
-        createBlocks(worldGenLevel, randomSource);
+    public void postProcess(@NonNull WorldGenLevel level, @NonNull StructureManager structureManager, @NonNull ChunkGenerator chunkGenerator, @NonNull RandomSource random, @NonNull BoundingBox writeArea, @NonNull ChunkPos chunkPos, @NonNull BlockPos blockPos) {
+        createBlocks(level, random);
 
         if (PLACE_BOUNDING_BOX_DEBUG_END_RODS) {
-            this.boundingBox.forAllCorners(pos -> worldGenLevel.setBlock(pos, Blocks.END_ROD.defaultBlockState(), 2));
+            this.boundingBox.forAllCorners(pos -> setBlock(level, pos, Blocks.END_ROD.defaultBlockState()));
         }
     }
 
     public abstract List<ContinuationPoint> getContinuationPoints(BlockPos pos, Direction direction, int depth);
 
     public abstract void createBlocks(WorldGenLevel level, RandomSource random);
+
+    public static void setBlock(WorldGenLevel level, BlockPos pos, BlockState blockState) {
+        level.setBlock(pos, blockState, 2);
+    }
 
     public void createWalls(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction, int length) {
         if (direction.getAxis() == Direction.Axis.Y) {
@@ -99,10 +102,10 @@ public abstract class RefugePiece extends StructurePiece {
 
         for (int i = 0; i < length; i++) {
             for (BlockPos pos : walls) {
-                level.setBlock(pos.relative(direction, i), getWallBlock(random), 2);
+                setBlock(level, pos.relative(direction, i), getWallBlock(random));
             }
             for (BlockPos pos : air) {
-                level.setBlock(pos.relative(direction, i), Blocks.AIR.defaultBlockState(), 2);
+                setBlock(level, pos.relative(direction, i), Blocks.AIR.defaultBlockState());
             }
         }
     }
@@ -113,10 +116,10 @@ public abstract class RefugePiece extends StructurePiece {
 
         for (int i = 0; i < length; i++) {
             for (BlockPos pos : walls) {
-                level.setBlock(pos.above(i), getWallBlock(random), 2);
+                setBlock(level, pos.above(i), getWallBlock(random));
             }
             for (BlockPos pos : air) {
-                level.setBlock(pos.above(i), Blocks.AIR.defaultBlockState(), 2);
+                setBlock(level, pos.above(i), Blocks.AIR.defaultBlockState());
             }
         }
     }
@@ -135,7 +138,7 @@ public abstract class RefugePiece extends StructurePiece {
         for (int x = boundingBox.minX(); x <= boundingBox.maxX(); x++) {
             for (int y = boundingBox.minY(); y <= boundingBox.maxY(); y++) {
                 for (int z = boundingBox.minZ(); z <= boundingBox.maxZ(); z++) {
-                    level.setBlock(new BlockPos(x, y, z), block.apply(random), 2);
+                    setBlock(level, new BlockPos(x, y, z), block.apply(random));
                 }
             }
         }
@@ -147,7 +150,7 @@ public abstract class RefugePiece extends StructurePiece {
                 for (int z = boundingBox.minZ(); z <= boundingBox.maxZ(); z++) {
                     BlockPos pos = new BlockPos(x, y, z);
                     if (!onlyAir || level.getBlockState(pos).isAir()) {
-                        level.setBlock(pos, block.apply(random), 2);
+                        setBlock(level, pos, block.apply(random));
                     }
                 }
             }
@@ -162,7 +165,7 @@ public abstract class RefugePiece extends StructurePiece {
     public void fill(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction, int width, int height, Function<RandomSource, BlockState> block) {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                level.setBlock(startPos.relative(direction, x).above(y), block.apply(random), 2);
+                setBlock(level, startPos.relative(direction, x).above(y), block.apply(random));
             }
         }
     }
@@ -170,7 +173,7 @@ public abstract class RefugePiece extends StructurePiece {
     public void fill(WorldGenLevel level, RandomSource random, BlockPos startPos, Direction direction1, Direction direction2, int width1, int width2, Function<RandomSource, BlockState> block) {
         for (int x = 0; x < width1; x++) {
             for (int y = 0; y < width2; y++) {
-                level.setBlock(startPos.relative(direction1, x).relative(direction2, y), block.apply(random), 2);
+                setBlock(level, startPos.relative(direction1, x).relative(direction2, y), block.apply(random));
             }
         }
     }
@@ -179,30 +182,30 @@ public abstract class RefugePiece extends StructurePiece {
         for (int x = 0; x < width1; x++) {
             for (int z = 0; z < width2; z++) {
                 for (int y = 0; y < height; y++) {
-                    level.setBlock(startPos.relative(direction1, x).relative(direction2, z).above(y), block.apply(random), 2);
+                    setBlock(level, startPos.relative(direction1, x).relative(direction2, z).above(y), block.apply(random));
                 }
             }
         }
     }
 
-    public void createChest(ServerLevelAccessor serverLevelAccessor, RandomSource random, BlockPos pos, Direction direction, ResourceKey<LootTable> lootTable) {
+    public void createChest(WorldGenLevel level, RandomSource random, BlockPos pos, Direction direction, ResourceKey<LootTable> lootTable) {
         BlockState state = Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, direction);
 
-        if (!serverLevelAccessor.getBlockState(pos).is(Blocks.CHEST)) {
-            serverLevelAccessor.setBlock(pos, state, 2);
-            BlockEntity blockEntity = serverLevelAccessor.getBlockEntity(pos);
+        if (!level.getBlockState(pos).is(Blocks.CHEST)) {
+            setBlock(level, pos, state);
+            BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ChestBlockEntity chestBlockEntity) {
                 chestBlockEntity.setLootTable(lootTable, random.nextLong());
             }
         }
     }
 
-    public void createTrapChest(ServerLevelAccessor serverLevelAccessor, RandomSource random, BlockPos pos, Direction direction, ResourceKey<LootTable> lootTable) {
+    public void createTrapChest(WorldGenLevel level, RandomSource random, BlockPos pos, Direction direction, ResourceKey<LootTable> lootTable) {
         BlockState state = Blocks.TRAPPED_CHEST.defaultBlockState().setValue(ChestBlock.FACING, direction);
 
-        if (!serverLevelAccessor.getBlockState(pos).is(Blocks.TRAPPED_CHEST)) {
-            serverLevelAccessor.setBlock(pos, state, 2);
-            BlockEntity blockEntity = serverLevelAccessor.getBlockEntity(pos);
+        if (!level.getBlockState(pos).is(Blocks.TRAPPED_CHEST)) {
+            setBlock(level, pos, state);
+            BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof ChestBlockEntity chestBlockEntity) {
                 chestBlockEntity.setLootTable(lootTable, random.nextLong());
             }
@@ -282,46 +285,46 @@ public abstract class RefugePiece extends StructurePiece {
         Direction clockWise = direction.getClockWise();
         for (int i = 0; i < length; i++) {
             // stairs
-            level.setBlock(startPos.relative(direction.getCounterClockWise()).relative(direction, i).above(i), getStairBlock(direction, false), 2);
-            level.setBlock(startPos.relative(direction, i).above(i), getStairBlock(direction, false), 2);
-            level.setBlock(startPos.relative(clockWise).relative(direction, i).above(i), getStairBlock(direction, false), 2);
+            setBlock(level, startPos.relative(direction.getCounterClockWise()).relative(direction, i).above(i), getStairBlock(direction, false));
+            setBlock(level, startPos.relative(direction, i).above(i), getStairBlock(direction, false));
+            setBlock(level, startPos.relative(clockWise).relative(direction, i).above(i), getStairBlock(direction, false));
 
             // floor
-            level.setBlock(startPos.relative(clockWise, -2).relative(direction, i).above(i - 1), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, -1).relative(direction, i).above(i - 1), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(direction, i).above(i - 1), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise).relative(direction, i).above(i - 1), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).relative(direction, i).above(i - 1), blockGetter.apply(random), 2);
+            setBlock(level, startPos.relative(clockWise, -2).relative(direction, i).above(i - 1), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, -1).relative(direction, i).above(i - 1), blockGetter.apply(random));
+            setBlock(level, startPos.relative(direction, i).above(i - 1), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise).relative(direction, i).above(i - 1), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, 2).relative(direction, i).above(i - 1), blockGetter.apply(random));
 
             // left wall
-            level.setBlock(startPos.relative(clockWise, -2).relative(direction, i).above(i), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, -2).relative(direction, i).above(i + 1), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, -2).relative(direction, i).above(i + 2), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, -2).relative(direction, i).above(i + 3), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, -2).relative(direction, i).above(i + 4), blockGetter.apply(random), 2);
+            setBlock(level, startPos.relative(clockWise, -2).relative(direction, i).above(i), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, -2).relative(direction, i).above(i + 1), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, -2).relative(direction, i).above(i + 2), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, -2).relative(direction, i).above(i + 3), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, -2).relative(direction, i).above(i + 4), blockGetter.apply(random));
 
             // right wall
-            level.setBlock(startPos.relative(clockWise, 2).relative(direction, i).above(i), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).relative(direction, i).above(i + 1), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).relative(direction, i).above(i + 2), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).relative(direction, i).above(i + 3), blockGetter.apply(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).relative(direction, i).above(i + 4), blockGetter.apply(random), 2);
+            setBlock(level, startPos.relative(clockWise, 2).relative(direction, i).above(i), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, 2).relative(direction, i).above(i + 1), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, 2).relative(direction, i).above(i + 2), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, 2).relative(direction, i).above(i + 3), blockGetter.apply(random));
+            setBlock(level, startPos.relative(clockWise, 2).relative(direction, i).above(i + 4), blockGetter.apply(random));
 
             // air
-            level.setBlock(startPos.relative(clockWise, -1).relative(direction, i).above(i + 1), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, -1).relative(direction, i).above(i + 2), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, -1).relative(direction, i).above(i + 3), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(direction, i).above(i + 1), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(direction, i).above(i + 2), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(direction, i).above(i + 3), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, 1).relative(direction, i).above(i + 1), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, 1).relative(direction, i).above(i + 2), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, 1).relative(direction, i).above(i + 3), Blocks.AIR.defaultBlockState(), 2);
+            setBlock(level, startPos.relative(clockWise, -1).relative(direction, i).above(i + 1), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, -1).relative(direction, i).above(i + 2), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, -1).relative(direction, i).above(i + 3), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(direction, i).above(i + 1), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(direction, i).above(i + 2), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(direction, i).above(i + 3), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, 1).relative(direction, i).above(i + 1), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, 1).relative(direction, i).above(i + 2), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, 1).relative(direction, i).above(i + 3), Blocks.AIR.defaultBlockState());
 
             // ceiling
-            level.setBlock(startPos.relative(clockWise, -1).relative(direction, i).above(i + 4), getStairBlock(direction.getOpposite(), true), 2);
-            level.setBlock(startPos.relative(direction, i).above(i + 4), getStairBlock(direction.getOpposite(), true), 2);
-            level.setBlock(startPos.relative(clockWise).relative(direction, i).above(i + 4), getStairBlock(direction.getOpposite(), true), 2);
+            setBlock(level, startPos.relative(clockWise, -1).relative(direction, i).above(i + 4), getStairBlock(direction.getOpposite(), true));
+            setBlock(level, startPos.relative(direction, i).above(i + 4), getStairBlock(direction.getOpposite(), true));
+            setBlock(level, startPos.relative(clockWise).relative(direction, i).above(i + 4), getStairBlock(direction.getOpposite(), true));
         }
     }
 
@@ -336,48 +339,48 @@ public abstract class RefugePiece extends StructurePiece {
                 startPos = startPos.above(1);
 
                 // floor
-                level.setBlock(startPos.relative(clockWise, -1), getSlabBlock(false), 2);
-                level.setBlock(startPos, getSlabBlock(false), 2);
-                level.setBlock(startPos.relative(clockWise, 1), getSlabBlock(false), 2);
+                setBlock(level, startPos.relative(clockWise, -1), getSlabBlock(false));
+                setBlock(level, startPos, getSlabBlock(false));
+                setBlock(level, startPos.relative(clockWise, 1), getSlabBlock(false));
 
                 // ceiling
-                level.setBlock(startPos.relative(clockWise, -1).above(4), getWallBlock(random), 2);
-                level.setBlock(startPos.above(4), getWallBlock(random), 2);
-                level.setBlock(startPos.relative(clockWise, 1).above(4), getWallBlock(random), 2);
+                setBlock(level, startPos.relative(clockWise, -1).above(4), getWallBlock(random));
+                setBlock(level, startPos.above(4), getWallBlock(random));
+                setBlock(level, startPos.relative(clockWise, 1).above(4), getWallBlock(random));
             } else {
                 // floor
-                level.setBlock(startPos.relative(clockWise, -1), getWallBlock(random), 2);
-                level.setBlock(startPos, getWallBlock(random), 2);
-                level.setBlock(startPos.relative(clockWise, 1), getWallBlock(random), 2);
+                setBlock(level, startPos.relative(clockWise, -1), getWallBlock(random));
+                setBlock(level, startPos, getWallBlock(random));
+                setBlock(level, startPos.relative(clockWise, 1), getWallBlock(random));
 
                 // ceiling
-                level.setBlock(startPos.relative(clockWise, -1).above(4), getSlabBlock(true), 2);
-                level.setBlock(startPos.above(4), getSlabBlock(true), 2);
-                level.setBlock(startPos.relative(clockWise, 1).above(4), getSlabBlock(true), 2);
+                setBlock(level, startPos.relative(clockWise, -1).above(4), getSlabBlock(true));
+                setBlock(level, startPos.above(4), getSlabBlock(true));
+                setBlock(level, startPos.relative(clockWise, 1).above(4), getSlabBlock(true));
             }
 
             // walls
-            level.setBlock(startPos.relative(clockWise, -2), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, -2).above(1), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, -2).above(2), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, -2).above(3), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, -2).above(4), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).above(1), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).above(2), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).above(3), getWallBlock(random), 2);
-            level.setBlock(startPos.relative(clockWise, 2).above(4), getWallBlock(random), 2);
+            setBlock(level, startPos.relative(clockWise, -2), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, -2).above(1), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, -2).above(2), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, -2).above(3), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, -2).above(4), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, 2), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, 2).above(1), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, 2).above(2), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, 2).above(3), getWallBlock(random));
+            setBlock(level, startPos.relative(clockWise, 2).above(4), getWallBlock(random));
 
             // air
-            level.setBlock(startPos.relative(clockWise, -1).above(1), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, -1).above(2), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, -1).above(3), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.above(1), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.above(2), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.above(3), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, 1).above(1), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, 1).above(2), Blocks.AIR.defaultBlockState(), 2);
-            level.setBlock(startPos.relative(clockWise, 1).above(3), Blocks.AIR.defaultBlockState(), 2);
+            setBlock(level, startPos.relative(clockWise, -1).above(1), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, -1).above(2), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, -1).above(3), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.above(1), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.above(2), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.above(3), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, 1).above(1), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, 1).above(2), Blocks.AIR.defaultBlockState());
+            setBlock(level, startPos.relative(clockWise, 1).above(3), Blocks.AIR.defaultBlockState());
 
             startPos = startPos.relative(direction);
         }

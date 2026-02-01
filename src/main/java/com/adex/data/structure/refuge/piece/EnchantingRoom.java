@@ -39,7 +39,7 @@ public class EnchantingRoom extends FiveWideRoom {
         fill(level, random, startPos.relative(direction, 4).relative(counterClockWise, 1).above(1), clockWise, 3, 2, _ -> bookshelf);
 
         // enchanting table
-        level.setBlock(startPos.relative(direction, 2).above(1), enchantingTable, 2);
+        setBlock(level, startPos.relative(direction, 2).above(1), enchantingTable);
 
     }
 }

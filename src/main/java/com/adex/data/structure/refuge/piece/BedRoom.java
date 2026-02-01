@@ -74,10 +74,10 @@ public class BedRoom extends RefugePiece {
         fill(level, random, startPos.relative(counterClockWise).above(1), clockWise, 3, 3, this::air);
 
         // fireplace
-        level.setBlock(backRight.above(1).relative(counterClockWise, 4).relative(direction.getOpposite(), 1), stoneSlab, 2);
-        level.setBlock(backRight.above(1).relative(counterClockWise, 3), stoneStairRight, 2);
-        level.setBlock(backRight.above(1).relative(counterClockWise, 4), campfire, 2);
-        level.setBlock(backRight.above(1).relative(counterClockWise, 5), stoneStairLeft, 2);
+        setBlock(level, backRight.above(1).relative(counterClockWise, 4).relative(direction.getOpposite(), 1), stoneSlab);
+        setBlock(level, backRight.above(1).relative(counterClockWise, 3), stoneStairRight);
+        setBlock(level, backRight.above(1).relative(counterClockWise, 4), campfire);
+        setBlock(level, backRight.above(1).relative(counterClockWise, 5), stoneStairLeft);
         fill(level, random, backRight.above(2).relative(counterClockWise, 3), counterClockWise, 3, 1, this::air);
         // fireplace back wall
         fill(level, random, backRight.above(1).relative(counterClockWise, 3).relative(direction, 1), counterClockWise, 3, 2, this::getWallBlock);
@@ -86,8 +86,8 @@ public class BedRoom extends RefugePiece {
         generateBedsAndChests(level, random, frontLeft.relative(direction, 1).relative(clockWise, 1).above(1), frontRight.relative(direction, 1).relative(counterClockWise, 1).above(1), direction, 4);
 
         // lanterns
-        level.setBlock(startPos.relative(direction, 3).above(4), lantern, 2);
-        level.setBlock(startPos.relative(direction, 9).above(4), lantern, 2);
+        setBlock(level, startPos.relative(direction, 3).above(4), lantern);
+        setBlock(level, startPos.relative(direction, 9).above(4), lantern);
     }
 
     /**
@@ -114,32 +114,32 @@ public class BedRoom extends RefugePiece {
 
         for (int i = 0; i < count; i++) {
             // left chests
-            level.setBlock(leftPos.relative(direction, i * 3), chestLeftLeft, 2);
-            level.setBlock(leftPos.relative(direction, i * 3 + 1), chestLeftRight, 2);
-            level.setBlock(leftPos.above(1).relative(direction, i * 3), chestLeftLeft, 2);
-            level.setBlock(leftPos.above(1).relative(direction, i * 3 + 1), chestLeftRight, 2);
+            setBlock(level, leftPos.relative(direction, i * 3), chestLeftLeft);
+            setBlock(level, leftPos.relative(direction, i * 3 + 1), chestLeftRight);
+            setBlock(level, leftPos.above(1).relative(direction, i * 3), chestLeftLeft);
+            setBlock(level, leftPos.above(1).relative(direction, i * 3 + 1), chestLeftRight);
 
             // left beds
-            level.setBlock(leftPos.relative(direction, i * 3 + 2), carpet, 2);
-            level.setBlock(leftPos.relative(direction, i * 3 + 2).relative(clockWise, 1), carpet, 2);
-            level.setBlock(leftPos.above(1).relative(direction, i * 3 + 2), bedSlab, 2);
-            level.setBlock(leftPos.above(1).relative(direction, i * 3 + 2).relative(clockWise, 1), bedSlab, 2);
-            level.setBlock(leftPos.above(2).relative(direction, i * 3 + 2), carpet, 2);
-            level.setBlock(leftPos.above(2).relative(direction, i * 3 + 2).relative(clockWise, 1), carpet, 2);
+            setBlock(level, leftPos.relative(direction, i * 3 + 2), carpet);
+            setBlock(level, leftPos.relative(direction, i * 3 + 2).relative(clockWise, 1), carpet);
+            setBlock(level, leftPos.above(1).relative(direction, i * 3 + 2), bedSlab);
+            setBlock(level, leftPos.above(1).relative(direction, i * 3 + 2).relative(clockWise, 1), bedSlab);
+            setBlock(level, leftPos.above(2).relative(direction, i * 3 + 2), carpet);
+            setBlock(level, leftPos.above(2).relative(direction, i * 3 + 2).relative(clockWise, 1), carpet);
 
             // right chests
-            level.setBlock(rightPos.relative(direction, i * 3), chestRightRight, 2);
-            level.setBlock(rightPos.relative(direction, i * 3 + 1), chestRightLeft, 2);
-            level.setBlock(rightPos.above(1).relative(direction, i * 3), chestRightRight, 2);
-            level.setBlock(rightPos.above(1).relative(direction, i * 3 + 1), chestRightLeft, 2);
+            setBlock(level, rightPos.relative(direction, i * 3), chestRightRight);
+            setBlock(level, rightPos.relative(direction, i * 3 + 1), chestRightLeft);
+            setBlock(level, rightPos.above(1).relative(direction, i * 3), chestRightRight);
+            setBlock(level, rightPos.above(1).relative(direction, i * 3 + 1), chestRightLeft);
 
             // right beds
-            level.setBlock(rightPos.relative(direction, i * 3 + 2), carpet, 2);
-            level.setBlock(rightPos.relative(direction, i * 3 + 2).relative(counterClockWise, 1), carpet, 2);
-            level.setBlock(rightPos.above(1).relative(direction, i * 3 + 2), bedSlab, 2);
-            level.setBlock(rightPos.above(1).relative(direction, i * 3 + 2).relative(counterClockWise, 1), bedSlab, 2);
-            level.setBlock(rightPos.above(2).relative(direction, i * 3 + 2), carpet, 2);
-            level.setBlock(rightPos.above(2).relative(direction, i * 3 + 2).relative(counterClockWise, 1), carpet, 2);
+            setBlock(level, rightPos.relative(direction, i * 3 + 2), carpet);
+            setBlock(level, rightPos.relative(direction, i * 3 + 2).relative(counterClockWise, 1), carpet);
+            setBlock(level, rightPos.above(1).relative(direction, i * 3 + 2), bedSlab);
+            setBlock(level, rightPos.above(1).relative(direction, i * 3 + 2).relative(counterClockWise, 1), bedSlab);
+            setBlock(level, rightPos.above(2).relative(direction, i * 3 + 2), carpet);
+            setBlock(level, rightPos.above(2).relative(direction, i * 3 + 2).relative(counterClockWise, 1), carpet);
         }
     }
 

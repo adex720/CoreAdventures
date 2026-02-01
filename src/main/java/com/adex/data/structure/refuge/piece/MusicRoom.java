@@ -57,8 +57,8 @@ public class MusicRoom extends NineWideRoom {
     public void createNoteBlocks(WorldGenLevel level, BlockPos pos, Direction direction, int length, Block base) {
         BlockState state = base.defaultBlockState();
         for (int i = 0; i < length; i++) {
-            level.setBlock(pos.relative(direction, i), state, 2);
-            level.setBlock(pos.relative(direction, i).above(1), getNoteBlock(PITCHES[i]), 2);
+            setBlock(level, pos.relative(direction, i), state);
+            setBlock(level, pos.relative(direction, i).above(1), getNoteBlock(PITCHES[i]));
         }
     }
 

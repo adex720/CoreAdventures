@@ -24,11 +24,11 @@ public class TreasureRoom extends ElevenWideRoom {
         addRandomTreasureChest(level, random);
 
         BlockState state = (random.nextBoolean() ? Blocks.GOLD_BLOCK : Blocks.DIAMOND_BLOCK).defaultBlockState();
-        level.setBlock(startPos.relative(direction, 6).above(1), state, 2);
-        level.setBlock(startPos.relative(direction, 5).above(1), state, 2);
-        level.setBlock(startPos.relative(direction, 6).relative(direction.getClockWise()).above(1), state, 2);
-        level.setBlock(startPos.relative(direction, 7).above(1), state, 2);
-        level.setBlock(startPos.relative(direction, 6).relative(direction.getCounterClockWise()).above(1), state, 2);
-        level.setBlock(startPos.relative(direction, 6).above(2), state, 2);
+        setBlock(level, startPos.relative(direction, 6).above(1), state);
+        setBlock(level, startPos.relative(direction, 5).above(1), state);
+        setBlock(level, startPos.relative(direction, 6).relative(direction.getClockWise()).above(1), state);
+        setBlock(level, startPos.relative(direction, 7).above(1), state);
+        setBlock(level, startPos.relative(direction, 6).relative(direction.getCounterClockWise()).above(1), state);
+        setBlock(level, startPos.relative(direction, 6).above(2), state);
     }
 }

@@ -37,9 +37,9 @@ public class BrewingRoom extends FiveWideRoom {
         BlockState chest = Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, counterClockWise);
 
         // place blocks
-        level.setBlock(startPos.above(1).relative(direction, 2).relative(counterClockWise, 1), lectern, 2);
-        level.setBlock(startPos.above(1).relative(direction, 3).relative(counterClockWise, 1), getWallBlock(random), 2);
-        level.setBlock(startPos.above(2).relative(direction, 3).relative(counterClockWise, 1), brewingStand, 2);
-        level.setBlock(startPos.above(1).relative(direction, 3).relative(clockWise, 1), chest, 2);
+        setBlock(level, startPos.above(1).relative(direction, 2).relative(counterClockWise, 1), lectern);
+        setBlock(level, startPos.above(1).relative(direction, 3).relative(counterClockWise, 1), getWallBlock(random));
+        setBlock(level, startPos.above(2).relative(direction, 3).relative(counterClockWise, 1), brewingStand);
+        setBlock(level, startPos.above(1).relative(direction, 3).relative(clockWise, 1), chest);
     }
 }

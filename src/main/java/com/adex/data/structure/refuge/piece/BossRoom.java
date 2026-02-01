@@ -37,7 +37,7 @@ public class BossRoom extends ElevenWideRoom {
     public void createBlocks(WorldGenLevel level, RandomSource random) {
         super.createBlocks(level, random);
         addRandomTreasureChest(level, random);
-        level.setBlock(startPos.above().relative(direction, 5), getGolemBlock(random), 2);
+        setBlock(level, startPos.above().relative(direction, 5), getGolemBlock(random));
     }
 
     public BlockState getGolemBlock(RandomSource random) {

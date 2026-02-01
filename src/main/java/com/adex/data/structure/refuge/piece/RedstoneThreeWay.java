@@ -92,7 +92,7 @@ public class RedstoneThreeWay extends RefugePiece {
         createWalls(level, random, startPos, direction, 15);
 
         // lever
-        level.setBlock(doorBottomLeft.above(1).relative(direction, 6).relative(counterClockWise, 1), lever, 2);
+        setBlock(level, doorBottomLeft.above(1).relative(direction, 6).relative(counterClockWise, 1), lever);
 
         // end of hidden corridor
         createWalls(level, random, doorBottomLeft.relative(clockWise, 5).relative(opposite, 1).below(2), clockWise, 4);
@@ -109,115 +109,115 @@ public class RedstoneThreeWay extends RefugePiece {
 
         // right wall of start of hidden corridor
         fill(level, random, doorBottomLeft.relative(clockWise, 3).relative(opposite, 3).below(1), clockWise, 2, 3, this::getWallBlock);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).relative(opposite, 2).below(1), getWallBlock(random), 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 3).relative(opposite, 2).below(1), getWallBlock(random), 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 3).relative(opposite, 2), getWallBlock(random), 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 3).relative(opposite, 2).above(1), getWallBlock(random), 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).relative(opposite, 2).below(1), getWallBlock(random));
+        setBlock(level, doorBottomLeft.relative(clockWise, 3).relative(opposite, 2).below(1), getWallBlock(random));
+        setBlock(level, doorBottomLeft.relative(clockWise, 3).relative(opposite, 2), getWallBlock(random));
+        setBlock(level, doorBottomLeft.relative(clockWise, 3).relative(opposite, 2).above(1), getWallBlock(random));
 
         // air at start of hidden corridor
         fill(level, random, doorBottomLeft.relative(clockWise, 1), clockWise, opposite, 4, 2, 2, this::air);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).relative(opposite, 2).above(1), air, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).relative(opposite, 2).above(1), air);
 
         //stairs
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).relative(opposite, 1).below(1), stair, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).below(1), stair, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).relative(opposite, 1).below(1), stair);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).below(1), stair);
 
         // chest
         createChest(level, random, doorBottomLeft.relative(clockWise, 4).relative(opposite, 2), direction, ModLootTables.REFUGE_TREASURE);
 
         // lever to observers
-        level.setBlock(doorBottomLeft.relative(direction, 6).relative(clockWise, 1).above(1), redstoneUpFront, 2);
-        level.setBlock(doorBottomLeft.relative(direction, 6).relative(clockWise, 1).above(2), air, 2);
+        setBlock(level, doorBottomLeft.relative(direction, 6).relative(clockWise, 1).above(1), redstoneUpFront);
+        setBlock(level, doorBottomLeft.relative(direction, 6).relative(clockWise, 1).above(2), air);
         fill(level, random, doorBottomLeft.relative(direction, 6).relative(clockWise, 2).above(2), clockWise, 4, 1, _ -> redstoneForward);
-        level.setBlock(doorBottomLeft.relative(direction, 6).relative(clockWise, 6).above(2), redstoneFrontRight, 2);
+        setBlock(level, doorBottomLeft.relative(direction, 6).relative(clockWise, 6).above(2), redstoneFrontRight);
         fill(level, random, doorBottomLeft.relative(direction, 5).relative(clockWise, 6).above(2), opposite, 3, 1, _ -> redstoneSideways);
 
         // air and slabs
-        level.setBlock(doorBottomLeft.relative(direction, 3).relative(clockWise, 6).above(3), slab, 2);
-        level.setBlock(doorBottomLeft.relative(direction, 2).relative(clockWise, 6).above(4), slab, 2);
-        level.setBlock(doorBottomLeft.relative(direction, 3).relative(clockWise, 6).above(5), air, 2);
+        setBlock(level, doorBottomLeft.relative(direction, 3).relative(clockWise, 6).above(3), slab);
+        setBlock(level, doorBottomLeft.relative(direction, 2).relative(clockWise, 6).above(4), slab);
+        setBlock(level, doorBottomLeft.relative(direction, 3).relative(clockWise, 6).above(5), air);
 
         fill(level, random, doorBottomLeft.relative(direction, 2).relative(clockWise, 6).above(3), opposite, 3, 1, _ -> redstoneSideways);
-        level.setBlock(doorBottomLeft.relative(direction, 3).relative(clockWise, 6).above(4), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(direction, 2).relative(clockWise, 6).above(5), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 6).above(5), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(opposite, 2).relative(clockWise, 6).above(5), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 6).above(3), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(opposite, 2).relative(clockWise, 6).above(3), redstoneSideways, 2);
+        setBlock(level, doorBottomLeft.relative(direction, 3).relative(clockWise, 6).above(4), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(direction, 2).relative(clockWise, 6).above(5), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(clockWise, 6).above(5), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(opposite, 2).relative(clockWise, 6).above(5), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(clockWise, 6).above(3), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(opposite, 2).relative(clockWise, 6).above(3), redstoneSideways);
 
-        level.setBlock(doorBottomLeft.relative(direction, 1).relative(clockWise, 6).above(5), repeaterRight1, 2);
-        level.setBlock(doorBottomLeft.relative(opposite, 1).relative(clockWise, 6).above(5), repeaterRight4, 2);
-        level.setBlock(doorBottomLeft.relative(opposite, 1).relative(clockWise, 6).above(3), repeaterRight4, 2);
+        setBlock(level, doorBottomLeft.relative(direction, 1).relative(clockWise, 6).above(5), repeaterRight1);
+        setBlock(level, doorBottomLeft.relative(opposite, 1).relative(clockWise, 6).above(5), repeaterRight4);
+        setBlock(level, doorBottomLeft.relative(opposite, 1).relative(clockWise, 6).above(3), repeaterRight4);
 
         // first observers
-        level.setBlock(doorBottomLeft.relative(clockWise, 5).above(5), observerFront, 2);
-        level.setBlock(doorBottomLeft.relative(opposite, 2).relative(clockWise, 5).above(5), observerFront, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 5).above(3), observerFront, 2);
-        level.setBlock(doorBottomLeft.relative(opposite, 2).relative(clockWise, 5).above(3), observerFront, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 5).above(5), observerFront);
+        setBlock(level, doorBottomLeft.relative(opposite, 2).relative(clockWise, 5).above(5), observerFront);
+        setBlock(level, doorBottomLeft.relative(clockWise, 5).above(3), observerFront);
+        setBlock(level, doorBottomLeft.relative(opposite, 2).relative(clockWise, 5).above(3), observerFront);
 
         // second observers
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(3), observerUp, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(3).relative(opposite, 1), observerUp, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(3), observerUp);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(3).relative(opposite, 1), observerUp);
 
         // upper first observers to second observers
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(5).relative(opposite, 2), redstoneFrontLeft, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(5).relative(opposite, 1), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(5), redstoneForwardRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 3).above(5), redstoneForward, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(4), redstoneUpFrontRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(5), air, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(4).relative(opposite, 1), redstoneSideways, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(5).relative(opposite, 2), redstoneFrontLeft);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(5).relative(opposite, 1), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(5), redstoneForwardRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 3).above(5), redstoneForward);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(4), redstoneUpFrontRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(5), air);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(4).relative(opposite, 1), redstoneSideways);
 
         // straight redstone after lower first observers
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(3).relative(direction, 2), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(3).relative(direction, 1), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(3), redstoneSidewaysFront, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(3).relative(opposite, 1), redstoneSideways, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(3).relative(opposite, 2), redstoneSidewaysFront, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(3).relative(opposite, 3), redstoneSideways, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(3).relative(direction, 2), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(3).relative(direction, 1), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(3), redstoneSidewaysFront);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(3).relative(opposite, 1), redstoneSideways);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(3).relative(opposite, 2), redstoneSidewaysFront);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(3).relative(opposite, 3), redstoneSideways);
 
         // first observers to left pistons
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(3).relative(direction, 3), air, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(2).relative(direction, 3), redstoneUpRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(2).relative(direction, 4), redstoneBackRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 3).above(2).relative(direction, 4), air, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 3).above(1).relative(direction, 4), redstoneUpFront, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(1).relative(direction, 4), redstoneForwardRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).above(1).relative(direction, 4), redstoneFrontRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(1).relative(direction, 3), repeaterRight1, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).above(1).relative(direction, 3), repeaterRight1, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(3).relative(direction, 3), air);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(2).relative(direction, 3), redstoneUpRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(2).relative(direction, 4), redstoneBackRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 3).above(2).relative(direction, 4), air);
+        setBlock(level, doorBottomLeft.relative(clockWise, 3).above(1).relative(direction, 4), redstoneUpFront);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(1).relative(direction, 4), redstoneForwardRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).above(1).relative(direction, 4), redstoneFrontRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(1).relative(direction, 3), repeaterRight1);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).above(1).relative(direction, 3), repeaterRight1);
 
         // first observers to right pistons
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(3).relative(opposite, 4), air, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(2).relative(opposite, 4), redstoneUpLeft, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 4).above(2).relative(opposite, 5), redstoneBackLeft, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 3).above(2).relative(opposite, 5), air, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 3).above(1).relative(opposite, 5), redstoneUpFront, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(1).relative(opposite, 5), redstoneForwardLeft, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).above(1).relative(opposite, 5), redstoneFrontLeft, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).above(1).relative(opposite, 4), repeaterLeft1, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).above(1).relative(opposite, 4), repeaterLeft1, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(3).relative(opposite, 4), air);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(2).relative(opposite, 4), redstoneUpLeft);
+        setBlock(level, doorBottomLeft.relative(clockWise, 4).above(2).relative(opposite, 5), redstoneBackLeft);
+        setBlock(level, doorBottomLeft.relative(clockWise, 3).above(2).relative(opposite, 5), air);
+        setBlock(level, doorBottomLeft.relative(clockWise, 3).above(1).relative(opposite, 5), redstoneUpFront);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(1).relative(opposite, 5), redstoneForwardLeft);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).above(1).relative(opposite, 5), redstoneFrontLeft);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).above(1).relative(opposite, 4), repeaterLeft1);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).above(1).relative(opposite, 4), repeaterLeft1);
 
         // left pistons
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).relative(direction, 2), pistonRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).relative(direction, 2).above(1), pistonRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).relative(direction, 2), pistonRight, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).relative(direction, 2).above(1), pistonRight, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).relative(direction, 2), pistonRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).relative(direction, 2).above(1), pistonRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).relative(direction, 2), pistonRight);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).relative(direction, 2).above(1), pistonRight);
 
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).relative(direction, 1), pistonBack, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).relative(direction, 1).above(1), pistonBack, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).relative(direction, 1), air, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).relative(direction, 1).above(1), air, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).relative(direction, 1), pistonBack);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).relative(direction, 1).above(1), pistonBack);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).relative(direction, 1), air);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).relative(direction, 1).above(1), air);
 
         // right pistons
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).relative(opposite, 3), pistonLeft, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).relative(opposite, 3).above(1), pistonLeft, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).relative(opposite, 3), pistonLeft, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).relative(opposite, 3).above(1), pistonLeft, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).relative(opposite, 3), pistonLeft);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).relative(opposite, 3).above(1), pistonLeft);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).relative(opposite, 3), pistonLeft);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).relative(opposite, 3).above(1), pistonLeft);
 
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).relative(opposite, 2), pistonBack, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 2).relative(opposite, 2).above(1), pistonBack, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).relative(opposite, 2), air, 2);
-        level.setBlock(doorBottomLeft.relative(clockWise, 1).relative(opposite, 2).above(1), air, 2);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).relative(opposite, 2), pistonBack);
+        setBlock(level, doorBottomLeft.relative(clockWise, 2).relative(opposite, 2).above(1), pistonBack);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).relative(opposite, 2), air);
+        setBlock(level, doorBottomLeft.relative(clockWise, 1).relative(opposite, 2).above(1), air);
     }
 }

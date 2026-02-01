@@ -94,7 +94,7 @@ public class StairsEight extends RefugePiece {
         // entry door
         fill(level, random, pos.relative(clockWise, 2).above(1), direction, 3, 3, this::air);
         // entry door frame
-        level.setBlock(pos.relative(direction, 3).relative(clockWise, 2), getWallBlock(random), 2);
+        setBlock(level, pos.relative(direction, 3).relative(clockWise, 2), getWallBlock(random));
 
         //stairs
         fill(level, random, pos.relative(direction, 3).relative(counterClockWise, 1).above(1), clockWise, 3, 1, _ -> slabBottom);
@@ -105,13 +105,13 @@ public class StairsEight extends RefugePiece {
 
         // inner walls
         fill(level, random, pos.relative(direction, 3).relative(counterClockWise, 2).above(1), direction, 2, 5, this::getWallBlock);
-        level.setBlock(pos.relative(direction, 3).relative(counterClockWise, 2), getWallBlock(random), 2);
-        level.setBlock(pos.relative(direction, 4).relative(counterClockWise, 2).above(6), getWallBlock(random), 2);
+        setBlock(level, pos.relative(direction, 3).relative(counterClockWise, 2), getWallBlock(random));
+        setBlock(level, pos.relative(direction, 4).relative(counterClockWise, 2).above(6), getWallBlock(random));
         fill(level, random, pos.relative(direction, 4).relative(counterClockWise, 3).above(2), counterClockWise, 1, 5, this::getWallBlock);
 
         // outer walls
         fill(level, random, pos.relative(direction, 3).relative(clockWise, 2).above(1), direction, 2, 5, this::getWallBlock);
-        level.setBlock(pos.relative(direction, 3).relative(clockWise, 2), getWallBlock(random), 2);
+        setBlock(level, pos.relative(direction, 3).relative(clockWise, 2), getWallBlock(random));
         fill(level, random, pos.relative(direction, 5).relative(clockWise, 2).above(2), direction, 4, 5, this::getWallBlock);
         fill(level, random, pos.relative(direction, 8).relative(clockWise, 1).above(2), counterClockWise, 4, 5, this::getWallBlock);
         fill(level, random, pos.relative(direction, 8).relative(counterClockWise, 3).above(3), counterClockWise, 1, 5, this::getWallBlock);

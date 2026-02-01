@@ -62,7 +62,7 @@ public class LadderUp extends RefugePiece {
     public static void createLadders(WorldGenLevel level, BlockPos bottomPos, int height, Rotation ladderRotation) {
         BlockState state = Blocks.LADDER.defaultBlockState().rotate(ladderRotation);
         for (int dy = 0; dy < height; dy++) {
-            level.setBlock(bottomPos.above(dy), state, 2);
+            setBlock(level, bottomPos.above(dy), state);
         }
     }
 }

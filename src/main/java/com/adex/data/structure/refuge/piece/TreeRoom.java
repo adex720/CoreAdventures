@@ -42,97 +42,97 @@ public class TreeRoom extends ElevenWideRoom {
 
         fill(level, random, treePos, direction, 1, 4, _ -> log); // tree log
         // tree leaves
-        level.setBlock(treePos.above(1).relative(direction, -1).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, -1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, -1).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, 1).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, 1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, 1).relative(clockwise, 1), leaves, 2);
+        setBlock(level, treePos.above(1).relative(direction, -1).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, -1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, -1).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(1).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(1).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, 1).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, 1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, 1).relative(clockwise, 1), leaves);
 
-        level.setBlock(treePos.above(1).relative(direction, -2).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, -2), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, -2).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, -1).relative(clockwise, -2), leaves, 2);
-        level.setBlock(treePos.above(1).relative(clockwise, -2), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, 1).relative(clockwise, -2), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, 2).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, 2), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, 2).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, 1).relative(clockwise, 2), leaves, 2);
-        level.setBlock(treePos.above(1).relative(clockwise, 2), leaves, 2);
-        level.setBlock(treePos.above(1).relative(direction, -1).relative(clockwise, 2), leaves, 2);
+        setBlock(level, treePos.above(1).relative(direction, -2).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, -2), leaves);
+        setBlock(level, treePos.above(1).relative(direction, -2).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, -1).relative(clockwise, -2), leaves);
+        setBlock(level, treePos.above(1).relative(clockwise, -2), leaves);
+        setBlock(level, treePos.above(1).relative(direction, 1).relative(clockwise, -2), leaves);
+        setBlock(level, treePos.above(1).relative(direction, 2).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, 2), leaves);
+        setBlock(level, treePos.above(1).relative(direction, 2).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(1).relative(direction, 1).relative(clockwise, 2), leaves);
+        setBlock(level, treePos.above(1).relative(clockwise, 2), leaves);
+        setBlock(level, treePos.above(1).relative(direction, -1).relative(clockwise, 2), leaves);
 
-        level.setBlock(treePos.above(2).relative(direction, -1).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, -1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, -1).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, 1).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, 1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, 1).relative(clockwise, 1), leaves, 2);
+        setBlock(level, treePos.above(2).relative(direction, -1).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, -1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, -1).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(2).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(2).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, 1).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, 1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, 1).relative(clockwise, 1), leaves);
 
-        level.setBlock(treePos.above(2).relative(direction, -2).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, -2), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, -2).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, -1).relative(clockwise, -2), leaves, 2);
-        level.setBlock(treePos.above(2).relative(clockwise, -2), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, 1).relative(clockwise, -2), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, 2).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, 2), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, 2).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, 1).relative(clockwise, 2), leaves, 2);
-        level.setBlock(treePos.above(2).relative(clockwise, 2), leaves, 2);
-        level.setBlock(treePos.above(2).relative(direction, -1).relative(clockwise, 2), leaves, 2);
+        setBlock(level, treePos.above(2).relative(direction, -2).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, -2), leaves);
+        setBlock(level, treePos.above(2).relative(direction, -2).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, -1).relative(clockwise, -2), leaves);
+        setBlock(level, treePos.above(2).relative(clockwise, -2), leaves);
+        setBlock(level, treePos.above(2).relative(direction, 1).relative(clockwise, -2), leaves);
+        setBlock(level, treePos.above(2).relative(direction, 2).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, 2), leaves);
+        setBlock(level, treePos.above(2).relative(direction, 2).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(2).relative(direction, 1).relative(clockwise, 2), leaves);
+        setBlock(level, treePos.above(2).relative(clockwise, 2), leaves);
+        setBlock(level, treePos.above(2).relative(direction, -1).relative(clockwise, 2), leaves);
 
-        level.setBlock(treePos.above(3).relative(direction, -1).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(3).relative(direction, -1), leaves, 2);
-        level.setBlock(treePos.above(3).relative(direction, -1).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(3).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(3).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(3).relative(direction, 1).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(3).relative(direction, 1), leaves, 2);
-        level.setBlock(treePos.above(3).relative(direction, 1).relative(clockwise, 1), leaves, 2);
+        setBlock(level, treePos.above(3).relative(direction, -1).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(3).relative(direction, -1), leaves);
+        setBlock(level, treePos.above(3).relative(direction, -1).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(3).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(3).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(3).relative(direction, 1).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(3).relative(direction, 1), leaves);
+        setBlock(level, treePos.above(3).relative(direction, 1).relative(clockwise, 1), leaves);
 
-        level.setBlock(treePos.above(4).relative(direction, -1), leaves, 2);
-        level.setBlock(treePos.above(4).relative(clockwise, -1), leaves, 2);
-        level.setBlock(treePos.above(4).relative(clockwise, 1), leaves, 2);
-        level.setBlock(treePos.above(4).relative(direction, 1), leaves, 2);
-        level.setBlock(treePos.above(4), leaves, 2);
+        setBlock(level, treePos.above(4).relative(direction, -1), leaves);
+        setBlock(level, treePos.above(4).relative(clockwise, -1), leaves);
+        setBlock(level, treePos.above(4).relative(clockwise, 1), leaves);
+        setBlock(level, treePos.above(4).relative(direction, 1), leaves);
+        setBlock(level, treePos.above(4), leaves);
 
         // front left bush
-        level.setBlock(frontLeft, leaves, 2);
-        level.setBlock(frontLeft.above(1), leaves, 2);
+        setBlock(level, frontLeft, leaves);
+        setBlock(level, frontLeft.above(1), leaves);
 
         // back left bush
-        level.setBlock(backLeft, log, 2);
-        level.setBlock(backLeft.relative(direction, -1), leaves, 2);
-        level.setBlock(backLeft.relative(direction, -2), leaves, 2);
-        level.setBlock(backLeft.relative(direction, -2), leaves, 2);
-        level.setBlock(backLeft.relative(clockwise, 1), leaves, 2);
-        level.setBlock(backLeft.relative(clockwise, 1).relative(direction, -1), leaves, 2);
-        level.setBlock(backLeft.above(1), leaves, 2);
-        level.setBlock(backLeft.above(1).relative(direction, -1), leaves, 2);
-        level.setBlock(backLeft.above(1).relative(clockwise, 1), leaves, 2);
+        setBlock(level, backLeft, log);
+        setBlock(level, backLeft.relative(direction, -1), leaves);
+        setBlock(level, backLeft.relative(direction, -2), leaves);
+        setBlock(level, backLeft.relative(direction, -2), leaves);
+        setBlock(level, backLeft.relative(clockwise, 1), leaves);
+        setBlock(level, backLeft.relative(clockwise, 1).relative(direction, -1), leaves);
+        setBlock(level, backLeft.above(1), leaves);
+        setBlock(level, backLeft.above(1).relative(direction, -1), leaves);
+        setBlock(level, backLeft.above(1).relative(clockwise, 1), leaves);
 
         // back right bush
-        level.setBlock(backRight, leaves, 2);
-        level.setBlock(backRight.relative(direction, -1), leaves, 2);
-        level.setBlock(backRight.relative(direction, -2), leaves, 2);
-        level.setBlock(backRight.relative(counterClockwise, 1), leaves, 2);
-        level.setBlock(backRight.above(1), leaves, 2);
+        setBlock(level, backRight, leaves);
+        setBlock(level, backRight.relative(direction, -1), leaves);
+        setBlock(level, backRight.relative(direction, -2), leaves);
+        setBlock(level, backRight.relative(counterClockwise, 1), leaves);
+        setBlock(level, backRight.above(1), leaves);
 
         // front right bush
-        level.setBlock(frontRight, leaves, 2);
-        level.setBlock(frontRight.above(1), leaves, 2);
+        setBlock(level, frontRight, leaves);
+        setBlock(level, frontRight.above(1), leaves);
 
         // flowers
-        level.setBlock(frontLeft.relative(direction, 2).relative(clockwise, 1), flower, 2);
-        level.setBlock(backLeft.relative(direction, -1).relative(clockwise, 3), flower, 2);
-        level.setBlock(backRight.relative(direction, -2).relative(counterClockwise, 1), flower, 2);
-        level.setBlock(frontRight.relative(direction, 2).relative(counterClockwise, 1), flower, 2);
-        level.setBlock(treePos.relative(clockwise, 1), flower, 2);
+        setBlock(level, frontLeft.relative(direction, 2).relative(clockwise, 1), flower);
+        setBlock(level, backLeft.relative(direction, -1).relative(clockwise, 3), flower);
+        setBlock(level, backRight.relative(direction, -2).relative(counterClockwise, 1), flower);
+        setBlock(level, frontRight.relative(direction, 2).relative(counterClockwise, 1), flower);
+        setBlock(level, treePos.relative(clockwise, 1), flower);
 
         // grass
         fill(level, random, BoundingBox.fromCorners(frontLeft, backRight), either(grass, Blocks.AIR.defaultBlockState()), true);

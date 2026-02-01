@@ -85,14 +85,14 @@ public class CorridorJailRight extends RefugePiece {
         fill(level, random, startPos.relative(direction, 10).relative(counterClockWise, 2).above(1), direction, 2, 2, _ -> ironBars);
 
         // doors
-        level.setBlock(startPos.relative(direction, 6).relative(counterClockWise, 2).above(1), doorBottomRight, 2);
-        level.setBlock(startPos.relative(direction, 6).relative(counterClockWise, 2).above(2), doorUpperRight, 2);
+        setBlock(level, startPos.relative(direction, 6).relative(counterClockWise, 2).above(1), doorBottomRight);
+        setBlock(level, startPos.relative(direction, 6).relative(counterClockWise, 2).above(2), doorUpperRight);
 
-        level.setBlock(startPos.relative(direction, 8).relative(counterClockWise, 2).above(1), doorBottomLeft, 2);
-        level.setBlock(startPos.relative(direction, 8).relative(counterClockWise, 2).above(2), doorUpperLeft, 2);
+        setBlock(level, startPos.relative(direction, 8).relative(counterClockWise, 2).above(1), doorBottomLeft);
+        setBlock(level, startPos.relative(direction, 8).relative(counterClockWise, 2).above(2), doorUpperLeft);
 
         // buttons
-        level.setBlock(startPos.relative(direction, 5).relative(counterClockWise, 1).above(2), button, 2);
-        level.setBlock(startPos.relative(direction, 9).relative(counterClockWise, 1).above(2), button, 2);
+        setBlock(level, startPos.relative(direction, 5).relative(counterClockWise, 1).above(2), button);
+        setBlock(level, startPos.relative(direction, 9).relative(counterClockWise, 1).above(2), button);
     }
 }

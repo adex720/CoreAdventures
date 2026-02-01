@@ -41,9 +41,9 @@ public class FarmRoom extends ElevenWideRoom {
         fill(level, random, startPos.relative(clockWise, 2).relative(direction, 1).above(1), clockWise, direction, 3, 9, this::getNetherWart);
 
         // light
-        level.setBlock(startPos.relative(direction, 5).relative(counterClockWise, 4).above(4), slab, 2);
-        level.setBlock(startPos.relative(direction, 5).relative(counterClockWise, 3).above(4), slab, 2);
-        level.setBlock(startPos.relative(direction, 5).relative(counterClockWise, 3).above(3), lantern, 2);
+        setBlock(level, startPos.relative(direction, 5).relative(counterClockWise, 4).above(4), slab);
+        setBlock(level, startPos.relative(direction, 5).relative(counterClockWise, 3).above(4), slab);
+        setBlock(level, startPos.relative(direction, 5).relative(counterClockWise, 3).above(3), lantern);
     }
 
     /**

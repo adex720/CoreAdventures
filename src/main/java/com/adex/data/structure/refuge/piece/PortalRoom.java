@@ -46,10 +46,10 @@ public class PortalRoom extends ElevenWideRoom {
 
         // stairs around
         fill(level, random, portalLeftBottom.relative(direction, -1), clockWise, 5, 1, _ -> getStairBlock(direction, false));
-        level.setBlock(portalLeftBottom.relative(direction, -1).relative(clockWise, -1), getStairBlock(direction, false, StairsShape.OUTER_RIGHT), 2);
-        level.setBlock(portalLeftBottom.relative(clockWise, -1), getStairBlock(clockWise, false), 2);
-        level.setBlock(portalRightBottom.relative(direction, -1).relative(clockWise, 1), getStairBlock(direction, false, StairsShape.OUTER_LEFT), 2);
-        level.setBlock(portalRightBottom.relative(clockWise, 1), getStairBlock(direction.getCounterClockWise(), false), 2);
+        setBlock(level, portalLeftBottom.relative(direction, -1).relative(clockWise, -1), getStairBlock(direction, false, StairsShape.OUTER_RIGHT));
+        setBlock(level, portalLeftBottom.relative(clockWise, -1), getStairBlock(clockWise, false));
+        setBlock(level, portalRightBottom.relative(direction, -1).relative(clockWise, 1), getStairBlock(direction, false, StairsShape.OUTER_LEFT));
+        setBlock(level, portalRightBottom.relative(clockWise, 1), getStairBlock(direction.getCounterClockWise(), false));
     }
 
     /**
