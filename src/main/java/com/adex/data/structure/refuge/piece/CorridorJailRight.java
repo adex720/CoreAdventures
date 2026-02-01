@@ -56,7 +56,7 @@ public class CorridorJailRight extends RefugePiece {
         Direction clockWise = direction.getClockWise();
         Direction counterClockWise = direction.getCounterClockWise();
 
-        BlockState ironBars = Blocks.IRON_BARS.defaultBlockState();
+        BlockState ironBars = getIronBar(direction, direction.getOpposite());
         BlockState button = Blocks.STONE_BUTTON.defaultBlockState().setValue(ButtonBlock.FACING, clockWise).setValue(ButtonBlock.FACE, AttachFace.WALL);
         BlockState doorBottomLeft = Blocks.IRON_DOOR.defaultBlockState().setValue(DoorBlock.FACING, counterClockWise).setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER).setValue(DoorBlock.HINGE, DoorHingeSide.LEFT);
         BlockState doorUpperLeft = Blocks.IRON_DOOR.defaultBlockState().setValue(DoorBlock.FACING, counterClockWise).setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER).setValue(DoorBlock.HINGE, DoorHingeSide.LEFT);
@@ -92,7 +92,7 @@ public class CorridorJailRight extends RefugePiece {
         level.setBlock(startPos.relative(direction, 8).relative(counterClockWise, 2).above(2), doorUpperLeft, 2);
 
         // buttons
-        level.setBlock(startPos.relative(direction, 5).relative(counterClockWise, 2).above(2), button, 2);
-        level.setBlock(startPos.relative(direction, 9).relative(counterClockWise, 2).above(2), button, 2);
+        level.setBlock(startPos.relative(direction, 5).relative(counterClockWise, 1).above(2), button, 2);
+        level.setBlock(startPos.relative(direction, 9).relative(counterClockWise, 1).above(2), button, 2);
     }
 }

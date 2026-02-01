@@ -499,6 +499,23 @@ public abstract class RefugePiece extends StructurePiece {
     }
 
     /**
+     * Creates a block state for iron bars with connections to given sides.
+     *
+     * @param directions Connection directions
+     * @return {@link BlockState} of {@link Blocks#IRON_BARS} with given connections.
+     */
+    public static BlockState getIronBar(Direction... directions) {
+        BlockState state = Blocks.IRON_BARS.defaultBlockState();
+
+        // add connections
+        for (Direction direction : directions) {
+            state = state.setValue(directionState(direction), true);
+        }
+
+        return state;
+    }
+
+    /**
      * Returns the redstone wire side property corresponding to the given direction.
      *
      * @param direction Wanted direction
@@ -506,6 +523,16 @@ public abstract class RefugePiece extends StructurePiece {
      */
     public static EnumProperty<RedstoneSide> redstoneDirection(Direction direction) {
         return RedStoneWireBlock.PROPERTY_BY_DIRECTION.get(direction);
+    }
+
+    /**
+     * Returns the side property corresponding to the given direction.
+     *
+     * @param direction Wanted direction
+     * @return Side property
+     */
+    public static BooleanProperty directionState(Direction direction) {
+        return PipeBlock.PROPERTY_BY_DIRECTION.get(direction);
     }
 
 }
