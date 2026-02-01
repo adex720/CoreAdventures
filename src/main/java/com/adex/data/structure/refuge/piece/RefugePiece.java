@@ -37,8 +37,13 @@ public abstract class RefugePiece extends StructurePiece {
     protected final Direction direction;
     protected final BlockPos startPos;
 
+    protected boolean generated;
+
     public RefugePiece(StructurePieceType type, int index, BoundingBox boundingBox, Direction direction, BlockPos startPos) {
+        generated = false;
+
         super(type, index, boundingBox);
+
         this.direction = direction;
         this.startPos = startPos;
         this.setOrientation(direction);
@@ -46,8 +51,10 @@ public abstract class RefugePiece extends StructurePiece {
 
     public RefugePiece(StructurePieceType structurePieceType, CompoundTag compoundTag) {
         super(structurePieceType, compoundTag);
+
         this.direction = Direction.from3DDataValue(compoundTag.getIntOr("Direction", 2));
         this.startPos = getPos(compoundTag);
+        this.generated = compoundTag.getBooleanOr("Generated", false);
     }
 
     public BlockPos getPos(CompoundTag compoundTag) {
@@ -76,10 +83,14 @@ public abstract class RefugePiece extends StructurePiece {
         compoundTag.putInt("X", startPos.getX());
         compoundTag.putInt("Y", startPos.getY());
         compoundTag.putInt("Z", startPos.getZ());
+        compoundTag.putBoolean("Generated", generated);
     }
 
     @Override
     public void postProcess(@NonNull WorldGenLevel level, @NonNull StructureManager structureManager, @NonNull ChunkGenerator chunkGenerator, @NonNull RandomSource random, @NonNull BoundingBox writeArea, @NonNull ChunkPos chunkPos, @NonNull BlockPos blockPos) {
+        if (generated) return;
+        generated = true;
+
         createBlocks(level, random);
 
         if (PLACE_BOUNDING_BOX_DEBUG_END_RODS) {
