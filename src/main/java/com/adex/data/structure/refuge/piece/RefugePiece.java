@@ -2,11 +2,15 @@ package com.adex.data.structure.refuge.piece;
 
 import com.adex.block.ModBlocks;
 import com.adex.data.structure.refuge.ContinuationPoint;
+import com.adex.util.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
@@ -536,6 +540,19 @@ public abstract class RefugePiece extends StructurePiece {
      */
     public static BooleanProperty directionState(Direction direction) {
         return PipeBlock.PROPERTY_BY_DIRECTION.get(direction);
+    }
+
+    public static void addEntity(WorldGenLevel level, RandomSource random, BoundingBox possibleSpawnPos, EntityType<?> entityType, float spawnProbability) {
+        if (random.nextFloat() < spawnProbability) addEntity(level, random, possibleSpawnPos, entityType);
+    }
+
+    public static void addEntity(WorldGenLevel level, RandomSource random, BoundingBox possibleSpawnPos, EntityType<?> entityType) {
+        Entity entity = entityType.create(level.getLevel(), EntitySpawnReason.STRUCTURE);
+        if (entity == null) return;
+
+        entity.setPos(Util.randomPosIn(possibleSpawnPos, random).getBottomCenter());
+
+        level.addFreshEntity(entity);
     }
 
 }

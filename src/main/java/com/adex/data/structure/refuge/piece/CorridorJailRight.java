@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
@@ -94,5 +95,17 @@ public class CorridorJailRight extends RefugePiece {
         // buttons
         setBlock(level, startPos.relative(direction, 5).relative(counterClockWise, 1).above(2), button);
         setBlock(level, startPos.relative(direction, 9).relative(counterClockWise, 1).above(2), button);
+
+        // spawn prisoners
+        BoundingBox firstCell = BoundingBox.fromCorners(
+                startPos.relative(direction, 3).relative(counterClockWise, 3).above(1),
+                startPos.relative(direction, 6).relative(counterClockWise, 5).above(1));
+
+        BoundingBox secondCell = BoundingBox.fromCorners(
+                startPos.relative(direction, 8).relative(counterClockWise, 3).above(1),
+                startPos.relative(direction, 11).relative(counterClockWise, 5).above(1));
+
+        addEntity(level, random, firstCell, EntityType.VILLAGER, 0.1f);
+        addEntity(level, random, secondCell, EntityType.VILLAGER, 0.1f);
     }
 }

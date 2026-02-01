@@ -106,6 +106,12 @@ public class Util {
         return CARDINAL_DIRECTIONS[random.nextInt(4)];
     }
 
+    public static BlockPos randomPosIn(BoundingBox boundingBox, RandomSource random) {
+        return new BlockPos(boundingBox.minX() + random.nextInt(boundingBox.getXSpan()),
+                boundingBox.minY() + random.nextInt(boundingBox.getYSpan()),
+                boundingBox.minZ() + random.nextInt(boundingBox.getZSpan()));
+    }
+
     /**
      * Returns a {@link java.util.HashSet} containing every {@link net.minecraft.core.BlockPos}
      * horizontally n blocks away from the center.
