@@ -218,6 +218,10 @@
   "item.coread.trader_sentry_spawn_egg": "Trader Sentry Spawn Egg",
   "item.coread.warrior_sentry_spawn_egg": "Sentry Warrior Spawn Egg",
 
+  "item.coread.music_disc_trombone1": "Music Disc",
+
+  "item.coread.music_disc_trombone1.desc": "Adex720 - Deep Tones",
+
   "entity.coread.chalcedony_golem": "Chalcedony Golem",
   "entity.coread.garnet_golem": "Garnet Golem",
   "entity.coread.jade_golem": "Jade Golem",
@@ -283,6 +287,10 @@
   "options.coread.heat_bar_offset.tooltip": "You only need non-zero values if the heat bar is rendered on top of something another mod renders.",
 
   "death.attack.heat": "%1$s overheated",
+
+  "sound.coread.music_disc.trombone1": "Adex720 - Deep Tones",
+
+  "jukebox_song.coread.trombone1": "Adex720 - Deep Tones",
 
   "tag.item.coread.repairs_chalcedony_armor": "Repairs Chalcedony Armor",
   "tag.item.coread.repairs_garnet_armor": "Repairs Garnet Armor",

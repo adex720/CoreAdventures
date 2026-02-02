@@ -1,0 +1,8 @@
+{
+  "music_disc.trombone1": {
+    "subtitle": "sound.coread.music_disc.trombone1",
+    "sounds": [
+      "coread:music_disc/trombone1"
+    ]
+  }
+}

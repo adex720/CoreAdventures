@@ -5,6 +5,7 @@ import com.adex.entity.ModEntities;
 import com.adex.item.armor.ModArmorMaterials;
 import com.adex.mixin.DataComponentMapBuilderAccessor;
 import com.adex.mixin.ItemPropertiesAccessor;
+import com.adex.sound.ModJukeboxSounds;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectMap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
@@ -131,6 +132,9 @@ public class ModItems {
     public static final Item TRADER_SENTRY_SPAWN_EGG = registerSpawnEgg(ModEntities.TRADER_SENTRY);
     public static final Item WARRIOR_SENTRY_SPAWN_EGG = registerSpawnEgg(ModEntities.WARRIOR_SENTRY);
 
+
+    public static final Item MUSIC_DISC_TROMBONE1 = register("music_disc_trombone1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.TROMBONE1_KEY));
+
     public static Item register(String name, Item.Properties settings) {
         return register(name, Item::new, settings);
     }
@@ -220,7 +224,7 @@ public class ModItems {
         registerDispenseBehaviors();
     }
 
-    private static void registerDispenseBehaviors(){
+    private static void registerDispenseBehaviors() {
         DispenserBlock.registerBehavior(JUNIPER_BOAT, new BoatDispenseItemBehavior(ModEntities.JUNIPER_BOAT));
         DispenserBlock.registerBehavior(JUNIPER_CHEST_BOAT, new BoatDispenseItemBehavior(ModEntities.JUNIPER_CHEST_BOAT));
         DispenserBlock.registerBehavior(SPEED_BOAT, new BoatDispenseItemBehavior(ModEntities.SPEED_BOAT));
@@ -316,6 +320,8 @@ public class ModItems {
             itemGroup.accept(SPEED_CHEST_BOAT);
 
             itemGroup.accept(REFUGE_COMPASS);
+
+            itemGroup.accept(MUSIC_DISC_TROMBONE1);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register((itemGroup) -> {
