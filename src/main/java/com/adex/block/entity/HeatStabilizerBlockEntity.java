@@ -30,13 +30,13 @@ public class HeatStabilizerBlockEntity extends BlockEntity {
     public static final int UPDATE_INTERVAL = 60;
 
     public HeatStabilizerBlockEntity(BlockPos blockPos, BlockState blockState, float range) {
-        super(ModBlockEntities.HEAT_STABILIZER_BLOCK_ENTITY_BLOCK_ENTITY, blockPos, blockState);
+        super(ModBlockEntities.HEAT_STABILIZER_BLOCK_ENTITY, blockPos, blockState);
         this.range = range;
         this.fuel = 0;
     }
 
     public HeatStabilizerBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.HEAT_STABILIZER_BLOCK_ENTITY_BLOCK_ENTITY, blockPos, blockState);
+        super(ModBlockEntities.HEAT_STABILIZER_BLOCK_ENTITY, blockPos, blockState);
         this.range = 16.0f;
         this.fuel = 0;
     }

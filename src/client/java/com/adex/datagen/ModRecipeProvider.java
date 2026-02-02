@@ -168,6 +168,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             chestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
 
             heatStabilizer(ModBlocks.HEAT_STABILIZER);
+            chunkLoader(ModBlocks.CHUNK_LOADER);
             lavaGoggles(ModItems.LAVA_GOGGLES);
 
             surroundBy4(ModBlocks.RED_TNT, Blocks.TNT, ModItems.DYNAMITE, RecipeCategory.REDSTONE, UnlockStyle.SECOND);
@@ -460,7 +461,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         }
 
         public void heatStabilizer(ItemLike heatStabilizer) {
-            shaped(RecipeCategory.COMBAT, heatStabilizer)
+            shaped(RecipeCategory.DECORATIONS, heatStabilizer)
                     .pattern("FFF")
                     .pattern("FBF")
                     .pattern("FFF")
@@ -468,6 +469,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .define('F', ModItems.GARNET_FRAGMENT)
                     .unlockedBy(getHasName(ModBlocks.GARNET_BLOCK), has(ModBlocks.GARNET_BLOCK))
                     .unlockedBy(getHasName(ModItems.GARNET_FRAGMENT), has(ModItems.GARNET_FRAGMENT))
+                    .save(output);
+        }
+
+        public void chunkLoader(ItemLike chunkLoader) {
+            shaped(RecipeCategory.DECORATIONS, chunkLoader)
+                    .pattern("FFF")
+                    .pattern("FBF")
+                    .pattern("FFF")
+                    .define('B', ModBlocks.ONYX_BLOCK)
+                    .define('F', ModItems.ONYX_FRAGMENT)
+                    .unlockedBy(getHasName(ModBlocks.ONYX_BLOCK), has(ModBlocks.ONYX_BLOCK))
+                    .unlockedBy(getHasName(ModItems.ONYX_FRAGMENT), has(ModItems.ONYX_FRAGMENT))
                     .save(output);
         }
     }

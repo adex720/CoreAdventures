@@ -70,6 +70,7 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
                 .add(LootItem.lootTableItem(ModItems.CHALCEDONY_SHARD)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.GARNET_FRAGMENT)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.JASPER_FRAGMENT)).apply(SetItemCountFunction.setCount(stackSize))
+                .add(LootItem.lootTableItem(ModItems.ONYX_FRAGMENT)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.DYNAMITE)).apply(SetItemCountFunction.setCount(stackSize));
     }
 
@@ -79,6 +80,7 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
                 .add(LootItem.lootTableItem(ModItems.CHALCEDONY_SHARD).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.GARNET_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.JASPER_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
+                .add(LootItem.lootTableItem(ModItems.ONYX_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.DYNAMITE).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize));
     }
 

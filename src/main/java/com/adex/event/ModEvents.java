@@ -1,11 +1,13 @@
 package com.adex.event;
 
 import com.adex.CoreAdventures;
+import com.adex.block.entity.ChunkLoaderBlockEntity;
 import com.adex.enchantment.effect.BreakMultipleEnchantmentEffect;
 import com.adex.enchantment.effect.ModEnchantmentEffectComponents;
 import com.adex.entity.attribute.HeatManager;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.server.MinecraftServer;
@@ -17,15 +19,21 @@ import net.minecraft.world.item.enchantment.effects.EnchantmentValueEffect;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jspecify.annotations.Nullable;
 
 public class ModEvents {
 
     public static void initialize() {
         ServerTickEvents.START_SERVER_TICK.register(ModEvents::onTick);
+        PlayerBlockBreakEvents.AFTER.register(ModEvents::anyBlockBroken);
     }
 
     public static void onTick(MinecraftServer server) {
         server.getPlayerList().getPlayers().forEach(player -> HeatManager.serverHeatTick(player, server));
+    }
+
+    public static void anyBlockBroken(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity) {
+        if (blockEntity instanceof ChunkLoaderBlockEntity chunkLoaderBlockEntity) chunkLoaderBlockEntity.onBreak();
     }
 
     public static void onPlayerBlockBreak(Level level, Player player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack itemStack) {

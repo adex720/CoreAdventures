@@ -12,13 +12,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class ModBlockEntities {
 
-    public static final BlockEntityType<HeatStabilizerBlockEntity> HEAT_STABILIZER_BLOCK_ENTITY_BLOCK_ENTITY = register("heat_stabilizer", HeatStabilizerBlockEntity::new, ModBlocks.HEAT_STABILIZER);
+    public static final BlockEntityType<HeatStabilizerBlockEntity> HEAT_STABILIZER_BLOCK_ENTITY = register("heat_stabilizer", HeatStabilizerBlockEntity::new, ModBlocks.HEAT_STABILIZER);
+    public static final BlockEntityType<ChunkLoaderBlockEntity> CHUNK_LOADER_BLOCK_ENTITY = register("chunk_loader", ChunkLoaderBlockEntity::new, ModBlocks.CHUNK_LOADER);
 
     private static <T extends BlockEntity> BlockEntityType<T> register(String name, FabricBlockEntityTypeBuilder.Factory<? extends T> entityFactory, Block... blocks) {
         Identifier id = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name);
         return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
     }
 
-    public static void initialize(){
+    public static void initialize() {
     }
 }

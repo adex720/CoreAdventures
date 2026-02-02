@@ -148,6 +148,7 @@ public class ModBlocks {
     public static final Block CORE_PORTAL_BLOCK = registerWithoutBlockItem("core_portal_block", CorePortalBlock::new, BlockBehaviour.Properties.of().noCollision().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(_ -> 11).pushReaction(PushReaction.BLOCK));
 
     public static final HeatStabilizerBlock HEAT_STABILIZER = (HeatStabilizerBlock) register("heat_stabilizer", properties -> new HeatStabilizerBlock(properties, 16.0f), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(20.0f, 50.0f).sound(SoundType.STONE).pushReaction(PushReaction.BLOCK));
+    public static final ChunkLoaderBlock CHUNK_LOADER = (ChunkLoaderBlock) register("chunk_loader", ChunkLoaderBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(20.0f, 50.0f).sound(SoundType.STONE).pushReaction(PushReaction.BLOCK));
 
     public static final StrongTntBlock RED_TNT = (StrongTntBlock) register("red_tnt", properties -> new StrongTntBlock(properties, 8.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
     public static final StrongTntBlock ORANGE_TNT = (StrongTntBlock) register("orange_tnt", properties -> new StrongTntBlock(properties, 12.0f), BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).instabreak().sound(SoundType.GRASS).ignitedByLava().isRedstoneConductor(Blocks::never));
@@ -361,7 +362,6 @@ public class ModBlocks {
             itemGroup.accept(JUNIPER_LEAVES.asItem());
 
             itemGroup.accept(REINFORCED_ANCIENT_DEBRIS.asItem());
-            itemGroup.accept(HEAT_STABILIZER.asItem());
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(itemGroup -> {
@@ -384,6 +384,12 @@ public class ModBlocks {
             itemGroup.accept(GREEN_TNT.asItem());
             itemGroup.accept(BLUE_TNT.asItem());
         });
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(itemGroup -> {
+            itemGroup.accept(HEAT_STABILIZER.asItem());
+            itemGroup.accept(CHUNK_LOADER.asItem());
+        });
+
     }
 
 }

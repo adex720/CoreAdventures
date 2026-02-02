@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": "coread:garnet_block",
-    "F": "coread:garnet_fragment"
+    "B": "coread:onyx_block",
+    "F": "coread:onyx_fragment"
   },
   "pattern": [
     "FFF",
@@ -12,6 +12,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "coread:heat_stabilizer"
+    "id": "coread:chunk_loader"
   }
 }

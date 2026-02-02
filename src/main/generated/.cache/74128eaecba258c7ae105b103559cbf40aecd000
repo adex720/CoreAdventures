@@ -1,5 +1,5 @@
 // 1.21.11	-999999999-01-01T00:00:00	Core Adventures/minecraft:chest Loot Table
-3dac38f8855225109e73ed1b328430d2c7429f58 data/coread/loot_table/chests/refuge_basic.json
+3e9291ecfb33073697bc5f5a4a19aec8ce29b616 data/coread/loot_table/chests/refuge_basic.json
 f43a9eb3197308c47468a04da7900501b5260ca0 data/coread/loot_table/chests/refuge_portal.json
-945d8aa81d96e32d7fa8e7ae1bc17b716b267cc8 data/coread/loot_table/chests/refuge_treasure.json
-15f637bb71469052b21a5e604bb097dd0a428a4e data/coread/loot_table/gameplay/trader_sentry_trade.json
+3dd31eb131a868c8dfa7165e8daaedd5205af058 data/coread/loot_table/chests/refuge_treasure.json
+4437f94f06885816d2435a4af2ebf2bf5ee28802 data/coread/loot_table/gameplay/trader_sentry_trade.json

@@ -92,7 +92,9 @@
   "block.coread.tigers_eye_golem_block": "Tiger's Eye Golem block",
 
   "block.coread.reinforced_ancient_debris": "Reinforced Ancient Debris",
+
   "block.coread.heat_stabilizer": "Heat Stabilizer",
+  "block.coread.chunk_loader": "Chunk Loader",
 
   "block.coread.juniper_log": "Juniper Log",
   "block.coread.juniper_wood": "Juniper Wood",
@@ -201,6 +203,7 @@
   "item.coread.chalcedony_shard": "Chalcedony Shard",
   "item.coread.garnet_fragment": "Garnet Fragment",
   "item.coread.jasper_fragment": "Jasper Fragment",
+  "item.coread.onyx_fragment": "Onyx Fragment",
   "item.coread.dynamite": "Dynamite",
   "item.coread.refuge_compass": "Refuge Compass",
 

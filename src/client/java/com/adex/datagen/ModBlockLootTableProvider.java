@@ -132,6 +132,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 
         dropSelf(ModBlocks.REINFORCED_ANCIENT_DEBRIS);
         dropSelf(ModBlocks.HEAT_STABILIZER);
+        dropSelf(ModBlocks.CHUNK_LOADER);
 
         crateTnt(ModBlocks.RED_TNT);
         crateTnt(ModBlocks.ORANGE_TNT);

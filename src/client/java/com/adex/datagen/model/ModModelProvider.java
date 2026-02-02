@@ -96,6 +96,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
 
         createBooleanPropertyCube(blockStateModelGenerator, ModBlocks.HEAT_STABILIZER, HeatStabilizerBlock.LIT, "lit");
+        blockStateModelGenerator.createTrivialCube(ModBlocks.CHUNK_LOADER);
 
         blockStateModelGenerator.createTrivialBlock(ModBlocks.RED_TNT, TexturedModel.CUBE_TOP_BOTTOM);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.ORANGE_TNT, TexturedModel.CUBE_TOP_BOTTOM);
@@ -186,6 +187,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_SHARD, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.GARNET_FRAGMENT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.JASPER_FRAGMENT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.ONYX_FRAGMENT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.DYNAMITE, ModelTemplates.FLAT_ITEM);
 
         createRefugeCompass(itemModelGenerator, ModItems.REFUGE_COMPASS);

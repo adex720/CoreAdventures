@@ -51,7 +51,7 @@ public class HeatStabilizerBlock extends BaseEntityBlock {
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NonNull Level level, @NonNull BlockState blockState, @NonNull BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, ModBlockEntities.HEAT_STABILIZER_BLOCK_ENTITY_BLOCK_ENTITY, (entityLevel, pos, state, entity) -> entity.tick(entityLevel, pos));
+        return createTickerHelper(blockEntityType, ModBlockEntities.HEAT_STABILIZER_BLOCK_ENTITY, (entityLevel, pos, state, entity) -> entity.tick(entityLevel, pos));
     }
 
     @Override
