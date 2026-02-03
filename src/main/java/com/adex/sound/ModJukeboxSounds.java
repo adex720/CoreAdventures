@@ -17,6 +17,12 @@ public class ModJukeboxSounds {
     public static final ResourceKey<JukeboxSong> TROMBONE1_KEY = createKey("trombone1");
     public static final JukeboxSong TROMBONE1 = createSong(TROMBONE1_KEY, ModSoundEvents.TROMBONE1, 69, 1);
 
+    public static final ResourceKey<JukeboxSong> ALTO_SAXOPHONE1_KEY = createKey("alto_saxophone1");
+    public static final JukeboxSong ALTO_SAXOPHONE1 = createSong(ALTO_SAXOPHONE1_KEY, ModSoundEvents.ALTO_SAXOPHONE1, 420, 8);
+
+    public static final ResourceKey<JukeboxSong> BASS_SAXOPHONE1_KEY = createKey("bass_saxophone1");
+    public static final JukeboxSong BASS_SAXOPHONE1 = createSong(BASS_SAXOPHONE1_KEY, ModSoundEvents.BASS_SAXOPHONE1, 420, 9);
+
     private static ResourceKey<JukeboxSong> createKey(String name) {
         return ResourceKey.create(Registries.JUKEBOX_SONG, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
@@ -28,6 +34,8 @@ public class ModJukeboxSounds {
     public static void initialize() {
         DynamicRegistrySetupCallback.EVENT.register(registryView -> registryView.getOptional(Registries.JUKEBOX_SONG).ifPresent(registry -> {
             Registry.register(registry, TROMBONE1_KEY, TROMBONE1);
+            Registry.register(registry, ALTO_SAXOPHONE1_KEY, ALTO_SAXOPHONE1);
+            Registry.register(registry, BASS_SAXOPHONE1_KEY, BASS_SAXOPHONE1);
         }));
     }
 }

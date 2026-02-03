@@ -4,5 +4,17 @@
     "sounds": [
       "coread:music_disc/trombone1"
     ]
+  },
+  "music_disc.alto_saxophone1": {
+    "subtitle": "sound.coread.music_disc.alto_saxophone1",
+    "sounds": [
+      "coread:music_disc/alto_saxophone1"
+    ]
+  },
+  "music_disc.bass_saxophone1": {
+    "subtitle": "sound.coread.music_disc.bass_saxophone1",
+    "sounds": [
+      "coread:music_disc/bass_saxophone1"
+    ]
   }
 }

@@ -207,6 +207,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.WARRIOR_SENTRY_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
 
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_TROMBONE1, ModelTemplates.MUSIC_DISC);
+        itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_ALTO_SAXOPHONE1, ModelTemplates.MUSIC_DISC);
+        itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_BASS_SAXOPHONE1, ModelTemplates.MUSIC_DISC);
     }
 
     private void createRefugeCompass(ItemModelGenerators itemModelGenerator, Item compass) {

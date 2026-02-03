@@ -222,8 +222,12 @@
   "item.coread.warrior_sentry_spawn_egg": "Sentry Warrior Spawn Egg",
 
   "item.coread.music_disc_trombone1": "Music Disc",
+  "item.coread.music_disc_alto_saxophone1": "Music Disc",
+  "item.coread.music_disc_bass_saxophone1": "Music Disc",
 
   "item.coread.music_disc_trombone1.desc": "Adex720 - Deep Tones",
+  "item.coread.music_disc_alto_saxophone1.desc": "Adex720 - Jazzy Caves",
+  "item.coread.music_disc_bass_saxophone1.desc": "Adex720 - Jazzy Atmosphere",
 
   "entity.coread.chalcedony_golem": "Chalcedony Golem",
   "entity.coread.garnet_golem": "Garnet Golem",
@@ -292,8 +296,12 @@
   "death.attack.heat": "%1$s overheated",
 
   "sound.coread.music_disc.trombone1": "Adex720 - Deep Tones",
+  "sound.coread.music_disc.alto_saxophone1": "Adex720 - Jazzy Caves",
+  "sound.coread.music_disc.bass_saxophone1": "Adex720 - Jazzy Atmosphere",
 
   "jukebox_song.coread.trombone1": "Adex720 - Deep Tones",
+  "jukebox_song.coread.alto_saxophone1": "Adex720 - Jazzy Caves",
+  "jukebox_song.coread.bass_saxophone1": "Adex720 - Jazzy Atmosphere",
 
   "tag.item.coread.repairs_chalcedony_armor": "Repairs Chalcedony Armor",
   "tag.item.coread.repairs_garnet_armor": "Repairs Garnet Armor",
