@@ -14,17 +14,28 @@ import net.minecraft.world.item.JukeboxSong;
 
 public class ModJukeboxSounds {
 
+    // trumpet 1
+
+    // french horn 2
+
     public static final ResourceKey<JukeboxSong> TROMBONE1_KEY = createKey("trombone1");
-    public static final JukeboxSong TROMBONE1 = createSong(TROMBONE1_KEY, ModSoundEvents.TROMBONE1, 69, 1);
+    public static final JukeboxSong TROMBONE1 = createSong(TROMBONE1_KEY, ModSoundEvents.TROMBONE1, 69, 3);
 
     public static final ResourceKey<JukeboxSong> TUBA1_KEY = createKey("tuba1");
-    public static final JukeboxSong TUBA1 = createSong(TUBA1_KEY, ModSoundEvents.TUBA1, 100, 2);
+    public static final JukeboxSong TUBA1 = createSong(TUBA1_KEY, ModSoundEvents.TUBA1, 100, 4);
+
+    // clarinet 5
+
+    // bassoon 6
 
     public static final ResourceKey<JukeboxSong> ALTO_SAXOPHONE1_KEY = createKey("alto_saxophone1");
-    public static final JukeboxSong ALTO_SAXOPHONE1 = createSong(ALTO_SAXOPHONE1_KEY, ModSoundEvents.ALTO_SAXOPHONE1, 420, 8);
+    public static final JukeboxSong ALTO_SAXOPHONE1 = createSong(ALTO_SAXOPHONE1_KEY, ModSoundEvents.ALTO_SAXOPHONE1, 420, 7);
 
     public static final ResourceKey<JukeboxSong> BASS_SAXOPHONE1_KEY = createKey("bass_saxophone1");
-    public static final JukeboxSong BASS_SAXOPHONE1 = createSong(BASS_SAXOPHONE1_KEY, ModSoundEvents.BASS_SAXOPHONE1, 420, 9);
+    public static final JukeboxSong BASS_SAXOPHONE1 = createSong(BASS_SAXOPHONE1_KEY, ModSoundEvents.BASS_SAXOPHONE1, 420, 8);
+
+    public static final ResourceKey<JukeboxSong> CONTRABASS1_KEY = createKey("contrabass1");
+    public static final JukeboxSong CONTRABASS1 = createSong(CONTRABASS1_KEY, ModSoundEvents.CONTRABASS1, 109, 9);
 
     public static final ResourceKey<JukeboxSong> TIMPANI1_KEY = createKey("timpani1");
     public static final JukeboxSong TIMPANI1 = createSong(TIMPANI1_KEY, ModSoundEvents.TIMPANI1, 91, 10);
@@ -43,6 +54,7 @@ public class ModJukeboxSounds {
             Registry.register(registry, TUBA1_KEY, TUBA1);
             Registry.register(registry, ALTO_SAXOPHONE1_KEY, ALTO_SAXOPHONE1);
             Registry.register(registry, BASS_SAXOPHONE1_KEY, BASS_SAXOPHONE1);
+            Registry.register(registry, CONTRABASS1_KEY, CONTRABASS1);
             Registry.register(registry, TIMPANI1_KEY, TIMPANI1);
         }));
     }

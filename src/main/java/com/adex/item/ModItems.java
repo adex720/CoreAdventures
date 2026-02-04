@@ -138,6 +138,7 @@ public class ModItems {
     public static final Item MUSIC_DISC_TUBA1 = register("music_disc_tuba1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.TUBA1_KEY));
     public static final Item MUSIC_DISC_ALTO_SAXOPHONE1 = register("music_disc_alto_saxophone1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.ALTO_SAXOPHONE1_KEY));
     public static final Item MUSIC_DISC_BASS_SAXOPHONE1 = register("music_disc_bass_saxophone1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.BASS_SAXOPHONE1_KEY));
+    public static final Item MUSIC_DISC_CONTRABASS1 = register("music_disc_contrabass1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.CONTRABASS1_KEY));
     public static final Item MUSIC_DISC_TIMPANI1 = register("music_disc_timpani1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.TIMPANI1_KEY));
 
     public static Item register(String name, Item.Properties settings) {
@@ -331,6 +332,7 @@ public class ModItems {
             itemGroup.accept(MUSIC_DISC_TUBA1);
             itemGroup.accept(MUSIC_DISC_ALTO_SAXOPHONE1);
             itemGroup.accept(MUSIC_DISC_BASS_SAXOPHONE1);
+            itemGroup.accept(MUSIC_DISC_CONTRABASS1);
             itemGroup.accept(MUSIC_DISC_TIMPANI1);
         });
 

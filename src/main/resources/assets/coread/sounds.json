@@ -23,6 +23,12 @@
       "coread:music_disc/bass_saxophone1"
     ]
   },
+  "music_disc.contrabass1": {
+    "subtitle": "sound.coread.music_disc.contrabass1",
+    "sounds": [
+      "coread:music_disc/contrabass1"
+    ]
+  },
   "music_disc.timpani1": {
     "subtitle": "sound.coread.music_disc.timpani1",
     "sounds": [

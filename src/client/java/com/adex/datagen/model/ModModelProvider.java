@@ -210,6 +210,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_TUBA1, ModelTemplates.MUSIC_DISC);
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_ALTO_SAXOPHONE1, ModelTemplates.MUSIC_DISC);
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_BASS_SAXOPHONE1, ModelTemplates.MUSIC_DISC);
+        itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_CONTRABASS1, ModelTemplates.MUSIC_DISC);
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_TIMPANI1, ModelTemplates.MUSIC_DISC);
     }
 
