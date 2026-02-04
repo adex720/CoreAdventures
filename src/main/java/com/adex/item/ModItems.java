@@ -113,6 +113,7 @@ public class ModItems {
     public static final Item GARNET_FRAGMENT = register("garnet_fragment", new Item.Properties());
     public static final Item JASPER_FRAGMENT = register("jasper_fragment", new Item.Properties());
     public static final Item ONYX_FRAGMENT = register("onyx_fragment", new Item.Properties());
+    public static final Item SAPPHIRE_FRAGMENT = register("sapphire_fragment", new Item.Properties());
     public static final Item DYNAMITE = register("dynamite", new Item.Properties());
 
 
@@ -258,6 +259,7 @@ public class ModItems {
             itemGroup.accept(GARNET_FRAGMENT);
             itemGroup.accept(JASPER_FRAGMENT);
             itemGroup.accept(ONYX_FRAGMENT);
+            itemGroup.accept(SAPPHIRE_FRAGMENT);
             itemGroup.accept(DYNAMITE);
         });
 

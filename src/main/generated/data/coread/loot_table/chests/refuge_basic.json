@@ -160,10 +160,23 @@
         },
         {
           "type": "minecraft:item",
+          "name": "coread:sapphire_fragment"
+        },
+        {
+          "type": "minecraft:item",
           "name": "coread:dynamite"
         }
       ],
       "functions": [
+        {
+          "add": false,
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 5.0,
+            "min": 3.0
+          },
+          "function": "minecraft:set_count"
+        },
         {
           "add": false,
           "count": {

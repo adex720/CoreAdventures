@@ -164,8 +164,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             woodenBoat(ModItems.JUNIPER_BOAT, ModBlocks.JUNIPER_PLANKS);
             chestBoat(ModItems.JUNIPER_CHEST_BOAT, ModItems.JUNIPER_BOAT);
 
-            customBoat(ModItems.SPEED_BOAT, ModItems.CHALCEDONY_SHARD);
-            chestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
+            customBoat(ModItems.SPEED_BOAT, ModItems.SAPPHIRE_FRAGMENT);
+            customChestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
 
             heatStabilizer(ModBlocks.HEAT_STABILIZER);
             chunkLoader(ModBlocks.CHUNK_LOADER);
@@ -228,12 +228,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
          * @param ingredient Ingredient item
          */
         public void customBoat(ItemLike output, ItemLike ingredient) {
-            this.shaped(RecipeCategory.TRANSPORTATION, output)
+            shaped(RecipeCategory.TRANSPORTATION, output)
                     .define('#', ingredient)
                     .pattern("# #")
                     .pattern("###")
                     .group("boat")
                     .unlockedBy(getHasName(ingredient), has(ingredient))
+                    .save(this.output);
+        }
+
+        /**
+         * Creates a chest boat recipe in the chest boat recipe group unlocked only by having the required boat.
+         *
+         * @param chestBoat Chest boat item
+         * @param boat      Boat item
+         */
+        public void customChestBoat(ItemLike chestBoat, ItemLike boat) {
+            shapeless(RecipeCategory.TRANSPORTATION, chestBoat)
+                    .requires(Blocks.CHEST)
+                    .requires(boat)
+                    .group("chest_boat")
+                    .unlockedBy(getHasName(boat), has(boat))
                     .save(this.output);
         }
 

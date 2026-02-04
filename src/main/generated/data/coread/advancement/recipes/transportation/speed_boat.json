@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_chalcedony_shard": {
+    "has_sapphire_fragment": {
       "conditions": {
         "items": [
           {
-            "items": "coread:chalcedony_shard"
+            "items": "coread:sapphire_fragment"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_chalcedony_shard"
+      "has_sapphire_fragment"
     ]
   ],
   "rewards": {

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_boat": {
+    "has_speed_boat": {
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:boats"
+            "items": "coread:speed_boat"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_boat"
+      "has_speed_boat"
     ]
   ],
   "rewards": {

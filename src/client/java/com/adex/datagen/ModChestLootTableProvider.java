@@ -71,6 +71,7 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
                 .add(LootItem.lootTableItem(ModItems.GARNET_FRAGMENT)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.JASPER_FRAGMENT)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.ONYX_FRAGMENT)).apply(SetItemCountFunction.setCount(stackSize))
+                .add(LootItem.lootTableItem(ModItems.SAPPHIRE_FRAGMENT)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.DYNAMITE)).apply(SetItemCountFunction.setCount(stackSize));
     }
 
@@ -81,6 +82,7 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
                 .add(LootItem.lootTableItem(ModItems.GARNET_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.JASPER_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.ONYX_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
+                .add(LootItem.lootTableItem(ModItems.SAPPHIRE_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.DYNAMITE).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize));
     }
 
@@ -131,16 +133,16 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
 
     private void generateTraderSentry(@NonNull BiConsumer<ResourceKey<LootTable>, LootTable.Builder> generator) {
         LootPool.Builder lootPoolBuilder = withGemsSpecials(ConstantValue.exactly(1), ConstantValue.exactly(1), 1);
-        addCoreStones(lootPoolBuilder);
+        addCoreStones(lootPoolBuilder, 2);
 
         generator.accept(ModLootTables.TRADER_SENTRY_TRADES, LootTable.lootTable().withPool(lootPoolBuilder));
     }
 
-    private void addCoreStones(LootPool.Builder lootPoolBuilder) {
-        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.GABBRO).setWeight(2)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
-        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.LARVIKITE).setWeight(2)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
-        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.SLATE).setWeight(2)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
-        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.SERPENTINITE).setWeight(2)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
-        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.TRAVERTINE).setWeight(2)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
+    private void addCoreStones(LootPool.Builder lootPoolBuilder, int weight) {
+        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.GABBRO).setWeight(weight)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
+        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.LARVIKITE).setWeight(weight)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
+        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.SLATE).setWeight(weight)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
+        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.SERPENTINITE).setWeight(weight)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
+        lootPoolBuilder.add(LootItem.lootTableItem(ModBlocks.TRAVERTINE).setWeight(weight)).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)));
     }
 }
