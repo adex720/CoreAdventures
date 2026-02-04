@@ -82,8 +82,8 @@ public class ModEntityTextureProvider extends ModTextureProvider<EntityType<?>> 
         recolorGolem(ModEntities.SPINEL_GOLEM, golem, ColorPalette.SPINEL_ARMOR);
         //recolorGolem(ModEntities.TIGERS_EYE_GOLEM, golems, ColorPalette.TIGERS_EYE_ARMOR);
 
-        recolorBoat(ModEntities.SPEED_BOAT, boat, ColorPalette.CHALCEDONY_BOAT);
-        recolorChestBoat(ModEntities.SPEED_CHEST_BOAT, chestBoat, ColorPalette.CHALCEDONY_BOAT);
+        recolorBoat(ModEntities.SPEED_BOAT, boat, ColorPalette.SAPPHIRE_BOAT);
+        recolorChestBoat(ModEntities.SPEED_CHEST_BOAT, chestBoat, ColorPalette.SAPPHIRE_BOAT);
     }
 
     public void recolorGolem(EntityType<?> entityType, BufferedImage humanoidImage, ColorPalette palette) {

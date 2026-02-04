@@ -79,8 +79,8 @@ public class ModItemTextureProvider extends ModTextureProvider<Item> {
         recolorBaseItem(ModItems.SPINEL_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.SPINEL_ARMOR);
         recolorBaseItem(ModItems.TIGERS_EYE_GOLEM_SPAWN_EGG, spawnEgg, ColorPalette.CHALCEDONY_ARMOR, ColorPalette.TIGERS_EYE_ARMOR);
 
-        recolorBaseItem(ModItems.SPEED_BOAT, boat, ColorPalette.JUNIPER, ColorPalette.CHALCEDONY_BOAT);
-        recolorBaseItem(ModItems.SPEED_CHEST_BOAT, chestBoat, ColorPalette.JUNIPER, ColorPalette.CHALCEDONY_BOAT);
+        recolorBaseItem(ModItems.SPEED_BOAT, boat, ColorPalette.JUNIPER, ColorPalette.SAPPHIRE_BOAT);
+        recolorBaseItem(ModItems.SPEED_CHEST_BOAT, chestBoat, ColorPalette.JUNIPER, ColorPalette.SAPPHIRE_BOAT);
     }
 
     public void recolorBaseArmor(Item helmet, Item chestplate, Item leggings, Item boots, BufferedImage helmetImage, BufferedImage chestplateImage, BufferedImage leggingsImage, BufferedImage bootsImage, ColorPalette palette) {
