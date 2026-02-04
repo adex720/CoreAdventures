@@ -5,6 +5,12 @@
       "coread:music_disc/trombone1"
     ]
   },
+  "music_disc.tuba1": {
+    "subtitle": "sound.coread.music_disc.tuba1",
+    "sounds": [
+      "coread:music_disc/tuba1"
+    ]
+  },
   "music_disc.alto_saxophone1": {
     "subtitle": "sound.coread.music_disc.alto_saxophone1",
     "sounds": [
