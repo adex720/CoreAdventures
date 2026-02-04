@@ -16,5 +16,11 @@
     "sounds": [
       "coread:music_disc/bass_saxophone1"
     ]
+  },
+  "music_disc.timpani1": {
+    "subtitle": "sound.coread.music_disc.timpani1",
+    "sounds": [
+      "coread:music_disc/timpani1"
+    ]
   }
 }

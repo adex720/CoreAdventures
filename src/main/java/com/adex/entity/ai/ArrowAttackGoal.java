@@ -19,7 +19,6 @@ public class ArrowAttackGoal extends EyeOfSightAttackGoal {
         this.arrowSpeed = arrowSpeed;
     }
 
-    @SuppressWarnings("ConstantConditions")
     @Override
     public void attack() {
         createArrow((ServerLevel) golem.level(), golem.getTarget());

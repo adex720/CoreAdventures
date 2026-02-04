@@ -17,7 +17,6 @@ public class DynamiteAttackGoal extends EyeOfSightAttackGoal {
         this.explosionPower = explosionPower;
     }
 
-    @SuppressWarnings("ConstantConditions")
     @Override
     public void attack() {
         createDynamite((ServerLevel) golem.level(), golem.getTarget());

@@ -17,7 +17,6 @@ public class HeatAttackGoal extends EyeOfSightAttackGoal {
         this.heatIncrease = heatIncrease;
     }
 
-    @SuppressWarnings("ConstantConditions")
     @Override
     public void attack() {
         createHeatBall((ServerLevel) golem.level(), golem.getTarget());

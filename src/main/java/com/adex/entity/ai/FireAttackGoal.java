@@ -19,7 +19,6 @@ public class FireAttackGoal extends EyeOfSightAttackGoal {
         this.explosionPower = explosionPower;
     }
 
-    @SuppressWarnings("ConstantConditions")
     @Override
     public void attack() {
         createFireball((ServerLevel) golem.level(), golem.getTarget());

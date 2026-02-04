@@ -137,6 +137,7 @@ public class ModItems {
     public static final Item MUSIC_DISC_TROMBONE1 = register("music_disc_trombone1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.TROMBONE1_KEY));
     public static final Item MUSIC_DISC_ALTO_SAXOPHONE1 = register("music_disc_alto_saxophone1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.ALTO_SAXOPHONE1_KEY));
     public static final Item MUSIC_DISC_BASS_SAXOPHONE1 = register("music_disc_bass_saxophone1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.BASS_SAXOPHONE1_KEY));
+    public static final Item MUSIC_DISC_TIMPANI1 = register("music_disc_timpani1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.TIMPANI1_KEY));
 
     public static Item register(String name, Item.Properties settings) {
         return register(name, Item::new, settings);
@@ -328,6 +329,7 @@ public class ModItems {
             itemGroup.accept(MUSIC_DISC_TROMBONE1);
             itemGroup.accept(MUSIC_DISC_ALTO_SAXOPHONE1);
             itemGroup.accept(MUSIC_DISC_BASS_SAXOPHONE1);
+            itemGroup.accept(MUSIC_DISC_TIMPANI1);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register((itemGroup) -> {
