@@ -93,6 +93,8 @@
 
   "block.coread.reinforced_ancient_debris": "Reinforced Ancient Debris",
 
+  "block.coread.chalcedony_floor": "Chalcedony Floor",
+
   "block.coread.heat_stabilizer": "Heat Stabilizer",
   "block.coread.chunk_loader": "Chunk Loader",
 
@@ -204,7 +206,7 @@
   "item.coread.garnet_fragment": "Garnet Fragment",
   "item.coread.jasper_fragment": "Jasper Fragment",
   "item.coread.onyx_fragment": "Onyx Fragment",
-  "item.coread.sapphire_fragment": "Onyx Fragment",
+  "item.coread.sapphire_fragment": "Sapphire Fragment",
   "item.coread.dynamite": "Dynamite",
   "item.coread.refuge_compass": "Refuge Compass",
 

@@ -87,16 +87,16 @@ public class ModBlocks {
     public static final StairBlock POLISHED_TRAVERTINE_STAIRS = registerStairs("polished_travertine_stairs", POLISHED_TRAVERTINE);
     public static final WallBlock POLISHED_TRAVERTINE_WALL = registerWall("polished_travertine_wall", POLISHED_TRAVERTINE);
 
-    public static final Block CHALCEDONY_ORE = register("chalcedony_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block GARNET_ORE = register("garnet_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block JADE_ORE = register("jade_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block JASPER_ORE = register("jasper_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block ONYX_ORE = register("onyx_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block OPAL_ORE = register("opal_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block RUBY_ORE = register("ruby_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block SAPPHIRE_ORE = register("sapphire_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block SPINEL_ORE = register("spinel_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
-    public static final Block TIGERS_EYE_ORE = register("tigers_eye_ore", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block CHALCEDONY_ORE = register("chalcedony_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block GARNET_ORE = register("garnet_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block JADE_ORE = register("jade_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block JASPER_ORE = register("jasper_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block ONYX_ORE = register("onyx_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLACK).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block OPAL_ORE = register("opal_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block RUBY_ORE = register("ruby_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block SAPPHIRE_ORE = register("sapphire_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block SPINEL_ORE = register("spinel_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
+    public static final Block TIGERS_EYE_ORE = register("tigers_eye_ore", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0f, 9.0f));
 
     public static final Block CHALCEDONY_GOLEM_BLOCK = register("chalcedony_golem_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(50.0f, 120.0f).sound(SoundType.METAL));
     public static final Block GARNET_GOLEM_BLOCK = register("garnet_golem_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(50.0f, 120.0f).sound(SoundType.METAL));
@@ -142,6 +142,8 @@ public class ModBlocks {
     public static final Block JUNIPER_SAPLING = register("juniper_sapling", properties -> new SaplingBlock(ModTreeGrowers.JUNIPER, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
     public static final Block POTTED_JUNIPER_SAPLING = register("potted_juniper_sapling", properties -> new FlowerPotBlock(JUNIPER_SAPLING, properties), Blocks.flowerPotProperties());
     public static final Block JUNIPER_LEAVES = register("juniper_leaves", properties -> new TintedParticleLeavesBlock(0.01f, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2f).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
+
+    public static final Block CHALCEDONY_FLOOR = register("chalcedony_floor", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.SNARE).requiresCorrectToolForDrops().strength(5.0f, 9.0f).sound(SoundType.METAL).speedFactor(1.5f));
 
     public static final Block REINFORCED_ANCIENT_DEBRIS = register("reinforced_ancient_debris", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0f, 1200.0f).sound(SoundType.ANCIENT_DEBRIS).pushReaction(PushReaction.BLOCK));
 
@@ -361,6 +363,8 @@ public class ModBlocks {
             itemGroup.accept(JUNIPER_SAPLING.asItem());
             itemGroup.accept(JUNIPER_LEAVES.asItem());
 
+            itemGroup.accept(CHALCEDONY_FLOOR.asItem());
+
             itemGroup.accept(REINFORCED_ANCIENT_DEBRIS.asItem());
         });
 
@@ -386,6 +390,8 @@ public class ModBlocks {
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(itemGroup -> {
+            itemGroup.accept(CHALCEDONY_FLOOR.asItem());
+
             itemGroup.accept(HEAT_STABILIZER.asItem());
             itemGroup.accept(CHUNK_LOADER.asItem());
         });

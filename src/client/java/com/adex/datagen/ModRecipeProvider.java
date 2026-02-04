@@ -167,6 +167,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             customBoat(ModItems.SPEED_BOAT, ModItems.SAPPHIRE_FRAGMENT);
             customChestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
 
+            twoByTwo(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHALCEDONY_FLOOR, ModItems.CHALCEDONY_SHARD, 1);
+
             heatStabilizer(ModBlocks.HEAT_STABILIZER);
             chunkLoader(ModBlocks.CHUNK_LOADER);
             lavaGoggles(ModItems.LAVA_GOGGLES);
