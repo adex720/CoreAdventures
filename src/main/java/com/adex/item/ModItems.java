@@ -19,6 +19,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
@@ -141,6 +142,8 @@ public class ModItems {
     public static final Item MUSIC_DISC_BASS_SAXOPHONE1 = register("music_disc_bass_saxophone1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.BASS_SAXOPHONE1_KEY));
     public static final Item MUSIC_DISC_CONTRABASS1 = register("music_disc_contrabass1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.CONTRABASS1_KEY));
     public static final Item MUSIC_DISC_TIMPANI1 = register("music_disc_timpani1", new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).jukeboxPlayable(ModJukeboxSounds.TIMPANI1_KEY));
+
+    public static final SplashArrowItem SPLASH_ARROW = (SplashArrowItem) register("splash_arrow", SplashArrowItem::new, new Item.Properties().component(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).component(DataComponents.POTION_DURATION_SCALE, 0.125F));
 
     public static Item register(String name, Item.Properties settings) {
         return register(name, Item::new, settings);
@@ -320,6 +323,8 @@ public class ModItems {
             itemGroup.accept(GEM_BOOTS);
 
             itemGroup.accept(LAVA_GOGGLES);
+
+            SplashArrowItem.addToItemGroup(itemGroup);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((itemGroup) -> {

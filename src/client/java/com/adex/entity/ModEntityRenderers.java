@@ -6,6 +6,7 @@ import com.adex.entity.sentry.WarriorSentryRenderer;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.client.renderer.entity.TippableArrowRenderer;
 
 public class ModEntityRenderers {
 
@@ -38,5 +39,6 @@ public class ModEntityRenderers {
         EntityRenderers.register(ModEntities.GOLEM_FIREBALL_ENTITY, context -> new ThrownItemRenderer<>(context, 3.0f, true));
         EntityRenderers.register(ModEntities.HEAT_BALL_ENTITY, context -> new ThrownItemRenderer<>(context, 3.0f, true));
         EntityRenderers.register(ModEntities.DYNAMITE_PROJECTILE, context -> new ThrownItemRenderer<>(context, 3.0f, true));
+        EntityRenderers.register(ModEntities.SPLASH_ARROW, TippableArrowRenderer::new);
     }
 }

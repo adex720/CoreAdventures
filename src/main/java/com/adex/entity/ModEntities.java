@@ -8,6 +8,7 @@ import com.adex.entity.golem.*;
 import com.adex.entity.projectile.DynamiteProjectile;
 import com.adex.entity.projectile.GolemFireball;
 import com.adex.entity.projectile.HeatBall;
+import com.adex.entity.projectile.SplashArrow;
 import com.adex.entity.sentry.TraderSentry;
 import com.adex.entity.sentry.WarriorSentry;
 import com.adex.item.ModItems;
@@ -73,6 +74,9 @@ public class ModEntities {
     public static final EntityType<DynamiteProjectile> DYNAMITE_PROJECTILE = register(DYNAMITE_PROJECTILE_KEY,
             EntityType.Builder.<DynamiteProjectile>of(DynamiteProjectile::new, MobCategory.MISC)
                     .sized(0.3125f, 0.3125f).clientTrackingRange(4).updateInterval(10).noLootTable());
+    public static final EntityType<SplashArrow> SPLASH_ARROW = register("splash_arrow",
+            EntityType.Builder.<SplashArrow>of(SplashArrow::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).eyeHeight(0.13f).clientTrackingRange(4).updateInterval(20).noLootTable());
 
 
     private static <T extends Entity> EntityType<T> register(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder) {
