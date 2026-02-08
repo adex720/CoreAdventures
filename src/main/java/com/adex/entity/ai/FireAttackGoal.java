@@ -1,7 +1,7 @@
 package com.adex.entity.ai;
 
 import com.adex.entity.golem.Golem;
-import com.adex.entity.projectile.projectile.GolemFireball;
+import com.adex.entity.projectile.GolemFireball;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.Vec3;
