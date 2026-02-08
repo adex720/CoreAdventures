@@ -239,6 +239,8 @@ public class ModItems {
         DispenserBlock.registerBehavior(JUNIPER_CHEST_BOAT, new BoatDispenseItemBehavior(ModEntities.JUNIPER_CHEST_BOAT));
         DispenserBlock.registerBehavior(SPEED_BOAT, new BoatDispenseItemBehavior(ModEntities.SPEED_BOAT));
         DispenserBlock.registerBehavior(SPEED_CHEST_BOAT, new BoatDispenseItemBehavior(ModEntities.SPEED_CHEST_BOAT));
+
+        DispenserBlock.registerProjectileBehavior(SPLASH_ARROW);
     }
 
     private static void addToItemGroups() {

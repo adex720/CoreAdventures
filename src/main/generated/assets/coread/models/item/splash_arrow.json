@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "coread:item/splash_arrow_head",
+    "layer1": "coread:item/splash_arrow_base"
+  }
+}

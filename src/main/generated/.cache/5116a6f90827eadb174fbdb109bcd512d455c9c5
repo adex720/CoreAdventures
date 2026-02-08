@@ -286,6 +286,7 @@ d706d57c08d80bb8f6eb9cb3e5bf87000f2b4f57 assets/coread/items/spinel_golem_spawn_
 6cd85d791e38b44ba45bb85a394d83d67436ad50 assets/coread/items/spinel_helmet.json
 b91f572d802840b545e3e713d673bfa13822abc6 assets/coread/items/spinel_leggings.json
 b6a23f9a270caf82e0a06a1f71bd331a1877bfdd assets/coread/items/spinel_ore.json
+b3fdc864b4ef973be8a35bcbbc0a4d4ed61b6ecd assets/coread/items/splash_arrow.json
 7243da916c5f680c8824d9927ee3497f52b74f57 assets/coread/items/stripped_juniper_log.json
 f3d6c5ba31a734e7dbbc250e18ef348827873400 assets/coread/items/stripped_juniper_wood.json
 6d35f331ac940357e5971c4af98992e09b3d333a assets/coread/items/tigers_eye.json
@@ -626,6 +627,7 @@ c33443227210acc4a80a36d7a7eb0a62b8eff037 assets/coread/models/item/spinel_boots.
 fd275580f297c32be6e1494ace5664357f47ad28 assets/coread/models/item/spinel_golem_spawn_egg.json
 973c1b64f21a8f094f8ff7b5a01ae8478758623b assets/coread/models/item/spinel_helmet.json
 070fe7b31c03f5e2a319834d0bce6c08d1e05c5e assets/coread/models/item/spinel_leggings.json
+5d2f695865d3442f2e6691838c0db122f184bdd2 assets/coread/models/item/splash_arrow.json
 8c8b05be9f7e64e7e266dcbb5144f3f6463c4cae assets/coread/models/item/tigers_eye.json
 74d1fd89b6b88a6e8caa629baedd10b3fc22fe0b assets/coread/models/item/tigers_eye_boots.json
 7dfca865c8e52b227f1da6c2308a9a3da21c2ec1 assets/coread/models/item/tigers_eye_chestplate.json
