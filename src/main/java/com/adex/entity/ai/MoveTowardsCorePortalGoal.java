@@ -59,7 +59,7 @@ public class MoveTowardsCorePortalGoal extends Goal {
     @Override
     public void start() {
         IS_GOLEM_PATHFINDING = true;
-        golem.getNavigation().moveTo(wantedX, wantedY, wantedZ, 1, speedModifier);
+        golem.getNavigation().moveTo(wantedX, wantedY, wantedZ, 0, speedModifier);
         IS_GOLEM_PATHFINDING = false;
     }
 
