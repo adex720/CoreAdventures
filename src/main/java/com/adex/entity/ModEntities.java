@@ -28,10 +28,6 @@ import net.minecraft.world.entity.vehicle.boat.ChestBoat;
 
 public class ModEntities {
 
-    public static final ResourceKey<EntityType<?>> GOLEM_FIREBALL_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "golem_fireball"));
-    public static final ResourceKey<EntityType<?>> HEAT_BALL_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "heat_ball"));
-    public static final ResourceKey<EntityType<?>> DYNAMITE_PROJECTILE_KEY = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, "dynamite_projectile"));
-
     public static final EntityType<ChalcedonyGolem> CHALCEDONY_GOLEM = register("chalcedony_golem", ChalcedonyGolem.builder(ChalcedonyGolem::new));
     public static final EntityType<GarnetGolem> GARNET_GOLEM = register("garnet_golem", GarnetGolem.builder(GarnetGolem::new));
     public static final EntityType<JadeGolem> JADE_GOLEM = register("jade_golem", JadeGolem.builder(JadeGolem::new));
@@ -65,13 +61,13 @@ public class ModEntities {
             EntityType.Builder.<FastChestBoat>of((entityType, level) -> new FastChestBoat(entityType, level, () -> ModItems.SPEED_CHEST_BOAT, 2.5f), MobCategory.MISC)
                     .noLootTable().sized(1.375f, 0.5625f).eyeHeight(0.5625f).clientTrackingRange(10));
 
-    public static final EntityType<GolemFireball> GOLEM_FIREBALL_ENTITY = register(GOLEM_FIREBALL_KEY,
+    public static final EntityType<GolemFireball> GOLEM_FIREBALL_ENTITY = register("golem_fireball",
             EntityType.Builder.<GolemFireball>of(GolemFireball::new, MobCategory.MISC)
                     .sized(0.3125f, 0.3125f).clientTrackingRange(4).updateInterval(10).noLootTable());
-    public static final EntityType<HeatBall> HEAT_BALL_ENTITY = register(HEAT_BALL_KEY,
+    public static final EntityType<HeatBall> HEAT_BALL_ENTITY = register("heat_ball",
             EntityType.Builder.<HeatBall>of(HeatBall::new, MobCategory.MISC)
                     .sized(0.3125f, 0.3125f).clientTrackingRange(4).updateInterval(10).noLootTable());
-    public static final EntityType<DynamiteProjectile> DYNAMITE_PROJECTILE = register(DYNAMITE_PROJECTILE_KEY,
+    public static final EntityType<DynamiteProjectile> DYNAMITE_PROJECTILE = register("dynamite_projectile",
             EntityType.Builder.<DynamiteProjectile>of(DynamiteProjectile::new, MobCategory.MISC)
                     .sized(0.3125f, 0.3125f).clientTrackingRange(4).updateInterval(10).noLootTable());
     public static final EntityType<SplashArrow> SPLASH_ARROW = register("splash_arrow",
