@@ -2,6 +2,7 @@ package com.adex.datagen;
 
 import com.adex.advancement.criterion.BecomeHeatImmuneTrigger;
 import com.adex.advancement.criterion.CoolInCoreTrigger;
+import com.adex.advancement.criterion.HitWithSplashArrowTrigger;
 import com.adex.advancement.criterion.TradeWithSentryTrigger;
 import com.adex.block.ModBlocks;
 import com.adex.data.dimension.ModDimensions;
@@ -18,6 +19,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -196,6 +198,32 @@ public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
                         false)
                 .addCriterion("traded_with_trader_sentry", TradeWithSentryTrigger.TriggerInstance.tradeWithSentry())
                 .save(consumer, ModDataGenerator.getIdentifierString("trade_with_trader_sentry"));
+
+        AdvancementHolder hitWithSplashArrow = Advancement.Builder.advancement()
+                .parent(tradeWithTraderSentry)
+                .display(ModItems.SPLASH_ARROW,
+                        Component.translatable("advancements.coread.core.hit_with_splash_arrow.title"),
+                        Component.translatable("advancements.coread.core.hit_with_splash_arrow.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false)
+                .addCriterion("hit_with_splash_arrow", HitWithSplashArrowTrigger.TriggerInstance.hitAny())
+                .save(consumer, ModDataGenerator.getIdentifierString("hit_with_splash_arrow"));
+
+        AdvancementHolder hit5WithSplashArrow = Advancement.Builder.advancement()
+                .parent(hitWithSplashArrow)
+                .display(ModItems.SPLASH_ARROW,
+                        Component.translatable("advancements.coread.core.hit_5_with_splash_arrow.title"),
+                        Component.translatable("advancements.coread.core.hit_5_with_splash_arrow.description"),
+                        null,
+                        AdvancementType.TASK,
+                        true,
+                        true,
+                        false)
+                .addCriterion("hit_5_with_splash_arrow", HitWithSplashArrowTrigger.TriggerInstance.hitWithCount(MobEffects.WEAKNESS, 5))
+                .save(consumer, ModDataGenerator.getIdentifierString("hit_5_with_splash_arrow"));
 
         AdvancementHolder summonGolem = Advancement.Builder.advancement()
                 .parent(enterRefuge)

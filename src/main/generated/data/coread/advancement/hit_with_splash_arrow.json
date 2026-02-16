@@ -1,0 +1,26 @@
+{
+  "parent": "coread:trade_with_trader_sentry",
+  "criteria": {
+    "hit_with_splash_arrow": {
+      "trigger": "coread:hit_with_splash_arrow"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.coread.core.hit_with_splash_arrow.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:splash_arrow"
+    },
+    "title": {
+      "translate": "advancements.coread.core.hit_with_splash_arrow.title"
+    }
+  },
+  "requirements": [
+    [
+      "hit_with_splash_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

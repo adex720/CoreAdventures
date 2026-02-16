@@ -12,6 +12,7 @@ public class ModCriterionTriggers {
     public static final CoolInCoreTrigger COOL_IN_CORE = register("cool_in_core", new CoolInCoreTrigger());
     public static final BecomeHeatImmuneTrigger BECOME_HEAT_IMMUNE = register("become_heat_immune", new BecomeHeatImmuneTrigger());
     public static final TradeWithSentryTrigger TRADE_WITH_SENTRY = register("trade_with_sentry", new TradeWithSentryTrigger());
+    public static final HitWithSplashArrowTrigger HIT_WITH_SPLASH_ARROW = register("hit_with_splash_arrow", new HitWithSplashArrowTrigger());
 
     public static <T extends CriterionTrigger<?>> T register(String name, T criterionTrigger) {
         return Registry.register(BuiltInRegistries.TRIGGER_TYPES, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name), criterionTrigger);

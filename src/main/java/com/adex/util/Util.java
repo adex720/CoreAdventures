@@ -24,6 +24,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Function;
 
 public class Util {
 
@@ -51,6 +52,24 @@ public class Util {
         T element = list.get(random.nextInt(list.size()));
         list.remove(element);
         return element;
+    }
+
+    /**
+     * Loops trough every element in an iterable and applies the provided function for each one.
+     * This method returns true if at least one of the function calls returns true.
+     * The function is not called for elements after one which returns true.
+     *
+     * @param iterable Iterable
+     * @param checker  Function to check if the element is looked for
+     * @param <T>      Type of elements in the iterable
+     * @return True if the iterator contains a valid element
+     */
+    public static <T> boolean contains(Iterable<T> iterable, Function<T, Boolean> checker) {
+        for (T element : iterable) {
+            if (checker.apply(element)) return true;
+        }
+
+        return false;
     }
 
     public static Rotation getDirectionDifference(Direction base, Direction compare) {

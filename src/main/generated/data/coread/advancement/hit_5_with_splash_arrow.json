@@ -1,0 +1,32 @@
+{
+  "parent": "coread:hit_with_splash_arrow",
+  "criteria": {
+    "hit_5_with_splash_arrow": {
+      "conditions": {
+        "effect": "minecraft:weakness",
+        "hit_count": {
+          "min": 5
+        }
+      },
+      "trigger": "coread:hit_with_splash_arrow"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.coread.core.hit_5_with_splash_arrow.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "coread:splash_arrow"
+    },
+    "title": {
+      "translate": "advancements.coread.core.hit_5_with_splash_arrow.title"
+    }
+  },
+  "requirements": [
+    [
+      "hit_5_with_splash_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
