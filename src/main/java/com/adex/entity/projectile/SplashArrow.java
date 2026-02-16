@@ -90,10 +90,13 @@ public class SplashArrow extends Arrow {
 
         if (entityHitResult.getEntity() instanceof LivingEntity victim && !level().isClientSide()) {
             if (victim.isAlive()) {
-                if (hitButNotKilled == null) hitButNotKilled = new ArrayList<>(5);
-
                 addEffectOnEntity(victim);
-                hitButNotKilled.add(victim);
+
+                if (victim != getOwner()) {
+                    if (hitButNotKilled == null) hitButNotKilled = new ArrayList<>(5);
+
+                    hitButNotKilled.add(victim);
+                }
             }
         }
     }
