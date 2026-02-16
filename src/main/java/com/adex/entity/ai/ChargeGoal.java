@@ -25,7 +25,7 @@ public class ChargeGoal extends MeleeAttackGoal {
     public boolean canUse() {
         LivingEntity target = mob.getTarget();
         if (target == null) return false;
-        if (target.distanceToSqr(mob) > maxDistance * maxDistance && target.distanceToSqr(mob) <= minDistance * minDistance)
+        if (target.distanceToSqr(mob) > maxDistance * maxDistance || target.distanceToSqr(mob) <= minDistance * minDistance)
             return false;
 
         return super.canUse();
@@ -44,7 +44,7 @@ public class ChargeGoal extends MeleeAttackGoal {
     public void attack(@NonNull LivingEntity target) {
         ((Golem) mob).addTemporaryAttackDamage(extraDamage);
         mob.swing(InteractionHand.MAIN_HAND);
-        mob.doHurtTarget(getServerLevel(this.mob), target);
+        mob.doHurtTarget(getServerLevel(mob), target);
         ((Golem) mob).clearTemporaryAttackDamage();
 
         done = true;

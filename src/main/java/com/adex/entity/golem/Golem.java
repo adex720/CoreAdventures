@@ -94,7 +94,7 @@ public abstract class Golem extends Monster {
     }
 
     @SuppressWarnings("DataFlowIssue")
-    public void addTemporaryAttackDamage(float extraDamage) {
+    public void addTemporaryAttackDamage(double extraDamage) {
         getAttribute(Attributes.ATTACK_DAMAGE).addOrUpdateTransientModifier(new AttributeModifier(ATTRIBUTE_MODIFIER, extraDamage, AttributeModifier.Operation.ADD_VALUE));
     }
 
