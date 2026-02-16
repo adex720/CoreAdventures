@@ -1,6 +1,7 @@
 package com.adex.entity.golem;
 
 import com.adex.entity.ai.PotionAttackGoal;
+import com.adex.entity.ai.RemoveEffectGoal;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -16,6 +17,13 @@ public class OpalGolem extends Golem {
     @Override
     public Goal getSpecialGoal() {
         return new PotionAttackGoal(this, getMeleeRange(), getRangedRange(), 20, 1, 1.5d, 0.5f, 3.0f);
+    }
+
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+
+        goalSelector.addGoal(2, new RemoveEffectGoal(this, 200, 0.1f, getMeleeRange()));
     }
 
     @Override
