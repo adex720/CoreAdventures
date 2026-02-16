@@ -82,6 +82,7 @@ public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
                 .add(LootItem.lootTableItem(ModItems.GARNET_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.JASPER_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.ONYX_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
+                .add(LootItem.lootTableItem(ModItems.OPAL_SHARD).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.SAPPHIRE_FRAGMENT).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize))
                 .add(LootItem.lootTableItem(ModItems.DYNAMITE).setWeight(weight)).apply(SetItemCountFunction.setCount(stackSize));
     }

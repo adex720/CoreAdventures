@@ -190,6 +190,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.GARNET_FRAGMENT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.JASPER_FRAGMENT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.ONYX_FRAGMENT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.OPAL_SHARD, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_FRAGMENT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.DYNAMITE, ModelTemplates.FLAT_ITEM);
 

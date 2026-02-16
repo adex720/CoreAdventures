@@ -222,6 +222,7 @@ a4146c5ee8e3a34a6ecd7a5e6cf993d13d34d376 assets/coread/items/opal_golem_spawn_eg
 1fea41a37f7bfd8d8a717b03633d2442d0692ec6 assets/coread/items/opal_helmet.json
 38a976492207ab44a938d6cc7bf73f3330abf0ae assets/coread/items/opal_leggings.json
 7dfd0e690d33c469506b5609c7528110b4f940d9 assets/coread/items/opal_ore.json
+f5e12b658ada71ba881968f30207d968cc957f73 assets/coread/items/opal_shard.json
 b880f5c2406e8cf10448fd7f91d2a4f9e1aa59be assets/coread/items/orange_tnt.json
 3fcd9f2f6051558170126dcfcafa9dc09efe90fd assets/coread/items/polished_gabbro.json
 dbf11423ee0fc6d967a40eb0dd6aa87b0724ae2f assets/coread/items/polished_gabbro_slab.json
@@ -572,6 +573,7 @@ a5943515ebdaa2c97336d0ddcc82f930bb35822e assets/coread/models/item/opal_boots.js
 a470557bb87e0a27c9c8467cf06e266e3f639057 assets/coread/models/item/opal_golem_spawn_egg.json
 605d9204160916ff294b4db30a2345f359826876 assets/coread/models/item/opal_helmet.json
 9ded08ffe541aeba1e8d74a3bd4dd69901cec5f6 assets/coread/models/item/opal_leggings.json
+4e5f2e163d3e0d7d1ffac9db71faf83fa5fe16ca assets/coread/models/item/opal_shard.json
 379ae879bb7556e60b475091b84c07b5e7fb66ad assets/coread/models/item/red_gem_mixture.json
 55a6284be81ec770c4a814ac929d25f868fb6af4 assets/coread/models/item/refuge_compass_00.json
 ac9f4d0aa799231e640f7352d5150a037e98b930 assets/coread/models/item/refuge_compass_01.json

@@ -30,7 +30,7 @@ public class SplashArrowRecipe extends CustomRecipe {
         ItemStack arrow = recipeInput.getItem(0, 0);
         ItemStack middle = recipeInput.getItem(1, 1);
 
-        if (!middle.is(ModItems.OPAL)) {
+        if (!middle.is(ModItems.OPAL_SHARD)) {
             return false;
         }
 
@@ -91,14 +91,13 @@ public class SplashArrowRecipe extends CustomRecipe {
         ItemStack arrow = recipeInput.getItem(0, 0);
         ItemStack middle = recipeInput.getItem(1, 1);
 
-        if (!middle.is(ModItems.OPAL)) {
+        if (!middle.is(ModItems.OPAL_SHARD)) {
             return ItemStack.EMPTY;
         }
 
         ItemStack result = new ItemStack(ModItems.SPLASH_ARROW, 8);
         result.set(DataComponents.POTION_CONTENTS, arrow.get(DataComponents.POTION_CONTENTS));
         return result;
-
     }
 
     @Override

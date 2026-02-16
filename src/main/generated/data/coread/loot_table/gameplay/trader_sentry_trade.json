@@ -22,6 +22,10 @@
         },
         {
           "type": "minecraft:item",
+          "name": "coread:opal_shard"
+        },
+        {
+          "type": "minecraft:item",
           "name": "coread:sapphire_fragment"
         },
         {
@@ -55,6 +59,11 @@
         }
       ],
       "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        },
         {
           "add": false,
           "count": 1.0,
