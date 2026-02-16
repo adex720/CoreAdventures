@@ -1,12 +1,15 @@
 package com.adex.item;
 
 import com.adex.entity.projectile.SplashArrow;
+import com.adex.util.Util;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Position;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
@@ -19,6 +22,7 @@ import net.minecraft.world.level.Level;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
 
 public class SplashArrowItem extends TippedArrowItem {
@@ -52,5 +56,26 @@ public class SplashArrowItem extends TippedArrowItem {
         SplashArrow arrow = new SplashArrow(level, position.x(), position.y(), position.z(), itemStack.copyWithCount(1), null);
         arrow.pickup = AbstractArrow.Pickup.ALLOWED;
         return arrow;
+    }
+
+    /**
+     * Returns a list of {@link MobEffectInstance}s of the {@link ItemStack}.
+     * This method works for any item.
+     *
+     * @param arrow {@link ItemStack} of the arrow
+     * @return List of every {@link MobEffectInstance} of the arrow
+     */
+    public static List<MobEffectInstance> getEffectInstances(ItemStack arrow) {
+        PotionContents contents = getPotionContents(arrow);
+        if (!contents.hasEffects()) return List.of();
+
+        Optional<Holder<Potion>> potion = contents.potion();
+        if (potion.isEmpty()) return contents.customEffects();
+
+        return Util.combine(contents.customEffects(), potion.get().value().getEffects());
+    }
+
+    public static PotionContents getPotionContents(ItemStack arrow) {
+        return arrow.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
     }
 }

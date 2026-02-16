@@ -9,6 +9,7 @@ import com.adex.data.damagetype.ModDamageTypes;
 import com.adex.data.dimension.ModDimensions;
 import com.adex.data.feature.ModTreeGrowers;
 import com.adex.data.loottable.ModLootTables;
+import com.adex.data.recipe.ModRecipeSerializers;
 import com.adex.data.structure.ModStructures;
 import com.adex.data.structure.refuge.RefugePieces;
 import com.adex.effect.ModEffects;
@@ -81,6 +82,8 @@ public class CoreAdventures implements ModInitializer {
 
         ModLootTables.initialize();
         ModDamageTypes.initialize();
+
+        ModRecipeSerializers.initialize();
 
         ModEvents.initialize();
 

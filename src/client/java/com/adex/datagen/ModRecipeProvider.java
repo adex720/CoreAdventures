@@ -1,6 +1,7 @@
 package com.adex.datagen;
 
 import com.adex.block.ModBlocks;
+import com.adex.data.recipe.SplashArrowRecipe;
 import com.adex.data.tag.ModTags;
 import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -178,6 +179,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             nToOne(ModBlocks.YELLOW_TNT, ModBlocks.ORANGE_TNT, RecipeCategory.REDSTONE, 2);
             nToOne(ModBlocks.GREEN_TNT, ModBlocks.YELLOW_TNT, RecipeCategory.REDSTONE, 2);
             nToOne(ModBlocks.BLUE_TNT, ModBlocks.GREEN_TNT, RecipeCategory.REDSTONE, 2);
+
+            createSplashArrowRecipes();
         }
 
         /**
@@ -499,6 +502,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .unlockedBy(getHasName(ModBlocks.ONYX_BLOCK), has(ModBlocks.ONYX_BLOCK))
                     .unlockedBy(getHasName(ModItems.ONYX_FRAGMENT), has(ModItems.ONYX_FRAGMENT))
                     .save(output);
+        }
+
+        public void createSplashArrowRecipes() {
+            SpecialRecipeBuilder.special(SplashArrowRecipe::new)
+                    .save(output, "splash_arrow");
         }
     }
 
