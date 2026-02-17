@@ -126,6 +126,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.RED_GEM_MIXTURE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.SHINY_GEM_MIXTURE, ModelTemplates.FLAT_ITEM);
 
+        itemModelGenerator.generateFlatItem(ModItems.GEM_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.GEM_SHOVEL, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.GEM_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.GEM_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.GEM_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateSpear(ModItems.GEM_SPEAR);
+
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_HELMET, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_CHESTPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_LEGGINGS, ModelTemplates.FLAT_ITEM);

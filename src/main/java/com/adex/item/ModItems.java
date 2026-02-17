@@ -3,6 +3,7 @@ package com.adex.item;
 import com.adex.CoreAdventures;
 import com.adex.entity.ModEntities;
 import com.adex.item.armor.ModArmorMaterials;
+import com.adex.item.tool.ModToolMaterials;
 import com.adex.mixin.DataComponentMapBuilderAccessor;
 import com.adex.mixin.ItemPropertiesAccessor;
 import com.adex.sound.ModJukeboxSounds;
@@ -44,6 +45,14 @@ public class ModItems {
     public static final Item BLUE_GEM_MIXTURE = register("blue_gem_mixture", new Item.Properties());
     public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties());
     public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties());
+
+
+    public static final Item GEM_SWORD = register("gem_sword", new Item.Properties().sword(ModToolMaterials.GEM_TOOL_MATERIAL, 3.0f, -2.4f));
+    public static final Item GEM_SPEAR = register("gem_spear", new Item.Properties().spear(ModToolMaterials.GEM_TOOL_MATERIAL, 1.15f, 1.35f, 0.35f, 2.0f, 6.5f, 5.1f, 5.1f, 7.5f, 4.6f));
+    public static final Item GEM_SHOVEL = register("gem_shovel", new Item.Properties().shovel(ModToolMaterials.GEM_TOOL_MATERIAL, 1.5f, -3.0f));
+    public static final Item GEM_PICKAXE = register("gem_pickaxe", new Item.Properties().pickaxe(ModToolMaterials.GEM_TOOL_MATERIAL, 1.0f, -2.8f));
+    public static final Item GEM_AXE = register("gem_axe", new Item.Properties().axe(ModToolMaterials.GEM_TOOL_MATERIAL, 5.0f, -3.0f));
+    public static final Item GEM_HOE = register("gem_hoe", new Item.Properties().hoe(ModToolMaterials.GEM_TOOL_MATERIAL, -3.0f, 0.0f));
 
 
     public static final Item CHALCEDONY_HELMET = registerHelmet("chalcedony_helmet", ModArmorMaterials.chalcedonyProtectiveArmor(), ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL);
@@ -271,6 +280,9 @@ public class ModItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register((itemGroup) -> {
+            itemGroup.accept(GEM_SWORD);
+            itemGroup.accept(GEM_SPEAR);
+
             itemGroup.accept(CHALCEDONY_HELMET);
             itemGroup.accept(CHALCEDONY_CHESTPLATE);
             itemGroup.accept(CHALCEDONY_LEGGINGS);
@@ -332,6 +344,11 @@ public class ModItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((itemGroup) -> {
+            itemGroup.accept(GEM_SHOVEL);
+            itemGroup.accept(GEM_PICKAXE);
+            itemGroup.accept(GEM_AXE);
+            itemGroup.accept(GEM_HOE);
+
             itemGroup.accept(JUNIPER_BOAT);
             itemGroup.accept(JUNIPER_CHEST_BOAT);
             itemGroup.accept(SPEED_BOAT);

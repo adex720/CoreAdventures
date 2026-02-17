@@ -142,6 +142,13 @@
   "item.coread.red_gem_mixture": "Red Gem Mixture",
   "item.coread.shiny_gem_mixture": "Shiny Gem Mixture",
 
+  "item.coread.gem_sword": "Gem Sword",
+  "item.coread.gem_spear": "Gem Spear",
+  "item.coread.gem_shovel": "Gem Shovel",
+  "item.coread.gem_pickaxe": "Gem Pickaxe",
+  "item.coread.gem_axe": "Gem Axe",
+  "item.coread.gem_hoe": "Gem Hoe",
+
   "item.coread.chalcedony_helmet": "Chalcedony Helmet",
   "item.coread.chalcedony_chestplate": "Chalcedony Chestplate",
   "item.coread.chalcedony_leggings": "Chalcedony Leggings",
@@ -370,6 +377,7 @@
   "tag.item.coread.core_armor": "Gem Armor",
   "tag.item.coread.core_gems": "Core Gems",
   "tag.item.coread.core_gem_blocks": "Core Gem Blocks",
+  "tag.item.coread.gem_tool_materials": "Gem Tool Materials",
   "tag.item.coread.juniper_logs": "Juniper Logs",
   "tag.item.coread.trader_sentry_likes": "Trader Sentry Likes",
 

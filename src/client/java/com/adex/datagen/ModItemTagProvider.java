@@ -13,6 +13,15 @@ import org.jspecify.annotations.NonNull;
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
+
+    public static final TagKey<Item> SWORDS = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("swords"));
+    public static final TagKey<Item> SHOVELS = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("shovels"));
+    public static final TagKey<Item> PICKAXES = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("pickaxes"));
+    public static final TagKey<Item> AXES = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("axes"));
+    public static final TagKey<Item> HOES = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("hoes"));
+    public static final TagKey<Item> SPEARS = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("spears"));
+
+
     public static final TagKey<Item> FOOT_ARMOR = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("foot_armor"));
     public static final TagKey<Item> LEG_ARMOR = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("leg_armor"));
     public static final TagKey<Item> CHEST_ARMOR = TagKey.create(Registries.ITEM, Identifier.withDefaultNamespace("chest_armor"));
@@ -31,6 +40,37 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
+        addToolTags();
+        addArmorTags();
+    }
+
+    public void addToolTags() {
+        valueLookupBuilder(SWORDS)
+                .add(ModItems.GEM_SWORD)
+                .setReplace(false);
+
+        valueLookupBuilder(SHOVELS)
+                .add(ModItems.GEM_SHOVEL)
+                .setReplace(false);
+
+        valueLookupBuilder(PICKAXES)
+                .add(ModItems.GEM_PICKAXE)
+                .setReplace(false);
+
+        valueLookupBuilder(AXES)
+                .add(ModItems.GEM_AXE)
+                .setReplace(false);
+
+        valueLookupBuilder(HOES)
+                .add(ModItems.GEM_HOE)
+                .setReplace(false);
+
+        valueLookupBuilder(SPEARS)
+                .add(ModItems.GEM_SPEAR)
+                .setReplace(false);
+    }
+
+    public void addArmorTags() {
         valueLookupBuilder(FOOT_ARMOR)
                 .add(ModItems.CHALCEDONY_BOOTS, ModItems.GARNET_BOOTS, ModItems.JADE_BOOTS, ModItems.JASPER_BOOTS,
                         ModItems.ONYX_BOOTS, ModItems.OPAL_BOOTS, ModItems.RUBY_BOOTS, ModItems.SAPPHIRE_BOOTS,

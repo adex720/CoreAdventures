@@ -22,6 +22,8 @@ public class ModTags {
 
     public static final TagKey<Block> CORE_GEM_BLOCKS = registerBlock("core_gems");
 
+    public static final TagKey<Block> INCORRECT_FOR_GEM_TOOL = registerBlock("incorrect_for_gem_tool");
+
     public static final TagKey<Item> REPAIRS_CHALCEDONY_ARMOR = registerItem("repairs_chalcedony_armor");
     public static final TagKey<Item> REPAIRS_GARNET_ARMOR = registerItem("repairs_garnet_armor");
     public static final TagKey<Item> REPAIRS_JADE_ARMOR = registerItem("repairs_jade_armor");
@@ -34,6 +36,8 @@ public class ModTags {
     public static final TagKey<Item> REPAIRS_TIGERS_EYE_ARMOR = registerItem("repairs_tigers_eye_armor");
     public static final TagKey<Item> REPAIRS_GEM_ARMOR = registerItem("repairs_gem_armor");
     public static final TagKey<Item> REPAIRS_LAVA_GOGGLES = registerItem("repairs_lava_goggles");
+
+    public static final TagKey<Item> GEM_TOOL_MATERIALS = registerItem("gem_tool_materials");
 
     public static final TagKey<Item> JUNIPER_LOGS_ITEM = registerItem("juniper_logs");
 

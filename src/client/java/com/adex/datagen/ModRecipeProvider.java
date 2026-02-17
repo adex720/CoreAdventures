@@ -7,8 +7,10 @@ import com.adex.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -136,6 +138,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             oreSmeltingAndBlasting(ModBlocks.SAPPHIRE_ORE, RecipeCategory.MISC, ModItems.SAPPHIRE, 1.0f, 200, "sapphire_smelting");
             oreSmeltingAndBlasting(ModBlocks.SPINEL_ORE, RecipeCategory.MISC, ModItems.SPINEL, 1.0f, 200, "spinel_smelting");
             oreSmeltingAndBlasting(ModBlocks.TIGERS_EYE_ORE, RecipeCategory.MISC, ModItems.TIGERS_EYE, 1.0f, 200, "tigers_eye_smelting");
+
+            tool(ModTags.GEM_TOOL_MATERIALS, ModItems.GEM_SWORD, ModItems.GEM_SPEAR, ModItems.GEM_SHOVEL, ModItems.GEM_PICKAXE, ModItems.GEM_AXE, ModItems.GEM_HOE);
 
             armor(ModItems.CHALCEDONY, ModItems.CHALCEDONY_HELMET, ModItems.CHALCEDONY_CHESTPLATE, ModItems.CHALCEDONY_LEGGINGS, ModItems.CHALCEDONY_BOOTS);
             armor(ModItems.GARNET, ModItems.GARNET_HELMET, ModItems.GARNET_CHESTPLATE, ModItems.GARNET_LEGGINGS, ModItems.GARNET_BOOTS);
@@ -273,6 +277,114 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         public void oreSmeltingAndBlasting(List<ItemLike> input, RecipeCategory recipeCategory, ItemLike output, float experience, int time, String group) {
             oreSmelting(input, recipeCategory, output, experience, time, group);
             oreBlasting(input, recipeCategory, output, experience, time / 2, group);
+        }
+
+        public void tool(TagKey<Item> material, Item sword, Item spear, Item shovel, Item pickaxe, Item axe, Item hoe) {
+            sword(material, sword);
+            spear(material, spear);
+            shovel(material, shovel);
+            pickaxe(material, pickaxe);
+            axe(material, axe);
+            hoe(material, hoe);
+        }
+
+        public void sword(TagKey<Item> material, Item sword) {
+            shaped(RecipeCategory.COMBAT, sword)
+                    .pattern("#")
+                    .pattern("#")
+                    .pattern("-")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .unlockedBy("has_material", has(material))
+                    .save(output);
+        }
+
+        public void spear(TagKey<Item> material, Item spear) {
+            shaped(RecipeCategory.COMBAT, spear)
+                    .pattern("#  ")
+                    .pattern(" - ")
+                    .pattern("  -")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .group(getItemName(spear))
+                    .unlockedBy("has_material", has(material))
+                    .save(output, getIdentifierWithSuffix(spear, "_l"));
+
+            shaped(RecipeCategory.COMBAT, spear)
+                    .pattern("  #")
+                    .pattern(" - ")
+                    .pattern("-  ")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .group(getItemName(spear))
+                    .unlockedBy("has_material", has(material))
+                    .save(output, getIdentifierWithSuffix(spear, "_r"));
+        }
+
+        public void shovel(TagKey<Item> material, Item shovel) {
+            shaped(RecipeCategory.TOOLS, shovel)
+                    .pattern("#")
+                    .pattern("-")
+                    .pattern("-")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .unlockedBy("has_material", has(material))
+                    .save(output);
+        }
+
+        public void pickaxe(TagKey<Item> material, Item pickaxe) {
+            shaped(RecipeCategory.TOOLS, pickaxe)
+                    .pattern("###")
+                    .pattern(" - ")
+                    .pattern(" - ")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .unlockedBy("has_material", has(material))
+                    .save(output);
+        }
+
+        public void axe(TagKey<Item> material, Item axe) {
+            shaped(RecipeCategory.TOOLS, axe)
+                    .pattern("##")
+                    .pattern("#-")
+                    .pattern(" -")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .group(getItemName(axe))
+                    .unlockedBy("has_material", has(material))
+                    .save(output, getIdentifierWithSuffix(axe, "_l"));
+
+            shaped(RecipeCategory.TOOLS, axe)
+                    .pattern("##")
+                    .pattern("-#")
+                    .pattern("- ")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .group(getItemName(axe))
+                    .unlockedBy("has_material", has(material))
+                    .save(output, getIdentifierWithSuffix(axe, "_r"));
+        }
+
+        public void hoe(TagKey<Item> material, Item hoe) {
+            shaped(RecipeCategory.TOOLS, hoe)
+                    .pattern("##")
+                    .pattern(" -")
+                    .pattern(" -")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .group(getItemName(hoe))
+                    .unlockedBy("has_material", has(material))
+                    .save(output, getIdentifierWithSuffix(hoe, "_l"));
+
+            shaped(RecipeCategory.TOOLS, hoe)
+                    .pattern("##")
+                    .pattern("- ")
+                    .pattern("- ")
+                    .define('#', material)
+                    .define('-', Items.STICK)
+                    .group(getItemName(hoe))
+                    .unlockedBy("has_material", has(material))
+                    .save(output, getIdentifierWithSuffix(hoe, "_r"));
         }
 
         public void armor(Item item, Item helmet, Item chestplate, Item leggings, Item boots) {
@@ -507,7 +619,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .save(output);
         }
 
-        public void chandelier(){
+        public void chandelier() {
             shaped(RecipeCategory.DECORATIONS, ModBlocks.CHANDELIER)
                     .pattern(" C ")
                     .pattern("TGT")
@@ -522,6 +634,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         public void createSplashArrowRecipes() {
             SpecialRecipeBuilder.special(SplashArrowRecipe::new)
                     .save(output, "splash_arrow");
+        }
+
+        public String getIdentifierWithSuffix(ItemLike item, String suffix) {
+            return BuiltInRegistries.ITEM.getKey(item.asItem()).withSuffix(suffix).toString();
         }
     }
 

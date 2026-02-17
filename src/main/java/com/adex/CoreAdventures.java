@@ -18,6 +18,7 @@ import com.adex.enchantment.effect.ModEnchantmentEffects;
 import com.adex.entity.ModEntities;
 import com.adex.entity.attribute.ModAttributes;
 import com.adex.entity.poi.ModPoiTypes;
+import com.adex.item.tool.ModToolMaterials;
 import com.adex.sound.ModJukeboxSounds;
 import com.adex.sound.ModSoundEvents;
 import com.adex.statistics.ModStats;
@@ -46,6 +47,7 @@ public class CoreAdventures implements ModInitializer {
         ModTags.initialize();
 
         ModArmorMaterials.initialize();
+        ModToolMaterials.initialize();
         ModDataComponents.initialize();
 
         ModSoundEvents.initialize();
