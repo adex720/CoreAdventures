@@ -2,12 +2,67 @@
   "replace": false,
   "values": [
     "coread:hardened_stone",
+    "coread:hardened_stone_slab",
+    "coread:hardened_stone_stairs",
+    "coread:hardened_stone_wall",
+
+    "coread:hardened_stone_bricks",
+    "coread:hardened_stone_bricks_slab",
+    "coread:hardened_stone_bricks_stairs",
+    "coread:hardened_stone_bricks_wall",
+
+    "coread:cracked_hardened_stone_bricks",
+    "coread:heavy_hardened_stone_bricks",
 
     "coread:gabbro",
+    "coread:gabbro_slab",
+    "coread:gabbro_stairs",
+    "coread:gabbro_wall",
+
+    "coread:polished_gabbro",
+    "coread:polished_gabbro_slab",
+    "coread:polished_gabbro_stairs",
+    "coread:polished_gabbro_wall",
+
     "coread:larvikite",
+    "coread:larvikite_slab",
+    "coread:larvikite_stairs",
+    "coread:larvikite_wall",
+
+    "coread:polished_larvikite",
+    "coread:polished_larvikite_slab",
+    "coread:polished_larvikite_stairs",
+    "coread:polished_larvikite_wall",
+
     "coread:serpentinite",
+    "coread:serpentinite_slab",
+    "coread:serpentinite_stairs",
+    "coread:serpentinite_wall",
+
+    "coread:polished_serpentinite",
+    "coread:polished_serpentinite_slab",
+    "coread:polished_serpentinite_stairs",
+    "coread:polished_serpentinite_wall",
+
     "coread:slate",
+    "coread:slate_slab",
+    "coread:slate_stairs",
+    "coread:slate_wall",
+
+    "coread:polished_slate",
+    "coread:polished_slate_slab",
+    "coread:polished_slate_stairs",
+    "coread:polished_slate_wall",
+
     "coread:travertine",
+    "coread:travertine_slab",
+    "coread:travertine_stairs",
+    "coread:travertine_wall",
+
+    "coread:polished_travertine",
+    "coread:polished_travertine_slab",
+    "coread:polished_travertine_stairs",
+    "coread:polished_travertine_wall",
 
     "coread:chalcedony_ore",
     "coread:garnet_ore",
