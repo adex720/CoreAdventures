@@ -1,5 +1,6 @@
 package com.adex.util;
 
+import com.adex.CoreAdventures;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
@@ -9,6 +10,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -27,9 +29,12 @@ import java.util.stream.Stream;
 
 public class Util {
 
+    public static final float ONE_SIXTEENTH = 0.0625f;
+    public static final float ONE_OVER_SQRT_2 = 1.0f / Mth.SQRT_OF_TWO;
+
     public static final Direction[] CARDINAL_DIRECTIONS = new Direction[]{Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST};
 
-    public static <T> List<T> combine(List<T> list1, List<T> list2){
+    public static <T> List<T> combine(List<T> list1, List<T> list2) {
         return Stream.of(list1, list2).flatMap(Collection::stream).collect(Collectors.toList());
     }
 
@@ -73,6 +78,40 @@ public class Util {
         }
 
         return false;
+    }
+
+    /**
+     * Generates a list of unique random integers between 0 (inclusive)
+     * and the specified maximum value (inclusive).
+     *
+     * <p>The method returns exactly {@code count} distinct integers.
+     *
+     * @param max    the upper bound (inclusive). Must be >= 0.
+     * @param count  the number of unique random integers to generate.
+     *               Must be between 0 and {@code max + 1}.
+     * @param random RandomSource
+     * @return a list containing {@code count} unique random integers
+     * between 0 and {@code max} (inclusive)
+     */
+    public static List<Integer> generateUniqueRandomInts(int max, int count, RandomSource random) {
+        if (max < 0) {
+            CoreAdventures.LOGGER.error("Cannot run generateUniqueRandomInts, max must be >= 0, got {}", max);
+            return List.of();
+        }
+
+        if (count < 0 || count > max + 1) {
+            CoreAdventures.LOGGER.error("Cannot run generateUniqueRandomInts, count must be between 0 and max + 1, got {}", count);
+            return List.of();
+        }
+
+        Set<Integer> result = new HashSet<>(count);
+
+        while (result.size() < count) {
+            int number = random.nextInt(max + 1);
+            result.add(number);
+        }
+
+        return new ArrayList<>(result);
     }
 
     public static Rotation getDirectionDifference(Direction base, Direction compare) {
