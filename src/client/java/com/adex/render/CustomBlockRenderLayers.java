@@ -12,5 +12,7 @@ public class CustomBlockRenderLayers {
         BlockRenderLayerMapImpl.putBlock(ModBlocks.JUNIPER_DOOR, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMapImpl.putBlock(ModBlocks.JUNIPER_SAPLING, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMapImpl.putBlock(ModBlocks.POTTED_JUNIPER_SAPLING, ChunkSectionLayer.CUTOUT);
+
+        BlockRenderLayerMapImpl.putBlock(ModBlocks.CHANDELIER, ChunkSectionLayer.CUTOUT);
     }
 }

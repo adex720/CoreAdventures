@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -167,6 +168,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
             customBoat(ModItems.SPEED_BOAT, ModItems.SAPPHIRE_FRAGMENT);
             customChestBoat(ModItems.SPEED_CHEST_BOAT, ModItems.SPEED_BOAT);
+
+            chandelier();
 
             twoByTwo(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHALCEDONY_FLOOR, ModItems.CHALCEDONY_SHARD, 1);
 
@@ -501,6 +504,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .define('F', ModItems.ONYX_FRAGMENT)
                     .unlockedBy(getHasName(ModBlocks.ONYX_BLOCK), has(ModBlocks.ONYX_BLOCK))
                     .unlockedBy(getHasName(ModItems.ONYX_FRAGMENT), has(ModItems.ONYX_FRAGMENT))
+                    .save(output);
+        }
+
+        public void chandelier(){
+            shaped(RecipeCategory.DECORATIONS, ModBlocks.CHANDELIER)
+                    .pattern(" C ")
+                    .pattern("TGT")
+                    .pattern(" T ")
+                    .define('C', ItemTags.CHAINS)
+                    .define('G', Items.GOLD_INGOT)
+                    .define('T', Items.TORCH)
+                    .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
                     .save(output);
         }
 

@@ -130,6 +130,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         dropPottedContents(ModBlocks.POTTED_JUNIPER_SAPLING);
         add(ModBlocks.JUNIPER_LEAVES, block -> createLeavesDrops(block, ModBlocks.JUNIPER_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
 
+        dropSelf(ModBlocks.CHANDELIER);
+
         dropSelf(ModBlocks.REINFORCED_ANCIENT_DEBRIS);
         dropSelf(ModBlocks.HEAT_STABILIZER);
         dropSelf(ModBlocks.CHUNK_LOADER);

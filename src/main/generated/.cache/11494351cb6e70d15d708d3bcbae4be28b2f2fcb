@@ -2,6 +2,7 @@
 06c2b493f1f8109a27e23aa34c99907e6f0adefd data/coread/loot_table/blocks/blue_tnt.json
 4a1c6d522aa371713f76bd2853c2b8d1c21e0292 data/coread/loot_table/blocks/chalcedony_block.json
 8c5bc4f3b41c0319ab73fb2917da09e0848aead9 data/coread/loot_table/blocks/chalcedony_ore.json
+0cb283b14262815aa0be09e6ec84d18c92058066 data/coread/loot_table/blocks/chandelier.json
 7a8df8cc8f7b42d2da1f1335952dcf28f5879756 data/coread/loot_table/blocks/chunk_loader.json
 76e9a588149558263b2603cf408f8a38151ac73a data/coread/loot_table/blocks/cracked_hardened_stone_bricks.json
 d619fd2b3d54239e4d53aa1ac7a7a8387a3a7eaa data/coread/loot_table/blocks/gabbro.json

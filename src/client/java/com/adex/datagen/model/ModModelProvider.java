@@ -95,6 +95,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.createPlantWithDefaultItem(ModBlocks.JUNIPER_SAPLING, ModBlocks.POTTED_JUNIPER_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         blockStateModelGenerator.createTrivialBlock(ModBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
 
+        blockStateModelGenerator.createCrossBlockWithDefaultItem(ModBlocks.CHANDELIER, BlockModelGenerators.PlantType.NOT_TINTED);
+
         blockStateModelGenerator.createTrivialCube(ModBlocks.CHALCEDONY_FLOOR);
 
         createBooleanPropertyCube(blockStateModelGenerator, ModBlocks.HEAT_STABILIZER, HeatStabilizerBlock.LIT, "lit");

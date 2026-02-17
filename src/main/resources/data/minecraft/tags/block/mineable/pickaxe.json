@@ -31,7 +31,10 @@
     "coread:spinel_block",
     "coread:tigers_eye_block",
 
+    "coread:chandelier",
+
     "coread:reinforced_ancient_debris",
-    "coread:heat_stabilizer"
+    "coread:heat_stabilizer",
+    "coread:chunk_loader"
   ]
 }

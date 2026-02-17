@@ -143,6 +143,8 @@ public class ModBlocks {
     public static final Block POTTED_JUNIPER_SAPLING = register("potted_juniper_sapling", properties -> new FlowerPotBlock(JUNIPER_SAPLING, properties), Blocks.flowerPotProperties());
     public static final Block JUNIPER_LEAVES = register("juniper_leaves", properties -> new TintedParticleLeavesBlock(0.01f, properties), BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2f).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(Blocks::ocelotOrParrot).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor(Blocks::never));
 
+    public static final Block CHANDELIER = register("chandelier", ChandelierBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(2.0f, 1.0f).sound(SoundType.METAL).pushReaction(PushReaction.DESTROY).lightLevel(_ -> 15));
+
     public static final Block CHALCEDONY_FLOOR = register("chalcedony_floor", BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.SNARE).requiresCorrectToolForDrops().strength(5.0f, 9.0f).sound(SoundType.METAL).speedFactor(1.5f));
 
     public static final Block REINFORCED_ANCIENT_DEBRIS = register("reinforced_ancient_debris", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(35.0f, 1200.0f).sound(SoundType.ANCIENT_DEBRIS).pushReaction(PushReaction.BLOCK));
@@ -362,6 +364,8 @@ public class ModBlocks {
             itemGroup.accept(JUNIPER_HANGING_SIGN.asItem());
             itemGroup.accept(JUNIPER_SAPLING.asItem());
             itemGroup.accept(JUNIPER_LEAVES.asItem());
+
+            itemGroup.accept(CHANDELIER.asItem());
 
             itemGroup.accept(CHALCEDONY_FLOOR.asItem());
 
