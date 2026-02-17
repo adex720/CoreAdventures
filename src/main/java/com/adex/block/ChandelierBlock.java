@@ -16,7 +16,9 @@ public class ChandelierBlock extends Block {
     }
 
     @Override
-    protected @NonNull VoxelShape getShape(@NonNull BlockState blockState, @NonNull BlockGetter blockGetter, @NonNull BlockPos blockPos, @NonNull CollisionContext collisionContext) {
+    protected @NonNull VoxelShape getCollisionShape(@NonNull BlockState blockState, @NonNull BlockGetter blockGetter, @NonNull BlockPos blockPos, @NonNull CollisionContext collisionContext) {
         return Shapes.box(0.375f, 0.4375f, 0.375f, 0.625f, 1.0f, 0.625f);
     }
+
+
 }
