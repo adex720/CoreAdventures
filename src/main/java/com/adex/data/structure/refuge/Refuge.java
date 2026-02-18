@@ -25,7 +25,7 @@ public class Refuge extends Structure {
     @Override
     protected @NonNull Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         return Optional.of(new Structure.GenerationStub(context.chunkPos().getWorldPosition(),
-                builder -> new RefugeBuilder(builder, context, 50).generate(10)));
+                builder -> new RefugeBuilder(builder, context, 50).generate(20)));
     }
 
 

@@ -553,6 +553,22 @@ public abstract class RefugePiece extends StructurePiece {
         return PipeBlock.PROPERTY_BY_DIRECTION.get(direction);
     }
 
+    /**
+     * Generates a chandelier block with {@code chainLength} chain blocks above it
+     *
+     * @param level       WorldGenLevel
+     * @param pos         {@link BlockPos} of the top block to place
+     * @param chainLength Amount of chain blocks to be placed over the chandelier
+     */
+    public static void generateChandelier(WorldGenLevel level, BlockPos pos, int chainLength) {
+        setBlock(level, pos.below(chainLength), ModBlocks.CHANDELIER.defaultBlockState());
+
+        BlockState chain = Blocks.IRON_CHAIN.defaultBlockState().setValue(ChainBlock.AXIS, Direction.Axis.Y);
+        for (int i = 0; i < chainLength; i++) {
+            setBlock(level, pos.below(i), chain);
+        }
+    }
+
     public static void addEntity(WorldGenLevel level, RandomSource random, BoundingBox possibleSpawnPos, EntityType<?> entityType, float spawnProbability) {
         if (random.nextFloat() < spawnProbability) addEntity(level, random, possibleSpawnPos, entityType);
     }
