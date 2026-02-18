@@ -30,7 +30,8 @@
     "StructuresMixin",
     "ThrownSplashPotionMixin",
     "TntBlockMixin",
-    "VillagerHostilesSensorAccessor"
+    "VillagerHostilesSensorAccessor",
+    "WanderingTraderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

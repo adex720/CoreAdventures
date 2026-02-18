@@ -108,6 +108,7 @@ public class ModEntities {
 
 
         EntityUtils.makeVillagerScaredOf(WARRIOR_SENTRY, 12.0f);
+        EntityUtils.makeWanderingTraderScaredOf(WarriorSentry.class, 12.0f);
     }
 
     private static void registerAttributes(EntityType<? extends LivingEntity> entityType, AttributeSupplier.Builder builder) {

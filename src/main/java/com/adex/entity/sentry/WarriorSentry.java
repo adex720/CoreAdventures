@@ -1,7 +1,6 @@
 package com.adex.entity.sentry;
 
 import com.adex.data.tag.ModTags;
-import com.adex.entity.ai.MoveTowardsTradeItemGoal;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -36,6 +35,7 @@ public class WarriorSentry extends Sentry {
     protected Map<Integer, Goal> getNeutralTargets() {
         HashMap<Integer, Goal> goals = new HashMap<>(super.getNeutralTargets());
 
+        //noinspection unused
         goals.put(1, new NearestAttackableTargetGoal<>(this, Mob.class, true, (mob, level) -> doesAttack(mob.getType())));
 
         return goals;
@@ -45,6 +45,7 @@ public class WarriorSentry extends Sentry {
     protected Map<Integer, Goal> getAggressiveTargets() {
         HashMap<Integer, Goal> goals = new HashMap<>(super.getAggressiveTargets());
 
+        //noinspection unused
         goals.put(3, new NearestAttackableTargetGoal<>(this, Mob.class, true, (mob, level) -> doesAttack(mob.getType())));
 
         return goals;
