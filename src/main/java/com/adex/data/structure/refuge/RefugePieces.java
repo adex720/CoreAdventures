@@ -25,6 +25,8 @@ public class RefugePieces {
     public static final StructurePieceType REFUGE_BREWING_ROOM = registerPiece(BrewingRoom::new, "rfbrew");
     public static final StructurePieceType REFUGE_MUSIC_ROOM = registerPiece(MusicRoom::new, "rfmusic");
 
+    public static final StructurePieceType REFUGE_JAIL_ROOM = registerPiece(JailRoom::new, "rfjailm");
+
     public static final StructurePieceType REFUGE_END_CHEST_ROOM = registerPiece(EndChestRoom::new, "rfendchest");
     public static final StructurePieceType REFUGE_END_TRAP_CHEST_ROOM = registerPiece(EndTrapChestRoom::new, "rfendtrap");
 
