@@ -1,5 +1,6 @@
 package com.adex.data.structure.refuge.piece;
 
+import com.adex.block.ModBlocks;
 import com.adex.data.loottable.ModLootTables;
 import com.adex.data.structure.refuge.ContinuationPoint;
 import net.minecraft.core.BlockPos;
@@ -80,5 +81,9 @@ public class ElevenWideRoom extends RefugePiece {
         }
 
         createChest(level, random, chestPos, chestDirection, lootTable);
+    }
+
+    public void addChandelierToMiddle(WorldGenLevel level) {
+        setBlock(level, startPos.relative(direction, 5).above(6), ModBlocks.CHANDELIER.defaultBlockState());
     }
 }

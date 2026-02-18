@@ -22,6 +22,7 @@ public class TreasureRoom extends ElevenWideRoom {
     public void createBlocks(WorldGenLevel level, RandomSource random) {
         super.createBlocks(level, random);
         addRandomTreasureChest(level, random);
+        addChandelierToMiddle(level);
 
         BlockState state = (random.nextBoolean() ? Blocks.GOLD_BLOCK : Blocks.DIAMOND_BLOCK).defaultBlockState();
         setBlock(level, startPos.relative(direction, 6).above(1), state);
