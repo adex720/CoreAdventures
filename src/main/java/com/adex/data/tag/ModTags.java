@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -49,6 +50,8 @@ public class ModTags {
     public static final TagKey<Item> CORE_GEM_BLOCK_ITEMS = registerItem("core_gems");
     public static final TagKey<Item> TRADER_SENTRY_LIKES = registerItem("trader_sentry_likes");
 
+    public static final TagKey<EntityType<?>> SENTRY_DISLIKES = registerEntity("sentry_dislikes");
+
     public static final TagKey<Biome> CORE_BIOMES = registerBiome("core");
 
     public static final TagKey<DamageType> CHALCEDONY_PROTECTIVE_ARMOR = registerDamageType("chalcedony_protective_armor");
@@ -63,6 +66,10 @@ public class ModTags {
 
     private static TagKey<Item> registerItem(String name) {
         return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
+    }
+
+    private static TagKey<EntityType<?>> registerEntity(String name) {
+        return TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
     }
 
     @SuppressWarnings("SameParameterValue")

@@ -144,7 +144,7 @@ public class Sentry extends Monster {
 
     protected Map<Integer, Goal> getAggressiveTargets() {
         return Map.of(1, new HurtByTargetGoal(this),
-                2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 0, false, false, this::isValidPlayerTarget));
+                2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 1, false, false, this::isValidPlayerTarget));
     }
 
     public void resetLockedGoals() {

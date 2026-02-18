@@ -29,7 +29,8 @@
     "ServerPlayerMixin",
     "StructuresMixin",
     "ThrownSplashPotionMixin",
-    "TntBlockMixin"
+    "TntBlockMixin",
+    "VillagerHostilesSensorAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

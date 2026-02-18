@@ -105,6 +105,9 @@ public class ModEntities {
         registerAttributes(WARRIOR_SENTRY, WarriorSentry.createAttributes());
 
         PotionAttackGoal.initializeEffects();
+
+
+        EntityUtils.makeVillagerScaredOf(WARRIOR_SENTRY, 12.0f);
     }
 
     private static void registerAttributes(EntityType<? extends LivingEntity> entityType, AttributeSupplier.Builder builder) {
