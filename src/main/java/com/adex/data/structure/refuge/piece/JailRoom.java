@@ -47,7 +47,7 @@ public class JailRoom extends RefugePiece {
 
     @Override
     public List<ContinuationPoint> getContinuationPoints(BlockPos pos, Direction direction, int depth) {
-        return List.of(ContinuationPoint.of(pos, direction, 15, depth));
+        return List.of();
     }
 
     @Override
