@@ -3,6 +3,7 @@ package com.adex.item;
 import com.adex.CoreAdventures;
 import com.adex.entity.ModEntities;
 import com.adex.item.armor.ModArmorMaterials;
+import com.adex.item.armor.ModTrimMaterials;
 import com.adex.item.tool.ModToolMaterials;
 import com.adex.mixin.DataComponentMapBuilderAccessor;
 import com.adex.mixin.ItemPropertiesAccessor;
@@ -30,21 +31,21 @@ import java.util.function.Function;
 
 public class ModItems {
 
-    public static final Item CHALCEDONY = register("chalcedony", new Item.Properties());
-    public static final Item GARNET = register("garnet", new Item.Properties());
-    public static final Item JADE = register("jade", new Item.Properties());
-    public static final Item JASPER = register("jasper", new Item.Properties());
-    public static final Item ONYX = register("onyx", new Item.Properties());
-    public static final Item OPAL = register("opal", new Item.Properties());
-    public static final Item RUBY = register("ruby", new Item.Properties());
-    public static final Item SAPPHIRE = register("sapphire", new Item.Properties());
-    public static final Item SPINEL = register("spinel", new Item.Properties());
-    public static final Item TIGERS_EYE = register("tigers_eye", new Item.Properties());
+    public static final Item CHALCEDONY = register("chalcedony", new Item.Properties().trimMaterial(ModTrimMaterials.CHALCEDONY));
+    public static final Item GARNET = register("garnet", new Item.Properties().trimMaterial(ModTrimMaterials.GARNET));
+    public static final Item JADE = register("jade", new Item.Properties().trimMaterial(ModTrimMaterials.JADE));
+    public static final Item JASPER = register("jasper", new Item.Properties().trimMaterial(ModTrimMaterials.JASPER));
+    public static final Item ONYX = register("onyx", new Item.Properties().trimMaterial(ModTrimMaterials.ONYX));
+    public static final Item OPAL = register("opal", new Item.Properties().trimMaterial(ModTrimMaterials.OPAL));
+    public static final Item RUBY = register("ruby", new Item.Properties().trimMaterial(ModTrimMaterials.RUBY));
+    public static final Item SAPPHIRE = register("sapphire", new Item.Properties().trimMaterial(ModTrimMaterials.SAPPHIRE));
+    public static final Item SPINEL = register("spinel", new Item.Properties().trimMaterial(ModTrimMaterials.SPINEL));
+    public static final Item TIGERS_EYE = register("tigers_eye", new Item.Properties().trimMaterial(ModTrimMaterials.TIGERS_EYE));
 
 
-    public static final Item BLUE_GEM_MIXTURE = register("blue_gem_mixture", new Item.Properties());
-    public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties());
-    public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties());
+    public static final Item BLUE_GEM_MIXTURE = register("blue_gem_mixture", new Item.Properties().trimMaterial(ModTrimMaterials.BLUE_GEM_MIXTURE));
+    public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties().trimMaterial(ModTrimMaterials.RED_GEM_MIXTURE));
+    public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties().trimMaterial(ModTrimMaterials.SHINY_GEM_MIXTURE));
 
 
     public static final Item GEM_SWORD = register("gem_sword", new Item.Properties().sword(ModToolMaterials.GEM_TOOL_MATERIAL, 3.0f, -2.4f));

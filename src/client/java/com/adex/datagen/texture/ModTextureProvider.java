@@ -49,7 +49,7 @@ public abstract class ModTextureProvider<T> implements DataProvider {
                 int colorIndex = originalPalette.index(color);
                 int newColor = colorIndex >= -1 ? newPalette.color(colorIndex) : color;
                 g.setColor(new Color(newColor, true));
-                g.drawLine(x, y, x, y);
+                g.fillRect(x, y, 1, 1);
             }
         }
 

@@ -32,6 +32,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(RefugeCompassTextureProvider::new);
         pack.addProvider(ModHumanoidTextureProvider::new);
         pack.addProvider(ModEntityTextureProvider::new);
+        pack.addProvider(ModArmorTrimTextureProvider::new);
     }
 
     public static String getIdentifierString(String name) {

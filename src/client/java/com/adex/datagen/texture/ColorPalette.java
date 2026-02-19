@@ -9,40 +9,52 @@ import java.util.List;
  * Each palette contains a fully transparent color, and it is accessed with index -1.
  * Index -2 is used for colors not in the palette.
  */
-@SuppressWarnings("unused")
 public class ColorPalette {
 
     public static final ColorPalette DIAMOND_HUMANOID = new ColorPalette(List.of(0xff145e53, 0xff11727a, 0xff1c919a, 0xff1aaaa7, 0xff0ebabd, 0xff20c5b5, 0xff15c2c6, 0xff2cc2b0, 0xff2dc4b2, 0xff30d0be, 0xff2ce0d8, 0xff3de0e5, 0xff4aedd9, 0xff4bede6, 0xff65f5e3, 0xff6bf3e3, 0xff70fbf0, 0xff9af8f0, 0xffa1fbe8, 0xff9efeeb, 0xffb4fdee, 0xffd5fff6, 0xffe5fffa, 0xffffffff));
     public static final ColorPalette DIAMOND_ARMOR = new ColorPalette(List.of(0xff082520, 0xff17172d, 0xff0e3f36, 0xff1aaaa7, 0xff20c5b5, 0xff4aedd9, 0xffa1fbe8, 0xffffffff));
 
-    public static final ColorPalette CHALCEDONY_HUMANOID = matchVanillaHumanoidWith6(0xff2f4dc6, 0xff405ed8, 0xff5974e5, 0xff6d85eb, 0xff8ea1f1, 0xffa1b1f5);
-    public static final ColorPalette CHALCEDONY_ARMOR = matchVanillaArmorWith6(0xff2f4dc6, 0xff405ed8, 0xff5974e5, 0xff6d85eb, 0xff8ea1f1, 0xffa1b1f5);
+    public static final ColorPalette CHALCEDONY = new ColorPalette(List.of(0xff2f4dc6, 0xff405ed8, 0xff5974e5, 0xff6d85eb, 0xff8ea1f1, 0xffa1b1f5));
+    public static final ColorPalette CHALCEDONY_HUMANOID = matchVanillaHumanoidWith6(CHALCEDONY);
+    public static final ColorPalette CHALCEDONY_ARMOR = matchVanillaArmorWith6(CHALCEDONY);
 
-    public static final ColorPalette GARNET_HUMANOID = matchVanillaHumanoidWith6(0xff4e0202, 0xff660000, 0xff7e0606, 0xff950d0d, 0xffaa1616, 0xffbc1c1c);
-    public static final ColorPalette GARNET_ARMOR = matchVanillaArmorWith6(0xff4e0202, 0xff660000, 0xff7e0606, 0xff950d0d, 0xffaa1616, 0xffbc1c1c);
+    public static final ColorPalette GARNET = new ColorPalette(List.of(0xff4e0202, 0xff660000, 0xff7e0606, 0xff950d0d, 0xffaa1616, 0xffbc1c1c));
+    public static final ColorPalette GARNET_HUMANOID = matchVanillaHumanoidWith6(GARNET);
+    public static final ColorPalette GARNET_ARMOR = matchVanillaArmorWith6(GARNET);
 
-    public static final ColorPalette JADE_HUMANOID = matchVanillaHumanoidWith6(0xff0c7114, 0xff148a1d, 0xff1c9926, 0xff26ab30, 0xff31bb3b, 0xff39c743);
-    public static final ColorPalette JADE_ARMOR = matchVanillaArmorWith6(0xff0c7114, 0xff148a1d, 0xff1c9926, 0xff26ab30, 0xff31bb3b, 0xff39c743);
+    public static final ColorPalette JADE = new ColorPalette(List.of(0xff0c7114, 0xff148a1d, 0xff1c9926, 0xff26ab30, 0xff31bb3b, 0xff39c743));
+    public static final ColorPalette JADE_HUMANOID = matchVanillaHumanoidWith6(JADE);
+    public static final ColorPalette JADE_ARMOR = matchVanillaArmorWith6(JADE);
 
-    public static final ColorPalette JASPER_HUMANOID = matchVanillaHumanoidWith6(0xffa3250f, 0xffb32b13, 0xffc8341a, 0xffda4126, 0xffe35036, 0xfff0634a);
-    public static final ColorPalette JASPER_ARMOR = matchVanillaArmorWith6(0xffa3250f, 0xffb32b13, 0xffc8341a, 0xffda4126, 0xffe35036, 0xfff0634a);
+    public static final ColorPalette JASPER = new ColorPalette(List.of(0xffa3250f, 0xffb32b13, 0xffc8341a, 0xffda4126, 0xffe35036, 0xfff0634a));
+    public static final ColorPalette JASPER_HUMANOID = matchVanillaHumanoidWith6(JASPER);
+    public static final ColorPalette JASPER_ARMOR = matchVanillaArmorWith6(JASPER);
 
-    public static final ColorPalette ONYX_HUMANOID = matchVanillaHumanoidWith6(0xff000000, 0xff0f0e0f, 0xff151415, 0xff201e20, 0xff232023, 0xff262226);
-    public static final ColorPalette ONYX_ARMOR = matchVanillaArmorWith6(0xff000000, 0xff0f0e0f, 0xff151415, 0xff201e20, 0xff232023, 0xff262226);
+    public static final ColorPalette ONYX = new ColorPalette(List.of(0xff000000, 0xff0f0e0f, 0xff151415, 0xff201e20, 0xff232023, 0xff262226));
+    public static final ColorPalette ONYX_HUMANOID = matchVanillaHumanoidWith6(ONYX);
+    public static final ColorPalette ONYX_ARMOR = matchVanillaArmorWith6(ONYX);
 
     public static final ColorPalette OPAL = new ColorPalette(List.of(0xffc1d5ff, 0xffedf3ff));
 
-    public static final ColorPalette RUBY_HUMANOID = matchVanillaHumanoidWith6(0xff7d0000, 0xff9b0000, 0xffc30000, 0xffeb0000, 0xffff0000, 0xffff2828);
-    public static final ColorPalette RUBY_ARMOR = matchVanillaArmorWith6(0xff7d0000, 0xff9b0000, 0xffc30000, 0xffeb0000, 0xffff0000, 0xffff2828);
+    public static final ColorPalette RUBY = new ColorPalette(List.of(0xff7d0000, 0xff9b0000, 0xffc30000, 0xffeb0000, 0xffff0000, 0xffff2828));
+    public static final ColorPalette RUBY_HUMANOID = matchVanillaHumanoidWith6(RUBY);
+    public static final ColorPalette RUBY_ARMOR = matchVanillaArmorWith6(RUBY);
 
-    public static final ColorPalette SAPPHIRE_HUMANOID = matchVanillaHumanoidWith6(0xff000994, 0xff000aab, 0xff000bc1, 0xff000cd9, 0xff000df1, 0xff2632ff);
-    public static final ColorPalette SAPPHIRE_ARMOR = matchVanillaArmorWith6(0xff000994, 0xff000aab, 0xff000bc1, 0xff000cd9, 0xff000df1, 0xff2632ff);
+    public static final ColorPalette SAPPHIRE = new ColorPalette(List.of(0xff000994, 0xff000aab, 0xff000bc1, 0xff000cd9, 0xff000df1, 0xff2632ff));
+    public static final ColorPalette SAPPHIRE_HUMANOID = matchVanillaHumanoidWith6(SAPPHIRE);
+    public static final ColorPalette SAPPHIRE_ARMOR = matchVanillaArmorWith6(SAPPHIRE);
 
-    public static final ColorPalette SPINEL_HUMANOID = matchVanillaHumanoidWith6(0xffa71387, 0xffb21890, 0xffbb1d98, 0xffc424a0, 0xffcb2ca7, 0xffda39b6);
-    public static final ColorPalette SPINEL_ARMOR = matchVanillaArmorWith6(0xffa71387, 0xffb21890, 0xffbb1d98, 0xffc424a0, 0xffcb2ca7, 0xffda39b6);
+    public static final ColorPalette SPINEL = new ColorPalette(List.of(0xffa71387, 0xffb21890, 0xffbb1d98, 0xffc424a0, 0xffcb2ca7, 0xffda39b6));
+    public static final ColorPalette SPINEL_HUMANOID = matchVanillaHumanoidWith6(SPINEL);
+    public static final ColorPalette SPINEL_ARMOR = matchVanillaArmorWith6(SPINEL);
 
-    public static final ColorPalette TIGERS_EYE_HUMANOID = matchVanillaHumanoidWith6(0xff622609, 0xff70350e, 0xffc7a80f, 0xffd2c808, 0xffe9de10, 0xfff8ed25);
-    public static final ColorPalette TIGERS_EYE_ARMOR = matchVanillaArmorWith6(0xff622609, 0xff70350e, 0xffc7a80f, 0xffd2c808, 0xffe9de10, 0xfff8ed25);
+    public static final ColorPalette TIGERS_EYE = new ColorPalette(List.of(0xff622609, 0xff70350e, 0xffc7a80f, 0xffd2c808, 0xffe9de10, 0xfff8ed25));
+    public static final ColorPalette TIGERS_EYE_HUMANOID = matchVanillaHumanoidWith6(TIGERS_EYE);
+    public static final ColorPalette TIGERS_EYE_ARMOR = matchVanillaArmorWith6(TIGERS_EYE);
+
+    public static final ColorPalette BLUE_GEM_MIXTURE = new ColorPalette(List.of(0xffc1d5ff, 0xffedf3ff));
+    public static final ColorPalette RED_GEM_MIXTURE = new ColorPalette(List.of(0xffc1d5ff, 0xffedf3ff));
+    public static final ColorPalette SHINY_GEM_MIXTURE = new ColorPalette(List.of(0xffc1d5ff, 0xffedf3ff));
 
     public static final ColorPalette RECOVERY_COMPASS = new ColorPalette(List.of(0xff0d0d0d, 0xff212e2b, 0xff005479, 0xff006694, 0xff105257, 0xff138e99, 0xff14bbc6, 0xff29dfeb));
     public static final ColorPalette REFUGE_COMPASS = new ColorPalette(List.of(0xff130906, 0xff231310, 0xff26120c, 0xff311610, 0xff462721, 0xff4c3530, 0xff5e4843, 0xff70645e));
@@ -66,8 +78,16 @@ public class ColorPalette {
         colorCount = colors.size();
     }
 
+    public static ColorPalette matchVanillaHumanoidWith6(ColorPalette c) {
+        return matchVanillaHumanoidWith6(c.color(0), c.color(1), c.color(2), c.color(3), c.color(4), c.color(5));
+    }
+
     public static ColorPalette matchVanillaHumanoidWith6(int c1, int c2, int c3, int c4, int c5, int c6) {
         return new ColorPalette(List.of(c1, c1, c1, c1, c1, c1, c1, c1, c1, c2, c3, c4, c4, c4, c5, c5, c5, c6, c6, c6, c6, c6, c6, c6));
+    }
+
+    public static ColorPalette matchVanillaArmorWith6(ColorPalette c) {
+        return matchVanillaArmorWith6(c.color(0), c.color(1), c.color(2), c.color(3), c.color(4), c.color(5));
     }
 
     public static ColorPalette matchVanillaArmorWith6(int c1, int c2, int c3, int c4, int c5, int c6) {

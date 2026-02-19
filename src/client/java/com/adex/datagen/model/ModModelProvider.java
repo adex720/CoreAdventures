@@ -133,6 +133,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.GEM_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModelGenerator.generateSpear(ModItems.GEM_SPEAR);
 
+        // Armor item models don't support trims because I can't figure out how to add that.
+        // itemModelGenerator.generateTrimmableItem(ModItems.CHALCEDONY_HELMET, ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        // and so on result on missing texture models on all the armor item models.
+        // I tried to locate the issue for multiple hours but didn't find where the issue is.
+        // The models work as expected when wearing the armor.
+
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_HELMET, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_CHESTPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_LEGGINGS, ModelTemplates.FLAT_ITEM);
