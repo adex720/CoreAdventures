@@ -1,5 +1,6 @@
 package com.adex.datagen;
 
+import com.adex.CoreAdventures;
 import com.adex.datagen.model.ModEquipmentModelProvider;
 import com.adex.datagen.model.ModModelProvider;
 import com.adex.datagen.texture.*;
@@ -32,7 +33,10 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(RefugeCompassTextureProvider::new);
         pack.addProvider(ModHumanoidTextureProvider::new);
         pack.addProvider(ModEntityTextureProvider::new);
-        pack.addProvider(ModArmorTrimTextureProvider::new);
+
+        if (CoreAdventures.GENERATE_ARMOR_TRIMS) {
+            pack.addProvider(ModArmorTrimTextureProvider::new);
+        }
     }
 
     public static String getIdentifierString(String name) {

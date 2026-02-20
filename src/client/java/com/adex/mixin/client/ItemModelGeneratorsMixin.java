@@ -1,5 +1,6 @@
 package com.adex.mixin.client;
 
+import com.adex.CoreAdventures;
 import com.adex.datagen.texture.ModArmorTrimTextureProvider;
 import com.adex.util.Util;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -23,7 +24,9 @@ public class ItemModelGeneratorsMixin {
 
     @Inject(at = @At("TAIL"), method = "<clinit>")
     private static void addModTrimMaterials(CallbackInfo ci) {
-        TRIM_MATERIAL_MODELS = Util.combine(TRIM_MATERIAL_MODELS, ModArmorTrimTextureProvider.MOD_TRIM_MATERIALS);
+        if (CoreAdventures.GENERATE_ARMOR_TRIMS) {
+            TRIM_MATERIAL_MODELS = Util.combine(TRIM_MATERIAL_MODELS, ModArmorTrimTextureProvider.MOD_TRIM_MATERIALS);
+        }
     }
 
 }

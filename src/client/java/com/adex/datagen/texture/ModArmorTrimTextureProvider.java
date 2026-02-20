@@ -19,8 +19,6 @@ import java.util.Map;
 
 public class ModArmorTrimTextureProvider extends ModTextureProvider<Item> {
 
-    public static final int WIDTH = 8;
-
     public static final List<ItemModelGenerators.TrimMaterialData> MOD_TRIM_MATERIALS = List.of(
             new ItemModelGenerators.TrimMaterialData(ModMaterialAssetGroups.CHALCEDONY, ModTrimMaterials.CHALCEDONY),
             new ItemModelGenerators.TrimMaterialData(ModMaterialAssetGroups.GARNET, ModTrimMaterials.GARNET),
@@ -56,19 +54,19 @@ public class ModArmorTrimTextureProvider extends ModTextureProvider<Item> {
 
     @Override
     public void buildTextures() {
-        create(ModItems.CHALCEDONY, ColorPalette.CHALCEDONY);
-        create(ModItems.GARNET, ColorPalette.GARNET);
-        create(ModItems.JADE, ColorPalette.JADE);
-        create(ModItems.JASPER, ColorPalette.JASPER);
-        create(ModItems.ONYX, ColorPalette.ONYX);
-        create(ModItems.OPAL, ColorPalette.OPAL);
-        create(ModItems.RUBY, ColorPalette.RUBY);
-        create(ModItems.SAPPHIRE, ColorPalette.SAPPHIRE);
-        create(ModItems.SPINEL, ColorPalette.SPINEL);
-        create(ModItems.TIGERS_EYE, ColorPalette.TIGERS_EYE);
-        create(ModItems.BLUE_GEM_MIXTURE, ColorPalette.BLUE_GEM_MIXTURE);
-        create(ModItems.RED_GEM_MIXTURE, ColorPalette.RED_GEM_MIXTURE);
-        create(ModItems.SHINY_GEM_MIXTURE, ColorPalette.SHINY_GEM_MIXTURE);
+        create(ModItems.CHALCEDONY, ColorPalette.CHALCEDONY_TRIM);
+        create(ModItems.GARNET, ColorPalette.GARNET_TRIM);
+        create(ModItems.JADE, ColorPalette.JADE_TRIM);
+        create(ModItems.JASPER, ColorPalette.JASPER_TRIM);
+        create(ModItems.ONYX, ColorPalette.ONYX_TRIM);
+        create(ModItems.OPAL, ColorPalette.OPAL_TRIM);
+        create(ModItems.RUBY, ColorPalette.RUBY_TRIM);
+        create(ModItems.SAPPHIRE, ColorPalette.SAPPHIRE_TRIM);
+        create(ModItems.SPINEL, ColorPalette.SPINEL_TRIM);
+        create(ModItems.TIGERS_EYE, ColorPalette.TIGERS_EYE_TRIM);
+        create(ModItems.BLUE_GEM_MIXTURE, ColorPalette.BLUE_GEM_MIXTURE_TRIM);
+        create(ModItems.RED_GEM_MIXTURE, ColorPalette.RED_GEM_MIXTURE_TRIM);
+        create(ModItems.SHINY_GEM_MIXTURE, ColorPalette.SHINY_GEM_MIXTURE_TRIM);
     }
 
     private void create(Item item, ColorPalette colorPalette) {
@@ -76,15 +74,7 @@ public class ModArmorTrimTextureProvider extends ModTextureProvider<Item> {
     }
 
     private BufferedImage createImage(ColorPalette colorPalette) {
-        BufferedImage image = new BufferedImage(WIDTH, 1, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g = image.createGraphics();
-
-        for (int x = 0; x < WIDTH; x++) {
-            if (x < colorPalette.colorCount) g.setColor(new Color(colorPalette.color(x)));
-            g.fillRect(x, 0, 1, 1);
-        }
-
-        return image;
+        return colorPalette.getColorImage();
     }
 
     @Override

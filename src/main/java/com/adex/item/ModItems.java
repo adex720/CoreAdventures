@@ -25,27 +25,28 @@ import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.item.equipment.trim.TrimMaterial;
 import net.minecraft.world.level.block.DispenserBlock;
 
 import java.util.function.Function;
 
 public class ModItems {
 
-    public static final Item CHALCEDONY = register("chalcedony", new Item.Properties().trimMaterial(ModTrimMaterials.CHALCEDONY));
-    public static final Item GARNET = register("garnet", new Item.Properties().trimMaterial(ModTrimMaterials.GARNET));
-    public static final Item JADE = register("jade", new Item.Properties().trimMaterial(ModTrimMaterials.JADE));
-    public static final Item JASPER = register("jasper", new Item.Properties().trimMaterial(ModTrimMaterials.JASPER));
-    public static final Item ONYX = register("onyx", new Item.Properties().trimMaterial(ModTrimMaterials.ONYX));
-    public static final Item OPAL = register("opal", new Item.Properties().trimMaterial(ModTrimMaterials.OPAL));
-    public static final Item RUBY = register("ruby", new Item.Properties().trimMaterial(ModTrimMaterials.RUBY));
-    public static final Item SAPPHIRE = register("sapphire", new Item.Properties().trimMaterial(ModTrimMaterials.SAPPHIRE));
-    public static final Item SPINEL = register("spinel", new Item.Properties().trimMaterial(ModTrimMaterials.SPINEL));
-    public static final Item TIGERS_EYE = register("tigers_eye", new Item.Properties().trimMaterial(ModTrimMaterials.TIGERS_EYE));
+    public static final Item CHALCEDONY = registerWithTrimMaterial("chalcedony", new Item.Properties(), ModTrimMaterials.CHALCEDONY);
+    public static final Item GARNET = registerWithTrimMaterial("garnet", new Item.Properties(), ModTrimMaterials.GARNET);
+    public static final Item JADE = registerWithTrimMaterial("jade", new Item.Properties(), ModTrimMaterials.JADE);
+    public static final Item JASPER = registerWithTrimMaterial("jasper", new Item.Properties(), ModTrimMaterials.JASPER);
+    public static final Item ONYX = registerWithTrimMaterial("onyx", new Item.Properties(), ModTrimMaterials.ONYX);
+    public static final Item OPAL = registerWithTrimMaterial("opal", new Item.Properties(), ModTrimMaterials.OPAL);
+    public static final Item RUBY = registerWithTrimMaterial("ruby", new Item.Properties(), ModTrimMaterials.RUBY);
+    public static final Item SAPPHIRE = registerWithTrimMaterial("sapphire", new Item.Properties(), ModTrimMaterials.SAPPHIRE);
+    public static final Item SPINEL = registerWithTrimMaterial("spinel", new Item.Properties(), ModTrimMaterials.SPINEL);
+    public static final Item TIGERS_EYE = registerWithTrimMaterial("tigers_eye", new Item.Properties(), ModTrimMaterials.TIGERS_EYE);
 
 
-    public static final Item BLUE_GEM_MIXTURE = register("blue_gem_mixture", new Item.Properties().trimMaterial(ModTrimMaterials.BLUE_GEM_MIXTURE));
-    public static final Item RED_GEM_MIXTURE = register("red_gem_mixture", new Item.Properties().trimMaterial(ModTrimMaterials.RED_GEM_MIXTURE));
-    public static final Item SHINY_GEM_MIXTURE = register("shiny_gem_mixture", new Item.Properties().trimMaterial(ModTrimMaterials.SHINY_GEM_MIXTURE));
+    public static final Item BLUE_GEM_MIXTURE = registerWithTrimMaterial("blue_gem_mixture", new Item.Properties(), ModTrimMaterials.BLUE_GEM_MIXTURE);
+    public static final Item RED_GEM_MIXTURE = registerWithTrimMaterial("red_gem_mixture", new Item.Properties(), ModTrimMaterials.RED_GEM_MIXTURE);
+    public static final Item SHINY_GEM_MIXTURE = registerWithTrimMaterial("shiny_gem_mixture", new Item.Properties(), ModTrimMaterials.SHINY_GEM_MIXTURE);
 
 
     public static final Item GEM_SWORD = register("gem_sword", new Item.Properties().sword(ModToolMaterials.GEM_TOOL_MATERIAL, 3.0f, -2.4f));
@@ -169,6 +170,14 @@ public class ModItems {
 
     public static Item registerSpawnEgg(EntityType<?> entityType) {
         return register(EntityType.getKey(entityType).getPath() + "_spawn_egg", SpawnEggItem::new, new Item.Properties().spawnEgg(entityType));
+    }
+
+    /**
+     * Registers the item with a trim material if {@link CoreAdventures#GENERATE_ARMOR_TRIMS} is {@code true},
+     * and without if {@code false}.
+     */
+    public static Item registerWithTrimMaterial(String name, Item.Properties settings, ResourceKey<TrimMaterial> trimMaterial) {
+        return CoreAdventures.GENERATE_ARMOR_TRIMS ? register(name, settings.trimMaterial(trimMaterial)) : register(name, settings);
     }
 
     public static Item registerHelmet(String name, ArmorMaterial material) {

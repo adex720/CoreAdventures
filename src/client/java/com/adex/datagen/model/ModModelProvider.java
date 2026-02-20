@@ -136,7 +136,11 @@ public class ModModelProvider extends FabricModelProvider {
         // Armor item models don't support trims because I can't figure out how to add that.
         // itemModelGenerator.generateTrimmableItem(ModItems.CHALCEDONY_HELMET, ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
         // and so on result on missing texture models on all the armor item models.
+        // The same issue happens if models for vanilla armor with core adventures gem trims are generated.
         // I tried to locate the issue for multiple hours but didn't find where the issue is.
+        // The generated model JSON files have the correct content
+        // Changing the namespaces on trim related stuff to minecraft doesn't help either.
+
         // The models work as expected when wearing the armor.
 
         itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_HELMET, ModelTemplates.FLAT_ITEM);

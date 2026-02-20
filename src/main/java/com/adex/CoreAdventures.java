@@ -18,6 +18,7 @@ import com.adex.enchantment.effect.ModEnchantmentEffects;
 import com.adex.entity.ModEntities;
 import com.adex.entity.attribute.ModAttributes;
 import com.adex.entity.poi.ModPoiTypes;
+import com.adex.item.armor.ModMaterialAssetGroups;
 import com.adex.item.armor.ModTrimMaterials;
 import com.adex.item.tool.ModToolMaterials;
 import com.adex.sound.ModJukeboxSounds;
@@ -37,9 +38,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CoreAdventures implements ModInitializer {
+
     public static final String MOD_ID = "coread";
 
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    public static final boolean ENABLE_DEV_COMMANDS = true;
+    public static final boolean GENERATE_ARMOR_TRIMS = true;
 
     @Override
     public void onInitialize() {
@@ -51,7 +56,10 @@ public class CoreAdventures implements ModInitializer {
         ModToolMaterials.initialize();
         ModDataComponents.initialize();
 
-        ModTrimMaterials.initialize();
+        if (GENERATE_ARMOR_TRIMS) {
+            ModMaterialAssetGroups.initialize();
+            ModTrimMaterials.initialize();
+        }
 
         ModSoundEvents.initialize();
         ModJukeboxSounds.initialize();
