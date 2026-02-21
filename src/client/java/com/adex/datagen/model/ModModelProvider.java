@@ -1,24 +1,39 @@
 package com.adex.datagen.model;
 
+import com.adex.CoreAdventures;
 import com.adex.block.HeatStabilizerBlock;
 import com.adex.block.ModBlocks;
 import com.adex.item.ModItems;
+import com.adex.item.armor.ModArmorMaterials;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.client.color.item.Dye;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.renderer.item.SelectItemModel;
 import net.minecraft.client.renderer.item.properties.numeric.CompassAngle;
 import net.minecraft.client.renderer.item.properties.numeric.CompassAngleState;
+import net.minecraft.client.renderer.item.properties.select.TrimMaterialProperty;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.item.equipment.EquipmentAsset;
+import net.minecraft.world.item.equipment.EquipmentAssets;
+import net.minecraft.world.item.equipment.trim.TrimMaterial;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jspecify.annotations.NonNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModModelProvider extends FabricModelProvider {
 
@@ -133,72 +148,123 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.GEM_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModelGenerator.generateSpear(ModItems.GEM_SPEAR);
 
-        // Armor item models don't support trims because I can't figure out how to add that.
-        // itemModelGenerator.generateTrimmableItem(ModItems.CHALCEDONY_HELMET, ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
-        // and so on result on missing texture models on all the armor item models.
-        // The same issue happens if models for vanilla armor with core adventures gem trims are generated.
-        // I tried to locate the issue for multiple hours but didn't find where the issue is.
-        // The generated model JSON files have the correct content
-        // Changing the namespaces on trim related stuff to minecraft doesn't help either.
+        if (CoreAdventures.GENERATE_ARMOR_TRIMS) {
+            itemModelGenerator.generateTrimmableItem(ModItems.CHALCEDONY_HELMET, ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.CHALCEDONY_CHESTPLATE, ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.CHALCEDONY_LEGGINGS, ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.CHALCEDONY_BOOTS, ModArmorMaterials.CHALCEDONY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        // The models work as expected when wearing the armor.
+            itemModelGenerator.generateTrimmableItem(ModItems.GARNET_HELMET, ModArmorMaterials.GARNET_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.GARNET_CHESTPLATE, ModArmorMaterials.GARNET_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.GARNET_LEGGINGS, ModArmorMaterials.GARNET_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.GARNET_BOOTS, ModArmorMaterials.GARNET_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.JADE_HELMET, ModArmorMaterials.JADE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.JADE_CHESTPLATE, ModArmorMaterials.JADE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.JADE_LEGGINGS, ModArmorMaterials.JADE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.JADE_BOOTS, ModArmorMaterials.JADE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.GARNET_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.GARNET_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.GARNET_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.GARNET_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.JASPER_HELMET, ModArmorMaterials.JASPER_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.JASPER_CHESTPLATE, ModArmorMaterials.JASPER_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.JASPER_LEGGINGS, ModArmorMaterials.JASPER_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.JASPER_BOOTS, ModArmorMaterials.JASPER_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.JADE_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.JADE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.JADE_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.JADE_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.ONYX_HELMET, ModArmorMaterials.ONYX_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.ONYX_CHESTPLATE, ModArmorMaterials.ONYX_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.ONYX_LEGGINGS, ModArmorMaterials.ONYX_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.ONYX_BOOTS, ModArmorMaterials.ONYX_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.JASPER_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.JASPER_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.JASPER_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.JASPER_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.OPAL_HELMET, ModArmorMaterials.OPAL_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.OPAL_CHESTPLATE, ModArmorMaterials.OPAL_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.OPAL_LEGGINGS, ModArmorMaterials.OPAL_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.OPAL_BOOTS, ModArmorMaterials.OPAL_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.ONYX_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.ONYX_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.ONYX_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.ONYX_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.RUBY_HELMET, ModArmorMaterials.RUBY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.RUBY_CHESTPLATE, ModArmorMaterials.RUBY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.RUBY_LEGGINGS, ModArmorMaterials.RUBY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.RUBY_BOOTS, ModArmorMaterials.RUBY_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.OPAL_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.OPAL_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.OPAL_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.OPAL_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.SAPPHIRE_HELMET, ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.SAPPHIRE_CHESTPLATE, ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.SAPPHIRE_LEGGINGS, ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.SAPPHIRE_BOOTS, ModArmorMaterials.SAPPHIRE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.RUBY_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.RUBY_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.RUBY_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.RUBY_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.SPINEL_HELMET, ModArmorMaterials.SPINEL_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.SPINEL_CHESTPLATE, ModArmorMaterials.SPINEL_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.SPINEL_LEGGINGS, ModArmorMaterials.SPINEL_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.SPINEL_BOOTS, ModArmorMaterials.SPINEL_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.TIGERS_EYE_HELMET, ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.TIGERS_EYE_CHESTPLATE, ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.TIGERS_EYE_LEGGINGS, ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.TIGERS_EYE_BOOTS, ModArmorMaterials.TIGERS_EYE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.SPINEL_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.SPINEL_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.SPINEL_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.SPINEL_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.GEM_HELMET, ModArmorMaterials.GEM_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.GEM_CHESTPLATE, ModArmorMaterials.GEM_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.GEM_LEGGINGS, ModArmorMaterials.GEM_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+            itemModelGenerator.generateTrimmableItem(ModItems.GEM_BOOTS, ModArmorMaterials.GEM_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_BOOTS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateTrimmableItem(ModItems.LAVA_GOGGLES, ModArmorMaterials.LAVA_GOGGLES_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
 
-        itemModelGenerator.generateFlatItem(ModItems.GEM_HELMET, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.GEM_CHESTPLATE, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.GEM_LEGGINGS, ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(ModItems.GEM_BOOTS, ModelTemplates.FLAT_ITEM);
+            generateTrimModelsForVanillaArmor(itemModelGenerator);
+        } else {
+            itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.CHALCEDONY_BOOTS, ModelTemplates.FLAT_ITEM);
 
-        itemModelGenerator.generateFlatItem(ModItems.LAVA_GOGGLES, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.GARNET_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.GARNET_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.GARNET_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.GARNET_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.JADE_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.JADE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.JADE_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.JADE_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.JASPER_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.JASPER_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.JASPER_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.JASPER_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.ONYX_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.ONYX_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.ONYX_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.ONYX_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.OPAL_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.OPAL_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.OPAL_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.OPAL_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.RUBY_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.RUBY_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.RUBY_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.RUBY_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.SAPPHIRE_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.SPINEL_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.SPINEL_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.SPINEL_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.SPINEL_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.TIGERS_EYE_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.GEM_HELMET, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.GEM_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.GEM_LEGGINGS, ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(ModItems.GEM_BOOTS, ModelTemplates.FLAT_ITEM);
+
+            itemModelGenerator.generateFlatItem(ModItems.LAVA_GOGGLES, ModelTemplates.FLAT_ITEM);
+        }
 
         itemModelGenerator.generateFlatItem(ModItems.JUNIPER_BOAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.JUNIPER_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
@@ -237,6 +303,92 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_TIMPANI1, ModelTemplates.MUSIC_DISC);
 
         itemModelGenerator.generateTippedArrow(ModItems.SPLASH_ARROW);
+    }
+
+    private void generateTrimModelsForVanillaArmor(ItemModelGenerators itemModelGenerator) {
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.TURTLE_HELMET, EquipmentAssets.TURTLE_SCUTE, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.LEATHER_HELMET, EquipmentAssets.LEATHER, ItemModelGenerators.TRIM_PREFIX_HELMET, true);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.LEATHER_CHESTPLATE, EquipmentAssets.LEATHER, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, true);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.LEATHER_LEGGINGS, EquipmentAssets.LEATHER, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, true);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.LEATHER_BOOTS, EquipmentAssets.LEATHER, ItemModelGenerators.TRIM_PREFIX_BOOTS, true);
+
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.COPPER_HELMET, EquipmentAssets.COPPER, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.COPPER_CHESTPLATE, EquipmentAssets.COPPER, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.COPPER_LEGGINGS, EquipmentAssets.COPPER, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.COPPER_BOOTS, EquipmentAssets.COPPER, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.CHAINMAIL_HELMET, EquipmentAssets.CHAINMAIL, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.CHAINMAIL_CHESTPLATE, EquipmentAssets.CHAINMAIL, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.CHAINMAIL_LEGGINGS, EquipmentAssets.CHAINMAIL, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.CHAINMAIL_BOOTS, EquipmentAssets.CHAINMAIL, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.IRON_HELMET, EquipmentAssets.IRON, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.IRON_CHESTPLATE, EquipmentAssets.IRON, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.IRON_LEGGINGS, EquipmentAssets.IRON, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.IRON_BOOTS, EquipmentAssets.IRON, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.DIAMOND_HELMET, EquipmentAssets.DIAMOND, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.DIAMOND_CHESTPLATE, EquipmentAssets.DIAMOND, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.DIAMOND_LEGGINGS, EquipmentAssets.DIAMOND, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.DIAMOND_BOOTS, EquipmentAssets.DIAMOND, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.GOLDEN_HELMET, EquipmentAssets.GOLD, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.GOLDEN_CHESTPLATE, EquipmentAssets.GOLD, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.GOLDEN_LEGGINGS, EquipmentAssets.GOLD, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.GOLDEN_BOOTS, EquipmentAssets.GOLD, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.NETHERITE_HELMET, EquipmentAssets.NETHERITE, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.NETHERITE_CHESTPLATE, EquipmentAssets.NETHERITE, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.NETHERITE_LEGGINGS, EquipmentAssets.NETHERITE, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
+        generateTrimModelsForVanillaArmor(itemModelGenerator, Items.NETHERITE_BOOTS, EquipmentAssets.NETHERITE, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+    }
+
+    private void generateTrimModelsForVanillaArmor(ItemModelGenerators itemModelGenerators, Item item, ResourceKey<EquipmentAsset> equipmentAsset, Identifier trimPrefix, boolean dyeable) {
+        Identifier modelLocation = ModelLocationUtils.getModelLocation(item);
+        Identifier textureLocation = TextureMapping.getItemTexture(item);
+        Identifier textureOverlayLocation = dyeable ? TextureMapping.getItemTexture(item, "_overlay") : null;
+        List<SelectItemModel.SwitchCase<ResourceKey<TrimMaterial>>> materialModels = new ArrayList<>(ItemModelGenerators.TRIM_MATERIAL_MODELS.size());
+
+        for (ItemModelGenerators.TrimMaterialData materialData : ItemModelGenerators.TRIM_MATERIAL_MODELS) {
+            Identifier itemTrim = modelLocation.withSuffix("_" + materialData.assets().base().suffix() + "_trim");
+            Identifier armorTrim = trimPrefix.withSuffix("_" + materialData.assets().assetId(equipmentAsset).suffix());
+            ItemModel.Unbaked withTrim = createConditional(itemModelGenerators, itemTrim, textureLocation, armorTrim,
+                    textureOverlayLocation, isTrimMaterialFromCoread(materialData));
+
+            materialModels.add(ItemModelUtils.when(materialData.materialKey(), withTrim));
+        }
+
+        itemModelGenerators.itemModelOutput.accept(item, ItemModelUtils.select(
+                new TrimMaterialProperty(), getBaseModel(modelLocation, dyeable), materialModels));
+    }
+
+    private ItemModel.Unbaked createConditional(ItemModelGenerators itemModelGenerators, Identifier itemTrim, Identifier textureLocation, Identifier armorTrim, Identifier textureOverlayLocation, boolean createTrimModel) {
+        if (textureOverlayLocation != null) {
+            if (createTrimModel) {
+                itemModelGenerators.generateLayeredItem(itemTrim, textureLocation, textureOverlayLocation, armorTrim);
+            }
+            return ItemModelUtils.tintedModel(itemTrim, new Dye(DyedItemColor.LEATHER_COLOR));
+        }
+
+        if (createTrimModel) {
+            itemModelGenerators.generateLayeredItem(itemTrim, textureLocation, armorTrim);
+        }
+        return ItemModelUtils.plainModel(itemTrim);
+
+    }
+
+    private ItemModel.Unbaked getBaseModel(Identifier modelLocation, boolean dyeable) {
+        if (dyeable) {
+            return ItemModelUtils.tintedModel(modelLocation, new Dye(DyedItemColor.LEATHER_COLOR));
+        }
+
+        return ItemModelUtils.plainModel(modelLocation);
+
+    }
+
+    public static boolean isTrimMaterialFromCoread(ItemModelGenerators.TrimMaterialData material) {
+        return material.materialKey().identifier().getNamespace().equals(CoreAdventures.MOD_ID);
     }
 
     private void createRefugeCompass(ItemModelGenerators itemModelGenerator, Item compass) {

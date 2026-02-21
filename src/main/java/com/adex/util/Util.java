@@ -38,6 +38,10 @@ public class Util {
         return Stream.of(list1, list2).flatMap(Collection::stream).collect(Collectors.toList());
     }
 
+    public static <F, S> Map<F, S> combine(Map<F, S> map1, Map<F, S> map2) {
+        return Stream.concat(map1.entrySet().stream(), map2.entrySet().stream()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
     public static Identifier getIdentifier(Item item) {
         return BuiltInRegistries.ITEM.wrapAsHolder(item).unwrapKey().map(ResourceKey::identifier).orElse(null);
     }

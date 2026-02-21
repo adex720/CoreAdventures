@@ -1,6 +1,180 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "coread:item/lava_goggles"
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_quartz_trim"
+        },
+        "when": "minecraft:quartz"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_iron_trim"
+        },
+        "when": "minecraft:iron"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_netherite_trim"
+        },
+        "when": "minecraft:netherite"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_redstone_trim"
+        },
+        "when": "minecraft:redstone"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_copper_trim"
+        },
+        "when": "minecraft:copper"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_gold_trim"
+        },
+        "when": "minecraft:gold"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_emerald_trim"
+        },
+        "when": "minecraft:emerald"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_diamond_trim"
+        },
+        "when": "minecraft:diamond"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_lapis_trim"
+        },
+        "when": "minecraft:lapis"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_amethyst_trim"
+        },
+        "when": "minecraft:amethyst"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_resin_trim"
+        },
+        "when": "minecraft:resin"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_chalcedony_trim"
+        },
+        "when": "coread:chalcedony"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_garnet_trim"
+        },
+        "when": "coread:garnet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_jade_trim"
+        },
+        "when": "coread:jade"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_jasper_trim"
+        },
+        "when": "coread:jasper"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_onyx_trim"
+        },
+        "when": "coread:onyx"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_opal_trim"
+        },
+        "when": "coread:opal"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_ruby_trim"
+        },
+        "when": "coread:ruby"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_sapphire_trim"
+        },
+        "when": "coread:sapphire"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_spinel_trim"
+        },
+        "when": "coread:spinel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_tigers_eye_trim"
+        },
+        "when": "coread:tigers_eye"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_blue_gem_mixture_trim"
+        },
+        "when": "coread:blue_gem_mixture"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_red_gem_mixture_trim"
+        },
+        "when": "coread:red_gem_mixture"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "coread:item/lava_goggles_shiny_gem_mixture_trim"
+        },
+        "when": "coread:shiny_gem_mixture"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "coread:item/lava_goggles"
+    },
+    "property": "minecraft:trim_material"
   }
 }

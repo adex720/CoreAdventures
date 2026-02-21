@@ -44,6 +44,9 @@ public class CoreAdventures implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static final boolean ENABLE_DEV_COMMANDS = true;
+
+    // Custom armor trim materials may cause compatibility issues with other mods adding armor trim materials
+    // with the same names. In that case set this to false and rerun Data Generation.
     public static final boolean GENERATE_ARMOR_TRIMS = true;
 
     @Override

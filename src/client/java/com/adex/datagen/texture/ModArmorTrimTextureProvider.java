@@ -10,7 +10,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import org.jspecify.annotations.NonNull;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -19,6 +18,9 @@ import java.util.Map;
 
 public class ModArmorTrimTextureProvider extends ModTextureProvider<Item> {
 
+    // This class is never used, if CoreAdventures#GENERATE_ARMOR_TRIMS is false,
+    // and that is the only situation where these fields are null.
+    @SuppressWarnings("DataFlowIssue")
     public static final List<ItemModelGenerators.TrimMaterialData> MOD_TRIM_MATERIALS = List.of(
             new ItemModelGenerators.TrimMaterialData(ModMaterialAssetGroups.CHALCEDONY, ModTrimMaterials.CHALCEDONY),
             new ItemModelGenerators.TrimMaterialData(ModMaterialAssetGroups.GARNET, ModTrimMaterials.GARNET),

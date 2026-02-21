@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "coread:item/tigers_eye_helmet",
+    "layer1": "minecraft:trims/items/helmet_trim_tigers_eye"
+  }
+}

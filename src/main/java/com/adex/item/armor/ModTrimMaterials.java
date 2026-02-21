@@ -9,11 +9,13 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.equipment.trim.TrimMaterial;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ModTrimMaterials {
 
     private static final ArrayList<ResourceKey<TrimMaterial>> TRIM_MATERIALS = new ArrayList<>();
+    public static final HashMap<String, Identifier> BY_NAME = new HashMap<>();
 
     public static final ResourceKey<TrimMaterial> CHALCEDONY = createKey("chalcedony");
     public static final ResourceKey<TrimMaterial> GARNET = createKey("garnet");
@@ -32,7 +34,10 @@ public class ModTrimMaterials {
     private static ResourceKey<TrimMaterial> createKey(String name) {
         if (!CoreAdventures.GENERATE_ARMOR_TRIMS) return null;
 
-        ResourceKey<TrimMaterial> key = ResourceKey.create(Registries.TRIM_MATERIAL, Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name));
+        Identifier identifier = Identifier.fromNamespaceAndPath(CoreAdventures.MOD_ID, name);
+        BY_NAME.put(name, identifier.withPrefix("trims/color_palettes/"));
+
+        ResourceKey<TrimMaterial> key = ResourceKey.create(Registries.TRIM_MATERIAL, identifier);
         TRIM_MATERIALS.add(key);
         return key;
     }
