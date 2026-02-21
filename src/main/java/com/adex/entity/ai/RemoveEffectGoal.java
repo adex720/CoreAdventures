@@ -80,6 +80,6 @@ public class RemoveEffectGoal extends Goal {
         List<MobEffectInstance> effects = getRemovableEffects();
         Holder<MobEffect> toRemove = effects.get(golem.getRandom().nextInt(effects.size())).getEffect();
 
-        target.removeEffect(toRemove);
+        if (target.removeEffect(toRemove)) golem.attacked();
     }
 }
