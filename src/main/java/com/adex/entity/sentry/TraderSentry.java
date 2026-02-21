@@ -18,6 +18,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
+import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -77,14 +78,16 @@ public class TraderSentry extends Sentry {
     protected Map<Integer, Goal> getTradeGoals() {
         return Map.of(1, new LookAtItemGoal(this, 100),
                 2, new GiveTradeItemGoal(this),
-                3, new MoveTowardsTradeItemGoal(this, 2.0f),
-                4, new LookAtPlayerGoal(this, Player.class, 5.0f, 1.0f));
+                3, new AvoidEntityGoal<>(this, IronGolem.class, 12.0f, 1.0d, 1.0d),
+                4, new MoveTowardsTradeItemGoal(this, 2.0f),
+                5, new LookAtPlayerGoal(this, Player.class, 5.0f, 1.0f));
     }
 
     @Override
     protected Map<Integer, Goal> getNeutralGoals() {
         HashMap<Integer, Goal> goals = new HashMap<>(super.getNeutralGoals());
 
+        goals.put(10, new AvoidEntityGoal<>(this, IronGolem.class, 12.0f, 1.0d, 1.0d));
         goals.put(15, new MoveTowardsTradeItemGoal(this, 10.0f));
         return goals;
     }
@@ -94,6 +97,7 @@ public class TraderSentry extends Sentry {
         HashMap<Integer, Goal> goals = new HashMap<>(super.getAggressiveGoals());
 
         goals.put(9, new MoveTowardsTradeItemGoal(this, 3.0f));
+        goals.put(35, new AvoidEntityGoal<>(this, IronGolem.class, 12.0f, 1.0d, 1.0d));
         return goals;
     }
 
