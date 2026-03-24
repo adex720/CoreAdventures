@@ -295,6 +295,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.TRADER_SENTRY_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.WARRIOR_SENTRY_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
 
+        itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_TRUMPET1, ModelTemplates.MUSIC_DISC);
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_TROMBONE1, ModelTemplates.MUSIC_DISC);
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_TUBA1, ModelTemplates.MUSIC_DISC);
         itemModelGenerator.generateFlatItem(ModItems.MUSIC_DISC_ALTO_SAXOPHONE1, ModelTemplates.MUSIC_DISC);

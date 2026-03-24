@@ -1,4 +1,10 @@
 {
+  "music_disc.trumpet1": {
+    "subtitle": "sound.coread.music_disc.trumpet1",
+    "sounds": [
+      "coread:music_disc/trumpet1"
+    ]
+  },
   "music_disc.trombone1": {
     "subtitle": "sound.coread.music_disc.trombone1",
     "sounds": [

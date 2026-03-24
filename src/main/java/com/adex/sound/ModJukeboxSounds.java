@@ -14,7 +14,8 @@ import net.minecraft.world.item.JukeboxSong;
 
 public class ModJukeboxSounds {
 
-    // trumpet 1
+    public static final ResourceKey<JukeboxSong> TRUMPET1_KEY = createKey("trumpet1");
+    public static final JukeboxSong TRUMPET1 = createSong(TRUMPET1_KEY, ModSoundEvents.TRUMPET1, 77, 1);
 
     // french horn 2
 
@@ -50,6 +51,7 @@ public class ModJukeboxSounds {
 
     public static void initialize() {
         DynamicRegistrySetupCallback.EVENT.register(registryView -> registryView.getOptional(Registries.JUKEBOX_SONG).ifPresent(registry -> {
+            Registry.register(registry, TRUMPET1_KEY, TRUMPET1);
             Registry.register(registry, TROMBONE1_KEY, TROMBONE1);
             Registry.register(registry, TUBA1_KEY, TUBA1);
             Registry.register(registry, ALTO_SAXOPHONE1_KEY, ALTO_SAXOPHONE1);

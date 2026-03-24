@@ -9,6 +9,7 @@ import net.minecraft.sounds.SoundEvent;
 
 public class ModSoundEvents {
 
+    public static final Holder.Reference<SoundEvent> TRUMPET1 = registerForHolder("music_disc.trumpet1");
     public static final Holder.Reference<SoundEvent> TROMBONE1 = registerForHolder("music_disc.trombone1");
     public static final Holder.Reference<SoundEvent> TUBA1 = registerForHolder("music_disc.tuba1");
     public static final Holder.Reference<SoundEvent> ALTO_SAXOPHONE1 = registerForHolder("music_disc.alto_saxophone1");
