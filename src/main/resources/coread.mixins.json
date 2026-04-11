@@ -15,6 +15,7 @@
     "DataComponentMapBuilderAccessor",
     "DefaultAttributesAccessor",
     "EnchantmentHelperMixin",
+    "FireBlockAccessor",
     "FoodDataMixin",
     "GoalSelectorAccessor",
     "ImbueRecipeMixin",

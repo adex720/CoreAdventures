@@ -3,6 +3,7 @@ package com.adex.block;
 import com.adex.CoreAdventures;
 import com.adex.data.feature.ModTreeGrowers;
 import com.adex.entity.ModEntities;
+import com.adex.mixin.FireBlockAccessor;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.mixin.lookup.BlockEntityTypeAccessor;
 import net.minecraft.core.Registry;
@@ -214,6 +215,22 @@ public class ModBlocks {
         addToItemGroups();
         addValidBlockEntities();
         addDispenseItemBehaviors();
+        registerFlammable();
+    }
+
+    private static void registerFlammable() {
+        FireBlockAccessor fire = (FireBlockAccessor) Blocks.FIRE;
+        fire.coread$setFlammable(JUNIPER_PLANKS, 5, 20);
+        fire.coread$setFlammable(JUNIPER_SLAB, 5, 20);
+        fire.coread$setFlammable(JUNIPER_FENCE_GATE, 5, 20);
+        fire.coread$setFlammable(JUNIPER_FENCE, 5, 20);
+        fire.coread$setFlammable(JUNIPER_STAIRS, 5, 20);
+        fire.coread$setFlammable(JUNIPER_LOG, 5, 20);
+        fire.coread$setFlammable(STRIPPED_JUNIPER_LOG, 5, 20);
+        fire.coread$setFlammable(STRIPPED_JUNIPER_WOOD, 5, 20);
+        fire.coread$setFlammable(JUNIPER_WOOD, 5, 20);
+        fire.coread$setFlammable(JUNIPER_LEAVES, 5, 20);
+        fire.coread$setFlammable(JUNIPER_SHELF, 5, 20);
     }
 
     private static void addValidBlockEntities() {
