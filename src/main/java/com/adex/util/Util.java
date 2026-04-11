@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
@@ -13,6 +14,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
@@ -156,6 +159,14 @@ public class Util {
         }
 
         return list.size() - 1;
+    }
+
+    public static boolean isPotionContentsEmpty(ItemStack itemStack) {
+        return isPotionContentsEmpty(itemStack.get(DataComponents.POTION_CONTENTS));
+    }
+
+    public static boolean isPotionContentsEmpty(PotionContents potionContents) {
+        return potionContents == null || potionContents == PotionContents.EMPTY;
     }
 
     public static void sendPayloadS2C(CustomPacketPayload payload, ServerLevel level, Vec3 pos) {

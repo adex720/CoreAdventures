@@ -4,7 +4,7 @@
   "material": "minecraft:tipped_arrow",
   "result": {
     "count": 8,
-    "id": "minecraft:tipped_arrow"
+    "id": "coread:splash_arrow"
   },
   "source": "coread:opal_shard"
 }

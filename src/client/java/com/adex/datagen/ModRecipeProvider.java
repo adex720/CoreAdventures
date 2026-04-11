@@ -634,8 +634,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         public void createSplashArrowRecipes() {
             CustomCraftingRecipeBuilder.customCrafting(RecipeCategory.MISC, (commonInfo, bookInfo) ->
                     new ImbueRecipe(commonInfo, bookInfo, Ingredient.of(ModItems.OPAL_SHARD), Ingredient.of(Items.TIPPED_ARROW),
-                            new ItemStackTemplate(Items.TIPPED_ARROW, 8))).unlockedBy("has_lingering_potion",
-                    has(ModItems.OPAL_SHARD)).save(this.output, "splash_arrow");
+                            new ItemStackTemplate(ModItems.SPLASH_ARROW, 8)))
+                    .unlockedBy("has_lingering_potion", has(ModItems.OPAL_SHARD))
+                    .save(this.output, "splash_arrow");
         }
 
         public String getIdentifierWithSuffix(ItemLike item, String suffix) {
