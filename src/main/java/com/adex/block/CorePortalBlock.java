@@ -16,12 +16,10 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.BlockUtil;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -91,7 +89,15 @@ public class CorePortalBlock extends Block implements Portal {
         for (ServerPlayer player : level.getEntitiesOfClass(ServerPlayer.class, new AABB(pos).inflate(10.0d))) {
             ModCriterionTriggers.LIGHT_CORE_PORTAL.trigger(player);
         }
+
+        // Add poi for portal on server side.
+        // That allows this portal to be the exit destination when coming from a portal in the other dimension.
+        if (level instanceof ServerLevel serverLevel) {
+            serverLevel.getPoiManager().add(pos, PoiTypes.forState(newState).orElseThrow());
+        }
     }
+
+
 
     @Override
     protected void entityInside(@NonNull BlockState blockState, @NonNull Level level, @NonNull BlockPos blockPos, Entity entity, @NonNull InsideBlockEffectApplier insideBlockEffectApplier, boolean bl) {
