@@ -99,7 +99,7 @@ public class CoreAdventures implements ModInitializer {
         ModLootTables.initialize();
         ModDamageTypes.initialize();
 
-        ModRecipeSerializers.initialize();
+        //ModRecipeSerializers.initialize();
 
         ModEvents.initialize();
 

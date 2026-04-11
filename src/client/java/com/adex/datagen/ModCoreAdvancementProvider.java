@@ -10,7 +10,7 @@ import com.adex.data.structure.refuge.Refuge;
 import com.adex.data.tag.ModTags;
 import com.adex.entity.ModEntities;
 import com.adex.item.ModItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.criterion.*;
@@ -35,7 +35,7 @@ import java.util.function.Consumer;
 
 public class ModCoreAdvancementProvider extends FabricAdvancementProvider {
 
-    public ModCoreAdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public ModCoreAdvancementProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(output, registryLookup);
     }
 

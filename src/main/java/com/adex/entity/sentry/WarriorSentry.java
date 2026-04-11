@@ -3,6 +3,7 @@ package com.adex.entity.sentry;
 import com.adex.data.tag.ModTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
@@ -36,7 +37,7 @@ public class WarriorSentry extends Sentry {
         HashMap<Integer, Goal> goals = new HashMap<>(super.getNeutralTargets());
 
         //noinspection unused
-        goals.put(1, new NearestAttackableTargetGoal<>(this, Mob.class, true, (mob, level) -> doesAttack(mob.getType())));
+        goals.put(1, new NearestAttackableTargetGoal<>(this, Mob.class, true, (mob, level) -> doesAttack(mob)));
 
         return goals;
     }
@@ -46,13 +47,13 @@ public class WarriorSentry extends Sentry {
         HashMap<Integer, Goal> goals = new HashMap<>(super.getAggressiveTargets());
 
         //noinspection unused
-        goals.put(3, new NearestAttackableTargetGoal<>(this, Mob.class, true, (mob, level) -> doesAttack(mob.getType())));
+        goals.put(3, new NearestAttackableTargetGoal<>(this, Mob.class, true, (mob, level) -> doesAttack(mob)));
 
         return goals;
     }
 
-    public static boolean doesAttack(EntityType<?> type) {
-        return type.is(ModTags.SENTRY_DISLIKES);
+    public static boolean doesAttack(LivingEntity entity) {
+        return entity.is(ModTags.SENTRY_DISLIKES);
     }
 
     @Override

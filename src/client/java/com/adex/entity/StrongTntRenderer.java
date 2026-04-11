@@ -3,20 +3,26 @@ package com.adex.entity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.block.BlockModelRenderState;
+import net.minecraft.client.renderer.block.BlockModelResolver;
+import net.minecraft.client.renderer.block.model.BlockDisplayContext;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.TntRenderState;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.NonNull;
 
 public class StrongTntRenderer extends EntityRenderer<PrimedStrongTnt, TntRenderState> {
 
+    private final BlockModelResolver blockModelResolver;
+
     public StrongTntRenderer(EntityRendererProvider.Context context) {
         super(context);
         this.shadowRadius = 0.5f;
+
+        this.blockModelResolver = context.getBlockModelResolver();
     }
 
     @Override
@@ -31,7 +37,7 @@ public class StrongTntRenderer extends EntityRenderer<PrimedStrongTnt, TntRender
 
         applyRotation(stack);
 
-        if (renderState.blockState != null) {
+        if (!renderState.blockState.isEmpty()) {
             createBlock(renderState.blockState, stack, nodeCollector, renderState.lightCoords, (int) fuseTicks / 5 % 2 == 0, renderState.outlineColor);
         }
 
@@ -39,9 +45,9 @@ public class StrongTntRenderer extends EntityRenderer<PrimedStrongTnt, TntRender
         super.submit(renderState, stack, nodeCollector, cameraRenderState);
     }
 
-    public static void createBlock(BlockState state, PoseStack stack, SubmitNodeCollector nodeCollector, int lightCoords, boolean bl, int outlineColor) {
+    public static void createBlock(BlockModelRenderState blockModel, PoseStack stack, SubmitNodeCollector nodeCollector, int lightCoords, boolean bl, int outlineColor) {
         int overlayCoords = bl ? OverlayTexture.pack(OverlayTexture.u(1.0f), 10) : OverlayTexture.NO_OVERLAY;
-        nodeCollector.submitBlock(stack, state, lightCoords, overlayCoords, outlineColor);
+        blockModel.submit(stack, nodeCollector, lightCoords, overlayCoords, outlineColor);
     }
 
     public float getSizeMultiplier(float ticks) {
@@ -63,6 +69,6 @@ public class StrongTntRenderer extends EntityRenderer<PrimedStrongTnt, TntRender
     public void extractRenderState(PrimedStrongTnt tnt, TntRenderState tntRenderState, float ticks) {
         super.extractRenderState(tnt, tntRenderState, ticks);
         tntRenderState.fuseRemainingInTicks = tnt.getFuse() - ticks + 1.0f;
-        tntRenderState.blockState = tnt.getBlockState();
+        blockModelResolver.update(tntRenderState.blockState, tnt.getBlockState(), BlockDisplayContext.create());
     }
 }

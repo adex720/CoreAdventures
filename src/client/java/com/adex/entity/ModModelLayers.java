@@ -4,7 +4,7 @@ import com.adex.CoreAdventures;
 import com.adex.entity.golem.GolemModel;
 import com.adex.entity.sentry.SentryModel;
 import com.adex.mixin.client.ModelLayersAccessor;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.model.object.cart.MinecartModel;
@@ -44,29 +44,29 @@ public class ModModelLayers {
     }
 
     public static void initialize() {
-        EntityModelLayerRegistry.registerModelLayer(CHALCEDONY_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(GARNET_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(JADE_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(JASPER_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(ONYX_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(OPAL_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(RUBY_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(SAPPHIRE_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(SPINEL_GOLEM, GolemModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(TIGERS_EYE_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(CHALCEDONY_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(GARNET_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(JADE_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(JASPER_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(ONYX_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(OPAL_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(RUBY_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(SAPPHIRE_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(SPINEL_GOLEM, GolemModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(TIGERS_EYE_GOLEM, GolemModel::createBodyLayer);
 
-        EntityModelLayerRegistry.registerModelLayer(TRADER_SENTRY, SentryModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(WARRIOR_SENTRY, SentryModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(TRADER_SENTRY, SentryModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(WARRIOR_SENTRY, SentryModel::createBodyLayer);
 
-        EntityModelLayerRegistry.registerModelLayer(JUNIPER_BOAT, BoatModel::createBoatModel);
-        EntityModelLayerRegistry.registerModelLayer(JUNIPER_CHEST_BOAT, BoatModel::createChestBoatModel);
-        EntityModelLayerRegistry.registerModelLayer(SPEED_BOAT, BoatModel::createBoatModel);
-        EntityModelLayerRegistry.registerModelLayer(SPEED_CHEST_BOAT, BoatModel::createChestBoatModel);
+        ModelLayerRegistry.registerModelLayer(JUNIPER_BOAT, BoatModel::createBoatModel);
+        ModelLayerRegistry.registerModelLayer(JUNIPER_CHEST_BOAT, BoatModel::createChestBoatModel);
+        ModelLayerRegistry.registerModelLayer(SPEED_BOAT, BoatModel::createBoatModel);
+        ModelLayerRegistry.registerModelLayer(SPEED_CHEST_BOAT, BoatModel::createChestBoatModel);
 
-        EntityModelLayerRegistry.registerModelLayer(RED_TNT, MinecartModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(ORANGE_TNT, MinecartModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(YELLOW_TNT, MinecartModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(GREEN_TNT, MinecartModel::createBodyLayer);
-        EntityModelLayerRegistry.registerModelLayer(BLUE_TNT, MinecartModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(RED_TNT, MinecartModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(ORANGE_TNT, MinecartModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(YELLOW_TNT, MinecartModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(GREEN_TNT, MinecartModel::createBodyLayer);
+        ModelLayerRegistry.registerModelLayer(BLUE_TNT, MinecartModel::createBodyLayer);
     }
 }

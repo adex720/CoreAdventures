@@ -33,7 +33,7 @@ public class PrimedStrongTnt extends PrimedTnt {
         super(getType(tnt), level);
 
         setPos(x, y, z);
-        double randomDegrees = level.random.nextDouble() * (Math.PI * 2);
+        double randomDegrees = level.getRandom().nextDouble() * (Math.PI * 2);
         setDeltaMovement(-Math.sin(randomDegrees) * 0.02d, 0.2f, -Math.cos(randomDegrees) * 0.02d);
         setFuse(fuseTimer);
         xo = x;

@@ -1,7 +1,7 @@
 package com.adex.datagen.texture;
 
 import com.adex.datagen.ModDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.NonNull;
@@ -20,10 +20,10 @@ public class RefugeCompassTextureProvider extends ModTextureProvider<Integer> {
     private final PackOutput.PathProvider itemPathProvider;
     private final Map<Integer, BufferedImage> generator;
 
-    public RefugeCompassTextureProvider(FabricDataOutput packOutput) {
+    public RefugeCompassTextureProvider(FabricPackOutput packOutput) {
         super(packOutput);
 
-        itemPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\item");
+        itemPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/item");
         generator = new HashMap<>();
 
         addGenerator(generator);
@@ -48,7 +48,7 @@ public class RefugeCompassTextureProvider extends ModTextureProvider<Integer> {
     public void buildTextures() {
         for (int i = 0; i < 32; i++) {
             try {
-                BufferedImage image = ModTextureProvider.getTexture("item\\recovery_compass_" + toTwoLongString(i) + ".png");
+                BufferedImage image = ModTextureProvider.getTexture("item/recovery_compass_" + toTwoLongString(i) + ".png");
                 recolorBaseItem(i, image, ColorPalette.RECOVERY_COMPASS, ColorPalette.REFUGE_COMPASS);
             } catch (IOException e) {
                 ModDataGenerator.LOGGER.error("Failed to load base armor item textures: {}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));

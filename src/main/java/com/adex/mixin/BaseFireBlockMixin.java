@@ -21,7 +21,7 @@ public class BaseFireBlockMixin {
         if (level.dimension() == ModDimensions.CORE) cir.setReturnValue(true);
     }
 
-    @ModifyVariable(at = @At("STORE"), method = "isPortal", ordinal = 0)
+    @ModifyVariable(at = @At("STORE"), method = "isPortal", name = "hasObsidian")
     private static boolean checkForReinforcedAncientDebris(boolean value, @Local(argsOnly = true) Level level, @Local(argsOnly = true) BlockPos blockPos) {
         for (Direction direction : Direction.values()) {
             if (level.getBlockState(blockPos.relative(direction)).getBlock() == ModBlocks.REINFORCED_ANCIENT_DEBRIS) {

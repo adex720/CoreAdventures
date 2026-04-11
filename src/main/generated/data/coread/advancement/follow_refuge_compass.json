@@ -28,7 +28,6 @@
       "translate": "advancements.coread.core.follow_refuge_compass.description"
     },
     "icon": {
-      "count": 1,
       "id": "coread:refuge_compass"
     },
     "title": {

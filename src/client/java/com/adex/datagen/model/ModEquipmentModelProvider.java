@@ -1,11 +1,11 @@
 package com.adex.datagen.model;
 
 import com.adex.item.armor.ModArmorMaterials;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
 public class ModEquipmentModelProvider extends AbstractEquipmentModelProvider {
 
-    public ModEquipmentModelProvider(FabricDataOutput output) {
+    public ModEquipmentModelProvider(FabricPackOutput output) {
         super(output);
     }
 

@@ -1,10 +1,9 @@
 package com.adex.datagen;
 
 import com.adex.block.ModBlocks;
-import com.adex.data.recipe.SplashArrowRecipe;
 import com.adex.data.tag.ModTags;
 import com.adex.item.ModItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,8 +11,9 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
@@ -23,7 +23,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
 
-    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public ModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -99,7 +99,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             stairsCraftingAndStonecutting(ModBlocks.POLISHED_TRAVERTINE_STAIRS, ModBlocks.POLISHED_TRAVERTINE, ModBlocks.TRAVERTINE);
             wallCraftingAndStonecutting(ModBlocks.POLISHED_TRAVERTINE_WALL, ModBlocks.POLISHED_TRAVERTINE, ModBlocks.TRAVERTINE);
 
-            oreSmeltingAndBlasting(ModBlocks.HARDENED_STONE_BRICKS, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CRACKED_HARDENED_STONE_BRICKS, 1.0f, 200, "hardened_stone_bricks_smelting");
+            oreSmeltingAndBlasting(ModBlocks.HARDENED_STONE_BRICKS, RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, ModBlocks.CRACKED_HARDENED_STONE_BRICKS, 1.0f, 200, "hardened_stone_bricks_smelting");
             twoByTwo(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HEAVY_HARDENED_STONE_BRICKS, ModBlocks.HARDENED_STONE_BRICKS, 1);
 
             itemsToBlock(ModItems.CHALCEDONY, ModBlocks.CHALCEDONY_BLOCK.asItem());
@@ -128,16 +128,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             fromItems(RecipeCategory.MISC, ModItems.RED_GEM_MIXTURE, ModItems.GARNET, ModItems.JASPER, ModItems.ONYX, ModItems.RUBY, ModItems.SPINEL, ModItems.TIGERS_EYE, Items.NETHERITE_INGOT);
             fromItems(RecipeCategory.MISC, ModItems.SHINY_GEM_MIXTURE, ModItems.BLUE_GEM_MIXTURE, ModItems.RED_GEM_MIXTURE);
 
-            oreSmeltingAndBlasting(ModBlocks.CHALCEDONY_ORE, RecipeCategory.MISC, ModItems.CHALCEDONY, 1.0f, 200, "chalcedony_smelting");
-            oreSmeltingAndBlasting(ModBlocks.GARNET_ORE, RecipeCategory.MISC, ModItems.GARNET, 1.0f, 200, "garnet_smelting");
-            oreSmeltingAndBlasting(ModBlocks.JADE_ORE, RecipeCategory.MISC, ModItems.JADE, 1.0f, 200, "jade_smelting");
-            oreSmeltingAndBlasting(ModBlocks.JASPER_ORE, RecipeCategory.MISC, ModItems.JASPER, 1.0f, 200, "jasper_smelting");
-            oreSmeltingAndBlasting(ModBlocks.ONYX_ORE, RecipeCategory.MISC, ModItems.ONYX, 1.0f, 200, "onyx_smelting");
-            oreSmeltingAndBlasting(ModBlocks.OPAL_ORE, RecipeCategory.MISC, ModItems.OPAL, 1.0f, 200, "opal_smelting");
-            oreSmeltingAndBlasting(ModBlocks.RUBY_ORE, RecipeCategory.MISC, ModItems.RUBY, 1.0f, 200, "ruby_smelting");
-            oreSmeltingAndBlasting(ModBlocks.SAPPHIRE_ORE, RecipeCategory.MISC, ModItems.SAPPHIRE, 1.0f, 200, "sapphire_smelting");
-            oreSmeltingAndBlasting(ModBlocks.SPINEL_ORE, RecipeCategory.MISC, ModItems.SPINEL, 1.0f, 200, "spinel_smelting");
-            oreSmeltingAndBlasting(ModBlocks.TIGERS_EYE_ORE, RecipeCategory.MISC, ModItems.TIGERS_EYE, 1.0f, 200, "tigers_eye_smelting");
+            oreSmeltingAndBlasting(ModBlocks.CHALCEDONY_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.CHALCEDONY, 1.0f, 200, "chalcedony_smelting");
+            oreSmeltingAndBlasting(ModBlocks.GARNET_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.GARNET, 1.0f, 200, "garnet_smelting");
+            oreSmeltingAndBlasting(ModBlocks.JADE_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.JADE, 1.0f, 200, "jade_smelting");
+            oreSmeltingAndBlasting(ModBlocks.JASPER_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.JASPER, 1.0f, 200, "jasper_smelting");
+            oreSmeltingAndBlasting(ModBlocks.ONYX_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.ONYX, 1.0f, 200, "onyx_smelting");
+            oreSmeltingAndBlasting(ModBlocks.OPAL_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.OPAL, 1.0f, 200, "opal_smelting");
+            oreSmeltingAndBlasting(ModBlocks.RUBY_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.RUBY, 1.0f, 200, "ruby_smelting");
+            oreSmeltingAndBlasting(ModBlocks.SAPPHIRE_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.SAPPHIRE, 1.0f, 200, "sapphire_smelting");
+            oreSmeltingAndBlasting(ModBlocks.SPINEL_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.SPINEL, 1.0f, 200, "spinel_smelting");
+            oreSmeltingAndBlasting(ModBlocks.TIGERS_EYE_ORE, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.TIGERS_EYE, 1.0f, 200, "tigers_eye_smelting");
 
             tool(ModTags.GEM_TOOL_MATERIALS, ModItems.GEM_SWORD, ModItems.GEM_SPEAR, ModItems.GEM_SHOVEL, ModItems.GEM_PICKAXE, ModItems.GEM_AXE, ModItems.GEM_HOE);
 
@@ -267,16 +267,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         /**
          * @param time Time for smelting, halved for blasting
          */
-        public void oreSmeltingAndBlasting(ItemLike input, RecipeCategory recipeCategory, ItemLike output, float experience, int time, String group) {
-            oreSmeltingAndBlasting(List.of(input), recipeCategory, output, experience, time, group);
+        public void oreSmeltingAndBlasting(ItemLike input, RecipeCategory recipeCategory, CookingBookCategory cookingCategory, ItemLike output, float experience, int time, String group) {
+            oreSmeltingAndBlasting(List.of(input), recipeCategory, cookingCategory, output, experience, time, group);
         }
 
         /**
          * @param time Time for smelting, halved for blasting
          */
-        public void oreSmeltingAndBlasting(List<ItemLike> input, RecipeCategory recipeCategory, ItemLike output, float experience, int time, String group) {
-            oreSmelting(input, recipeCategory, output, experience, time, group);
-            oreBlasting(input, recipeCategory, output, experience, time / 2, group);
+        public void oreSmeltingAndBlasting(List<ItemLike> input, RecipeCategory recipeCategory, CookingBookCategory cookingCategory, ItemLike output, float experience, int time, String group) {
+            oreSmelting(input, recipeCategory, cookingCategory, output, experience, time, group);
+            oreBlasting(input, recipeCategory, cookingCategory, output, experience, time / 2, group);
         }
 
         public void tool(TagKey<Item> material, Item sword, Item spear, Item shovel, Item pickaxe, Item axe, Item hoe) {
@@ -632,8 +632,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         }
 
         public void createSplashArrowRecipes() {
-            SpecialRecipeBuilder.special(SplashArrowRecipe::new)
-                    .save(output, "splash_arrow");
+            CustomCraftingRecipeBuilder.customCrafting(RecipeCategory.MISC, (commonInfo, bookInfo) ->
+                    new ImbueRecipe(commonInfo, bookInfo, Ingredient.of(ModItems.OPAL_SHARD), Ingredient.of(Items.TIPPED_ARROW),
+                            new ItemStackTemplate(Items.TIPPED_ARROW, 8))).unlockedBy("has_lingering_potion",
+                    has(ModItems.OPAL_SHARD)).save(this.output, "splash_arrow");
         }
 
         public String getIdentifierWithSuffix(ItemLike item, String suffix) {

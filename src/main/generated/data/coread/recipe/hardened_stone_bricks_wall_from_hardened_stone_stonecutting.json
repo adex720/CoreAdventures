@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "coread:hardened_stone",
   "result": {
-    "count": 1,
     "id": "coread:hardened_stone_bricks_wall"
   }
 }

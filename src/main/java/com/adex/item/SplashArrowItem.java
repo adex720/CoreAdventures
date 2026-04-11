@@ -2,7 +2,7 @@ package com.adex.item;
 
 import com.adex.entity.projectile.SplashArrow;
 import com.adex.util.Util;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTabOutput;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -27,11 +27,13 @@ import java.util.Optional;
 
 public class SplashArrowItem extends TippedArrowItem {
 
+    public Object result;
+
     public SplashArrowItem(Properties properties) {
         super(properties);
     }
 
-    public static void addToItemGroup(FabricItemGroupEntries itemGroup) {
+    public static void addToItemGroup(FabricCreativeModeTabOutput itemGroup) {
         Optional<? extends HolderLookup.RegistryLookup<Potion>> optional = itemGroup.getContext().holders().lookup(Registries.POTION);
         if (optional.isEmpty()) return;
 

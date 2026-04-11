@@ -3,7 +3,7 @@ package com.adex.datagen.texture;
 import com.adex.datagen.ModDataGenerator;
 import com.adex.item.ModItems;
 import com.adex.util.Util;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import org.jspecify.annotations.NonNull;
@@ -21,10 +21,10 @@ public class ModItemTextureProvider extends ModTextureProvider<Item> {
 
     private final Map<Item, BufferedImage> generator;
 
-    public ModItemTextureProvider(FabricDataOutput packOutput) {
+    public ModItemTextureProvider(FabricPackOutput packOutput) {
         super(packOutput);
 
-        itemPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\item");
+        itemPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/item");
         generator = new HashMap<>();
 
         addGenerator(generator);
@@ -45,13 +45,13 @@ public class ModItemTextureProvider extends ModTextureProvider<Item> {
         BufferedImage boat;
         BufferedImage chestBoat;
         try {
-            helmet = ModTextureProvider.getTexture("item\\diamond_helmet.png");
-            chestplate = ModTextureProvider.getTexture("item\\diamond_chestplate.png");
-            leggings = ModTextureProvider.getTexture("item\\diamond_leggings.png");
-            boots = ModTextureProvider.getTexture("item\\diamond_boots.png");
-            spawnEgg = ModTextureProvider.getTexture("item\\chalcedony_golem_spawn_egg.png");
-            boat = ModTextureProvider.getTexture("item\\juniper_boat.png");
-            chestBoat = ModTextureProvider.getTexture("item\\juniper_chest_boat.png");
+            helmet = ModTextureProvider.getTexture("item/diamond_helmet.png");
+            chestplate = ModTextureProvider.getTexture("item/diamond_chestplate.png");
+            leggings = ModTextureProvider.getTexture("item/diamond_leggings.png");
+            boots = ModTextureProvider.getTexture("item/diamond_boots.png");
+            spawnEgg = ModTextureProvider.getTexture("item/chalcedony_golem_spawn_egg.png");
+            boat = ModTextureProvider.getTexture("item/juniper_boat.png");
+            chestBoat = ModTextureProvider.getTexture("item/juniper_chest_boat.png");
         } catch (IOException e) {
             ModDataGenerator.LOGGER.error("Failed to load base armor item textures: {}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));
             return;

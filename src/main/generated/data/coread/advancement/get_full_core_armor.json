@@ -216,7 +216,6 @@
       "translate": "advancements.coread.core.get_full_core_armor.description"
     },
     "icon": {
-      "count": 1,
       "id": "coread:ruby_chestplate"
     },
     "title": {

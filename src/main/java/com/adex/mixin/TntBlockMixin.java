@@ -20,7 +20,7 @@ public abstract class TntBlockMixin extends Block {
         super(properties);
     }
 
-    @ModifyVariable(at = @At("STORE"), method = "prime(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/LivingEntity;)Z")
+    @ModifyVariable(at = @At("STORE"), method = "prime(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/LivingEntity;)Z", name = "tnt")
     private static PrimedTnt modifyExplosionPower(PrimedTnt tnt, @Local(argsOnly = true) Level level, @Local(argsOnly = true) BlockPos pos, @Local(argsOnly = true) LivingEntity primer) {
         Block block = level.getBlockState(pos).getBlock();
         if (block instanceof StrongTntBlock strongTnt) {

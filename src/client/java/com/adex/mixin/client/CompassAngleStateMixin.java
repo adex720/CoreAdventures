@@ -22,7 +22,7 @@ public class CompassAngleStateMixin {
      * Value of old is always null because refuge compass has {@link CompassAngleState.CompassTarget#NONE} as target.
      * Returning a value of null makes the compass spin randomly.
      */
-    @ModifyVariable(at = @At("STORE"), method = "calculate")
+    @ModifyVariable(at = @At("STORE"), method = "calculate", name = "compassTargetPos")
     private GlobalPos getRefuge(GlobalPos old, @Local(argsOnly = true) ItemStack itemStack, @Local(argsOnly = true) ClientLevel level, @Local(argsOnly = true) ItemOwner owner) {
         if (level.dimension() != ModDimensions.CORE) return old;
         if (!itemStack.is(ModItems.REFUGE_COMPASS)) return old;

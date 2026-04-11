@@ -3,7 +3,7 @@ package com.adex.datagen.texture;
 import com.adex.item.ModItems;
 import com.adex.item.armor.ModMaterialAssetGroups;
 import com.adex.item.armor.ModTrimMaterials;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -40,10 +40,10 @@ public class ModArmorTrimTextureProvider extends ModTextureProvider<Item> {
 
     private final Map<Item, BufferedImage> generator;
 
-    public ModArmorTrimTextureProvider(FabricDataOutput packOutput) {
+    public ModArmorTrimTextureProvider(FabricPackOutput packOutput) {
         super(packOutput);
 
-        this.itemPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\trims\\color_palettes");
+        this.itemPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/trims/color_palettes");
 
         this.generator = new HashMap<>();
         addGenerator(generator);

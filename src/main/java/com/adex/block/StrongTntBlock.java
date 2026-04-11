@@ -45,7 +45,7 @@ public class StrongTntBlock extends TntBlock {
     @Override
     public void wasExploded(ServerLevel serverLevel, @NonNull BlockPos blockPos, @NonNull Explosion explosion) {
         if (serverLevel.getGameRules().get(GameRules.TNT_EXPLODES)) {
-            int fuseTimer = serverLevel.random.nextInt(PrimedStrongTnt.DEFAULT_FUSE_TIME / 4) + PrimedStrongTnt.DEFAULT_FUSE_TIME / 8;
+            int fuseTimer = serverLevel.getRandom().nextInt(PrimedStrongTnt.DEFAULT_FUSE_TIME / 4) + PrimedStrongTnt.DEFAULT_FUSE_TIME / 8;
             PrimedStrongTnt primedTnt = PrimedStrongTnt.create(this, serverLevel, blockPos, explosionPower, fuseTimer, explosion.getIndirectSourceEntity());
             serverLevel.addFreshEntity(primedTnt);
         }

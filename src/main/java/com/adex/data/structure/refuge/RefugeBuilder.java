@@ -189,7 +189,7 @@ public class RefugeBuilder {
      */
     private void prepareGeneration() {
         clear();
-        random.setLargeFeatureSeed(context.seed() + tryCount, context.chunkPos().x, context.chunkPos().z);
+        random.setLargeFeatureSeed(context.seed() + tryCount, context.chunkPos().x(), context.chunkPos().z());
     }
 
     /**

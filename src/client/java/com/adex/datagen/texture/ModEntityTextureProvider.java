@@ -2,7 +2,7 @@ package com.adex.datagen.texture;
 
 import com.adex.datagen.ModDataGenerator;
 import com.adex.entity.ModEntities;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
@@ -25,17 +25,17 @@ public class ModEntityTextureProvider extends ModTextureProvider<EntityType<?>> 
     private final Map<EntityType<?>, BufferedImage> boats;
     private final Map<EntityType<?>, BufferedImage> chestBoats;
 
-    public ModEntityTextureProvider(FabricDataOutput packOutput) {
+    public ModEntityTextureProvider(FabricPackOutput packOutput) {
         super(packOutput);
-        entityTextureProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity");
+        entityTextureProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/entity");
         golems = new HashMap<>();
         addGenerator(golems);
 
-        boatTextureProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity\\boat");
+        boatTextureProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/entity/boat");
         boats = new HashMap<>();
         addGenerator(boats);
 
-        chestBoatTextureProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity\\chest_boat");
+        chestBoatTextureProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/entity/chest_boat");
         chestBoats = new HashMap<>();
         addGenerator(chestBoats);
     }

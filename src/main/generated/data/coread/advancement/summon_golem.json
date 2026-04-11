@@ -147,7 +147,6 @@
       "translate": "advancements.coread.core.summon_golem.description"
     },
     "icon": {
-      "count": 1,
       "id": "coread:garnet_golem_block"
     },
     "title": {

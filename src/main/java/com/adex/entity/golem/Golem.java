@@ -12,6 +12,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -43,7 +44,7 @@ public abstract class Golem extends Monster {
     public Golem(EntityType<? extends Monster> entityType, Level level, BossEvent.BossBarColor color) {
         super(entityType, level);
 
-        bossEvent = new ServerBossEvent(getDisplayName(), color, BossEvent.BossBarOverlay.PROGRESS);
+        bossEvent = new ServerBossEvent(Mth.createInsecureUUID(this.random), getDisplayName(), color, BossEvent.BossBarOverlay.PROGRESS);
         lastAttack = tickCount;
 
         increasePathFindingRangeTo(getRangedRange() * 1.5f);
@@ -140,8 +141,8 @@ public abstract class Golem extends Monster {
 
     protected void updatePathFindingMalus() {
         setPathfindingMalus(PathType.LAVA, 8.0f);
-        setPathfindingMalus(PathType.DAMAGE_FIRE, 8.0f);
-        setPathfindingMalus(PathType.DANGER_FIRE, 4.0f);
+        setPathfindingMalus(PathType.FIRE, 8.0f);
+        setPathfindingMalus(PathType.FIRE_IN_NEIGHBOR, 4.0f);
     }
 
     protected boolean isValidPlayerTarget(LivingEntity livingEntity, ServerLevel level) {

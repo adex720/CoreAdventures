@@ -9,8 +9,9 @@ import com.adex.mixin.DataComponentMapBuilderAccessor;
 import com.adex.mixin.ItemPropertiesAccessor;
 import com.adex.sound.ModJukeboxSounds;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectMap;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentInitializers;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
@@ -238,16 +239,25 @@ public class ModItems {
                 ModArmorMaterials.gemArmorAttributes(armorType)));
     }
 
-    public static Item.Properties addAttributeModifiers(Item.Properties properties, ItemAttributeModifiers modifiers) {
-        DataComponentMap.Builder components = ((ItemPropertiesAccessor) properties).coread$getComponents();
-        Reference2ObjectMap<DataComponentType<?>, Object> map = ((DataComponentMapBuilderAccessor) components).coread$getMap();
-        ItemAttributeModifiers existing = (ItemAttributeModifiers) map.get(DataComponents.ATTRIBUTE_MODIFIERS);
+    public static Item.Properties addAttributeModifiers(Item.Properties properties, final ItemAttributeModifiers modifiers) {
+        DataComponentInitializers.Initializer<Item> components = ((ItemPropertiesAccessor) properties).coread$getComponents();
+        components.andThen((oldComponents, context, key) ->
+                properties.attributes(combine(getAttributeModifiers(oldComponents), modifiers)));
 
-        for (ItemAttributeModifiers.Entry modifier : existing.modifiers()) {
-            modifiers = modifiers.withModifierAdded(modifier.attribute(), modifier.modifier(), modifier.slot());
+        return properties;
+    }
+
+    public static ItemAttributeModifiers combine(ItemAttributeModifiers modifiers1, ItemAttributeModifiers modifiers2) {
+        for (ItemAttributeModifiers.Entry modifier : modifiers2.modifiers()) {
+            modifiers1 = modifiers1.withModifierAdded(modifier.attribute(), modifier.modifier(), modifier.slot());
         }
 
-        return properties.attributes(modifiers);
+        return modifiers1;
+    }
+
+    public static ItemAttributeModifiers getAttributeModifiers(DataComponentMap.Builder components) {
+        Reference2ObjectMap<DataComponentType<?>, Object> map = ((DataComponentMapBuilderAccessor) components).coread$getMap();
+        return (ItemAttributeModifiers) map.get(DataComponents.ATTRIBUTE_MODIFIERS);
     }
 
     public static void initialize() {
@@ -265,7 +275,7 @@ public class ModItems {
     }
 
     private static void addToItemGroups() {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register((itemGroup) -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register((itemGroup) -> {
             itemGroup.accept(CHALCEDONY);
             itemGroup.accept(GARNET);
             itemGroup.accept(JADE);
@@ -290,7 +300,7 @@ public class ModItems {
             itemGroup.accept(DYNAMITE);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register((itemGroup) -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register((itemGroup) -> {
             itemGroup.accept(GEM_SWORD);
             itemGroup.accept(GEM_SPEAR);
 
@@ -354,7 +364,7 @@ public class ModItems {
             SplashArrowItem.addToItemGroup(itemGroup);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((itemGroup) -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((itemGroup) -> {
             itemGroup.accept(GEM_SHOVEL);
             itemGroup.accept(GEM_PICKAXE);
             itemGroup.accept(GEM_AXE);
@@ -376,7 +386,7 @@ public class ModItems {
             itemGroup.accept(MUSIC_DISC_TIMPANI1);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register((itemGroup) -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register((itemGroup) -> {
             itemGroup.accept(CHALCEDONY_GOLEM_SPAWN_EGG);
             itemGroup.accept(GARNET_GOLEM_SPAWN_EGG);
             itemGroup.accept(JADE_GOLEM_SPAWN_EGG);

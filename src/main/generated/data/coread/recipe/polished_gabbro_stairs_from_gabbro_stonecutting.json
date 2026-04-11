@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "coread:gabbro",
   "result": {
-    "count": 1,
     "id": "coread:polished_gabbro_stairs"
   }
 }

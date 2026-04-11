@@ -6,7 +6,7 @@ import com.adex.block.ModBlocks;
 import com.adex.item.ModItems;
 import com.adex.item.armor.ModArmorMaterials;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.color.item.Dye;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.item.SelectItemModel;
 import net.minecraft.client.renderer.item.properties.numeric.CompassAngle;
 import net.minecraft.client.renderer.item.properties.numeric.CompassAngleState;
 import net.minecraft.client.renderer.item.properties.select.TrimMaterialProperty;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.Identifier;
@@ -37,7 +38,7 @@ import java.util.List;
 
 public class ModModelProvider extends FabricModelProvider {
 
-    public ModModelProvider(FabricDataOutput output) {
+    public ModModelProvider(FabricPackOutput output) {
         super(output);
     }
 
@@ -347,8 +348,8 @@ public class ModModelProvider extends FabricModelProvider {
 
     private void generateTrimModelsForVanillaArmor(ItemModelGenerators itemModelGenerators, Item item, ResourceKey<EquipmentAsset> equipmentAsset, Identifier trimPrefix, boolean dyeable) {
         Identifier modelLocation = ModelLocationUtils.getModelLocation(item);
-        Identifier textureLocation = TextureMapping.getItemTexture(item);
-        Identifier textureOverlayLocation = dyeable ? TextureMapping.getItemTexture(item, "_overlay") : null;
+        Identifier textureLocation = TextureMapping.getItemTexture(item).sprite();
+        Identifier textureOverlayLocation = dyeable ? TextureMapping.getItemTexture(item, "_overlay").sprite() : null;
         List<SelectItemModel.SwitchCase<ResourceKey<TrimMaterial>>> materialModels = new ArrayList<>(ItemModelGenerators.TRIM_MATERIAL_MODELS.size());
 
         for (ItemModelGenerators.TrimMaterialData materialData : ItemModelGenerators.TRIM_MATERIAL_MODELS) {
@@ -367,13 +368,13 @@ public class ModModelProvider extends FabricModelProvider {
     private ItemModel.Unbaked createConditional(ItemModelGenerators itemModelGenerators, Identifier itemTrim, Identifier textureLocation, Identifier armorTrim, Identifier textureOverlayLocation, boolean createTrimModel) {
         if (textureOverlayLocation != null) {
             if (createTrimModel) {
-                itemModelGenerators.generateLayeredItem(itemTrim, textureLocation, textureOverlayLocation, armorTrim);
+                itemModelGenerators.generateLayeredItem(itemTrim, new Material(textureLocation), new Material(textureOverlayLocation), new Material(armorTrim));
             }
             return ItemModelUtils.tintedModel(itemTrim, new Dye(DyedItemColor.LEATHER_COLOR));
         }
 
         if (createTrimModel) {
-            itemModelGenerators.generateLayeredItem(itemTrim, textureLocation, armorTrim);
+            itemModelGenerators.generateLayeredItem(itemTrim, new Material(textureLocation), new Material(armorTrim));
         }
         return ItemModelUtils.plainModel(itemTrim);
 
@@ -400,9 +401,9 @@ public class ModModelProvider extends FabricModelProvider {
 
     public void createBooleanPropertyCube(BlockModelGenerators generator, Block block, BooleanProperty property, String name) {
         MultiVariant falseVariant = BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(block, generator.modelOutput));
-        Identifier identifier = TextureMapping.getBlockTexture(block, "_" + name);
+        Material material = TextureMapping.getBlockTexture(block, "_" + name);
         MultiVariant trueVariant = BlockModelGenerators.plainVariant(TexturedModel.CUBE.get(block).updateTextures(
-                textureMapping -> textureMapping.put(TextureSlot.ALL, identifier)).createWithSuffix(block, "_" + name, generator.modelOutput));
+                textureMapping -> textureMapping.put(TextureSlot.ALL, material)).createWithSuffix(block, "_" + name, generator.modelOutput));
         generator.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(BlockModelGenerators.createBooleanModelDispatch(property, trueVariant, falseVariant)));
     }
 

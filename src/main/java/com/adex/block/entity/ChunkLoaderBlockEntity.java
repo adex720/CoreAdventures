@@ -39,8 +39,8 @@ public class ChunkLoaderBlockEntity extends BlockEntity {
     public void forceLoad(boolean shouldLoad) {
         if (!(level instanceof ServerLevel serverLevel)) return;
 
-        ChunkPos chunkPos = new ChunkPos(this.getBlockPos());
-        serverLevel.setChunkForced(chunkPos.x, chunkPos.z, shouldLoad);
+        ChunkPos chunkPos = ChunkPos.containing(this.getBlockPos());
+        serverLevel.setChunkForced(chunkPos.x(), chunkPos.z(), shouldLoad);
     }
 
     /**

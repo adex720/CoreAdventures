@@ -2,7 +2,7 @@ package com.adex.datagen.model;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
@@ -21,7 +21,7 @@ public abstract class AbstractEquipmentModelProvider implements DataProvider {
 
     private final Map<ArmorMaterial, EquipmentModel> generator;
 
-    public AbstractEquipmentModelProvider(FabricDataOutput output) {
+    public AbstractEquipmentModelProvider(FabricPackOutput output) {
         generator = new HashMap<>();
         equpmentPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "equipment");
     }

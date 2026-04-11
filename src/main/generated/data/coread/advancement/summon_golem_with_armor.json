@@ -607,7 +607,6 @@
       "translate": "advancements.coread.core.summon_golem_with_armor.description"
     },
     "icon": {
-      "count": 1,
       "id": "coread:spinel_golem_block"
     },
     "title": {

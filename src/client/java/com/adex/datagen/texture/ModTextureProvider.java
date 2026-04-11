@@ -3,7 +3,7 @@ package com.adex.datagen.texture;
 import com.adex.datagen.ModDataGenerator;
 import com.google.common.hash.Hashing;
 import com.google.common.hash.HashingOutputStream;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.util.Util;
@@ -23,12 +23,12 @@ import java.util.concurrent.CompletableFuture;
 
 public abstract class ModTextureProvider<T> implements DataProvider {
 
-    public static final String VANILLA_TEXTURES_PATH = RepositoryRootPath.PATH + "\\src\\client\\resources\\basetextures\\";
+    public static final String VANILLA_TEXTURES_PATH = RepositoryRootPath.PATH + "/src/client/resources/basetextures/";
 
     private final List<Map<T, BufferedImage>> generators = new ArrayList<>();
 
     @SuppressWarnings("unused")
-    public ModTextureProvider(FabricDataOutput packOutput) {
+    public ModTextureProvider(FabricPackOutput packOutput) {
     }
 
     public abstract Path getPath(T key, int id);

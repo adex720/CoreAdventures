@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(Arrow.class)
 public class ArrowMixin {
 
-    @ModifyVariable(at = @At("STORE"), method = "doPostHurtEffects")
+    @ModifyVariable(at = @At("STORE"), method = "doPostHurtEffects", name = "durationScale")
     private float checkForPotionResistance(float value, @Local(argsOnly = true) LivingEntity target) {
         float total = 0.0f;
         for (EquipmentSlot equipmentSlot : EquipmentSlot.VALUES) {

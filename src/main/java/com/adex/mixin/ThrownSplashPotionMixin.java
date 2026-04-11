@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(ThrownSplashPotion.class)
 public class ThrownSplashPotionMixin {
 
-    @ModifyVariable(at = @At("STORE"), method = "onHitAsPotion", ordinal = 1)
+    @ModifyVariable(at = @At("STORE"), method = "onHitAsPotion", name = "scale")
     private double checkForPotionResistance(double value, @Local LivingEntity target) {
         float total = 0.0f;
         for (EquipmentSlot equipmentSlot : EquipmentSlot.VALUES) {

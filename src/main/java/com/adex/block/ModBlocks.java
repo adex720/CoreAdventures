@@ -3,7 +3,7 @@ package com.adex.block;
 import com.adex.CoreAdventures;
 import com.adex.data.feature.ModTreeGrowers;
 import com.adex.entity.ModEntities;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.mixin.lookup.BlockEntityTypeAccessor;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -235,7 +235,7 @@ public class ModBlocks {
     }
 
     private static void addToItemGroups() {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(itemGroup -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(itemGroup -> {
             itemGroup.accept(HARDENED_STONE.asItem());
 
             itemGroup.accept(GABBRO.asItem());
@@ -259,7 +259,7 @@ public class ModBlocks {
             itemGroup.accept(JUNIPER_LEAVES.asItem());
         });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(itemGroup -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(itemGroup -> {
             itemGroup.accept(HARDENED_STONE.asItem());
             itemGroup.accept(HARDENED_STONE_SLAB.asItem());
             itemGroup.accept(HARDENED_STONE_STAIRS.asItem());
@@ -372,7 +372,7 @@ public class ModBlocks {
             itemGroup.accept(REINFORCED_ANCIENT_DEBRIS.asItem());
         });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(itemGroup -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(itemGroup -> {
             itemGroup.accept(JUNIPER_FENCE_GATE.asItem());
             itemGroup.accept(JUNIPER_PRESSURE_PLATE.asItem());
             itemGroup.accept(JUNIPER_TRAPDOOR.asItem());
@@ -385,7 +385,7 @@ public class ModBlocks {
             itemGroup.accept(BLUE_TNT.asItem());
         });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(itemGroup -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(itemGroup -> {
             itemGroup.accept(RED_TNT.asItem());
             itemGroup.accept(ORANGE_TNT.asItem());
             itemGroup.accept(YELLOW_TNT.asItem());
@@ -393,7 +393,7 @@ public class ModBlocks {
             itemGroup.accept(BLUE_TNT.asItem());
         });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(itemGroup -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(itemGroup -> {
             itemGroup.accept(CHALCEDONY_FLOOR.asItem());
 
             itemGroup.accept(HEAT_STABILIZER.asItem());

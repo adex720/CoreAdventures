@@ -2,7 +2,7 @@ package com.adex.overlay;
 
 import com.adex.entity.attribute.ModAttributes;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Player;
@@ -18,7 +18,7 @@ public class HeatHud {
     public final static int BAR_WIDTH = 9;
     public final static int BAR_HEIGHT = 9;
 
-    public static void render(GuiGraphics guiGraphics, Player player, int startY, int rows, int rowHeight, int startX) {
+    public static void render(GuiGraphicsExtractor guiGraphics, Player player, int startY, int rows, int rowHeight, int startX) {
         double heat = player.getAttributeValue(ModAttributes.HEAT);
         if (heat <= 0.0d) return;
 

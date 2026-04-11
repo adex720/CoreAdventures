@@ -3,7 +3,7 @@ package com.adex.datagen.texture;
 import com.adex.block.ModBlocks;
 import com.adex.datagen.ModDataGenerator;
 import com.adex.util.Util;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
@@ -22,10 +22,10 @@ public class ModBlockTextureProvider extends ModTextureProvider<Identifier> {
 
     private final Map<Identifier, BufferedImage> generator;
 
-    public ModBlockTextureProvider(FabricDataOutput packOutput) {
+    public ModBlockTextureProvider(FabricPackOutput packOutput) {
         super(packOutput);
 
-        itemPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\block");
+        itemPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/block");
         generator = new HashMap<>();
 
         addGenerator(generator);

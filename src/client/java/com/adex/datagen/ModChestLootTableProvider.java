@@ -3,8 +3,8 @@ package com.adex.datagen;
 import com.adex.block.ModBlocks;
 import com.adex.data.loottable.ModLootTables;
 import com.adex.item.ModItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableSubProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
@@ -24,9 +24,9 @@ import java.util.function.BiConsumer;
 /**
  * Generates chest loot and trader sentry trade loot
  */
-public class ModChestLootTableProvider extends SimpleFabricLootTableProvider {
+public class ModChestLootTableProvider extends SimpleFabricLootTableSubProvider {
 
-    public ModChestLootTableProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public ModChestLootTableProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(output, registryLookup, LootContextParamSets.CHEST);
     }
 

@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(WorldOpenFlows.class)
 public class WorldOpenFlowsMixin {
 
-    @ModifyVariable(at = @At("STORE"), method = "openWorldCheckWorldStemCompatibility", ordinal = 1)
+    @ModifyVariable(at = @At("STORE"), method = "openWorldCheckWorldStemCompatibility", name = "unstable")
     private boolean skipAskingWhenLoadingWorld(boolean bl) {
         return false;
     }

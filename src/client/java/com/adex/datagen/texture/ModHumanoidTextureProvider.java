@@ -2,7 +2,7 @@ package com.adex.datagen.texture;
 
 import com.adex.datagen.ModDataGenerator;
 import com.adex.item.armor.ModArmorMaterials;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import org.jspecify.annotations.NonNull;
@@ -22,10 +22,10 @@ public class ModHumanoidTextureProvider extends ModTextureProvider<ArmorMaterial
     private final Map<ArmorMaterial, BufferedImage> humanoid;
     private final Map<ArmorMaterial, BufferedImage> humanoidLeggings;
 
-    public ModHumanoidTextureProvider(FabricDataOutput packOutput) {
+    public ModHumanoidTextureProvider(FabricPackOutput packOutput) {
         super(packOutput);
-        humanoidPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity\\equipment\\humanoid");
-        humanoidLeggingsPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures\\entity\\equipment\\humanoid_leggings");
+        humanoidPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/entity/equipment/humanoid");
+        humanoidLeggingsPathProvider = packOutput.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/entity/equipment/humanoid_leggings");
 
         humanoid = new HashMap<>();
         humanoidLeggings = new HashMap<>();
@@ -44,8 +44,8 @@ public class ModHumanoidTextureProvider extends ModTextureProvider<ArmorMaterial
         BufferedImage humanoid;
         BufferedImage humanoidLeggings;
         try {
-            humanoid = ModTextureProvider.getTexture("entity\\equipment\\humanoid\\diamond.png");
-            humanoidLeggings = ModTextureProvider.getTexture("entity\\equipment\\humanoid_leggings\\diamond.png");
+            humanoid = ModTextureProvider.getTexture("entity/equipment/humanoid/diamond.png");
+            humanoidLeggings = ModTextureProvider.getTexture("entity/equipment/humanoid_leggings/diamond.png");
         } catch (IOException e) {
             ModDataGenerator.LOGGER.error("Failed to load base humanoid textures: {}\n{}", e.getMessage(), Arrays.toString(e.getStackTrace()));
             return;

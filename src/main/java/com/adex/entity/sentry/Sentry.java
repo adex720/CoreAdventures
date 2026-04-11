@@ -234,7 +234,7 @@ public class Sentry extends Monster {
     public void tick() {
         super.tick();
 
-        if (level().random.nextInt(ANGER_UPDATE_TIME) == 0) updateAnger();
+        if (level().getRandom().nextInt(ANGER_UPDATE_TIME) == 0) updateAnger();
     }
 
     public void lookAtIfPossible(Entity entity) {
